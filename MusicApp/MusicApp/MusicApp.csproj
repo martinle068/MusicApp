@@ -21,8 +21,4 @@
     <PackageReference Include="YouTubeMusicAPI" Version="1.1.4" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Images\" />
-  </ItemGroup>
-
 </Project>
