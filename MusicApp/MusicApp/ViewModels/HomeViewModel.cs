@@ -24,7 +24,7 @@ namespace MusicApp.ViewModels
 
 		private void ExecuteSearch(object parameter)
 		{
-			_mainViewModel.SwitchToPlayerView();
+			_mainViewModel.SwitchToPlayerView(_searchQuery);
 		}
 	}
 }

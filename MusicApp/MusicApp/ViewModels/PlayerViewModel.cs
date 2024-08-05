@@ -17,7 +17,8 @@ namespace MusicApp.ViewModels
 {
 	public class PlayerViewModel : BaseViewModel
 	{
-		private readonly MainViewModel _mainViewModel;
+		private readonly BaseViewModel _previousViewModel;
+		private string _searchQuery;
 		private YouTubeService _youTubeService;
 		private MediaPlayer _mediaPlayer;
 		private DispatcherTimer _timer;
@@ -28,13 +29,14 @@ namespace MusicApp.ViewModels
 		private string _currentSongName;
 		private string _currentArtistName;
 		private string _currentTime;
-		private string _totalTime;
+		private double _totalTime;
+		private string _formattedTotalTime;
 		private double _sliderValue;
 		private ImageSource _currentSongThumbnail;
 		private string _playPauseText;
-		private string? _searchQuery = null;
 		private ObservableCollection<string> _songList;
-		private int _selectedSongIndex;
+		private int _selectedSongIndex = -1;
+		private bool _isSongSelected;
 
 		public ObservableCollection<string> SongList
 		{
@@ -88,10 +90,22 @@ namespace MusicApp.ViewModels
 			set => SetProperty(ref _currentTime, value);
 		}
 
-		public string TotalTime
+		public double TotalTime
 		{
 			get => _totalTime;
-			set => SetProperty(ref _totalTime, value);
+			set
+			{
+				if (SetProperty(ref _totalTime, value))
+				{
+					FormattedTotalTime = TimeSpan.FromSeconds(_totalTime).ToString(@"mm\:ss");
+				}
+			}
+		}
+
+		public string FormattedTotalTime
+		{
+			get => _formattedTotalTime;
+			set => SetProperty(ref _formattedTotalTime, value);
 		}
 
 		public double SliderValue
@@ -118,18 +132,43 @@ namespace MusicApp.ViewModels
 			set => SetProperty(ref _searchQuery, value);
 		}
 
+		public bool IsPlaying
+		{
+			get => _isPlaying;
+			set => SetProperty(ref _isPlaying, value);
+		}
+
+		public bool IsSongSelected
+		{
+			get => _isSongSelected;
+			set
+			{
+				if (SetProperty(ref _isSongSelected, value))
+				{
+					CommandManager.InvalidateRequerySuggested();
+				}
+			}
+		}
+
+		public bool IsSongLoaded
+		{
+			get => _mediaPlayer.Source != null;
+		}
+
+
 		public ICommand BackCommand { get; }
 		public ICommand PlayPauseCommand { get; }
 		public ICommand NextCommand { get; }
 		public ICommand PreviousCommand { get; }
 		public ICommand SearchCommand { get; }
 
-		public PlayerViewModel(MainViewModel mainViewModel)
+		public PlayerViewModel(BaseViewModel previousViewModel)
 		{
-			_mainViewModel = mainViewModel;
+			_previousViewModel = previousViewModel;
 			_youTubeService = new YouTubeService();
 			_mediaPlayer = new MediaPlayer();
 			_mediaPlayer.MediaOpened += MediaPlayer_MediaOpened;
+			_mediaPlayer.MediaEnded += MediaPlayer_MediaEnded;
 			_timer = new DispatcherTimer
 			{
 				Interval = TimeSpan.FromSeconds(1)
@@ -139,48 +178,40 @@ namespace MusicApp.ViewModels
 			_songList = new ObservableCollection<string>();
 
 			PlayPauseText = "Play";
+			IsSongSelected = false;
 
 			BackCommand = new RelayCommand(ExecuteBack);
 			PlayPauseCommand = new RelayCommand(ExecutePlayPause);
 			NextCommand = new RelayCommand(ExecuteNext);
 			PreviousCommand = new RelayCommand(ExecutePrevious);
-			SearchCommand = new RelayCommand(async _ => await ExecuteSearch());
-
-			if (!string.IsNullOrWhiteSpace(_mainViewModel.SearchQuery))
-			{
-				SearchQuery = _mainViewModel.SearchQuery;
-				ExecuteSearchImmediate();
-			}
-		}
-
-		private async void ExecuteSearchImmediate()
-		{
-			await ExecuteSearch();
-		}
-
-		private void ExecuteBack(object parameter)
-		{
-			_mainViewModel.SwitchToHomeView();
+			SearchCommand = new RelayCommand(async _ => await ExecuteSearch(_searchQuery));
 		}
 
 		private void ExecutePlayPause(object parameter)
 		{
+			if (!IsSongSelected)
+				return;
+
 			if (_isPlaying)
 			{
 				_mediaPlayer.Pause();
-				_isPlaying = false;
 				PlayPauseText = "Play";
+				_timer.Stop();
 			}
 			else
 			{
 				_mediaPlayer.Play();
-				_isPlaying = true;
 				PlayPauseText = "Pause";
+				_timer.Start();
 			}
+			IsPlaying = !IsPlaying;
 		}
 
 		private void ExecuteNext(object parameter)
 		{
+			if (!IsSongSelected)
+				return;
+
 			if (SelectedSongIndex < Songs.Count - 1)
 			{
 				SelectedSongIndex++;
@@ -189,6 +220,9 @@ namespace MusicApp.ViewModels
 
 		private void ExecutePrevious(object parameter)
 		{
+			if (!IsSongSelected)
+				return;
+
 			if (SelectedSongIndex > 0)
 			{
 				SelectedSongIndex--;
@@ -199,9 +233,19 @@ namespace MusicApp.ViewModels
 			}
 		}
 
-		private async Task ExecuteSearch()
+		private void ExecuteBack(object parameter)
 		{
-			string query = SearchQuery;
+			if (_previousViewModel != null)
+			{
+				if (_previousViewModel is MainViewModel mainViewModel)
+				{
+					mainViewModel.SwitchToHomeView();
+				}
+			}
+		}
+
+		private async Task ExecuteSearch(string query)
+		{
 			if (string.IsNullOrWhiteSpace(query))
 			{
 				MessageBox.Show("Please enter a search query.");
@@ -223,7 +267,7 @@ namespace MusicApp.ViewModels
 				foreach (var song in songs)
 				{
 					Songs.Add(song);
-					SongList.Add($"{song.Artists.First().Name} - {song.Name}");
+					SongList.Add($" {song.Artists.First().Name} - {song.Name}");
 				}
 			}
 			catch (Exception ex)
@@ -236,9 +280,11 @@ namespace MusicApp.ViewModels
 		{
 			if (SelectedSong == null)
 			{
+				IsSongSelected = false;
 				return;
 			}
 
+			IsSongSelected = true;
 			string youtubeVideoUrl = SelectedSong.Id;
 
 			try
@@ -255,7 +301,7 @@ namespace MusicApp.ViewModels
 
 				_mediaPlayer.Open(new Uri(audioStreamInfo.Url));
 				_mediaPlayer.Play();
-				_isPlaying = true;
+				IsPlaying = true;
 
 				CurrentSongName = SelectedSong.Name;
 				CurrentArtistName = SelectedSong.Artists.First().Name;
@@ -274,17 +320,49 @@ namespace MusicApp.ViewModels
 		{
 			if (_mediaPlayer.NaturalDuration.HasTimeSpan)
 			{
-				SliderValue = _mediaPlayer.NaturalDuration.TimeSpan.TotalSeconds;
-				TotalTime = _mediaPlayer.NaturalDuration.TimeSpan.ToString(@"mm\:ss");
+				TotalTime = _mediaPlayer.NaturalDuration.TimeSpan.TotalSeconds; // Set total time in seconds
+				SliderValue = 0; // Reset the slider value
+				_mediaPlayer.Position = TimeSpan.Zero;
+				_timer.Start(); // Start the timer
 			}
+		}
+
+		private void MediaPlayer_MediaEnded(object sender, EventArgs e)
+		{
+			ExecuteNext(null);
 		}
 
 		private void Timer_Tick(object sender, EventArgs e)
 		{
 			if (!_isDragging && _mediaPlayer.Source != null)
 			{
-				SliderValue = _mediaPlayer.Position.TotalSeconds;
+				SliderValue = _mediaPlayer.Position.TotalSeconds; // Update the slider value
 				CurrentTime = _mediaPlayer.Position.ToString(@"mm\:ss");
+			}
+		}
+
+		public void TrackBarSeek_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+		{
+			if (_mediaPlayer.Source != null)
+			{
+				_isDragging = true;
+			}
+		}
+
+		public void TrackBarSeek_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+		{
+			if (_mediaPlayer.Source != null)
+			{
+				_isDragging = false;
+				_mediaPlayer.Position = TimeSpan.FromSeconds(SliderValue);
+			}
+		}
+
+		public void TrackBarSeek_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+		{
+			if (_isDragging && _mediaPlayer.Source != null)
+			{
+				CurrentTime = TimeSpan.FromSeconds(SliderValue).ToString(@"mm\:ss");
 			}
 		}
 

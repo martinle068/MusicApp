@@ -1,9 +1,14 @@
-﻿namespace MusicApp.ViewModels
+﻿using System.Windows;
+using System.Windows.Input;
+
+namespace MusicApp.ViewModels
 {
 	public class MainViewModel : BaseViewModel
 	{
 		private BaseViewModel _currentViewModel;
-		private string _searchQuery = "k";
+		private PlayerViewModel _playerViewModel;
+		private HomeViewModel _homeViewModel;
+		private bool _isMiniPlayerVisible;
 
 		public BaseViewModel CurrentViewModel
 		{
@@ -11,25 +16,38 @@
 			set => SetProperty(ref _currentViewModel, value);
 		}
 
-		public string SearchQuery
+		public bool IsMiniPlayerVisible
 		{
-			get => _searchQuery;
-			set => SetProperty(ref _searchQuery, value);
+			get => _isMiniPlayerVisible;
+			set => SetProperty(ref _isMiniPlayerVisible, value);
 		}
+
+		public PlayerViewModel PlayerViewModel => _playerViewModel;
 
 		public MainViewModel()
 		{
-			CurrentViewModel = new HomeViewModel(this);
+			_homeViewModel = new HomeViewModel(this);
+			_playerViewModel = new PlayerViewModel(this);
+			CurrentViewModel = _homeViewModel;
 		}
 
-		public void SwitchToPlayerView()
+		public void SwitchToPlayerView(string? searchQuery)
 		{
-			CurrentViewModel = new PlayerViewModel(this);
+			if (string.IsNullOrWhiteSpace(searchQuery))
+			{
+				return;
+			}
+
+			_playerViewModel.SearchQuery = searchQuery;
+			_playerViewModel.SearchCommand.Execute(null);
+			CurrentViewModel = _playerViewModel;
+			IsMiniPlayerVisible = false; // Hide the mini player when the player view is open
 		}
 
 		public void SwitchToHomeView()
 		{
-			CurrentViewModel = new HomeViewModel(this);
+			CurrentViewModel = _homeViewModel;
+			IsMiniPlayerVisible = _playerViewModel.IsSongLoaded;
 		}
 	}
 }

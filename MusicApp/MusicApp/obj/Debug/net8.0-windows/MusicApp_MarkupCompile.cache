@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\leduc\source\repos\MusicApp\MusicApp\MusicApp\App.xaml
-3225575152
+4-1568683006
 
-14-1119533341
+14-1985802413
 219-2110482568
-Views\HomeView.xaml;Views\MainWindow.xaml;Views\PlayerView.xaml;
+Views\HomeView.xaml;Views\MainWindow.xaml;Views\MiniPlayerView.xaml;Views\PlayerView.xaml;
 
 False
 
