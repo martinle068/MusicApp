@@ -8,24 +8,23 @@ using System.Windows.Threading;
 using MusicApp.Commands;
 using MusicApp.Models;
 using YouTubeMusicAPI.Client;
-using YouTubeMusicAPI.Models;
 using YoutubeExplode;
 using YoutubeExplode.Videos.Streams;
 using System.Windows;
+using YouTubeMusicAPI.Models;
 
 namespace MusicApp.ViewModels
 {
 	public class PlayerViewModel : BaseViewModel
 	{
-		private readonly BaseViewModel _previousViewModel;
-		private string _searchQuery;
+		private readonly MainViewModel _mainViewModel;
 		private YouTubeService _youTubeService;
 		private MediaPlayer _mediaPlayer;
 		private DispatcherTimer _timer;
 		private bool _isDragging;
 		private bool _isPlaying;
 		private ObservableCollection<Song> _songs;
-		private Song _selectedSong;
+		private Song? _selectedSong;
 		private string _currentSongName;
 		private string _currentArtistName;
 		private string _currentTime;
@@ -50,7 +49,7 @@ namespace MusicApp.ViewModels
 			set => SetProperty(ref _songs, value);
 		}
 
-		public Song SelectedSong
+		public Song? SelectedSong
 		{
 			get => _selectedSong;
 			set => SetProperty(ref _selectedSong, value);
@@ -63,7 +62,7 @@ namespace MusicApp.ViewModels
 			{
 				if (SetProperty(ref _selectedSongIndex, value))
 				{
-					SelectedSong = Songs.ElementAtOrDefault(value);
+					SelectedSong = Songs?.ElementAtOrDefault(value);
 					if (SelectedSong != null)
 					{
 						PlaySelectedSong();
@@ -126,12 +125,6 @@ namespace MusicApp.ViewModels
 			set => SetProperty(ref _playPauseText, value);
 		}
 
-		public string SearchQuery
-		{
-			get => _searchQuery;
-			set => SetProperty(ref _searchQuery, value);
-		}
-
 		public bool IsPlaying
 		{
 			get => _isPlaying;
@@ -155,20 +148,18 @@ namespace MusicApp.ViewModels
 			get => _mediaPlayer.Source != null;
 		}
 
-
 		public ICommand BackCommand { get; }
 		public ICommand PlayPauseCommand { get; }
 		public ICommand NextCommand { get; }
 		public ICommand PreviousCommand { get; }
-		public ICommand SearchCommand { get; }
 
-		public PlayerViewModel(BaseViewModel previousViewModel)
+		public PlayerViewModel(MainViewModel mainViewModel)
 		{
-			_previousViewModel = previousViewModel;
+			_mainViewModel = mainViewModel;
 			_youTubeService = new YouTubeService();
 			_mediaPlayer = new MediaPlayer();
 			_mediaPlayer.MediaOpened += MediaPlayer_MediaOpened;
-			_mediaPlayer.MediaEnded += MediaPlayer_MediaEnded;
+			_mediaPlayer.MediaEnded += MediaPlayer_MediaEnded; // Subscribe to MediaEnded event
 			_timer = new DispatcherTimer
 			{
 				Interval = TimeSpan.FromSeconds(1)
@@ -184,7 +175,6 @@ namespace MusicApp.ViewModels
 			PlayPauseCommand = new RelayCommand(ExecutePlayPause);
 			NextCommand = new RelayCommand(ExecuteNext);
 			PreviousCommand = new RelayCommand(ExecutePrevious);
-			SearchCommand = new RelayCommand(async _ => await ExecuteSearch(_searchQuery));
 		}
 
 		private void ExecutePlayPause(object parameter)
@@ -235,48 +225,11 @@ namespace MusicApp.ViewModels
 
 		private void ExecuteBack(object parameter)
 		{
-			if (_previousViewModel != null)
-			{
-				if (_previousViewModel is MainViewModel mainViewModel)
-				{
-					mainViewModel.SwitchToHomeView();
-				}
-			}
+			_mainViewModel.IsMiniPlayerVisible = true;
+			_mainViewModel.SwitchToSearchView();
 		}
 
-		private async Task ExecuteSearch(string query)
-		{
-			if (string.IsNullOrWhiteSpace(query))
-			{
-				MessageBox.Show("Please enter a search query.");
-				return;
-			}
-
-			try
-			{
-				var songs = await _youTubeService.FetchSongsAsync(query);
-				if (!songs.Any())
-				{
-					MessageBox.Show("No songs found.");
-					return;
-				}
-
-				Songs.Clear();
-				SongList.Clear();
-
-				foreach (var song in songs)
-				{
-					Songs.Add(song);
-					SongList.Add($" {song.Artists.First().Name} - {song.Name}");
-				}
-			}
-			catch (Exception ex)
-			{
-				MessageBox.Show($"An error occurred: {ex.Message}");
-			}
-		}
-
-		private async void PlaySelectedSong()
+		public async void PlaySelectedSong()
 		{
 			if (SelectedSong == null)
 			{
@@ -309,6 +262,9 @@ namespace MusicApp.ViewModels
 
 				_timer.Start();
 				PlayPauseText = "Pause";
+
+				// Show the mini player when a song starts playing
+				//_mainViewModel.IsMiniPlayerVisible = true;
 			}
 			catch (Exception ex)
 			{

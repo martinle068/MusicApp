@@ -59,7 +59,6 @@
 		</Grid.ColumnDefinitions>
 
 		<StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10">
-			<TextBlock Text="Enter a search query:" VerticalAlignment="Center" Margin="0,0,10,0" Foreground="White"/>
 			<TextBox Text="{Binding SearchQuery, UpdateSourceTrigger=PropertyChanged}" Width="200" VerticalAlignment="Center" Padding="10,0,0,0" KeyDown="TextBox_KeyDown"/>
 			<Button Command="{Binding SearchCommand}" Content="Search" Width="75" Margin="10,0,0,0"/>
 		</StackPanel>

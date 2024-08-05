@@ -25,7 +25,7 @@ namespace MusicApp.Views
 						// Force update the binding source
 						textBox.GetBindingExpression(TextBox.TextProperty).UpdateSource();
 					}
-					viewModel.SearchCommand.Execute(null);
+					//viewModel.SearchCommand.Execute(null);
 				}
 			}
 		}

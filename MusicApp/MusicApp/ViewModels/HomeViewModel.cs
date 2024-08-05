@@ -6,9 +6,9 @@ namespace MusicApp.ViewModels
 	public class HomeViewModel : BaseViewModel
 	{
 		private readonly MainViewModel _mainViewModel;
-		private string? _searchQuery;
+		private string _searchQuery = string.Empty;
 
-		public string? SearchQuery
+		public string SearchQuery
 		{
 			get => _searchQuery;
 			set => SetProperty(ref _searchQuery, value);
@@ -19,12 +19,16 @@ namespace MusicApp.ViewModels
 		public HomeViewModel(MainViewModel mainViewModel)
 		{
 			_mainViewModel = mainViewModel;
-			SearchCommand = new RelayCommand(ExecuteSearch);
+			SearchCommand = new RelayCommand(async _ => await ExecuteSearch());
 		}
 
-		private void ExecuteSearch(object parameter)
+		private async Task ExecuteSearch()
 		{
-			_mainViewModel.SwitchToPlayerView(_searchQuery);
+			if (!string.IsNullOrWhiteSpace(SearchQuery))
+			{
+				_mainViewModel.SearchViewModel.SearchQuery = SearchQuery;
+				await _mainViewModel.SearchAndNavigateAsync(SearchQuery);
+			}
 		}
 	}
 }

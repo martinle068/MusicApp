@@ -25,7 +25,7 @@ namespace MusicApp.Models
 			return searchResults.ToList();
 		}
 
-		public async Task<string> GetAudioStreamUrlAsync(string videoId)
+		public async Task<string?> GetAudioStreamUrlAsync(string videoId)
 		{
 			var streamManifest = await _youtubeClient.Videos.Streams.GetManifestAsync(videoId);
 			var audioStreamInfo = streamManifest.GetAudioOnlyStreams().GetWithHighestBitrate();
