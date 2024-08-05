@@ -324,13 +324,9 @@ namespace MusicApp.ViewModels
 
 		private async Task DisplayPicture()
 		{
-			if (SelectedSong != null && SelectedSong.Thumbnails.Any())
+			if (SelectedSong != null)
 			{
-				var imageUrl = $"https://img.youtube.com/vi/{SelectedSong.Id}/maxresdefault.jpg";
-				if (imageUrl != null)
-				{
-					CurrentSongThumbnail = await ThumbnailHelper.GetSquareThumbnailAsync(imageUrl);
-				}
+				CurrentSongThumbnail = await ThumbnailHelper.GetHighQualityThumbnailAsync(SelectedSong.Id);
 			}
 			else
 			{
