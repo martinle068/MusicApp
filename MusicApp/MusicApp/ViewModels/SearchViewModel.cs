@@ -107,7 +107,7 @@ namespace MusicApp.ViewModels
 
 		private void ExecuteBack(object parameter)
 		{
-			_mainViewModel.SwitchToHomeView();
+			_mainViewModel.NavigateBack();
 		}
 	}
 }

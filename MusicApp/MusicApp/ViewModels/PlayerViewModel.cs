@@ -226,7 +226,7 @@ namespace MusicApp.ViewModels
 		private void ExecuteBack(object parameter)
 		{
 			_mainViewModel.IsMiniPlayerVisible = true;
-			_mainViewModel.SwitchToSearchView();
+			_mainViewModel.NavigateBack();
 		}
 
 		public async void PlaySelectedSong()

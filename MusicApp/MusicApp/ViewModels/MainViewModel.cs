@@ -1,9 +1,11 @@
 ﻿using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace MusicApp.ViewModels
 {
 	public class MainViewModel : BaseViewModel
 	{
+		public Stack<BaseViewModel> HistoryStack { get; set; } = new Stack<BaseViewModel>();
 		private BaseViewModel _currentViewModel;
 		private bool _isMiniPlayerVisible;
 		public HomeViewModel HomeViewModel { get; }
@@ -17,6 +19,7 @@ namespace MusicApp.ViewModels
 			{
 				SetProperty(ref _currentViewModel, value);
 				IsMiniPlayerVisible = _currentViewModel != PlayerViewModel && PlayerViewModel.SelectedSongIndex != -1;
+				HistoryStack.Push(value);
 			}
 		}
 
@@ -54,6 +57,28 @@ namespace MusicApp.ViewModels
 		{
 			await SearchViewModel.ExecuteSearch(query);
 			SwitchToSearchView();
+		}
+
+		public void NavigateBack()
+		{
+			if (HistoryStack.Count > 0)
+			{
+				HistoryStack.Pop();
+				BaseViewModel destination = HistoryStack.Pop();
+
+				if (destination is SearchViewModel)
+				{
+					SwitchToSearchView();
+				}
+				else if (destination is PlayerViewModel)
+				{
+					SwitchToPlayerView();
+				}
+				else
+				{
+					SwitchToHomeView();
+				}
+			}
 		}
 	}
 }
