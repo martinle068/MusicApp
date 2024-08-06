@@ -17,12 +17,12 @@ namespace MusicApp.ViewModels
 	{
 		private readonly MainViewModel _mainViewModel;
 		private readonly YouTubeService _youTubeService;
-		private ObservableCollection<Song> _songs;
+		private ObservableCollection<MySong> _songs;
 		private ObservableCollection<string> _songList;
 		private string _searchQuery = string.Empty;
 		private int _selectedSongIndex = -1;
 
-		public ObservableCollection<Song> Songs
+		public ObservableCollection<MySong> Songs
 		{
 			get => _songs;
 			set => SetProperty(ref _songs, value);
@@ -36,18 +36,17 @@ namespace MusicApp.ViewModels
 
 		public int SelectedSongIndex
 		{
-			get => _selectedSongIndex;
 			set
 			{
 				if (SetProperty(ref _selectedSongIndex, value))
 				{
-					if (Songs.ElementAtOrDefault(value) is Song selectedSong)
+					if (Songs.ElementAtOrDefault(value) is MySong selectedSong)
 					{
-						_mainViewModel.PlayerViewModel.Songs = Songs; // Add all search results to the player
-						_mainViewModel.PlayerViewModel.SongList = SongList;
+						_mainViewModel.PlayerViewModel.Songs = new(Songs); // Add all search results to the player
 						_mainViewModel.PlayerViewModel.SelectedSongIndex = value;
-						_mainViewModel.PlayerViewModel.PlaySelectedSong();
+						//_mainViewModel.PlayerViewModel.PlaySelectedSong();
 						_mainViewModel.SwitchToPlayerView();
+						SelectedSongIndex = -1;
 					}
 				}
 			}
@@ -95,6 +94,7 @@ namespace MusicApp.ViewModels
 
 				foreach (var song in songs)
 				{
+					//await song.LoadThumbnailAsync();
 					Songs.Add(song);
 					SongList.Add(SongToString(song));
 				}

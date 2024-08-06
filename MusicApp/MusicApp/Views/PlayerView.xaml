@@ -55,6 +55,7 @@
 			<Setter Property="UseLayoutRounding" Value="True"/>
 			<Setter Property="ClipToBounds" Value="True"/>
 			<Setter Property="Stretch" Value="UniformToFill"/>
+			
 		</Style>
 		<Style TargetType="{x:Type Slider}">
 			<Setter Property="Cursor" Value="Hand"/>
@@ -129,18 +130,25 @@
 			<RowDefinition Height="Auto"/>
 		</Grid.RowDefinitions>
 		<Grid.ColumnDefinitions>
-			<ColumnDefinition Width="*"/>
-			<ColumnDefinition Width="260"/>
+			<ColumnDefinition Width="6*"/>
+			<ColumnDefinition Width="4*" MinWidth="260"/>
 		</Grid.ColumnDefinitions>
 
 		<ListBox Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" Margin="10" ItemsSource="{Binding Songs}" 
                  SelectedIndex="{Binding SelectedSongIndex}" Background="#333333" Foreground="White" BorderBrush="#444444"
-				 ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled"
+				 VirtualizingPanel.ScrollUnit="Pixel"
+				 >
+			
 			<ListBox.ItemTemplate>
 				<DataTemplate>
 					<StackPanel Orientation="Horizontal" Margin="5">
-						<Image Source="{Binding Id, Converter={StaticResource ThumbnailConverter}}" Width="5" Height="10" Margin="5"/>
-						<TextBlock Text="{Binding Name}" VerticalAlignment="Center" Foreground="White" Margin="5"/>
+						<Image Source="{Binding Thumbnail}" Width="40" Height="40" Margin="0,0,5,0">
+							<Image.Clip>
+								<RectangleGeometry Rect="0,0,40,40" RadiusX="5" RadiusY="5"/>
+							</Image.Clip>
+						</Image>
+						<TextBlock Text="{Binding ArtistAndSongName}" VerticalAlignment="Center" Foreground="White" />
 					</StackPanel>
 				</DataTemplate>
 			</ListBox.ItemTemplate>
@@ -161,18 +169,24 @@
 			<Label Margin="0,0,0,5" HorizontalAlignment="Center" Content="{Binding CurrentArtistName}" Foreground="White"/>
 		</StackPanel>
 
-		<StackPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="10" HorizontalAlignment="Center">
-			<Label Width="50" Content="{Binding CurrentTime}" Foreground="White"/>
+		<Grid Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Margin="10,0,10,0" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto"/>
+				<ColumnDefinition Width="*"/>
+				<ColumnDefinition Width="Auto"/>
+			</Grid.ColumnDefinitions>
+			<Label Width="50" Content="{Binding CurrentTime}" Foreground="White" Grid.Column="0" />
 			<Slider
-                Width="150"
                 HorizontalAlignment="Stretch"
                 Value="{Binding SliderValue, Mode=TwoWay}"
                 Maximum="{Binding TotalTime, Mode=OneWay}"
                 PreviewMouseLeftButtonDown="TrackBarSeek_PreviewMouseLeftButtonDown"
                 PreviewMouseLeftButtonUp="TrackBarSeek_PreviewMouseLeftButtonUp"
-                ValueChanged="TrackBarSeek_ValueChanged" />
-			<Label Width="50" Content="{Binding FormattedTotalTime}" Foreground="White"/>
-		</StackPanel>
+                ValueChanged="TrackBarSeek_ValueChanged"
+                Grid.Column="1"
+                Margin="5,0"/>
+			<Label Width="50" Content="{Binding FormattedTotalTime}" Foreground="White" Grid.Column="2"/>
+		</Grid>
 
 		<StackPanel Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="10" HorizontalAlignment="Center">
 			<Button Content="Previous" Width="60" Command="{Binding PreviousCommand}"/>

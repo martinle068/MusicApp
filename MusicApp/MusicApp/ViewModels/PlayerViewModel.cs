@@ -23,8 +23,8 @@ namespace MusicApp.ViewModels
 		private DispatcherTimer _timer;
 		private bool _isDragging;
 		private bool _isPlaying;
-		private ObservableCollection<Song> _songs;
-		private Song? _selectedSong;
+		private ObservableCollection<MySong> _songs;
+		private MySong? _selectedSong;
 		private string _currentSongName;
 		private string _currentArtistName;
 		private string _currentTime;
@@ -33,23 +33,16 @@ namespace MusicApp.ViewModels
 		private double _sliderValue;
 		private ImageSource _currentSongThumbnail;
 		private string _playPauseText;
-		private ObservableCollection<string> _songList;
 		private int _selectedSongIndex = -1;
 		private bool _isSongSelected;
 
-		public ObservableCollection<string> SongList
-		{
-			get => _songList;
-			set => SetProperty(ref _songList, value);
-		}
-
-		public ObservableCollection<Song> Songs
+		public ObservableCollection<MySong> Songs
 		{
 			get => _songs;
 			set => SetProperty(ref _songs, value);
 		}
 
-		public Song? SelectedSong
+		public MySong? SelectedSong
 		{
 			get => _selectedSong;
 			set => SetProperty(ref _selectedSong, value);
@@ -165,8 +158,7 @@ namespace MusicApp.ViewModels
 				Interval = TimeSpan.FromSeconds(1)
 			};
 			_timer.Tick += Timer_Tick;
-			Songs = new ObservableCollection<Song>();
-			_songList = new ObservableCollection<string>();
+			Songs = new ObservableCollection<MySong>();
 
 			PlayPauseText = "Play";
 			IsSongSelected = false;

@@ -7,45 +7,11 @@ using YoutubeExplode;
 using YoutubeExplode.Videos.Streams;
 using YouTubeMusicAPI.Models.Shelf;
 using System.Windows.Media.Imaging;
+using System.ComponentModel;
+using System.Windows.Media;
 
 namespace MusicApp.Models
 {
-	//string name,
-
-	//string id,
-	//ShelfItem[] artists,
- //   ShelfItem album,
-	//TimeSpan duration,
- //   bool isExplicit,
-
-	//string playsInfo,
-	//Radio radio,
-	public class MySong
-	{
-		public string Name { get; }
-		public string Id { get; }
-		public ShelfItem[] Artists { get; }
-		public ShelfItem Album { get; }
-		public TimeSpan Duration { get; }
-		public bool IsExplicit { get; }
-		public string PlaysInfo { get; }
-		public Radio Radio { get; }
-		public BitmapImage Thumbnail { get; set; }
-
-		public MySong(Song song)
-		{
-			Name = song.Name;
-			Id = song.Id;
-			Artists = song.Artists;
-			Album = song.Album;
-			Duration = song.Duration;
-			IsExplicit = song.IsExplicit;
-			PlaysInfo = song.PlaysInfo;
-			Radio = song.Radio;
-			Thumbnail = ThumbnailHelper.GetLowQualityThumbnailAsync(song.Id).Result;
-		}
-	}
-
 	public class YouTubeService
 	{
 		private YouTubeMusicClient _youtubeMusicClient;
@@ -57,10 +23,11 @@ namespace MusicApp.Models
 			_youtubeClient = new YoutubeClient();
 		}
 
-		public async Task<List<Song>> FetchSongsAsync(string query)
+		public async Task<List<MySong>> FetchSongsAsync(string query)
 		{
 			IEnumerable<Song> searchResults = await _youtubeMusicClient.SearchAsync<Song>(query);
-			return searchResults.ToList();
+			var mySongs = await Task.WhenAll(searchResults.Select(async song => await MySong.CreateAsync(song)));
+			return mySongs.ToList();
 		}
 
 		public async Task<string?> GetAudioStreamUrlAsync(string videoId)

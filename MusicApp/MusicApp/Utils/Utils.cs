@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MusicApp.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,7 @@ namespace MusicApp.Utils
 {
 	internal class Utils
 	{
-		public static string SongToString(Song song)
+		public static string SongToString(MySong song)
 		{
 			return $" {song.Artists.First().Name} - {song.Name}";
 		}
