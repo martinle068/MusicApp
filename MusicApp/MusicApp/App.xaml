@@ -6,6 +6,7 @@
              xmlns:viewModels="clr-namespace:MusicApp.ViewModels"
              StartupUri="Views/MainWindow.xaml">
 	<Application.Resources>
+		<views:ThumbnailConverter x:Key="ThumbnailConverter"/>
 		<DataTemplate DataType="{x:Type viewModels:HomeViewModel}">
 			<views:HomeView />
 		</DataTemplate>

@@ -133,10 +133,18 @@
 			<ColumnDefinition Width="260"/>
 		</Grid.ColumnDefinitions>
 
-		<ListBox Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" Margin="10" ItemsSource="{Binding SongList}" 
+		<ListBox Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" Margin="10" ItemsSource="{Binding Songs}" 
                  SelectedIndex="{Binding SelectedSongIndex}" Background="#333333" Foreground="White" BorderBrush="#444444"
-				 ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled"
-				 />
+				 ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<StackPanel Orientation="Horizontal" Margin="5">
+						<Image Source="{Binding Id, Converter={StaticResource ThumbnailConverter}}" Width="5" Height="10" Margin="5"/>
+						<TextBlock Text="{Binding Name}" VerticalAlignment="Center" Foreground="White" Margin="5"/>
+					</StackPanel>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
 
 		<Viewbox Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Margin="20" HorizontalAlignment="Center" VerticalAlignment="Center">
 			<Border Width="210" Height="210"  CornerRadius="15">
