@@ -44,3 +44,4 @@ C:\Users\leduc\source\repos\MusicApp\MusicApp\MusicApp\obj\Debug\net8.0-windows\
 C:\Users\leduc\source\repos\MusicApp\MusicApp\MusicApp\obj\Debug\net8.0-windows\Views\MiniPlayerView.g.cs
 C:\Users\leduc\source\repos\MusicApp\MusicApp\MusicApp\obj\Debug\net8.0-windows\Views\SearchView.baml
 C:\Users\leduc\source\repos\MusicApp\MusicApp\MusicApp\obj\Debug\net8.0-windows\Views\SearchView.g.cs
+C:\Users\leduc\source\repos\MusicApp\MusicApp\MusicApp\obj\Debug\net8.0-windows\Styles\Styles.baml

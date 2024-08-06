@@ -4,64 +4,12 @@
     x:Class="MusicApp.Views.MiniPlayerView"
     Height="Auto" Width="Auto">
 
-    <UserControl.Resources>
-        <Style TargetType="{x:Type Button}">
-            <Setter Property="Background" Value="#333333"/>
-            <Setter Property="BorderBrush" Value="#333333"/>
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="Cursor" Value="Hand"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border CornerRadius="10" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="#555555"/>
-                    <Setter Property="BorderBrush" Value="#555555"/>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
-        <Style TargetType="{x:Type Slider}">
-            <Setter Property="Cursor" Value="Hand"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Slider">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="Auto" />
-                            </Grid.RowDefinitions>
-                            <Border x:Name="TrackBackground" Grid.Row="1" Background="#555555" Height="4" VerticalAlignment="Center" CornerRadius="2" />
-                            <Track x:Name="PART_Track" Grid.Row="1">
-                                <Track.Thumb>
-                                    <Thumb x:Name="Thumb" Width="15" Height="15" Background="White" Cursor="Hand">
-                                        <Thumb.Template>
-                                            <ControlTemplate TargetType="Thumb">
-                                                <Border Background="{TemplateBinding Background}" BorderBrush="#777777" BorderThickness="1" CornerRadius="7.5" />
-                                            </ControlTemplate>
-                                        </Thumb.Template>
-                                    </Thumb>
-                                </Track.Thumb>
-                            </Track>
-                        </Grid>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </UserControl.Resources>
-
-    <Grid Background="#222222" MouseDown="MiniPlayerView_MouseDown">
+	<Grid Background="#222222" MouseDown="MiniPlayerView_MouseDown">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+			<ColumnDefinition Width="Auto"/>
+		</Grid.ColumnDefinitions>
 
         <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10">
             <TextBlock Text="{Binding CurrentSongName}" Foreground="White" FontWeight="Bold" />

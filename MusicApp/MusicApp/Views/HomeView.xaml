@@ -4,45 +4,6 @@
     x:Class="MusicApp.Views.HomeView"
     Height="auto" Width="auto">
 
-	<UserControl.Resources>
-		<Style TargetType="{x:Type Button}">
-			<Setter Property="Background" Value="#1A1A1A"/>
-			<Setter Property="BorderBrush" Value="#1A1A1A"/>
-			<Setter Property="Foreground" Value="White"/>
-			<Setter Property="FontWeight" Value="Bold"/>
-			<Setter Property="Cursor" Value="Hand"/>
-			<Setter Property="Template">
-				<Setter.Value>
-					<ControlTemplate TargetType="{x:Type Button}">
-						<Border CornerRadius="10" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1">
-							<ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-						</Border>
-					</ControlTemplate>
-				</Setter.Value>
-			</Setter>
-			<Style.Triggers>
-				<Trigger Property="IsMouseOver" Value="True">
-					<Setter Property="Background" Value="#333333"/>
-					<Setter Property="BorderBrush" Value="#333333"/>
-				</Trigger>
-			</Style.Triggers>
-		</Style>
-		<Style TargetType="{x:Type TextBox}">
-			<Setter Property="Background" Value="#262626"/>
-			<Setter Property="Foreground" Value="White"/>
-			<Setter Property="BorderBrush" Value="#333333"/>
-			<Setter Property="Template">
-				<Setter.Value>
-					<ControlTemplate TargetType="{x:Type TextBox}">
-						<Border CornerRadius="10" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1">
-							<ScrollViewer x:Name="PART_ContentHost" Padding="10,0,0,0"/>
-						</Border>
-					</ControlTemplate>
-				</Setter.Value>
-			</Setter>
-		</Style>
-	</UserControl.Resources>
-
 	<Grid Background="#0D0D0D">
 		<Grid.RowDefinitions>
 			<RowDefinition Height="Auto"/>

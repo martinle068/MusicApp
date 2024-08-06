@@ -3,17 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:MusicApp"
              xmlns:views="clr-namespace:MusicApp.Views"
-             xmlns:viewModels="clr-namespace:MusicApp.ViewModels"
+             
              StartupUri="Views/MainWindow.xaml">
 	<Application.Resources>
-		<DataTemplate DataType="{x:Type viewModels:HomeViewModel}">
-			<views:HomeView />
-		</DataTemplate>
-		<DataTemplate DataType="{x:Type viewModels:PlayerViewModel}">
-			<views:PlayerView />
-		</DataTemplate>
-		<DataTemplate DataType="{x:Type viewModels:SearchViewModel}">
-			<views:SearchView />
-		</DataTemplate>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="Styles/Styles.xaml"/>
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+		
 	</Application.Resources>
 </Application>
