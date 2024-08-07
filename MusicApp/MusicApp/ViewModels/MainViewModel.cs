@@ -1,10 +1,12 @@
-﻿using System.Threading.Tasks;
+﻿using MusicApp.Models;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MusicApp.ViewModels
 {
 	public class MainViewModel : BaseViewModel
 	{
+		private YouTubeService _youTubeService;
 		public Stack<BaseViewModel> HistoryStack { get; set; } = new Stack<BaseViewModel>();
 		private BaseViewModel _currentViewModel;
 		private bool _isMiniPlayerVisible;
@@ -31,9 +33,10 @@ namespace MusicApp.ViewModels
 
 		public MainViewModel()
 		{
+			_youTubeService = new YouTubeService();
 			HomeViewModel = new HomeViewModel(this);
-			SearchViewModel = new SearchViewModel(this);
-			PlayerViewModel = new PlayerViewModel(this);
+			SearchViewModel = new SearchViewModel(this, _youTubeService);
+			PlayerViewModel = new PlayerViewModel(this, _youTubeService);
 
 			CurrentViewModel = HomeViewModel;
 		}

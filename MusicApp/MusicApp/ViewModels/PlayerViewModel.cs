@@ -146,10 +146,10 @@ namespace MusicApp.ViewModels
 		public ICommand NextCommand { get; }
 		public ICommand PreviousCommand { get; }
 
-		public PlayerViewModel(MainViewModel mainViewModel)
+		public PlayerViewModel(MainViewModel mainViewModel, YouTubeService ys)
 		{
 			_mainViewModel = mainViewModel;
-			_youTubeService = new YouTubeService();
+			_youTubeService = ys;
 			_mediaPlayer = new MediaPlayer();
 			_mediaPlayer.MediaOpened += MediaPlayer_MediaOpened;
 			_mediaPlayer.MediaEnded += MediaPlayer_MediaEnded; // Subscribe to MediaEnded event
@@ -235,16 +235,15 @@ namespace MusicApp.ViewModels
 			try
 			{
 				var videoId = YoutubeExplode.Videos.VideoId.Parse(youtubeVideoUrl);
-				var streamManifest = await new YoutubeClient().Videos.Streams.GetManifestAsync(videoId);
-				var audioStreamInfo = streamManifest.GetAudioOnlyStreams().GetWithHighestBitrate();
+				var audioUrl = await _youTubeService.GetAudioStreamUrlAsync(videoId);
 
-				if (audioStreamInfo == null)
+				if (audioUrl == null)
 				{
 					MessageBox.Show("No audio stream found.");
 					return;
 				}
 
-				_mediaPlayer.Open(new Uri(audioStreamInfo.Url));
+				_mediaPlayer.Open(new Uri(audioUrl));
 				_mediaPlayer.Play();
 				IsPlaying = true;
 

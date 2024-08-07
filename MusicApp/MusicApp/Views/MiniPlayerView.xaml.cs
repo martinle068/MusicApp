@@ -14,7 +14,7 @@ namespace MusicApp.Views
 
 		private void MiniPlayerView_MouseDown(object sender, MouseButtonEventArgs e)
 		{
-			if (e.OriginalSource is Grid)
+			if (e.OriginalSource is not (Slider or Button or Label))
 			{
 				var mainViewModel = Application.Current.MainWindow.DataContext as MainViewModel;
 				if (mainViewModel != null)

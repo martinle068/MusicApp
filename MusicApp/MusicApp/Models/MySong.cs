@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Media.Imaging;
 using YouTubeMusicAPI.Models.Shelf;
 using YouTubeMusicAPI.Models;
+using YouTubeMusicAPI.Models.Info;
 
 namespace MusicApp.Models
 {
@@ -15,11 +16,7 @@ namespace MusicApp.Models
 		public string Id { get; }
 		public string ArtistAndSongName { get; }
 		public ShelfItem[] Artists { get; }
-		public ShelfItem Album { get; }
 		public TimeSpan Duration { get; }
-		public bool IsExplicit { get; }
-		public string PlaysInfo { get; }
-		public Radio Radio { get; }
 		public BitmapImage? Thumbnail { get; private set; }
 
 		private MySong(Song song)
@@ -27,12 +24,26 @@ namespace MusicApp.Models
 			Name = song.Name;
 			Id = song.Id;
 			Artists = song.Artists;
-			Album = song.Album;
 			Duration = song.Duration;
-			IsExplicit = song.IsExplicit;
-			PlaysInfo = song.PlaysInfo;
-			Radio = song.Radio;
 			ArtistAndSongName = $"{Artists.First().Name} - {Name}";
+		}
+
+		private MySong(string name, string id, ShelfItem[] artists, TimeSpan duration)
+		{
+			Name = name;
+			Id = id;
+			Artists = artists;
+			Duration = duration;
+			ArtistAndSongName = $"{Artists.First().Name} - {Name}";
+		}
+
+		public static async Task<MySong> CreateAsync(SongVideoInfo songVideoInfo)
+		{
+			MySong mySong = new MySong(songVideoInfo.Name, songVideoInfo.Id, songVideoInfo.Artists, songVideoInfo.Duration)
+			{
+				Thumbnail = await ThumbnailHelper.GetLowQualityThumbnailAsync(songVideoInfo.Id)
+			};
+			return mySong;
 		}
 
 		public static async Task<MySong> CreateAsync(Song song)

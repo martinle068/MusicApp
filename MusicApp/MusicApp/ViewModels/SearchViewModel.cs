@@ -61,10 +61,10 @@ namespace MusicApp.ViewModels
 		public ICommand SearchCommand { get; }
 		public ICommand BackCommand { get; }
 
-		public SearchViewModel(MainViewModel mainViewModel)
+		public SearchViewModel(MainViewModel mainViewModel, YouTubeService ys)
 		{
 			_mainViewModel = mainViewModel;
-			_youTubeService = new YouTubeService();
+			_youTubeService = ys;
 			Songs = new();
 			SongList = new();
 
