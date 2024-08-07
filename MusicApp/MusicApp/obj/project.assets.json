@@ -18,6 +18,73 @@
           }
         }
       },
+      "Google.Apis/1.68.0": {
+        "type": "package",
+        "dependencies": {
+          "Google.Apis.Core": "1.68.0"
+        },
+        "compile": {
+          "lib/net6.0/Google.Apis.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Google.Apis.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
+      "Google.Apis.Auth/1.68.0": {
+        "type": "package",
+        "dependencies": {
+          "Google.Apis": "1.68.0",
+          "Google.Apis.Core": "1.68.0",
+          "System.Management": "7.0.2"
+        },
+        "compile": {
+          "lib/net6.0/Google.Apis.Auth.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Google.Apis.Auth.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
+      "Google.Apis.Core/1.68.0": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.3"
+        },
+        "compile": {
+          "lib/net6.0/Google.Apis.Core.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Google.Apis.Core.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
+      "Google.Apis.YouTube.v3/1.68.0.3421": {
+        "type": "package",
+        "dependencies": {
+          "Google.Apis": "1.68.0",
+          "Google.Apis.Auth": "1.68.0"
+        },
+        "compile": {
+          "lib/net6.0/Google.Apis.YouTube.v3.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Google.Apis.YouTube.v3.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
       "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.1": {
         "type": "package",
         "compile": {
@@ -221,6 +288,47 @@
           }
         }
       },
+      "System.CodeDom/7.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net7.0/System.CodeDom.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0/System.CodeDom.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        }
+      },
+      "System.Management/7.0.2": {
+        "type": "package",
+        "dependencies": {
+          "System.CodeDom": "7.0.0"
+        },
+        "compile": {
+          "lib/net7.0/System.Management.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0/System.Management.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/net7.0/System.Management.dll": {
+            "assetType": "runtime",
+            "rid": "win"
+          }
+        }
+      },
       "System.Security.AccessControl/4.7.0": {
         "type": "package",
         "dependencies": {
@@ -348,6 +456,94 @@
         "lib/netstandard2.0/AngleSharp.dll",
         "lib/netstandard2.0/AngleSharp.xml",
         "logo.png"
+      ]
+    },
+    "Google.Apis/1.68.0": {
+      "sha512": "s2MymhdpH+ybZNBeZ2J5uFgFHApBp+QXf9FjZSdM1lk/vx5VqIknJwnaWiuAzXxPrLEkesX0Q+UsiWn39yZ9zw==",
+      "type": "package",
+      "path": "google.apis/1.68.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "NuGetIcon.png",
+        "google.apis.1.68.0.nupkg.sha512",
+        "google.apis.nuspec",
+        "lib/net462/Google.Apis.dll",
+        "lib/net462/Google.Apis.pdb",
+        "lib/net462/Google.Apis.xml",
+        "lib/net6.0/Google.Apis.dll",
+        "lib/net6.0/Google.Apis.pdb",
+        "lib/net6.0/Google.Apis.xml",
+        "lib/netstandard2.0/Google.Apis.dll",
+        "lib/netstandard2.0/Google.Apis.pdb",
+        "lib/netstandard2.0/Google.Apis.xml"
+      ]
+    },
+    "Google.Apis.Auth/1.68.0": {
+      "sha512": "hFx8Qz5bZ4w0hpnn4tSmZaaFpjAMsgVElZ+ZgVLUZ2r9i+AKcoVgwiNfv1pruNS5cCvpXqhKECbruBCfRezPHA==",
+      "type": "package",
+      "path": "google.apis.auth/1.68.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "NuGetIcon.png",
+        "google.apis.auth.1.68.0.nupkg.sha512",
+        "google.apis.auth.nuspec",
+        "lib/net462/Google.Apis.Auth.dll",
+        "lib/net462/Google.Apis.Auth.pdb",
+        "lib/net462/Google.Apis.Auth.xml",
+        "lib/net6.0/Google.Apis.Auth.dll",
+        "lib/net6.0/Google.Apis.Auth.pdb",
+        "lib/net6.0/Google.Apis.Auth.xml",
+        "lib/netstandard2.0/Google.Apis.Auth.dll",
+        "lib/netstandard2.0/Google.Apis.Auth.pdb",
+        "lib/netstandard2.0/Google.Apis.Auth.xml"
+      ]
+    },
+    "Google.Apis.Core/1.68.0": {
+      "sha512": "pAqwa6pfu53UXCR2b7A/PAPXeuVg6L1OFw38WckN27NU2+mf+KTjoEg2YGv/f0UyKxzz7DxF1urOTKg/6dTP9g==",
+      "type": "package",
+      "path": "google.apis.core/1.68.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "NuGetIcon.png",
+        "google.apis.core.1.68.0.nupkg.sha512",
+        "google.apis.core.nuspec",
+        "lib/net462/Google.Apis.Core.dll",
+        "lib/net462/Google.Apis.Core.pdb",
+        "lib/net462/Google.Apis.Core.xml",
+        "lib/net6.0/Google.Apis.Core.dll",
+        "lib/net6.0/Google.Apis.Core.pdb",
+        "lib/net6.0/Google.Apis.Core.xml",
+        "lib/netstandard2.0/Google.Apis.Core.dll",
+        "lib/netstandard2.0/Google.Apis.Core.pdb",
+        "lib/netstandard2.0/Google.Apis.Core.xml"
+      ]
+    },
+    "Google.Apis.YouTube.v3/1.68.0.3421": {
+      "sha512": "ToAWh6fpLCFO3iFLbCfRTY9MJp+gjJwPOF156e5i8FhcuWyAjXweLM3a541LWFB2cm+jfAZD0qKWnttZkU+EKQ==",
+      "type": "package",
+      "path": "google.apis.youtube.v3/1.68.0.3421",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "NuGetIcon.png",
+        "google.apis.youtube.v3.1.68.0.3421.nupkg.sha512",
+        "google.apis.youtube.v3.nuspec",
+        "lib/net462/Google.Apis.YouTube.v3.dll",
+        "lib/net462/Google.Apis.YouTube.v3.pdb",
+        "lib/net462/Google.Apis.YouTube.v3.xml",
+        "lib/net6.0/Google.Apis.YouTube.v3.dll",
+        "lib/net6.0/Google.Apis.YouTube.v3.pdb",
+        "lib/net6.0/Google.Apis.YouTube.v3.xml",
+        "lib/netstandard2.0/Google.Apis.YouTube.v3.dll",
+        "lib/netstandard2.0/Google.Apis.YouTube.v3.pdb",
+        "lib/netstandard2.0/Google.Apis.YouTube.v3.xml"
       ]
     },
     "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.1": {
@@ -659,6 +855,61 @@
         "packageIcon.png"
       ]
     },
+    "System.CodeDom/7.0.0": {
+      "sha512": "GLltyqEsE5/3IE+zYRP5sNa1l44qKl9v+bfdMcwg+M9qnQf47wK3H0SUR/T+3N4JEQXF3vV4CSuuo0rsg+nq2A==",
+      "type": "package",
+      "path": "system.codedom/7.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/System.CodeDom.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net6.0/_._",
+        "buildTransitive/netcoreapp2.0/System.CodeDom.targets",
+        "lib/net462/System.CodeDom.dll",
+        "lib/net462/System.CodeDom.xml",
+        "lib/net6.0/System.CodeDom.dll",
+        "lib/net6.0/System.CodeDom.xml",
+        "lib/net7.0/System.CodeDom.dll",
+        "lib/net7.0/System.CodeDom.xml",
+        "lib/netstandard2.0/System.CodeDom.dll",
+        "lib/netstandard2.0/System.CodeDom.xml",
+        "system.codedom.7.0.0.nupkg.sha512",
+        "system.codedom.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "System.Management/7.0.2": {
+      "sha512": "/qEUN91mP/MUQmJnM5y5BdT7ZoPuVrtxnFlbJ8a3kBJGhe2wCzBfnPFtK2wTtEEcf3DMGR9J00GZZfg6HRI6yA==",
+      "type": "package",
+      "path": "system.management/7.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net6.0/_._",
+        "buildTransitive/netcoreapp2.0/System.Management.targets",
+        "lib/net462/_._",
+        "lib/net6.0/System.Management.dll",
+        "lib/net6.0/System.Management.xml",
+        "lib/net7.0/System.Management.dll",
+        "lib/net7.0/System.Management.xml",
+        "lib/netstandard2.0/System.Management.dll",
+        "lib/netstandard2.0/System.Management.xml",
+        "runtimes/win/lib/net6.0/System.Management.dll",
+        "runtimes/win/lib/net6.0/System.Management.xml",
+        "runtimes/win/lib/net7.0/System.Management.dll",
+        "runtimes/win/lib/net7.0/System.Management.xml",
+        "system.management.7.0.2.nupkg.sha512",
+        "system.management.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
     "System.Security.AccessControl/4.7.0": {
       "sha512": "JECvTt5aFF3WT3gHpfofL2MNNP6v84sxtXxpqhLBCcDRzqsPBmHhQ6shv4DwwN2tRlzsUxtb3G9M3763rbXKDg==",
       "type": "package",
@@ -842,6 +1093,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0-windows7.0": [
+      "Google.Apis.YouTube.v3 >= 1.68.0.3421",
       "NAudio >= 2.2.1",
       "YouTubeMusicAPI >= 1.1.4",
       "YoutubeExplode >= 6.4.0"
@@ -897,6 +1149,10 @@
       "net8.0-windows7.0": {
         "targetAlias": "net8.0-windows",
         "dependencies": {
+          "Google.Apis.YouTube.v3": {
+            "target": "Package",
+            "version": "[1.68.0.3421, )"
+          },
           "NAudio": {
             "target": "Package",
             "version": "[2.2.1, )"

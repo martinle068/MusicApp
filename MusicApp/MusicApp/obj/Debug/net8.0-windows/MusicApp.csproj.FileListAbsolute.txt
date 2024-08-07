@@ -45,3 +45,9 @@ C:\Users\leduc\source\repos\MusicApp\MusicApp\MusicApp\obj\Debug\net8.0-windows\
 C:\Users\leduc\source\repos\MusicApp\MusicApp\MusicApp\obj\Debug\net8.0-windows\Views\SearchView.baml
 C:\Users\leduc\source\repos\MusicApp\MusicApp\MusicApp\obj\Debug\net8.0-windows\Views\SearchView.g.cs
 C:\Users\leduc\source\repos\MusicApp\MusicApp\MusicApp\obj\Debug\net8.0-windows\Styles\Styles.baml
+C:\Users\leduc\source\repos\MusicApp\MusicApp\MusicApp\bin\Debug\net8.0-windows\Google.Apis.dll
+C:\Users\leduc\source\repos\MusicApp\MusicApp\MusicApp\bin\Debug\net8.0-windows\Google.Apis.Auth.dll
+C:\Users\leduc\source\repos\MusicApp\MusicApp\MusicApp\bin\Debug\net8.0-windows\Google.Apis.Core.dll
+C:\Users\leduc\source\repos\MusicApp\MusicApp\MusicApp\bin\Debug\net8.0-windows\Google.Apis.YouTube.v3.dll
+C:\Users\leduc\source\repos\MusicApp\MusicApp\MusicApp\bin\Debug\net8.0-windows\System.Management.dll
+C:\Users\leduc\source\repos\MusicApp\MusicApp\MusicApp\bin\Debug\net8.0-windows\runtimes\win\lib\net7.0\System.Management.dll

@@ -1,4 +1,5 @@
-﻿using MusicApp.Models;
+﻿using Google.Apis.YouTube.v3;
+using MusicApp.Models;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -6,13 +7,13 @@ namespace MusicApp.ViewModels
 {
 	public class MainViewModel : BaseViewModel
 	{
-		private YouTubeService _youTubeService;
+		public MyYouTubeService MyYouTubeService { get; private set; }
 		public Stack<BaseViewModel> HistoryStack { get; set; } = new Stack<BaseViewModel>();
 		private BaseViewModel _currentViewModel;
 		private bool _isMiniPlayerVisible;
-		public HomeViewModel HomeViewModel { get; }
-		public SearchViewModel SearchViewModel { get; }
-		public PlayerViewModel PlayerViewModel { get; }
+		public HomeViewModel HomeViewModel { get; private set; }
+		public SearchViewModel SearchViewModel { get; private set; }
+		public PlayerViewModel PlayerViewModel { get; private set; }
 
 		public BaseViewModel CurrentViewModel
 		{
@@ -33,10 +34,15 @@ namespace MusicApp.ViewModels
 
 		public MainViewModel()
 		{
-			_youTubeService = new YouTubeService();
+			InitializeAsync();
+		}
+
+		private async void InitializeAsync()
+		{
+			MyYouTubeService = await MyYouTubeService.CreateYoutubeServiceAsync();
 			HomeViewModel = new HomeViewModel(this);
-			SearchViewModel = new SearchViewModel(this, _youTubeService);
-			PlayerViewModel = new PlayerViewModel(this, _youTubeService);
+			SearchViewModel = new SearchViewModel(this, MyYouTubeService);
+			PlayerViewModel = new PlayerViewModel(this, MyYouTubeService);
 
 			CurrentViewModel = HomeViewModel;
 		}

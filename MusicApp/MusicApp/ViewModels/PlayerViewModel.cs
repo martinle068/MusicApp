@@ -18,7 +18,7 @@ namespace MusicApp.ViewModels
 	public class PlayerViewModel : BaseViewModel
 	{
 		private readonly MainViewModel _mainViewModel;
-		private YouTubeService _youTubeService;
+		private MyYouTubeService _youTubeService;
 		private MediaPlayer _mediaPlayer;
 		private DispatcherTimer _timer;
 		private bool _isDragging;
@@ -146,7 +146,7 @@ namespace MusicApp.ViewModels
 		public ICommand NextCommand { get; }
 		public ICommand PreviousCommand { get; }
 
-		public PlayerViewModel(MainViewModel mainViewModel, YouTubeService ys)
+		public PlayerViewModel(MainViewModel mainViewModel, MyYouTubeService ys)
 		{
 			_mainViewModel = mainViewModel;
 			_youTubeService = ys;

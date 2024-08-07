@@ -25,7 +25,7 @@ namespace MusicApp.Models
 			Id = song.Id;
 			Artists = song.Artists;
 			Duration = song.Duration;
-			ArtistAndSongName = $"{Artists.First().Name} - {Name}";
+			ArtistAndSongName = GetArtistAndSongNameString();
 		}
 
 		private MySong(string name, string id, ShelfItem[] artists, TimeSpan duration)
@@ -34,7 +34,7 @@ namespace MusicApp.Models
 			Id = id;
 			Artists = artists;
 			Duration = duration;
-			ArtistAndSongName = $"{Artists.First().Name} - {Name}";
+			ArtistAndSongName = GetArtistAndSongNameString();
 		}
 
 		public static async Task<MySong> CreateAsync(SongVideoInfo songVideoInfo)
@@ -53,6 +53,11 @@ namespace MusicApp.Models
 				Thumbnail = await ThumbnailHelper.GetLowQualityThumbnailAsync(song.Id)
 			};
 			return mySong;
+		}
+
+		private string GetArtistAndSongNameString()
+		{
+			return $"{Artists.First().Name} - {Name}";
 		}
 	}
 }

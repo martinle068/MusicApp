@@ -16,7 +16,7 @@ namespace MusicApp.ViewModels
 	public class SearchViewModel : BaseViewModel
 	{
 		private readonly MainViewModel _mainViewModel;
-		private readonly YouTubeService _youTubeService;
+		private readonly MyYouTubeService _youTubeService;
 		private ObservableCollection<MySong> _songs;
 		private ObservableCollection<string> _songList;
 		private string _searchQuery = string.Empty;
@@ -61,7 +61,7 @@ namespace MusicApp.ViewModels
 		public ICommand SearchCommand { get; }
 		public ICommand BackCommand { get; }
 
-		public SearchViewModel(MainViewModel mainViewModel, YouTubeService ys)
+		public SearchViewModel(MainViewModel mainViewModel, MyYouTubeService ys)
 		{
 			_mainViewModel = mainViewModel;
 			_youTubeService = ys;
