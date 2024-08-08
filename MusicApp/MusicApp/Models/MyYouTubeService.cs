@@ -129,22 +129,21 @@ namespace MusicApp.Models
 		{
 			try
 			{
-				var playlistSongs = new List<MySong>();
 				var request = _googleYouTubeService.PlaylistItems.List("snippet,contentDetails");
 				request.PlaylistId = playlistId;
 				request.MaxResults = 200; // Maximum number of items to retrieve per request
 
 				var response = await request.ExecuteAsync();
 
-				foreach (var item in response.Items)
+				var tasks = response.Items.Select(async item =>
 				{
 					var itemInfo = await _youtubeMusicClient.GetSongVideoInfoAsync(item.ContentDetails.VideoId);
-
 					var song = await MySong.CreateAsync(itemInfo);
-					playlistSongs.Add(song);
-				}
+					return song;
+				});
 
-				return playlistSongs; 
+				var playlistSongs = await Task.WhenAll(tasks);
+				return playlistSongs.ToList();
 			}
 			catch (GoogleApiException ex)
 			{

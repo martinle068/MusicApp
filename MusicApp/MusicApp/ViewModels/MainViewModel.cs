@@ -1,5 +1,6 @@
 ﻿using Google.Apis.YouTube.v3;
 using MusicApp.Models;
+using MusicApp.Views;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -7,6 +8,7 @@ namespace MusicApp.ViewModels
 {
 	public class MainViewModel : BaseViewModel
 	{
+		public MainWindow MainWindow { get; private set; }
 		public MyYouTubeService MyYouTubeService { get; private set; }
 		public Stack<BaseViewModel> HistoryStack { get; set; } = new Stack<BaseViewModel>();
 		private BaseViewModel _currentViewModel;
@@ -32,9 +34,10 @@ namespace MusicApp.ViewModels
 			set => SetProperty(ref _isMiniPlayerVisible, value);
 		}
 
-		public MainViewModel()
+		public MainViewModel(MainWindow mv)
 		{
 			InitializeAsync();
+			MainWindow = mv;
 		}
 
 		private async void InitializeAsync()

@@ -64,7 +64,7 @@
 					</ListBox.ItemsPanel>
 					<ListBox.ItemTemplate>
 						<DataTemplate>
-							<StackPanel Margin="10" HorizontalAlignment="Center">
+							<StackPanel Margin="5" HorizontalAlignment="Center">
 								<Border Background="#333333" CornerRadius="10" Width="120" Height="120" HorizontalAlignment="Center">
 									<Image Source="{Binding Snippet.Thumbnails.Default__.Url}" Width="120" Height="120" Stretch="UniformToFill">
 										<Image.Clip>
@@ -72,7 +72,7 @@
 										</Image.Clip>
 									</Image>
 								</Border>
-								<TextBlock Text="{Binding Snippet.Title}" Foreground="White" TextAlignment="Center" Width="130" Margin="5,10,5,0"/>
+								<TextBlock Text="{Binding Snippet.Title}" Foreground="White" TextAlignment="Center" Width="130" Margin="0,5,0,0"/>
 							</StackPanel>
 						</DataTemplate>
 					</ListBox.ItemTemplate>

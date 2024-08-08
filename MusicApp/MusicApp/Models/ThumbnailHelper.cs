@@ -12,9 +12,26 @@ public class ThumbnailHelper
 {
 	public static async Task<BitmapImage> GetHighQualityThumbnailAsync(string songId)
 	{
-		var imageUrl = $"https://img.youtube.com/vi/{songId}/maxresdefault.jpg";
+		try
+		{
+			var imageUrl = $"https://img.youtube.com/vi/{songId}/maxresdefault.jpg";
 
-		return await GetSquareThumbnailAsync(imageUrl);
+			return await GetSquareThumbnailAsync(imageUrl);
+		}
+		catch (Exception)
+		{
+			try
+			{
+				return await GetMediumQualityThumbnailAsync(songId);
+			}
+			catch (Exception)
+			{
+				var imageUrl = $"https://img.youtube.com/vi/{songId}/0.jpg";
+
+				return await GetSquareThumbnailAsync(imageUrl);
+			}
+			
+		}
 	}
 
 	public static async Task<BitmapImage> GetMediumQualityThumbnailAsync(string songId)

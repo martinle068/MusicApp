@@ -153,6 +153,8 @@ namespace MusicApp.ViewModels
 			_mediaPlayer = new MediaPlayer();
 			_mediaPlayer.MediaOpened += MediaPlayer_MediaOpened;
 			_mediaPlayer.MediaEnded += MediaPlayer_MediaEnded; // Subscribe to MediaEnded event
+			_mediaPlayer.MediaFailed += MediaPlayer_MediaFailed;
+
 			_timer = new DispatcherTimer
 			{
 				Interval = TimeSpan.FromSeconds(1)
@@ -253,9 +255,6 @@ namespace MusicApp.ViewModels
 
 				_timer.Start();
 				PlayPauseText = "Pause";
-
-				// Show the mini player when a song starts playing
-				//_mainViewModel.IsMiniPlayerVisible = true;
 			}
 			catch (Exception ex)
 			{
@@ -272,6 +271,11 @@ namespace MusicApp.ViewModels
 				_mediaPlayer.Position = TimeSpan.Zero;
 				_timer.Start(); // Start the timer
 			}
+		}
+
+		private void MediaPlayer_MediaFailed(object sender, ExceptionEventArgs e)
+		{
+			MessageBox.Show($"Media playback failed: {e.ErrorException.Message}");
 		}
 
 		private void MediaPlayer_MediaEnded(object sender, EventArgs e)
