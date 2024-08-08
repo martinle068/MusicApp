@@ -12,6 +12,7 @@ using YoutubeExplode;
 using YoutubeExplode.Videos.Streams;
 using System.Windows;
 using YouTubeMusicAPI.Models;
+using MusicApp.Utils;
 
 namespace MusicApp.ViewModels
 {
@@ -55,8 +56,10 @@ namespace MusicApp.ViewModels
 			{
 				if (SetProperty(ref _selectedSongIndex, value))
 				{
+					var currentSong = SelectedSong;
 					SelectedSong = Songs?.ElementAtOrDefault(value);
-					if (SelectedSong != null)
+
+					if (SelectedSong != null && currentSong != SelectedSong)
 					{
 						PlaySelectedSong();
 					}
@@ -145,6 +148,7 @@ namespace MusicApp.ViewModels
 		public ICommand PlayPauseCommand { get; }
 		public ICommand NextCommand { get; }
 		public ICommand PreviousCommand { get; }
+		public ICommand ShuffleCommand { get; }
 
 		public PlayerViewModel(MainViewModel mainViewModel, MyYouTubeService ys)
 		{
@@ -169,6 +173,17 @@ namespace MusicApp.ViewModels
 			PlayPauseCommand = new RelayCommand(ExecutePlayPause);
 			NextCommand = new RelayCommand(ExecuteNext);
 			PreviousCommand = new RelayCommand(ExecutePrevious);
+			ShuffleCommand = new RelayCommand(ShuffleSongs);
+		}
+
+		private void ShuffleSongs(object parameter)
+		{
+			if (SelectedSong != null)
+			{
+				Songs.Shuffle();
+				Songs = new(Songs);
+				SelectedSongIndex = Songs.IndexOf(SelectedSong);
+			}
 		}
 
 		private void ExecutePlayPause(object parameter)

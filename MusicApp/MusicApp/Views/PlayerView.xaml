@@ -4,8 +4,8 @@
     x:Class="MusicApp.Views.PlayerView"
     xmlns:local="clr-namespace:MusicApp.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    mc:Ignorable="d"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:viewmodels="clr-namespace:MusicApp.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:PlayerViewModel}"
+	mc:Ignorable="d"
     d:DesignHeight="450" d:DesignWidth="800">
 
 	<Grid Background="#0D0D0D">
@@ -76,10 +76,11 @@
 		</Grid>
 
 		<StackPanel Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="10" HorizontalAlignment="Center">
+			<Button Content="&#128256;" Width="25" Command="{Binding ShuffleCommand}" ToolTip="Shuffle"/>
 			<Button Content="Previous" Width="60" Command="{Binding PreviousCommand}"/>
 			<Button Content="{Binding PlayPauseText}" Width="60" Command="{Binding PlayPauseCommand}" Margin="5,0"/>
 			<Button Content="Next" Width="60" Command="{Binding NextCommand}"/>
-			<Button Content="x" Width="20" Command="{Binding BackCommand}" Margin="5,0"/>
+			<Button Content="&#128315;" Width="20" Command="{Binding BackCommand}" Margin="5,0" ToolTip="Return"/>
 		</StackPanel>
 	</Grid>
 </UserControl>
