@@ -157,5 +157,37 @@ namespace MusicApp.Models
 				return null;
 			}
 		}
+
+		public async Task AddNewPlaylist(string title, string? description = null, string privacyStatus = "private")
+		{
+			try
+			{
+				var newPlaylist = new Playlist
+				{
+					Snippet = new PlaylistSnippet
+					{
+						Title = title,
+						Description = description ?? ""
+					},
+					Status = new PlaylistStatus
+					{
+						PrivacyStatus = privacyStatus == "public" ? "public" : "private"
+					}
+				};
+
+				var request = _googleYouTubeService.Playlists.Insert(newPlaylist, "snippet,status");
+				var response = await request.ExecuteAsync();
+				Console.WriteLine($"New playlist created. Title: {response.Snippet.Title}, PlaylistId: {response.Id}");
+			}
+			catch (GoogleApiException ex)
+			{
+				Console.WriteLine($"An API error occurred: {ex.Message}");
+				Console.WriteLine(ex.Error.Message);
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine($"An error occurred: {ex.Message}");
+			}
+		}
 	}
 }

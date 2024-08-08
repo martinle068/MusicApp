@@ -34,7 +34,7 @@
 			<Setter.Value>
 				<ControlTemplate TargetType="TextBox">
 					<Border CornerRadius="10" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1">
-						<ScrollViewer x:Name="PART_ContentHost" Padding="10,0,0,0"/>
+						<ScrollViewer x:Name="PART_ContentHost" Padding="5,0,0,0"/>
 					</Border>
 				</ControlTemplate>
 			</Setter.Value>
@@ -109,6 +109,9 @@
 				</ControlTemplate>
 			</Setter.Value>
 		</Setter>
+	</Style>
+	<Style TargetType="{x:Type ComboBox}">
+		<Setter Property="Background" Value="#333333"/>
 	</Style>
 
 	<DataTemplate DataType="{x:Type viewModels:HomeViewModel}">

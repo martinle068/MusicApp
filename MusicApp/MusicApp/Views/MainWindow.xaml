@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:MusicApp.Views"
         Title="MusicApp" Height="450" Width="800"
-        Background="#222222">
+        Background="#222222" WindowStartupLocation="CenterScreen">
 
 	<Grid>
 		<Grid.ColumnDefinitions>

@@ -5,6 +5,7 @@ using System.Windows.Input;
 using Google.Apis.YouTube.v3.Data;
 using MusicApp.Commands;
 using MusicApp.Models;
+using MusicApp.Views;
 using YoutubeExplode.Playlists;
 using Playlist = Google.Apis.YouTube.v3.Data.Playlist;
 
@@ -20,7 +21,7 @@ namespace MusicApp.ViewModels
 		public int SelectedPlaylistIndex
 		{
 			get => _selectedPlaylistIndex;
-			set 
+			set
 			{
 				SetProperty(ref _selectedPlaylistIndex, value);
 				HandlePlaylistSelectionAsync(value);
@@ -34,7 +35,7 @@ namespace MusicApp.ViewModels
 				if (Playlists.ElementAtOrDefault(index) is Playlist playlist)
 				{
 					var playlistItems = await _mainViewModel.MyYouTubeService.FetchPlaylistContentAsync(playlist.Id);
-					if (playlistItems == null) 
+					if (playlistItems == null)
 					{
 						MessageBox.Show("Failed to fetch playlist content.");
 						return;
@@ -62,7 +63,6 @@ namespace MusicApp.ViewModels
 			}
 		}
 
-
 		public string SearchQuery
 		{
 			get => _searchQuery;
@@ -76,12 +76,14 @@ namespace MusicApp.ViewModels
 		}
 
 		public ICommand SearchCommand { get; }
+		public ICommand AddPlaylistCommand { get; }
 
 		public HomeViewModel(MainViewModel mainViewModel)
 		{
 			_mainViewModel = mainViewModel;
 			Playlists = new ObservableCollection<Playlist>();
 			SearchCommand = new RelayCommand(async _ => await ExecuteSearch());
+			AddPlaylistCommand = new RelayCommand(OpenAddPlaylistDialog);
 			LoadPlaylists();
 		}
 
@@ -101,6 +103,36 @@ namespace MusicApp.ViewModels
 			foreach (var playlist in playlists)
 			{
 				Playlists.Add(playlist);
+			}
+		}
+
+		private void OpenAddPlaylistDialog(object parameter)
+		{
+			var dialog = new AddPlaylistDialog();
+			if (dialog.ShowDialog() == true)
+			{
+				AddNewPlaylist(dialog.PlaylistName, dialog.PlaylistDescription, dialog.PlaylistVisibility == "Public");
+			}
+		}
+
+		private async void AddNewPlaylist(string title, string description, bool isPublic)
+		{
+			try
+			{
+				var privacyStatus = isPublic ? "public" : "private";
+
+				await _mainViewModel.MyYouTubeService.AddNewPlaylist(title, description, privacyStatus);
+
+				await Task.Delay(5000); // Wait for the playlist to be created
+				LoadPlaylists();
+			}
+			catch (Google.GoogleApiException ex)
+			{
+				MessageBox.Show($"An API error occurred: {ex.Message}\n{ex.Error.Message}");
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show($"An error occurred: {ex.Message}");
 			}
 		}
 	}

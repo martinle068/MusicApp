@@ -988,3 +988,5 @@ C:\Users\leduc\source\repos\MusicApp\MusicApp\MusicApp\bin\Debug\net8.0-windows\
 C:\Users\leduc\source\repos\MusicApp\MusicApp\MusicApp\bin\Debug\net8.0-windows\LibVLCSharp.dll
 C:\Users\leduc\source\repos\MusicApp\MusicApp\MusicApp\bin\Debug\net8.0-windows\LibVLCSharp.WPF.dll
 C:\Users\leduc\source\repos\MusicApp\MusicApp\MusicApp\obj\Debug\net8.0-windows\MusicApp_Content.g.cs
+C:\Users\leduc\source\repos\MusicApp\MusicApp\MusicApp\obj\Debug\net8.0-windows\Views\AddPlaylistDialog.baml
+C:\Users\leduc\source\repos\MusicApp\MusicApp\MusicApp\obj\Debug\net8.0-windows\Views\AddPlaylistDialog.g.cs
