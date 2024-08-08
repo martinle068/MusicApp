@@ -1,4 +1,5 @@
 ﻿using MusicApp.ViewModels;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
@@ -18,6 +19,12 @@ namespace MusicApp.Views
 				var viewModel = DataContext as HomeViewModel;
 				viewModel?.SearchCommand.Execute(null);
 			}
+		}
+		private void ListViewScrollViewer_PreviewMouseWheel(object sender, System.Windows.Input.MouseWheelEventArgs e)
+		{
+			ScrollViewer scv = (ScrollViewer)sender;
+			scv.ScrollToVerticalOffset(scv.VerticalOffset - e.Delta / 4);
+			e.Handled = true;
 		}
 	}
 }

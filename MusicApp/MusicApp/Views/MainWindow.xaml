@@ -6,10 +6,14 @@
         Background="#222222">
 
 	<Grid>
-		<ContentControl Content="{Binding CurrentViewModel}" />
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="249*"/>
+			<ColumnDefinition Width="151*"/>
+		</Grid.ColumnDefinitions>
+		<ContentControl Content="{Binding CurrentViewModel}" Grid.ColumnSpan="2" />
 
 		<local:MiniPlayerView DataContext="{Binding PlayerViewModel}" 
-                              VerticalAlignment="Bottom">
+                              VerticalAlignment="Bottom" Grid.ColumnSpan="2">
 			<local:MiniPlayerView.Style>
 				<Style TargetType="local:MiniPlayerView">
 					<Setter Property="Visibility" Value="Collapsed" />

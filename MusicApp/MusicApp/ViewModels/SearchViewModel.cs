@@ -40,9 +40,10 @@ namespace MusicApp.ViewModels
 			{
 				if (SetProperty(ref _selectedSongIndex, value))
 				{
-					if (Songs.ElementAtOrDefault(value) is MySong selectedSong)
+					if (Songs.ElementAtOrDefault(value) is MySong)
 					{
 						_mainViewModel.PlayerViewModel.Songs = new(Songs); // Add all search results to the player
+						_mainViewModel.PlayerViewModel.SelectedSongIndex = -1;
 						_mainViewModel.PlayerViewModel.SelectedSongIndex = value;
 						//_mainViewModel.PlayerViewModel.PlaySelectedSong();
 						_mainViewModel.SwitchToPlayerView();

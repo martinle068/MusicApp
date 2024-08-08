@@ -92,5 +92,71 @@ namespace MusicApp.Models
 		{
 			return $"https://img.youtube.com/vi/{videoId}/maxresdefault.jpg";
 		}
+
+		public async Task<List<Playlist>> FetchAllPlaylistsAsync()
+		{
+			var playlists = new List<Playlist>();
+			string nextPageToken = null;
+
+			try
+			{
+				do
+				{
+					var request = _googleYouTubeService.Playlists.List("snippet");
+					request.Mine = true;
+					request.MaxResults = 10;
+					request.PageToken = nextPageToken;
+
+					var response = await request.ExecuteAsync();
+					playlists.AddRange(response.Items);
+					nextPageToken = response.NextPageToken;
+
+				} while (nextPageToken != null);
+			}
+			catch (GoogleApiException ex)
+			{
+				MessageBox.Show($"An API error occurred: {ex.Message}");
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show($"An error occurred: {ex.Message}");
+			}
+
+			return playlists;
+		}
+
+		public async Task<List<MySong>?> FetchPlaylistContentAsync(string playlistId)
+		{
+			try
+			{
+				var playlistSongs = new List<MySong>();
+				var request = _googleYouTubeService.PlaylistItems.List("snippet,contentDetails");
+				request.PlaylistId = playlistId;
+				request.MaxResults = 200; // Maximum number of items to retrieve per request
+
+				var response = await request.ExecuteAsync();
+
+				foreach (var item in response.Items)
+				{
+					var itemInfo = await _youtubeMusicClient.GetSongVideoInfoAsync(item.ContentDetails.VideoId);
+
+					var song = await MySong.CreateAsync(itemInfo);
+					playlistSongs.Add(song);
+				}
+
+				return playlistSongs; 
+			}
+			catch (GoogleApiException ex)
+			{
+				Console.WriteLine($"An API error occurred: {ex.Message}");
+				return null;
+
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine($"An error occurred: {ex.Message}");
+				return null;
+			}
+		}
 	}
 }
