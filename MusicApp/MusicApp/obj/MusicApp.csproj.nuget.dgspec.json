@@ -54,9 +54,21 @@
               "target": "Package",
               "version": "[1.68.0.3421, )"
             },
+            "LibVLCSharp": {
+              "target": "Package",
+              "version": "[3.8.5, )"
+            },
+            "LibVLCSharp.WPF": {
+              "target": "Package",
+              "version": "[3.8.5, )"
+            },
             "NAudio": {
               "target": "Package",
               "version": "[2.2.1, )"
+            },
+            "VideoLAN.LibVLC.Windows": {
+              "target": "Package",
+              "version": "[3.0.20, )"
             },
             "YouTubeMusicAPI": {
               "target": "Package",

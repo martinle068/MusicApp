@@ -9,7 +9,10 @@
       "MusicApp/1.0.0": {
         "dependencies": {
           "Google.Apis.YouTube.v3": "1.68.0.3421",
+          "LibVLCSharp": "3.8.5",
+          "LibVLCSharp.WPF": "3.8.5",
           "NAudio": "2.2.1",
+          "VideoLAN.LibVLC.Windows": "3.0.20",
           "YouTubeMusicAPI": "1.1.4",
           "YoutubeExplode": "6.4.0"
         },
@@ -72,6 +75,25 @@
           "lib/net6.0/Google.Apis.YouTube.v3.dll": {
             "assemblyVersion": "1.68.0.3421",
             "fileVersion": "1.68.0.3421"
+          }
+        }
+      },
+      "LibVLCSharp/3.8.5": {
+        "runtime": {
+          "lib/net6.0/LibVLCSharp.dll": {
+            "assemblyVersion": "3.8.5.0",
+            "fileVersion": "3.8.5.0"
+          }
+        }
+      },
+      "LibVLCSharp.WPF/3.8.5": {
+        "dependencies": {
+          "LibVLCSharp": "3.8.5"
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/LibVLCSharp.WPF.dll": {
+            "assemblyVersion": "3.8.5.0",
+            "fileVersion": "3.8.5.0"
           }
         }
       },
@@ -218,6 +240,7 @@
       },
       "System.Security.Principal.Windows/4.7.0": {},
       "System.Text.Encoding.CodePages/8.0.0": {},
+      "VideoLAN.LibVLC.Windows/3.0.20": {},
       "YoutubeExplode/6.4.0": {
         "dependencies": {
           "AngleSharp": "1.1.2"
@@ -283,6 +306,20 @@
       "sha512": "sha512-ToAWh6fpLCFO3iFLbCfRTY9MJp+gjJwPOF156e5i8FhcuWyAjXweLM3a541LWFB2cm+jfAZD0qKWnttZkU+EKQ==",
       "path": "google.apis.youtube.v3/1.68.0.3421",
       "hashPath": "google.apis.youtube.v3.1.68.0.3421.nupkg.sha512"
+    },
+    "LibVLCSharp/3.8.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-dO8YNU5La0wtUM7mUs+V5PBXF9bDTZ5jW+YB2u4cdq633Q+tHAX2HyJrUVaDhH2VvdPVFDghbKfH/GdvHdya6g==",
+      "path": "libvlcsharp/3.8.5",
+      "hashPath": "libvlcsharp.3.8.5.nupkg.sha512"
+    },
+    "LibVLCSharp.WPF/3.8.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-R+Z+X3IcwgyTUNKL5LtoPSNHH17+sP0KnRbwUY96lWYxk6xq0yBaI0CU4FlF0g7Dn3b4w+RGj0VqkeRZ2+lN4w==",
+      "path": "libvlcsharp.wpf/3.8.5",
+      "hashPath": "libvlcsharp.wpf.3.8.5.nupkg.sha512"
     },
     "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.1": {
       "type": "package",
@@ -402,6 +439,13 @@
       "sha512": "sha512-OZIsVplFGaVY90G2SbpgU7EnCoOO5pw1t4ic21dBF3/1omrJFpAGoNAVpPyMVOC90/hvgkGG3VFqR13YgZMQfg==",
       "path": "system.text.encoding.codepages/8.0.0",
       "hashPath": "system.text.encoding.codepages.8.0.0.nupkg.sha512"
+    },
+    "VideoLAN.LibVLC.Windows/3.0.20": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ahujCn2kTPJSLEpwXu2BHIyv9Ke/iahd367hFwMMHSP9UkSOYC5QekOGFrSxKz22yZP67arcfCgNgDIcV31DpQ==",
+      "path": "videolan.libvlc.windows/3.0.20",
+      "hashPath": "videolan.libvlc.windows.3.0.20.nupkg.sha512"
     },
     "YoutubeExplode/6.4.0": {
       "type": "package",

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "5emm7f6feg8=",
+  "dgSpecHash": "KerNPsueYRY=",
   "success": true,
   "projectFilePath": "C:\\Users\\leduc\\source\\repos\\MusicApp\\MusicApp\\MusicApp\\MusicApp.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,8 @@
     "C:\\Users\\leduc\\.nuget\\packages\\google.apis.auth\\1.68.0\\google.apis.auth.1.68.0.nupkg.sha512",
     "C:\\Users\\leduc\\.nuget\\packages\\google.apis.core\\1.68.0\\google.apis.core.1.68.0.nupkg.sha512",
     "C:\\Users\\leduc\\.nuget\\packages\\google.apis.youtube.v3\\1.68.0.3421\\google.apis.youtube.v3.1.68.0.3421.nupkg.sha512",
+    "C:\\Users\\leduc\\.nuget\\packages\\libvlcsharp\\3.8.5\\libvlcsharp.3.8.5.nupkg.sha512",
+    "C:\\Users\\leduc\\.nuget\\packages\\libvlcsharp.wpf\\3.8.5\\libvlcsharp.wpf.3.8.5.nupkg.sha512",
     "C:\\Users\\leduc\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.1\\microsoft.extensions.dependencyinjection.abstractions.8.0.1.nupkg.sha512",
     "C:\\Users\\leduc\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.1\\microsoft.extensions.logging.abstractions.8.0.1.nupkg.sha512",
     "C:\\Users\\leduc\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
@@ -26,6 +28,7 @@
     "C:\\Users\\leduc\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",
     "C:\\Users\\leduc\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512",
     "C:\\Users\\leduc\\.nuget\\packages\\system.text.encoding.codepages\\8.0.0\\system.text.encoding.codepages.8.0.0.nupkg.sha512",
+    "C:\\Users\\leduc\\.nuget\\packages\\videolan.libvlc.windows\\3.0.20\\videolan.libvlc.windows.3.0.20.nupkg.sha512",
     "C:\\Users\\leduc\\.nuget\\packages\\youtubeexplode\\6.4.0\\youtubeexplode.6.4.0.nupkg.sha512",
     "C:\\Users\\leduc\\.nuget\\packages\\youtubemusicapi\\1.1.4\\youtubemusicapi.1.1.4.nupkg.sha512"
   ],

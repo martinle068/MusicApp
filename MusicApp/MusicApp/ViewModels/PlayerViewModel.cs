@@ -1,18 +1,20 @@
 ﻿using System;
-using System.Collections.ObjectModel;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
+using LibVLCSharp.Shared;
 using MusicApp.Commands;
 using MusicApp.Models;
-using YouTubeMusicAPI.Client;
-using YoutubeExplode;
-using YoutubeExplode.Videos.Streams;
-using System.Windows;
-using YouTubeMusicAPI.Models;
 using MusicApp.Utils;
+using YouTubeMusicAPI.Client;
+using YouTubeMusicAPI.Models;
+using YoutubeExplode;
+using MediaPlayer = LibVLCSharp.Shared.MediaPlayer;
+
 
 namespace MusicApp.ViewModels
 {
@@ -20,6 +22,7 @@ namespace MusicApp.ViewModels
 	{
 		private readonly MainViewModel _mainViewModel;
 		private MyYouTubeService _youTubeService;
+		private LibVLC _libVLC;
 		private MediaPlayer _mediaPlayer;
 		private DispatcherTimer _timer;
 		private bool _isDragging;
@@ -139,11 +142,6 @@ namespace MusicApp.ViewModels
 			}
 		}
 
-		public bool IsSongLoaded
-		{
-			get => _mediaPlayer.Source != null;
-		}
-
 		public ICommand BackCommand { get; }
 		public ICommand PlayPauseCommand { get; }
 		public ICommand NextCommand { get; }
@@ -154,16 +152,21 @@ namespace MusicApp.ViewModels
 		{
 			_mainViewModel = mainViewModel;
 			_youTubeService = ys;
-			_mediaPlayer = new MediaPlayer();
-			_mediaPlayer.MediaOpened += MediaPlayer_MediaOpened;
-			_mediaPlayer.MediaEnded += MediaPlayer_MediaEnded; // Subscribe to MediaEnded event
-			_mediaPlayer.MediaFailed += MediaPlayer_MediaFailed;
+
+			Core.Initialize();
+			_libVLC = new LibVLC();
+			_mediaPlayer = new MediaPlayer(_libVLC);
+
+			_mediaPlayer.Playing += MediaPlayer_Playing;
+			_mediaPlayer.EndReached += MediaPlayer_EndReached;
+			_mediaPlayer.EncounteredError += MediaPlayer_EncounteredError;
 
 			_timer = new DispatcherTimer
 			{
 				Interval = TimeSpan.FromSeconds(1)
 			};
 			_timer.Tick += Timer_Tick;
+
 			Songs = new List<MySong>();
 
 			PlayPauseText = "Play";
@@ -228,7 +231,7 @@ namespace MusicApp.ViewModels
 			}
 			else
 			{
-				_mediaPlayer.Position = TimeSpan.Zero;
+				_mediaPlayer.Time = 0;
 			}
 		}
 
@@ -260,7 +263,7 @@ namespace MusicApp.ViewModels
 					return;
 				}
 
-				_mediaPlayer.Open(new Uri(audioUrl));
+				_mediaPlayer.Media = new Media(_libVLC, new Uri(audioUrl));
 				_mediaPlayer.Play();
 				IsPlaying = true;
 
@@ -277,56 +280,54 @@ namespace MusicApp.ViewModels
 			}
 		}
 
-		private void MediaPlayer_MediaOpened(object sender, EventArgs e)
+		private void MediaPlayer_Playing(object sender, EventArgs e)
 		{
-			if (_mediaPlayer.NaturalDuration.HasTimeSpan)
+			if (_mediaPlayer.Media != null && _mediaPlayer.Media.Duration > 0)
 			{
-				TotalTime = _mediaPlayer.NaturalDuration.TimeSpan.TotalSeconds; // Set total time in seconds
-				SliderValue = 0; // Reset the slider value
-				_mediaPlayer.Position = TimeSpan.Zero;
-				_timer.Start(); // Start the timer
+				TotalTime = _mediaPlayer.Media.Duration / 1000.0;
+				SliderValue = 0;
 			}
 		}
 
-		private void MediaPlayer_MediaFailed(object sender, ExceptionEventArgs e)
-		{
-			MessageBox.Show($"Media playback failed: {e.ErrorException.Message}");
-		}
-
-		private void MediaPlayer_MediaEnded(object sender, EventArgs e)
+		private void MediaPlayer_EndReached(object sender, EventArgs e)
 		{
 			ExecuteNext(null);
 		}
 
+		private void MediaPlayer_EncounteredError(object sender, EventArgs e)
+		{
+			MessageBox.Show("Media playback encountered an error.");
+		}
+
 		private void Timer_Tick(object sender, EventArgs e)
 		{
-			if (!_isDragging && _mediaPlayer.Source != null)
+			if (!_isDragging && _mediaPlayer.Media != null)
 			{
-				SliderValue = _mediaPlayer.Position.TotalSeconds; // Update the slider value
-				CurrentTime = _mediaPlayer.Position.ToString(@"mm\:ss");
+				SliderValue = _mediaPlayer.Time / 1000.0;
+				CurrentTime = TimeSpan.FromMilliseconds(_mediaPlayer.Time).ToString(@"mm\:ss");
 			}
 		}
 
-		public void TrackBarSeek_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+		public void TrackBarSeek_PreviewMouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
 		{
-			if (_mediaPlayer.Source != null)
+			if (_mediaPlayer.Media != null)
 			{
 				_isDragging = true;
 			}
 		}
 
-		public void TrackBarSeek_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+		public void TrackBarSeek_PreviewMouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
 		{
-			if (_mediaPlayer.Source != null)
+			if (_mediaPlayer.Media != null)
 			{
 				_isDragging = false;
-				_mediaPlayer.Position = TimeSpan.FromSeconds(SliderValue);
+				_mediaPlayer.Time = (long)SliderValue * 1000;
 			}
 		}
 
-		public void TrackBarSeek_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+		public void TrackBarSeek_ValueChanged(object sender, System.Windows.RoutedPropertyChangedEventArgs<double> e)
 		{
-			if (_isDragging && _mediaPlayer.Source != null)
+			if (_isDragging && _mediaPlayer.Media != null)
 			{
 				CurrentTime = TimeSpan.FromSeconds(SliderValue).ToString(@"mm\:ss");
 			}
