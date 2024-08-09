@@ -57,34 +57,40 @@
 				<!-- First row of playlists -->
 				<TextBlock Text="Your Playlists" Foreground="White" Margin="10,0,0,0" Grid.Row="0"/>
 
-				<ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" >
-					<StackPanel Orientation="Horizontal">
-						<ListBox ItemsSource="{Binding Playlists}" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Disabled" BorderThickness="0" Background="Transparent" SelectedIndex="{Binding SelectedPlaylistIndex}">
-							<ListBox.ItemsPanel>
-								<ItemsPanelTemplate>
-									<StackPanel Orientation="Horizontal" />
-								</ItemsPanelTemplate>
-							</ListBox.ItemsPanel>
-							<ListBox.ItemTemplate>
-								<DataTemplate>
-									<StackPanel Margin="5" HorizontalAlignment="Center">
-										<Border Background="#333333" CornerRadius="10" Width="120" Height="120" HorizontalAlignment="Center">
-											<Image Source="{Binding Snippet.Thumbnails.Standard.Url}" Width="120" Height="120" Stretch="UniformToFill">
-												<Image.Clip>
-													<RectangleGeometry Rect="0,0,120,120" RadiusX="10" RadiusY="10"/>
-												</Image.Clip>
-											</Image>
-										</Border>
-										<TextBlock Text="{Binding Snippet.Title}" Foreground="White" TextAlignment="Center" Width="130" Margin="0,5,0,0"/>
-									</StackPanel>
-								</DataTemplate>
-							</ListBox.ItemTemplate>
-						</ListBox>
+				<ListBox ItemsSource="{Binding Playlists}"
+         ScrollViewer.HorizontalScrollBarVisibility="Auto"
+         ScrollViewer.VerticalScrollBarVisibility="Disabled"
+         BorderThickness="0"
+         Background="Transparent"
+         SelectedIndex="{Binding SelectedPlaylistIndex}"
+         PreviewMouseLeftButtonUp="ListBoxItem_PreviewMouseLeftButtonUp">
 
-						<!-- Button at the end of the list -->
-						<Button Content="Add Playlist" Width="80" Height="20" Margin="5" Command="{Binding AddPlaylistCommand}"/>
-					</StackPanel>
-				</ScrollViewer>
+					<ListBox.ItemsPanel>
+						<ItemsPanelTemplate>
+							<StackPanel Orientation="Horizontal" />
+						</ItemsPanelTemplate>
+					</ListBox.ItemsPanel>
+
+					<ListBox.ItemTemplate>
+						<DataTemplate>
+							<StackPanel Margin="10" HorizontalAlignment="Center">
+								<Border Background="#333333" CornerRadius="10" Width="120" Height="120" HorizontalAlignment="Center">
+									<Image Source="{Binding Snippet.Thumbnails.Default__.Url}" Width="120" Height="120" Stretch="UniformToFill">
+										<Image.Clip>
+											<RectangleGeometry Rect="0,0,120,120" RadiusX="10" RadiusY="10"/>
+										</Image.Clip>
+									</Image>
+								</Border>
+								<TextBlock Text="{Binding Snippet.Title}" Foreground="White" TextAlignment="Center" Width="130" Margin="5,10,5,0"/>
+
+							</StackPanel>
+						</DataTemplate>
+					</ListBox.ItemTemplate>
+				</ListBox>
+
+
+				<!-- Button at the end of the list -->
+				<Button Content="Add Playlist" Width="80" Height="20" Margin="5" Command="{Binding AddPlaylistCommand}"/>
 
 				<!-- Second row of playlists -->
 				<TextBlock Text="Row 2" Foreground="White" Margin="10,20,0,0"/>
@@ -130,6 +136,7 @@
 								<TextBlock Text="{Binding Snippet.Title}" Foreground="White" TextAlignment="Center" Width="130" Margin="5,10,5,0"/>
 							</StackPanel>
 						</DataTemplate>
+						
 					</ListBox.ItemTemplate>
 				</ListBox>
 				<TextBlock Text="Row 3" Foreground="White" Margin="10,20,0,0"/>

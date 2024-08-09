@@ -11,7 +11,7 @@
 			<ColumnDefinition Width="151*"/>
 		</Grid.ColumnDefinitions>
 		<ContentControl Content="{Binding CurrentViewModel}" Grid.ColumnSpan="2" />
-		
+
 		<local:MiniPlayerView DataContext="{Binding PlayerViewModel}" 
                               VerticalAlignment="Bottom" Grid.ColumnSpan="2">
 			<local:MiniPlayerView.Style>

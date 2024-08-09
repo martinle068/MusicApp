@@ -26,5 +26,10 @@ namespace MusicApp.Views
 			scv.ScrollToVerticalOffset(scv.VerticalOffset - e.Delta / 4);
 			e.Handled = true;
 		}
+		private void ListBoxItem_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+		{
+			var viewModel = DataContext as HomeViewModel;
+			viewModel?.SelectPlaylistCommand.Execute(null);
+		}
 	}
 }

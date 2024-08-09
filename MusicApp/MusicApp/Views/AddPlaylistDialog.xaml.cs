@@ -27,6 +27,7 @@ namespace MusicApp.Views
 			PlaylistVisibility = ((ComboBoxItem)PlaylistVisibilityComboBox.SelectedItem).Content.ToString();
 			DialogResult = true;
 			Close();
+
 		}
 	}
 }

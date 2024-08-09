@@ -147,13 +147,13 @@ namespace MusicApp.Models
 			}
 			catch (GoogleApiException ex)
 			{
-				Console.WriteLine($"An API error occurred: {ex.Message}");
+				MessageBox.Show($"An API error occurred: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 				return null;
 
 			}
 			catch (Exception ex)
 			{
-				Console.WriteLine($"An error occurred: {ex.Message}");
+				MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 				return null;
 			}
 		}
@@ -177,17 +177,36 @@ namespace MusicApp.Models
 
 				var request = _googleYouTubeService.Playlists.Insert(newPlaylist, "snippet,status");
 				var response = await request.ExecuteAsync();
-				Console.WriteLine($"New playlist created. Title: {response.Snippet.Title}, PlaylistId: {response.Id}");
+				MessageBox.Show($"New playlist created. Title: {response.Snippet.Title}, PlaylistId: {response.Id}", "Playlist Created", MessageBoxButton.OK, MessageBoxImage.Information);
 			}
 			catch (GoogleApiException ex)
 			{
-				Console.WriteLine($"An API error occurred: {ex.Message}");
-				Console.WriteLine(ex.Error.Message);
+				MessageBox.Show($"An API error occurred: {ex.Message}\n{ex.Error.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 			}
 			catch (Exception ex)
 			{
-				Console.WriteLine($"An error occurred: {ex.Message}");
+				MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 			}
 		}
+
+
+		public async Task DeletePlaylistAsync(string playlistId)
+		{
+			try
+			{
+				var request = _googleYouTubeService.Playlists.Delete(playlistId);
+				await request.ExecuteAsync();
+				MessageBox.Show($"Playlist with ID {playlistId} deleted.", "Playlist Deleted", MessageBoxButton.OK, MessageBoxImage.Information);
+			}
+			catch (GoogleApiException ex)
+			{
+				MessageBox.Show($"An API error occurred: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+			}
+		}
+
 	}
 }

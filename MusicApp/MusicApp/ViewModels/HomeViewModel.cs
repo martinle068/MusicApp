@@ -24,15 +24,15 @@ namespace MusicApp.ViewModels
 			set
 			{
 				SetProperty(ref _selectedPlaylistIndex, value);
-				HandlePlaylistSelectionAsync(value);
+				//HandlePlaylistSelectionAsync(value);
 			}
 		}
 
-		private async void HandlePlaylistSelectionAsync(int index)
+		private async Task HandlePlaylistSelectionAsync()
 		{
 			try
 			{
-				if (Playlists.ElementAtOrDefault(index) is Playlist playlist)
+				if (Playlists.ElementAtOrDefault(SelectedPlaylistIndex) is Playlist playlist)
 				{
 					var playlistItems = await _mainViewModel.MyYouTubeService.FetchPlaylistContentAsync(playlist.Id);
 					if (playlistItems == null)
@@ -77,6 +77,7 @@ namespace MusicApp.ViewModels
 
 		public ICommand SearchCommand { get; }
 		public ICommand AddPlaylistCommand { get; }
+		public ICommand SelectPlaylistCommand { get;}
 
 		public HomeViewModel(MainViewModel mainViewModel)
 		{
@@ -84,6 +85,8 @@ namespace MusicApp.ViewModels
 			Playlists = new ObservableCollection<Playlist>();
 			SearchCommand = new RelayCommand(async _ => await ExecuteSearch());
 			AddPlaylistCommand = new RelayCommand(OpenAddPlaylistDialog);
+			SelectPlaylistCommand = new RelayCommand(async _ => await HandlePlaylistSelectionAsync());
+			DeletePlaylistCommand = new RelayCommand(ExecuteDeletePlaylist);
 			LoadPlaylists();
 		}
 
@@ -135,5 +138,43 @@ namespace MusicApp.ViewModels
 				MessageBox.Show($"An error occurred: {ex.Message}");
 			}
 		}
+
+		public ICommand DeletePlaylistCommand { get; }
+
+		private void ExecuteDeletePlaylist(object parameter)
+		{
+			if (parameter is Playlist playlist)
+			{
+				var result = MessageBox.Show($"Are you sure you want to delete the playlist \"{playlist.Snippet.Title}\"?", "Confirm Deletion", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+				if (result == MessageBoxResult.Yes)
+				{
+					DeletePlaylist(playlist);
+				}
+			}
+		}
+
+		private async void DeletePlaylist(Playlist playlist)
+		{
+			if (playlist == null)
+			{
+				return;
+			}
+
+			var index = Playlists.IndexOf(playlist);
+			try
+			{
+				await _mainViewModel.MyYouTubeService.DeletePlaylistAsync(playlist.Id);
+				Playlists.RemoveAt(index);
+			}
+			catch (Google.GoogleApiException ex)
+			{
+				MessageBox.Show($"An API error occurred: {ex.Message}\n{ex.Error.Message}");
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show($"An error occurred: {ex.Message}");
+			}
+		}
+
 	}
 }
