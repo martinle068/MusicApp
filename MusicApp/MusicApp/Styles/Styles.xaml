@@ -110,10 +110,7 @@
 			</Setter.Value>
 		</Setter>
 	</Style>
-	<Style TargetType="{x:Type ComboBox}">
-		<Setter Property="Background" Value="#333333"/>
-	</Style>
-
+	
 	<DataTemplate DataType="{x:Type viewModels:HomeViewModel}">
 		<views:HomeView />
 	</DataTemplate>

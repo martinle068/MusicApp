@@ -78,6 +78,7 @@ namespace MusicApp.ViewModels
 		public ICommand SearchCommand { get; }
 		public ICommand AddPlaylistCommand { get; }
 		public ICommand SelectPlaylistCommand { get;}
+		public ICommand DeletePlaylistCommand { get; }
 
 		public HomeViewModel(MainViewModel mainViewModel)
 		{
@@ -138,8 +139,6 @@ namespace MusicApp.ViewModels
 				MessageBox.Show($"An error occurred: {ex.Message}");
 			}
 		}
-
-		public ICommand DeletePlaylistCommand { get; }
 
 		private void ExecuteDeletePlaylist(object parameter)
 		{

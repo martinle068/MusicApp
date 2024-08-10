@@ -58,12 +58,12 @@
 				<TextBlock Text="Your Playlists" Foreground="White" Margin="10,0,0,0" Grid.Row="0"/>
 
 				<ListBox ItemsSource="{Binding Playlists}"
-         ScrollViewer.HorizontalScrollBarVisibility="Auto"
-         ScrollViewer.VerticalScrollBarVisibility="Disabled"
-         BorderThickness="0"
-         Background="Transparent"
-         SelectedIndex="{Binding SelectedPlaylistIndex}"
-         PreviewMouseLeftButtonUp="ListBoxItem_PreviewMouseLeftButtonUp">
+					 ScrollViewer.HorizontalScrollBarVisibility="Auto"
+					 ScrollViewer.VerticalScrollBarVisibility="Disabled"
+					 BorderThickness="0"
+					 Background="Transparent"
+					 SelectedIndex="{Binding SelectedPlaylistIndex}"
+					 PreviewMouseLeftButtonUp="ListBoxItem_PreviewMouseLeftButtonUp">
 
 					<ListBox.ItemsPanel>
 						<ItemsPanelTemplate>
@@ -82,85 +82,18 @@
 									</Image>
 								</Border>
 								<TextBlock Text="{Binding Snippet.Title}" Foreground="White" TextAlignment="Center" Width="130" Margin="5,10,5,0"/>
-
+								<StackPanel.ContextMenu>
+									<ContextMenu>
+										<MenuItem Header="Delete" Click="blabla"/>
+									</ContextMenu>
+								</StackPanel.ContextMenu>
 							</StackPanel>
 						</DataTemplate>
 					</ListBox.ItemTemplate>
 				</ListBox>
-
 
 				<!-- Button at the end of the list -->
 				<Button Content="Add Playlist" Width="80" Height="20" Margin="5" Command="{Binding AddPlaylistCommand}"/>
-
-				<!-- Second row of playlists -->
-				<TextBlock Text="Row 2" Foreground="White" Margin="10,20,0,0"/>
-				<ListBox ItemsSource="{Binding Playlists}" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Disabled" BorderThickness="0" Background="Transparent">
-					<ListBox.ItemsPanel>
-						<ItemsPanelTemplate>
-							<StackPanel Orientation="Horizontal" />
-						</ItemsPanelTemplate>
-					</ListBox.ItemsPanel>
-					<ListBox.ItemTemplate>
-						<DataTemplate>
-							<StackPanel Margin="10" HorizontalAlignment="Center">
-								<Border Background="#333333" CornerRadius="10" Width="120" Height="120" HorizontalAlignment="Center">
-									<Image Source="{Binding Snippet.Thumbnails.Default__.Url}" Width="120" Height="120" Stretch="UniformToFill">
-										<Image.Clip>
-											<RectangleGeometry Rect="0,0,120,120" RadiusX="10" RadiusY="10"/>
-										</Image.Clip>
-									</Image>
-								</Border>
-								<TextBlock Text="{Binding Snippet.Title}" Foreground="White" TextAlignment="Center" Width="130" Margin="5,10,5,0"/>
-							</StackPanel>
-						</DataTemplate>
-					</ListBox.ItemTemplate>
-				</ListBox>
-
-				<TextBlock Text="Row 3" Foreground="White" Margin="10,20,0,0"/>
-				<ListBox ItemsSource="{Binding Playlists}" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Disabled" BorderThickness="0" Background="Transparent">
-					<ListBox.ItemsPanel>
-						<ItemsPanelTemplate>
-							<StackPanel Orientation="Horizontal" />
-						</ItemsPanelTemplate>
-					</ListBox.ItemsPanel>
-					<ListBox.ItemTemplate>
-						<DataTemplate>
-							<StackPanel Margin="10" HorizontalAlignment="Center">
-								<Border Background="#333333" CornerRadius="10" Width="120" Height="120" HorizontalAlignment="Center">
-									<Image Source="{Binding Snippet.Thumbnails.Default__.Url}" Width="120" Height="120" Stretch="UniformToFill">
-										<Image.Clip>
-											<RectangleGeometry Rect="0,0,120,120" RadiusX="10" RadiusY="10"/>
-										</Image.Clip>
-									</Image>
-								</Border>
-								<TextBlock Text="{Binding Snippet.Title}" Foreground="White" TextAlignment="Center" Width="130" Margin="5,10,5,0"/>
-							</StackPanel>
-						</DataTemplate>
-						
-					</ListBox.ItemTemplate>
-				</ListBox>
-				<TextBlock Text="Row 3" Foreground="White" Margin="10,20,0,0"/>
-				<ListBox ItemsSource="{Binding Playlists}" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Disabled" BorderThickness="0" Background="Transparent">
-					<ListBox.ItemsPanel>
-						<ItemsPanelTemplate>
-							<StackPanel Orientation="Horizontal" />
-						</ItemsPanelTemplate>
-					</ListBox.ItemsPanel>
-					<ListBox.ItemTemplate>
-						<DataTemplate>
-							<StackPanel Margin="10" HorizontalAlignment="Center">
-								<Border Background="#333333" CornerRadius="10" Width="120" Height="120" HorizontalAlignment="Center">
-									<Image Source="{Binding Snippet.Thumbnails.Default__.Url}" Width="120" Height="120" Stretch="UniformToFill">
-										<Image.Clip>
-											<RectangleGeometry Rect="0,0,120,120" RadiusX="10" RadiusY="10"/>
-										</Image.Clip>
-									</Image>
-								</Border>
-								<TextBlock Text="{Binding Snippet.Title}" Foreground="White" TextAlignment="Center" Width="130" Margin="5,10,5,0"/>
-							</StackPanel>
-						</DataTemplate>
-					</ListBox.ItemTemplate>
-				</ListBox>
 			</StackPanel>
 		</ScrollViewer>
 	</Grid>

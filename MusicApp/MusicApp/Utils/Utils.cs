@@ -1,10 +1,14 @@
 ﻿using MusicApp.Models;
+using MusicApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
+using System.Windows;
 using YouTubeMusicAPI.Models;
+using Google.Apis.YouTube.v3.Data;
 
 namespace MusicApp.Utils
 {
@@ -31,6 +35,23 @@ namespace MusicApp.Utils
 		public static string SongToString(MySong song)
 		{
 			return $" {song.Artists.First().Name} - {song.Name}";
+		}
+
+		public static Playlist? GetPlaylistFromMenuItem(object sender)
+		{
+			if (sender is MenuItem menuItem)
+			{
+				var contextMenu = menuItem.Parent as ContextMenu;
+
+				if (contextMenu != null)
+				{
+					if (contextMenu.PlacementTarget is FrameworkElement placementTarget)
+					{
+						return placementTarget.DataContext as Playlist;
+					}
+				}
+			}
+			return null;
 		}
 	}
 }

@@ -53,5 +53,10 @@ namespace MusicApp.Views
 				viewModel.TrackBarSeek_ValueChanged(sender, e);
 			}
 		}
+
+		private void blabla(object sender, MouseButtonEventArgs e)
+		{
+			MessageBox.Show("blabla");
+		}
 	}
 }

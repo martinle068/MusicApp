@@ -2,6 +2,8 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using Google.Apis.YouTube.v3.Data;
+using static MusicApp.Utils.Utils;
 
 namespace MusicApp.Views
 {
@@ -30,6 +32,21 @@ namespace MusicApp.Views
 		{
 			var viewModel = DataContext as HomeViewModel;
 			viewModel?.SelectPlaylistCommand.Execute(null);
+		}
+
+		private void ExecuteDeletePlaylistCommand(object sender)
+		{
+			var playlist = GetPlaylistFromMenuItem(sender);
+			if (playlist != null)
+			{
+				var viewModel = DataContext as HomeViewModel;
+				viewModel?.DeletePlaylistCommand.Execute(playlist);
+			}
+		}
+
+		private void blabla(object sender, RoutedEventArgs e)
+		{
+			ExecuteDeletePlaylistCommand(sender);
 		}
 	}
 }
