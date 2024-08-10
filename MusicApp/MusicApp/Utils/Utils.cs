@@ -54,6 +54,9 @@ namespace MusicApp.Utils
 			return null;
 		}
 
-		
+		public static string GetInfoString(string name)
+		{
+			return $"Playing from {name}";
+		}
 	}
 }

@@ -45,7 +45,7 @@ namespace MusicApp.ViewModels
 						_mainViewModel.PlayerViewModel.Songs = new(Songs); // Add all search results to the player
 						_mainViewModel.PlayerViewModel.SelectedSongIndex = -1;
 						_mainViewModel.PlayerViewModel.SelectedSongIndex = value;
-						//_mainViewModel.PlayerViewModel.PlaySelectedSong();
+						_mainViewModel.PlayerViewModel.InfoText = GetInfoString("Queue");
 						_mainViewModel.SwitchToPlayerView();
 						SelectedSongIndex = -1;
 					}

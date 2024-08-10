@@ -40,6 +40,13 @@ namespace MusicApp.ViewModels
 		private string _playPauseText;
 		private int _selectedSongIndex = -1;
 		private bool _isSongSelected;
+		private string _infoText;
+
+		public string InfoText
+		{
+			get => _infoText;
+			set => SetProperty(ref _infoText, value);
+		}
 
 		public List<MySong> Songs
 		{

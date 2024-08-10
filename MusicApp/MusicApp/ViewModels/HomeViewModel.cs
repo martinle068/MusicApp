@@ -8,6 +8,7 @@ using MusicApp.Models;
 using MusicApp.Views;
 using YoutubeExplode.Playlists;
 using Playlist = Google.Apis.YouTube.v3.Data.Playlist;
+using static MusicApp.Utils.Utils;
 
 namespace MusicApp.ViewModels
 {
@@ -59,6 +60,7 @@ namespace MusicApp.ViewModels
 					_mainViewModel.PlayerViewModel.Songs = playlistItems;
 					_mainViewModel.PlayerViewModel.SelectedSongIndex = -1;
 					_mainViewModel.PlayerViewModel.SelectedSongIndex = 0;
+					_mainViewModel.PlayerViewModel.InfoText = GetInfoString(playlist.Snippet.Title);
 					_mainViewModel.SwitchToPlayerView();
 				}
 			}
