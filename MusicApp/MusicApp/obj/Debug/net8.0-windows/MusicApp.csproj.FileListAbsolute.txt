@@ -990,3 +990,5 @@ C:\Users\leduc\source\repos\MusicApp\MusicApp\MusicApp\obj\Debug\net8.0-windows\
 C:\Users\leduc\source\repos\MusicApp\MusicApp\MusicApp\obj\Debug\net8.0-windows\MusicApp.pdb
 C:\Users\leduc\source\repos\MusicApp\MusicApp\MusicApp\obj\Debug\net8.0-windows\MusicApp.genruntimeconfig.cache
 C:\Users\leduc\source\repos\MusicApp\MusicApp\MusicApp\obj\Debug\net8.0-windows\ref\MusicApp.dll
+C:\Users\leduc\source\repos\MusicApp\MusicApp\MusicApp\obj\Debug\net8.0-windows\Views\PlaylistSelectionDialog.baml
+C:\Users\leduc\source\repos\MusicApp\MusicApp\MusicApp\obj\Debug\net8.0-windows\Views\PlaylistSelectionDialog.g.cs

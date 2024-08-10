@@ -81,8 +81,9 @@ namespace MusicApp.Models
 			return mySongs.ToList();
 		}
 
-		public async Task<string?> GetAudioStreamUrlAsync(string videoId)
+		public async Task<string?> GetAudioStreamUrlAsync(string songId)
 		{
+			var videoId = YoutubeExplode.Videos.VideoId.Parse(songId);
 			var streamManifest = await _youtubeClient.Videos.Streams.GetManifestAsync(videoId);
 			var audioStreamInfo = streamManifest.GetAudioOnlyStreams().GetWithHighestBitrate();
 			return audioStreamInfo?.Url;
@@ -208,5 +209,30 @@ namespace MusicApp.Models
 			}
 		}
 
+		public async Task AddSongToPlaylist(Playlist playlist, MySong song)
+		{
+			try
+			{
+				var newPlaylistItem = new PlaylistItem
+				{
+					Snippet = new PlaylistItemSnippet
+					{
+						PlaylistId = playlist.Id,
+						ResourceId = new ResourceId
+						{
+							Kind = "youtube#video",
+							VideoId = song.Id
+						}
+					}
+				};
+
+				var request = _googleYouTubeService.PlaylistItems.Insert(newPlaylistItem, "snippet");
+				await request.ExecuteAsync();
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show($"Failed to add song to playlist: {ex.Message}");
+			}
+		}
 	}
 }

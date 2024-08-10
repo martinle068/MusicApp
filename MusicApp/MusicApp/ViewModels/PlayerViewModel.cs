@@ -14,6 +14,7 @@ using YouTubeMusicAPI.Client;
 using YouTubeMusicAPI.Models;
 using YoutubeExplode;
 using MediaPlayer = LibVLCSharp.Shared.MediaPlayer;
+using MusicApp.Views;
 
 
 namespace MusicApp.ViewModels
@@ -147,6 +148,7 @@ namespace MusicApp.ViewModels
 		public ICommand NextCommand { get; }
 		public ICommand PreviousCommand { get; }
 		public ICommand ShuffleCommand { get; }
+		public ICommand AddSongToPlaylistCommand { get; }
 
 		public PlayerViewModel(MainViewModel mainViewModel, MyYouTubeService ys)
 		{
@@ -176,10 +178,51 @@ namespace MusicApp.ViewModels
 			PlayPauseCommand = new RelayCommand(ExecutePlayPause);
 			NextCommand = new RelayCommand(ExecuteNext);
 			PreviousCommand = new RelayCommand(ExecutePrevious);
-			ShuffleCommand = new RelayCommand(ShuffleSongs);
+			ShuffleCommand = new RelayCommand(ExecuteShuffleSongs);
+			AddSongToPlaylistCommand = new RelayCommand(ExecuteAddSongToPlaylist);
 		}
 
-		private void ShuffleSongs(object parameter)
+
+		private void ExecuteAddSongToPlaylist(object parameter)
+		{
+			AddSongToPlaylist(parameter);
+		}
+
+		private async void AddSongToPlaylist(object parameter)
+		{
+			if (parameter is MySong song)
+			{
+				var dialog = new PlaylistSelectionDialog(_mainViewModel.HomeViewModel.Playlists);
+				var selectedPlaylist = dialog.SelectPlaylist();
+
+				if (selectedPlaylist != null)
+				{
+					await _mainViewModel.MyYouTubeService.AddSongToPlaylist(selectedPlaylist, song);
+
+					if (_mainViewModel.HomeViewModel.SelectedPlaylist == selectedPlaylist)
+					{
+						var result = await _mainViewModel.MyYouTubeService.FetchPlaylistContentAsync(selectedPlaylist.Id);
+						if (result != null)
+						{
+							Songs = result;
+							SelectedSongIndex = -1;
+							SelectedSongIndex = Songs.IndexOf(song);
+						}
+					}
+				}
+				else
+				{
+					MessageBox.Show("No playlist selected");
+				}
+			}
+			else
+			{
+				MessageBox.Show("Song is null");
+			}
+		}
+
+
+		private void ExecuteShuffleSongs(object parameter)
 		{
 			if (SelectedSong != null)
 			{
@@ -250,12 +293,12 @@ namespace MusicApp.ViewModels
 			}
 
 			IsSongSelected = true;
-			string youtubeVideoUrl = SelectedSong.Id;
+			string songId = SelectedSong.Id;
 
 			try
 			{
-				var videoId = YoutubeExplode.Videos.VideoId.Parse(youtubeVideoUrl);
-				var audioUrl = await _youTubeService.GetAudioStreamUrlAsync(videoId);
+				
+				var audioUrl = await _youTubeService.GetAudioStreamUrlAsync(songId);
 
 				if (audioUrl == null)
 				{

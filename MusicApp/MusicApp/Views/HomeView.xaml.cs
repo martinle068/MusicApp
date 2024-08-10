@@ -36,7 +36,7 @@ namespace MusicApp.Views
 
 		private void ExecuteDeletePlaylistCommand(object sender)
 		{
-			var playlist = GetPlaylistFromMenuItem(sender);
+			var playlist = GetItemFromMenuItem<Playlist>(sender);
 			if (playlist != null)
 			{
 				var viewModel = DataContext as HomeViewModel;
@@ -44,7 +44,7 @@ namespace MusicApp.Views
 			}
 		}
 
-		private void blabla(object sender, RoutedEventArgs e)
+		private void RemovePlaylist_ComboBox(object sender, RoutedEventArgs e)
 		{
 			ExecuteDeletePlaylistCommand(sender);
 		}

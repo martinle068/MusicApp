@@ -1,0 +1,106 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\leduc\\source\\repos\\MusicApp\\MusicApp\\MusicApp\\MusicApp.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\leduc\\source\\repos\\MusicApp\\MusicApp\\MusicApp\\MusicApp.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\leduc\\source\\repos\\MusicApp\\MusicApp\\MusicApp\\MusicApp.csproj",
+        "projectName": "MusicApp",
+        "projectPath": "C:\\Users\\leduc\\source\\repos\\MusicApp\\MusicApp\\MusicApp\\MusicApp.csproj",
+        "packagesPath": "C:\\Users\\leduc\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\leduc\\source\\repos\\MusicApp\\MusicApp\\MusicApp\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\leduc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0-windows"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0-windows7.0": {
+            "targetAlias": "net8.0-windows",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0-windows7.0": {
+          "targetAlias": "net8.0-windows",
+          "dependencies": {
+            "Google.Apis.YouTube.v3": {
+              "target": "Package",
+              "version": "[1.68.0.3421, )"
+            },
+            "LibVLCSharp": {
+              "target": "Package",
+              "version": "[3.8.5, )"
+            },
+            "LibVLCSharp.WPF": {
+              "target": "Package",
+              "version": "[3.8.5, )"
+            },
+            "NAudio": {
+              "target": "Package",
+              "version": "[2.2.1, )"
+            },
+            "VideoLAN.LibVLC.Windows": {
+              "target": "Package",
+              "version": "[3.0.20, )"
+            },
+            "YouTubeMusicAPI": {
+              "target": "Package",
+              "version": "[1.1.4, )"
+            },
+            "YoutubeExplode": {
+              "target": "Package",
+              "version": "[6.4.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WPF": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

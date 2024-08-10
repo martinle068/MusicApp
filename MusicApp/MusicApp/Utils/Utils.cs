@@ -37,7 +37,7 @@ namespace MusicApp.Utils
 			return $" {song.Artists.First().Name} - {song.Name}";
 		}
 
-		public static Playlist? GetPlaylistFromMenuItem(object sender)
+		public static T? GetItemFromMenuItem<T>(object sender) where T : class
 		{
 			if (sender is MenuItem menuItem)
 			{
@@ -47,11 +47,13 @@ namespace MusicApp.Utils
 				{
 					if (contextMenu.PlacementTarget is FrameworkElement placementTarget)
 					{
-						return placementTarget.DataContext as Playlist;
+						return placementTarget.DataContext as T;
 					}
 				}
 			}
 			return null;
 		}
+
+		
 	}
 }

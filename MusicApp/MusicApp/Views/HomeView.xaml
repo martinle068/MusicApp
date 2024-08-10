@@ -55,7 +55,7 @@
 		<ScrollViewer Margin="0,0,0,50" Grid.Row="1" Grid.ColumnSpan="2" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled" PreviewMouseWheel="ListViewScrollViewer_PreviewMouseWheel">
 			<StackPanel>
 				<!-- First row of playlists -->
-				<TextBlock Text="Your Playlists" Foreground="White" Margin="10,0,0,0" Grid.Row="0"/>
+				<TextBlock Text="Your Playlists" FontWeight="Bold" FontSize="24" Foreground="White" Margin="10,0,0,0" Grid.Row="0"/>
 
 				<ListBox ItemsSource="{Binding Playlists}"
 					 ScrollViewer.HorizontalScrollBarVisibility="Auto"
@@ -84,7 +84,7 @@
 								<TextBlock Text="{Binding Snippet.Title}" Foreground="White" TextAlignment="Center" Width="130" Margin="5,10,5,0"/>
 								<StackPanel.ContextMenu>
 									<ContextMenu>
-										<MenuItem Header="Delete" Click="blabla"/>
+										<MenuItem Header="Delete" Click="RemovePlaylist_ComboBox"/>
 									</ContextMenu>
 								</StackPanel.ContextMenu>
 							</StackPanel>

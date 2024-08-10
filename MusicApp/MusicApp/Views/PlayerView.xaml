@@ -24,7 +24,8 @@
 		<ListBox Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" Margin="10" ItemsSource="{Binding Songs}" 
                  SelectedIndex="{Binding SelectedSongIndex}" Background="#333333" Foreground="White" BorderBrush="#444444"
                  ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled"
-				 VirtualizingPanel.ScrollUnit="Pixel"
+				 VirtualizingPanel.ScrollUnit="Pixel" d:ItemsSource="{d:SampleData ItemCount=5}"
+				 PreviewMouseRightButtonDown="PreviewMouseRightButtonDown_IgnoreIndexSelection"
 				 >
 
 			<ListBox.ItemTemplate>
@@ -38,7 +39,7 @@
 						<TextBlock Text="{Binding ArtistAndSongName}" VerticalAlignment="Center" Foreground="White" />
 						<StackPanel.ContextMenu>
 							<ContextMenu>
-								<MenuItem Header="Play" PreviewMouseLeftButtonUp="blabla" Command="{Binding PreviousCommand}" />
+								<MenuItem Header="Add to Playlist" Click="AddSongToPlaylist_ComboBox"/>
 							</ContextMenu>
 						</StackPanel.ContextMenu>
 					</StackPanel>

@@ -16,7 +16,14 @@ namespace MusicApp.ViewModels
 		private readonly MainViewModel _mainViewModel;
 		private string _searchQuery = string.Empty;
 		private ObservableCollection<Playlist> _playlists;
+		private Playlist _selectedPlaylist;
 		private int _selectedPlaylistIndex = -1;
+
+		public Playlist SelectedPlaylist
+		{
+			get => _selectedPlaylist;
+			set => SetProperty(ref _selectedPlaylist, value);
+		}
 
 		public int SelectedPlaylistIndex
 		{
@@ -24,7 +31,10 @@ namespace MusicApp.ViewModels
 			set
 			{
 				SetProperty(ref _selectedPlaylistIndex, value);
-				//HandlePlaylistSelectionAsync(value);
+				if (value != -1 || value < Playlists.Count)
+				{
+					SelectedPlaylist = Playlists[value];
+				}
 			}
 		}
 
