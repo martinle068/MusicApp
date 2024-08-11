@@ -24,7 +24,7 @@
 		<Label x:Name="InfoLabel" VerticalAlignment="Top" Height="25" Grid.Row="0" Grid.Column="0" Content="{Binding InfoText}" Foreground="White" Margin="10,5" FontWeight="Bold"/>
 		<ListBox Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" Margin="10,35,10,10" ItemsSource="{Binding Songs}" 
                  SelectedIndex="{Binding SelectedSongIndex}" Background="#333333" Foreground="White" BorderBrush="#444444"
-                 ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                 
 				 VirtualizingPanel.ScrollUnit="Pixel" d:ItemsSource="{d:SampleData ItemCount=5}"
 				 PreviewMouseRightButtonDown="PreviewMouseRightButtonDown_IgnoreIndexSelection"
 				 >
