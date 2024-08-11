@@ -28,10 +28,15 @@ namespace MusicApp.Views
 			scv.ScrollToVerticalOffset(scv.VerticalOffset - e.Delta / 4);
 			e.Handled = true;
 		}
-		private void ListBoxItem_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+		private void PlaylistListBoxItemCommand(object sender, MouseButtonEventArgs e)
 		{
 			var viewModel = DataContext as HomeViewModel;
 			viewModel?.SelectPlaylistCommand.Execute(null);
+		}
+
+		private void PopularSongsListBoxCommand(object sender, MouseButtonEventArgs e)
+		{
+			MessageBox.Show("PopularSongsListBoxCommand");
 		}
 
 		private void ExecuteDeletePlaylistCommand(object sender)

@@ -12,9 +12,9 @@ TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\leduc\source\repos\MusicApp\MusicApp\MusicApp\App.xaml
 82145804599
 
-221997198296
-226202709579
+231732053235
+226871138001
 Styles\Styles.xaml;Views\AddPlaylistDialog.xaml;Views\HomeView.xaml;Views\MainWindow.xaml;Views\MiniPlayerView.xaml;Views\PlayerView.xaml;Views\PlaylistSelectionDialog.xaml;Views\SearchView.xaml;
 
-True
+False
 

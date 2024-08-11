@@ -18,20 +18,19 @@ namespace MusicApp.ViewModels
 		private readonly MainViewModel _mainViewModel;
 		private readonly MyYouTubeService _youTubeService;
 		private ObservableCollection<MySong> _songs;
-		private ObservableCollection<string> _songList;
 		private string _searchQuery = string.Empty;
 		private int _selectedSongIndex = -1;
+		private string? _continuationToken;
+
+		public void ResetIndices()
+		{
+			SelectedSongIndex = -1;
+		}
 
 		public ObservableCollection<MySong> Songs
 		{
 			get => _songs;
 			set => SetProperty(ref _songs, value);
-		}
-
-		public ObservableCollection<string> SongList
-		{
-			get => _songList;
-			set => SetProperty(ref _songList, value);
 		}
 
 		public int SelectedSongIndex
@@ -42,12 +41,10 @@ namespace MusicApp.ViewModels
 				{
 					if (Songs.ElementAtOrDefault(value) is MySong)
 					{
-						_mainViewModel.PlayerViewModel.Songs = new(Songs); // Add all search results to the player
-						_mainViewModel.PlayerViewModel.SelectedSongIndex = -1;
-						_mainViewModel.PlayerViewModel.SelectedSongIndex = value;
-						_mainViewModel.PlayerViewModel.InfoText = GetInfoString("Queue");
+						_mainViewModel.ResetIndices();
+						_mainViewModel.CurrentMusicSource = MainViewModel.MusicSource.Search;
+						_mainViewModel.PlayerViewModel.ProvidePlayerInfo(new(Songs), value, GetInfoString("Queue"), _continuationToken);
 						_mainViewModel.SwitchToPlayerView();
-						SelectedSongIndex = -1;
 					}
 				}
 			}
@@ -67,7 +64,6 @@ namespace MusicApp.ViewModels
 			_mainViewModel = mainViewModel;
 			_youTubeService = ys;
 			Songs = new();
-			SongList = new();
 
 			SearchCommand = new RelayCommand(async _ => await ExecuteSearch(_searchQuery));
 			BackCommand = new RelayCommand(ExecuteBack);
@@ -83,22 +79,16 @@ namespace MusicApp.ViewModels
 
 			try
 			{
-				var songs = await _youTubeService.FetchSongsAsync(query);
-				if (!songs.Any())
+				var shelf = await _youTubeService.FetchSongsAsync(query, _continuationToken);
+				_continuationToken = shelf.ContinuationToken;
+
+				if (!shelf.Songs.Any())
 				{
 					MessageBox.Show("No songs found.");
 					return;
 				}
 
-				Songs.Clear();
-				SongList.Clear();
-
-				foreach (var song in songs)
-				{
-					//await song.LoadThumbnailAsync();
-					Songs.Add(song);
-					SongList.Add(song.ArtistAndSongName);
-				}
+				Songs = shelf.Songs;
 			}
 			catch (Exception ex)
 			{
@@ -108,6 +98,7 @@ namespace MusicApp.ViewModels
 
 		private void ExecuteBack(object parameter)
 		{
+			_continuationToken = null;
 			_mainViewModel.NavigateBack();
 		}
 	}

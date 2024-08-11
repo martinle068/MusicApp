@@ -17,6 +17,8 @@ namespace MusicApp.Models
 		public string Id { get; }
 		public string ArtistAndSongName { get; }
 		public ShelfItem[] Artists { get; }
+		public string ArtistsString => string.Join(", ", Artists.Select(artist => artist.Name));
+
 		public TimeSpan Duration { get; }
 		public BitmapImage? Thumbnail { get; private set; }
 
@@ -42,7 +44,7 @@ namespace MusicApp.Models
 		{
 			MySong mySong = new MySong(songVideoInfo.Name, songVideoInfo.Id, songVideoInfo.Artists, songVideoInfo.Duration)
 			{
-				Thumbnail = await ThumbnailHelper.GetLowQualityThumbnailAsync(songVideoInfo.Id)
+				Thumbnail = await ThumbnailHelper.GetMediumQualityThumbnailAsync(songVideoInfo.Id)
 			};
 			return mySong;
 		}
@@ -60,5 +62,6 @@ namespace MusicApp.Models
 		{
 			return $" {string.Join(", ", Artists.Select(artist => artist.Name))} - {Name}";
 		}
+
 	}
 }

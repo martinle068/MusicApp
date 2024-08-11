@@ -315,15 +315,15 @@
           }
         }
       },
-      "YouTubeMusicAPI/1.1.4": {
+      "YouTubeMusicAPI/1.2.0": {
         "dependencies": {
           "Microsoft.Extensions.Logging.Abstractions": "8.0.1",
           "Newtonsoft.Json": "13.0.3"
         },
         "runtime": {
           "lib/netstandard2.0/YouTubeMusicAPI.dll": {
-            "assemblyVersion": "1.1.4.0",
-            "fileVersion": "1.1.4.0"
+            "assemblyVersion": "1.2.0.0",
+            "fileVersion": "1.2.0.0"
           }
         }
       }
@@ -512,12 +512,12 @@
       "path": "youtubeexplode/6.4.0",
       "hashPath": "youtubeexplode.6.4.0.nupkg.sha512"
     },
-    "YouTubeMusicAPI/1.1.4": {
+    "YouTubeMusicAPI/1.2.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-aqV0yJ2IbRnBGo1fzKhLIXuFyXE1fbr6GSjv61Rj9ny3H8Q7my/2604MW7M1qkwBtx4wARO7o8IXTiOCsulLTg==",
-      "path": "youtubemusicapi/1.1.4",
-      "hashPath": "youtubemusicapi.1.1.4.nupkg.sha512"
+      "sha512": "sha512-wqUXN9Ibe9XIpbRLTTY2jrzZ+YLYc38c2EoVkKfkEAKnSdu+3VEwC0xumXGu+HO3U3TAG2d8XQi3godDaLqImA==",
+      "path": "youtubemusicapi/1.2.0",
+      "hashPath": "youtubemusicapi.1.2.0.nupkg.sha512"
     }
   }
 }

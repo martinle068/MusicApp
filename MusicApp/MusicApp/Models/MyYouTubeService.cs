@@ -14,6 +14,9 @@ using Google.Apis.YouTube.v3.Data;
 using System.IO;
 using System.Windows;
 using System.Security.RightsManagement;
+using System.Collections.ObjectModel;
+using YouTubeMusicAPI.Models.Shelf;
+using YouTubeMusicAPI.Types;
 
 namespace MusicApp.Models
 {
@@ -74,11 +77,15 @@ namespace MusicApp.Models
 			}
 		}
 
-		public async Task<List<MySong>> FetchSongsAsync(string query)
+		public async Task<MyShelf?> FetchSongsAsync(string query, string? continuationToken)
 		{
-			IEnumerable<Song> searchResults = await _youtubeMusicClient.SearchAsync<Song>(query);
-			var mySongs = await Task.WhenAll(searchResults.Select(async song => await MySong.CreateAsync(song)));
-			return mySongs.ToList();
+			IEnumerable<Shelf> shelves = await _youtubeMusicClient.SearchAsync(query, continuationToken, ShelfKind.Songs);
+
+			List<Song> songs = shelves.SelectMany(shelf => shelf.Items).OfType<Song>().ToList();
+			continuationToken = shelves.FirstOrDefault()?.NextContinuationToken;
+			var mySongs = await Task.WhenAll(songs.Select(async song => await MySong.CreateAsync(song)));
+
+			return new MyShelf(new ObservableCollection<MySong>(mySongs), continuationToken);
 		}
 
 		public async Task<string?> GetAudioStreamUrlAsync(string songId)
@@ -89,12 +96,7 @@ namespace MusicApp.Models
 			return audioStreamInfo?.Url;
 		}
 
-		public string GetThumbnailUrl(string videoId)
-		{
-			return $"https://img.youtube.com/vi/{videoId}/maxresdefault.jpg";
-		}
-
-		public async Task<List<Playlist>> FetchAllPlaylistsAsync()
+		public async Task<ObservableCollection<Playlist>> FetchAllPlaylistsAsync()
 		{
 			var playlists = new List<Playlist>();
 			string nextPageToken = null;
@@ -123,10 +125,10 @@ namespace MusicApp.Models
 				MessageBox.Show($"An error occurred: {ex.Message}");
 			}
 
-			return playlists;
+			return new ObservableCollection<Playlist>(playlists);
 		}
 
-		public async Task<List<MySong>?> FetchPlaylistContentAsync(string playlistId)
+		public async Task<ObservableCollection<MySong>?> FetchPlaylistContentAsync(string playlistId)
 		{
 			try
 			{
@@ -144,7 +146,7 @@ namespace MusicApp.Models
 				});
 
 				var playlistSongs = await Task.WhenAll(tasks);
-				return playlistSongs.ToList();
+				return new ObservableCollection<MySong>(playlistSongs);
 			}
 			catch (GoogleApiException ex)
 			{
@@ -276,5 +278,35 @@ namespace MusicApp.Models
 			}
 		}
 
+		public async Task<ObservableCollection<MySong>> FetchPopularSongsAsync()
+		{
+			var trendingVideosRequest = _googleYouTubeService.Videos.List("snippet");
+			trendingVideosRequest.Chart = VideosResource.ListRequest.ChartEnum.MostPopular;
+			trendingVideosRequest.RegionCode = "US";
+			trendingVideosRequest.MaxResults = 20;
+			trendingVideosRequest.VideoCategoryId = "10";
+
+			var trendingVideosResponse = await trendingVideosRequest.ExecuteAsync();
+
+			var songs = new List<Song>();
+			var tasks = trendingVideosResponse.Items.Select(async video =>
+			{
+
+				// Search for the song in parallel
+				IEnumerable<Song> searchResults = await _youtubeMusicClient.SearchAsync<Song>(video.Snippet.Title, 1);
+				var song = searchResults.FirstOrDefault();
+				if (song != null)
+				{
+					songs.Add(song);
+				}
+
+			}).ToList();
+
+			// Await all tasks to complete
+			await Task.WhenAll(tasks);
+
+			var mySongs = await Task.WhenAll(songs.Select(async song => await MySong.CreateAsync(song)));
+			return new ObservableCollection<MySong>(mySongs);
+		}
 	}
 }

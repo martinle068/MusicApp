@@ -16,9 +16,33 @@ namespace MusicApp.ViewModels
 	{
 		private readonly MainViewModel _mainViewModel;
 		private string _searchQuery = string.Empty;
-		private ObservableCollection<Playlist> _playlists;
-		private Playlist _selectedPlaylist;
+		private ObservableCollection<Playlist> _playlists = new();
+		private Playlist _selectedPlaylist = new();
 		private int _selectedPlaylistIndex = -1;
+		private ObservableCollection<MySong> _popularSongsList = new();
+		private int _selectedPopularSongIndex = -1;
+
+		public void ResetIndices()
+		{
+			SelectedPlaylistIndex = -1;
+			SelectedPopularSongIndex = -1;
+		}
+
+		public int SelectedPopularSongIndex
+		{
+			get => _selectedPopularSongIndex;
+			set
+			{
+				SetProperty(ref _selectedPopularSongIndex, value);
+				_mainViewModel.CurrentMusicSource = MainViewModel.MusicSource.Popular;
+			}
+		}
+
+		public ObservableCollection<MySong> PopularSongs
+		{
+			get => _popularSongsList;
+			set => SetProperty(ref _popularSongsList, value);
+		}
 
 		public Playlist SelectedPlaylist
 		{
@@ -32,7 +56,7 @@ namespace MusicApp.ViewModels
 			set
 			{
 				SetProperty(ref _selectedPlaylistIndex, value);
-				if (value != -1 || value < Playlists.Count)
+				if (value >= 0 && value < Playlists.Count)
 				{
 					SelectedPlaylist = Playlists[value];
 				}
@@ -57,21 +81,15 @@ namespace MusicApp.ViewModels
 						return;
 					}
 
-					_mainViewModel.PlayerViewModel.Songs = playlistItems;
-					_mainViewModel.PlayerViewModel.SelectedSongIndex = -1;
-					_mainViewModel.PlayerViewModel.SelectedSongIndex = 0;
-					_mainViewModel.PlayerViewModel.InfoText = GetInfoString(playlist.Snippet.Title);
+					_mainViewModel.ResetIndices();
+					_mainViewModel.CurrentMusicSource = MainViewModel.MusicSource.Playlist;
+					_mainViewModel.PlayerViewModel.ProvidePlayerInfo(playlistItems, 0, GetInfoString(playlist.Snippet.Title));
 					_mainViewModel.SwitchToPlayerView();
 				}
 			}
 			catch (Exception ex)
 			{
 				MessageBox.Show(ex.Message);
-			}
-			finally
-			{
-				_selectedPlaylistIndex = -1;
-				OnPropertyChanged(nameof(SelectedPlaylistIndex));
 			}
 		}
 
@@ -96,11 +114,19 @@ namespace MusicApp.ViewModels
 		{
 			_mainViewModel = mainViewModel;
 			Playlists = new ObservableCollection<Playlist>();
+			PopularSongs = new ObservableCollection<MySong>();
 			SearchCommand = new RelayCommand(async _ => await ExecuteSearch());
 			AddPlaylistCommand = new RelayCommand(OpenAddPlaylistDialog);
 			SelectPlaylistCommand = new RelayCommand(async _ => await HandlePlaylistSelectionAsync());
 			DeletePlaylistCommand = new RelayCommand(ExecuteDeletePlaylist);
 			LoadPlaylists();
+			LoadPopularSongs();
+		}
+
+		private async void LoadPopularSongs()
+		{
+			var popularSongs = await _mainViewModel.MyYouTubeService.FetchPopularSongsAsync();
+			PopularSongs = popularSongs;
 		}
 
 		private async Task ExecuteSearch()
@@ -115,11 +141,7 @@ namespace MusicApp.ViewModels
 		private async void LoadPlaylists()
 		{
 			var playlists = await _mainViewModel.MyYouTubeService.FetchAllPlaylistsAsync();
-			Playlists.Clear();
-			foreach (var playlist in playlists)
-			{
-				Playlists.Add(playlist);
-			}
+			Playlists = playlists;
 		}
 
 		private void OpenAddPlaylistDialog(object parameter)

@@ -16,6 +16,15 @@ namespace MusicApp.ViewModels
 		public HomeViewModel HomeViewModel { get; private set; }
 		public SearchViewModel SearchViewModel { get; private set; }
 		public PlayerViewModel PlayerViewModel { get; private set; }
+		public MusicSource CurrentMusicSource { get; set; } = MusicSource.None;
+
+		public enum MusicSource
+		{
+			None,
+			Playlist,
+			Search,
+			Popular
+		}
 
 		public BaseViewModel CurrentViewModel
 		{
@@ -38,6 +47,13 @@ namespace MusicApp.ViewModels
 		{
 			InitializeAsync();
 			MainWindow = mv;
+		}
+
+		public void ResetIndices()
+		{
+			HomeViewModel.ResetIndices();
+			SearchViewModel.ResetIndices();
+			PlayerViewModel.ResetIndices();
 		}
 
 		private async void InitializeAsync()

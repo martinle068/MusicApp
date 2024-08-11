@@ -15,6 +15,8 @@ using YouTubeMusicAPI.Models;
 using YoutubeExplode;
 using MediaPlayer = LibVLCSharp.Shared.MediaPlayer;
 using MusicApp.Views;
+using System.Collections.ObjectModel;
+using static MusicApp.Utils.Utils;
 
 
 namespace MusicApp.ViewModels
@@ -28,27 +30,34 @@ namespace MusicApp.ViewModels
 		private DispatcherTimer _timer;
 		private bool _isDragging;
 		private bool _isPlaying;
-		private List<MySong> _songs;
+		private ObservableCollection<MySong> _songs = new();
 		private MySong? _selectedSong;
-		private string _currentSongName;
-		private string _currentArtistName;
-		private string _currentTime;
+		private string? _currentSongName;
+		private string? _currentArtistName;
+		private string? _currentTime;
 		private double _totalTime;
-		private string _formattedTotalTime;
+		private string? _formattedTotalTime;
 		private double _sliderValue;
-		private ImageSource _currentSongThumbnail;
-		private string _playPauseText;
+		private ImageSource? _currentSongThumbnail;
+		private string? _playPauseText;
 		private int _selectedSongIndex = -1;
 		private bool _isSongSelected;
-		private string _infoText;
+		private string? _infoText;
+		private string? _continuationToken;
 
-		public string InfoText
+		public string? ContinuationToken
+		{
+			get => _continuationToken;
+			set => SetProperty(ref _continuationToken, value);
+		}
+
+		public string? InfoText
 		{
 			get => _infoText;
 			set => SetProperty(ref _infoText, value);
 		}
 
-		public List<MySong> Songs
+		public ObservableCollection<MySong> Songs
 		{
 			get => _songs;
 			set => SetProperty(ref _songs, value);
@@ -78,19 +87,19 @@ namespace MusicApp.ViewModels
 			}
 		}
 
-		public string CurrentSongName
+		public string? CurrentSongName
 		{
 			get => _currentSongName;
 			set => SetProperty(ref _currentSongName, value);
 		}
 
-		public string CurrentArtistName
+		public string? CurrentArtistName
 		{
 			get => _currentArtistName;
 			set => SetProperty(ref _currentArtistName, value);
 		}
 
-		public string CurrentTime
+		public string? CurrentTime
 		{
 			get => _currentTime;
 			set => SetProperty(ref _currentTime, value);
@@ -108,7 +117,7 @@ namespace MusicApp.ViewModels
 			}
 		}
 
-		public string FormattedTotalTime
+		public string? FormattedTotalTime
 		{
 			get => _formattedTotalTime;
 			set => SetProperty(ref _formattedTotalTime, value);
@@ -120,13 +129,13 @@ namespace MusicApp.ViewModels
 			set => SetProperty(ref _sliderValue, value);
 		}
 
-		public ImageSource CurrentSongThumbnail
+		public ImageSource? CurrentSongThumbnail
 		{
 			get => _currentSongThumbnail;
 			set => SetProperty(ref _currentSongThumbnail, value);
 		}
 
-		public string PlayPauseText
+		public string? PlayPauseText
 		{
 			get => _playPauseText;
 			set => SetProperty(ref _playPauseText, value);
@@ -177,7 +186,7 @@ namespace MusicApp.ViewModels
 			};
 			_timer.Tick += Timer_Tick;
 
-			Songs = new List<MySong>();
+			Songs = new ObservableCollection<MySong>();
 
 			PlayPauseText = "Play";
 			IsSongSelected = false;
@@ -189,6 +198,19 @@ namespace MusicApp.ViewModels
 			ShuffleCommand = new RelayCommand(ExecuteShuffleSongs);
 			AddSongToPlaylistCommand = new RelayCommand(ExecuteAddSongToPlaylist);
 			RemoveSongFromPlaylistCommand = new RelayCommand(ExecuteRemoveSongFromPlaylist);
+		}
+
+		public void ResetIndices()
+		{
+			SelectedSongIndex = -1;
+		}
+
+		public void ProvidePlayerInfo(ObservableCollection<MySong> songs, int index, string text, string? continuationToken = null)
+		{
+			Songs = songs;
+			SelectedSongIndex = index;
+			InfoText = text;
+			ContinuationToken = continuationToken;
 		}
 
 		private void ExecuteRemoveSongFromPlaylist(object parameter)
@@ -289,16 +311,37 @@ namespace MusicApp.ViewModels
 			IsPlaying = !IsPlaying;
 		}
 
-		private void ExecuteNext(object parameter)
+		private async void GetNextShelf()
+		{
+			var newShelf = await _youTubeService.FetchSongsAsync(_mainViewModel.SearchViewModel.SearchQuery, _continuationToken);
+			if (newShelf != null)
+			{
+				Songs = newShelf.Songs;
+			}
+		}
+
+		private async void ExecuteNext(object parameter)
 		{
 			if (!IsSongSelected)
 				return;
 
-			if (SelectedSongIndex < Songs.Count - 1)
+			if (SelectedSongIndex >= 0 && SelectedSongIndex < Songs.Count - 1)
 			{
 				SelectedSongIndex++;
 			}
-		}
+            else if (_mainViewModel.CurrentMusicSource != MainViewModel.MusicSource.Playlist)
+            {
+				var newShelf = await _youTubeService.FetchSongsAsync(_mainViewModel.SearchViewModel.SearchQuery, _continuationToken);
+				if (newShelf != null)
+				{
+					foreach (var song in newShelf.Songs)
+					{
+						Songs.Add(song);
+					}
+				}
+				SelectedSongIndex++;
+            }
+        }
 
 		private void ExecutePrevious(object parameter)
 		{
@@ -371,7 +414,7 @@ namespace MusicApp.ViewModels
 
 		private void MediaPlayer_EndReached(object sender, EventArgs e)
 		{
-			ExecuteNext(null);
+			NextCommand.Execute(null);
 		}
 
 		private void MediaPlayer_EncounteredError(object sender, EventArgs e)
