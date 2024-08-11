@@ -234,5 +234,47 @@ namespace MusicApp.Models
 				MessageBox.Show($"Failed to add song to playlist: {ex.Message}");
 			}
 		}
+
+		public async Task RemoveSongFromPlaylist(Playlist playlist, MySong song)
+		{
+			try
+			{
+				string? nextPageToken = null;
+				PlaylistItem? playlistItem = null;
+
+				// Loop through pages of playlist items until we find the song
+				do
+				{
+					var playlistItemsRequest = _googleYouTubeService.PlaylistItems.List("id,snippet");
+					playlistItemsRequest.PlaylistId = playlist.Id;
+					playlistItemsRequest.MaxResults = 20;  
+					playlistItemsRequest.PageToken = nextPageToken;
+
+					var playlistItemsResponse = await playlistItemsRequest.ExecuteAsync();
+
+					playlistItem = playlistItemsResponse.Items
+						.FirstOrDefault(item => item.Snippet.ResourceId.VideoId == song.Id);
+
+					nextPageToken = playlistItemsResponse.NextPageToken;
+
+				} while (playlistItem == null && !string.IsNullOrEmpty(nextPageToken));
+
+				// If the song is found in the playlist, delete it
+				if (playlistItem != null)
+				{
+					var deleteRequest = _googleYouTubeService.PlaylistItems.Delete(playlistItem.Id);
+					await deleteRequest.ExecuteAsync();
+				}
+				else
+				{
+					MessageBox.Show("Song not found in the playlist.");
+				}
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show($"Failed to remove song from playlist: {ex.Message}");
+			}
+		}
+
 	}
 }

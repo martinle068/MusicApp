@@ -156,6 +156,7 @@ namespace MusicApp.ViewModels
 		public ICommand PreviousCommand { get; }
 		public ICommand ShuffleCommand { get; }
 		public ICommand AddSongToPlaylistCommand { get; }
+		public ICommand RemoveSongFromPlaylistCommand { get; }
 
 		public PlayerViewModel(MainViewModel mainViewModel, MyYouTubeService ys)
 		{
@@ -187,6 +188,35 @@ namespace MusicApp.ViewModels
 			PreviousCommand = new RelayCommand(ExecutePrevious);
 			ShuffleCommand = new RelayCommand(ExecuteShuffleSongs);
 			AddSongToPlaylistCommand = new RelayCommand(ExecuteAddSongToPlaylist);
+			RemoveSongFromPlaylistCommand = new RelayCommand(ExecuteRemoveSongFromPlaylist);
+		}
+
+		private void ExecuteRemoveSongFromPlaylist(object parameter)
+		{
+			RemoveSongFromPlaylist(parameter);
+		}
+
+		private async void RemoveSongFromPlaylist(object parameter)
+		{
+			if (parameter is MySong song && _mainViewModel.HomeViewModel.SelectedPlaylist != null)
+			{
+				var selectedPlaylist = _mainViewModel.HomeViewModel.SelectedPlaylist;
+
+				var confirmation = MessageBox.Show($"Are you sure you want to remove '{song.ArtistAndSongName}' from '{selectedPlaylist.Snippet.Title}'?",
+												   "Confirm Removal", MessageBoxButton.YesNo);
+
+				if (confirmation == MessageBoxResult.Yes)
+				{
+					await _mainViewModel.MyYouTubeService.RemoveSongFromPlaylist(selectedPlaylist, song);
+
+					Songs.Remove(song);
+					Songs = new(Songs);
+				}
+			}
+			else
+			{
+				MessageBox.Show("Song or playlist is null");
+			}
 		}
 
 
@@ -318,7 +348,7 @@ namespace MusicApp.ViewModels
 				IsPlaying = true;
 
 				CurrentSongName = SelectedSong.Name;
-				CurrentArtistName = SelectedSong.Artists.First().Name;
+				CurrentArtistName = string.Join(", ", SelectedSong.Artists.Select(artist => artist.Name));
 				await DisplayPicture();
 
 				_timer.Start();

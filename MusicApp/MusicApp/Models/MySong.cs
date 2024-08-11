@@ -7,6 +7,7 @@ using System.Windows.Media.Imaging;
 using YouTubeMusicAPI.Models.Shelf;
 using YouTubeMusicAPI.Models;
 using YouTubeMusicAPI.Models.Info;
+using static MusicApp.Utils.Utils;
 
 namespace MusicApp.Models
 {
@@ -57,7 +58,7 @@ namespace MusicApp.Models
 
 		private string GetArtistAndSongNameString()
 		{
-			return $"{Artists.First().Name} - {Name}";
+			return $" {string.Join(", ", Artists.Select(artist => artist.Name))} - {Name}";
 		}
 	}
 }

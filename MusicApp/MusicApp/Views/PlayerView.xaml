@@ -41,6 +41,7 @@
 						<StackPanel.ContextMenu>
 							<ContextMenu>
 								<MenuItem Header="Add to Playlist" Click="AddSongToPlaylist_ComboBox"/>
+								<MenuItem Header="Remove from Playlist" Click="RemoveSongFromPlaylist"/>
 							</ContextMenu>
 						</StackPanel.ContextMenu>
 					</StackPanel>

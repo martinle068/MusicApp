@@ -34,7 +34,7 @@ namespace MusicApp.Utils
 	{
 		public static string SongToString(MySong song)
 		{
-			return $" {song.Artists.First().Name} - {song.Name}";
+			return $" {string.Join(", ", song.Artists.Select(artist => artist.Name))} - {song.Name}";
 		}
 
 		public static T? GetItemFromMenuItem<T>(object sender) where T : class

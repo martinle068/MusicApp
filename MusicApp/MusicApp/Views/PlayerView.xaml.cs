@@ -13,24 +13,6 @@ namespace MusicApp.Views
 			InitializeComponent();
 		}
 
-		private void TextBox_KeyDown(object sender, KeyEventArgs e)
-		{
-			if (e.Key == Key.Enter)
-			{
-				var viewModel = DataContext as PlayerViewModel;
-				if (viewModel != null)
-				{
-					var textBox = sender as TextBox;
-					if (textBox != null)
-					{
-						// Force update the binding source
-						textBox.GetBindingExpression(TextBox.TextProperty).UpdateSource();
-					}
-					//viewModel.SearchCommand.Execute(null);
-				}
-			}
-		}
-
 		private void TrackBarSeek_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
 		{
 			if (DataContext is PlayerViewModel viewModel)
@@ -69,6 +51,22 @@ namespace MusicApp.Views
 		private void AddSongToPlaylist_ComboBox(object sender, RoutedEventArgs e)
 		{
 			ExecuteAddSongToPlaylist(sender);
+		}
+
+		private void ExecuteRemoveSongFromPlaylist(object sender)
+		{
+			var song = Utils.Utils.GetItemFromMenuItem<MySong>(sender);
+
+			if (song != null)
+			{
+				var viewModel = DataContext as PlayerViewModel;
+				viewModel?.RemoveSongFromPlaylistCommand.Execute(song);
+			}
+		}
+
+		private void RemoveSongFromPlaylist(object sender, RoutedEventArgs e)
+		{
+			ExecuteRemoveSongFromPlaylist(sender);
 		}
 
 		private void PreviewMouseRightButtonDown_IgnoreIndexSelection(object sender, MouseButtonEventArgs e)

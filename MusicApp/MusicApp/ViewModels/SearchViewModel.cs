@@ -97,7 +97,7 @@ namespace MusicApp.ViewModels
 				{
 					//await song.LoadThumbnailAsync();
 					Songs.Add(song);
-					SongList.Add(SongToString(song));
+					SongList.Add(song.ArtistAndSongName);
 				}
 			}
 			catch (Exception ex)
