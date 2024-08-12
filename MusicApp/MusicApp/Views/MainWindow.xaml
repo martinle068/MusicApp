@@ -3,12 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:MusicApp.Views"
         Title="MusicApp" Height="500" Width="800"
-        Background="#222222" WindowStartupLocation="CenterScreen">
+        Background="#222222" WindowStartupLocation="CenterScreen"
+		>
 
 	<Grid>
 		<Grid.ColumnDefinitions>
-			<ColumnDefinition Width="249*"/>
-			<ColumnDefinition Width="151*"/>
+			<ColumnDefinition Width="250*"/>
+			<ColumnDefinition Width="150*"/>
 		</Grid.ColumnDefinitions>
 		<ContentControl Content="{Binding CurrentViewModel}" Grid.ColumnSpan="2" />
 

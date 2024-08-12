@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace MusicApp.Models
 {
-    public class MyShelf
+    public class MyShelf<T> where T : class
     {
-        public ObservableCollection<MySong> Songs { get; set; }
+        public ObservableCollection<T> Items { get; set; }
         public string? ContinuationToken { get; set; }
 
-        public MyShelf(ObservableCollection<MySong> songs, string? continuationToken)
+        public MyShelf(ObservableCollection<T> items, string? continuationToken)
 		{
-			Songs = songs;
+			Items = items;
 			ContinuationToken = continuationToken;
 		}
     }

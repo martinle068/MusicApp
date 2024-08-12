@@ -17,7 +17,7 @@ namespace MusicApp.ViewModels
 	{
 		private readonly MainViewModel _mainViewModel;
 		private readonly MyYouTubeService _youTubeService;
-		private ObservableCollection<MySong> _songs;
+		private MyShelf<MySong> _songs;
 		private string _searchQuery = string.Empty;
 		private int _selectedSongIndex = -1;
 		private string? _continuationToken;
@@ -27,7 +27,7 @@ namespace MusicApp.ViewModels
 			SelectedSongIndex = -1;
 		}
 
-		public ObservableCollection<MySong> Songs
+		public MyShelf<MySong> Songs
 		{
 			get => _songs;
 			set => SetProperty(ref _songs, value);
@@ -39,11 +39,11 @@ namespace MusicApp.ViewModels
 			{
 				if (SetProperty(ref _selectedSongIndex, value))
 				{
-					if (Songs.ElementAtOrDefault(value) is MySong)
+					if (Songs.Items.ElementAtOrDefault(value) is MySong)
 					{
 						_mainViewModel.ResetIndices();
 						_mainViewModel.CurrentMusicSource = MainViewModel.MusicSource.Search;
-						_mainViewModel.PlayerViewModel.ProvidePlayerInfo(new(Songs), value, GetInfoString("Queue"), _continuationToken);
+						_mainViewModel.PlayerViewModel.ProvidePlayerInfo(new(Songs.Items), value, GetInfoString("Queue"), _continuationToken);
 						_mainViewModel.SwitchToPlayerView();
 					}
 				}
@@ -53,7 +53,11 @@ namespace MusicApp.ViewModels
 		public string SearchQuery
 		{
 			get => _searchQuery;
-			set => SetProperty(ref _searchQuery, value);
+			set
+			{
+				SetProperty(ref _searchQuery, value);
+				_continuationToken = null;
+			}
 		}
 
 		public ICommand SearchCommand { get; }
@@ -63,7 +67,7 @@ namespace MusicApp.ViewModels
 		{
 			_mainViewModel = mainViewModel;
 			_youTubeService = ys;
-			Songs = new();
+			_songs = new MyShelf<MySong>(new(), null);
 
 			SearchCommand = new RelayCommand(async _ => await ExecuteSearch(_searchQuery));
 			BackCommand = new RelayCommand(ExecuteBack);
@@ -80,15 +84,21 @@ namespace MusicApp.ViewModels
 			try
 			{
 				var shelf = await _youTubeService.FetchSongsAsync(query, _continuationToken);
-				_continuationToken = shelf.ContinuationToken;
-
-				if (!shelf.Songs.Any())
+				if (shelf == null) 
 				{
 					MessageBox.Show("No songs found.");
 					return;
 				}
 
-				Songs = shelf.Songs;
+				_continuationToken = shelf.ContinuationToken;
+
+				if (!shelf.Items.Any())
+				{
+					MessageBox.Show("No songs found.");
+					return;
+				}
+
+				Songs = shelf;
 			}
 			catch (Exception ex)
 			{

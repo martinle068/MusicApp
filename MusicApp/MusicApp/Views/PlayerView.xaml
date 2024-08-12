@@ -44,8 +44,10 @@
 								<MenuItem Header="Remove from Playlist" Click="RemoveSongFromPlaylist"/>
 							</ContextMenu>
 						</StackPanel.ContextMenu>
+						<StackPanel.ToolTip>
+							<ToolTip Content="{Binding ArtistAndSongName}"/>
+						</StackPanel.ToolTip>
 					</StackPanel>
-					
 				</DataTemplate>
 			</ListBox.ItemTemplate>
 			

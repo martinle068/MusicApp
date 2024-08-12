@@ -9,6 +9,7 @@ using MusicApp.Views;
 using YoutubeExplode.Playlists;
 using Playlist = Google.Apis.YouTube.v3.Data.Playlist;
 using static MusicApp.Utils.Utils;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace MusicApp.ViewModels
 {
@@ -19,8 +20,9 @@ namespace MusicApp.ViewModels
 		private ObservableCollection<Playlist> _playlists = new();
 		private Playlist _selectedPlaylist = new();
 		private int _selectedPlaylistIndex = -1;
-		private ObservableCollection<MySong> _popularSongsList = new();
+		private MyShelf<MySong> _popularSongs = new MyShelf<MySong>(new(), null);
 		private int _selectedPopularSongIndex = -1;
+		private string? _popularSongsContinuationToken;
 
 		public void ResetIndices()
 		{
@@ -34,14 +36,20 @@ namespace MusicApp.ViewModels
 			set
 			{
 				SetProperty(ref _selectedPopularSongIndex, value);
-				_mainViewModel.CurrentMusicSource = MainViewModel.MusicSource.Popular;
+				if (value != -1)
+				{
+					_mainViewModel.ResetIndices();
+					_mainViewModel.CurrentMusicSource = MainViewModel.MusicSource.Popular;
+					_mainViewModel.PlayerViewModel.ProvidePlayerInfo(PopularSongs.Items, value, GetInfoString("Popular Songs"), _popularSongsContinuationToken);
+					_mainViewModel.SwitchToPlayerView();
+				}
 			}
 		}
 
-		public ObservableCollection<MySong> PopularSongs
+		public MyShelf<MySong> PopularSongs
 		{
-			get => _popularSongsList;
-			set => SetProperty(ref _popularSongsList, value);
+			get => _popularSongs;
+			set => SetProperty(ref _popularSongs, value);
 		}
 
 		public Playlist SelectedPlaylist
@@ -113,8 +121,6 @@ namespace MusicApp.ViewModels
 		public HomeViewModel(MainViewModel mainViewModel)
 		{
 			_mainViewModel = mainViewModel;
-			Playlists = new ObservableCollection<Playlist>();
-			PopularSongs = new ObservableCollection<MySong>();
 			SearchCommand = new RelayCommand(async _ => await ExecuteSearch());
 			AddPlaylistCommand = new RelayCommand(OpenAddPlaylistDialog);
 			SelectPlaylistCommand = new RelayCommand(async _ => await HandlePlaylistSelectionAsync());
@@ -125,7 +131,7 @@ namespace MusicApp.ViewModels
 
 		private async void LoadPopularSongs()
 		{
-			var popularSongs = await _mainViewModel.MyYouTubeService.FetchPopularSongsAsync();
+			var popularSongs = await _mainViewModel.MyYouTubeService.FetchPopularSongsAsync(null);
 			PopularSongs = popularSongs;
 		}
 

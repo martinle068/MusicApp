@@ -95,7 +95,6 @@
 				</ControlTemplate>
 			</Setter.Value>
 		</Setter>
-		<Setter Property="ToolTip" Value="{Binding ArtistAndSongName}" />
 	</Style>
 	<Style TargetType="{x:Type ListBox}">
 		<Setter Property="Template">

@@ -21,7 +21,7 @@
 			<Button Command="{Binding BackCommand}" Content="Back" Width="75" Margin="10,0,0,0"/>
 		</StackPanel>
 
-		<ListBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0,0,50" ItemsSource="{Binding Songs}" SelectedIndex="{Binding SelectedSongIndex}"
+		<ListBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0,0,50" ItemsSource="{Binding Songs.Items}" SelectedIndex="{Binding SelectedSongIndex}"
                  Background="#333333" Foreground="White" BorderBrush="#444444"
                  ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled"
 				 VirtualizingPanel.ScrollUnit="Pixel"

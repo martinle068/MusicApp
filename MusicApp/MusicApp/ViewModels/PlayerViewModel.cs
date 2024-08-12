@@ -285,9 +285,9 @@ namespace MusicApp.ViewModels
 		{
 			if (SelectedSong != null)
 			{
+				var selectedSong = SelectedSong;
 				Songs.Shuffle();
-				Songs = new(Songs);
-				SelectedSongIndex = Songs.IndexOf(SelectedSong);
+				SelectedSongIndex = Songs.IndexOf(selectedSong);
 			}
 		}
 
@@ -311,15 +311,6 @@ namespace MusicApp.ViewModels
 			IsPlaying = !IsPlaying;
 		}
 
-		private async void GetNextShelf()
-		{
-			var newShelf = await _youTubeService.FetchSongsAsync(_mainViewModel.SearchViewModel.SearchQuery, _continuationToken);
-			if (newShelf != null)
-			{
-				Songs = newShelf.Songs;
-			}
-		}
-
 		private async void ExecuteNext(object parameter)
 		{
 			if (!IsSongSelected)
@@ -329,19 +320,30 @@ namespace MusicApp.ViewModels
 			{
 				SelectedSongIndex++;
 			}
-            else if (_mainViewModel.CurrentMusicSource != MainViewModel.MusicSource.Playlist)
+            else if (_mainViewModel.CurrentMusicSource is MainViewModel.MusicSource.Search)
             {
-				var newShelf = await _youTubeService.FetchSongsAsync(_mainViewModel.SearchViewModel.SearchQuery, _continuationToken);
-				if (newShelf != null)
-				{
-					foreach (var song in newShelf.Songs)
-					{
-						Songs.Add(song);
-					}
-				}
-				SelectedSongIndex++;
-            }
+				var newShelf = await _youTubeService.FetchSongsAsync(_mainViewModel.SearchViewModel.SearchQuery, ContinuationToken);
+				ProcessNewShelf(newShelf);
+			}
+			else if (_mainViewModel.CurrentMusicSource is MainViewModel.MusicSource.Popular)
+			{
+				var newShelf = await _youTubeService.FetchPopularSongsAsync(ContinuationToken);
+				ProcessNewShelf(newShelf);
+			}
         }
+
+		private void ProcessNewShelf(MyShelf<MySong>? newShelf)
+		{
+			if (newShelf != null)
+			{
+				foreach (var song in newShelf.Items)
+				{
+					Songs.Add(song);
+				}
+			}
+			ContinuationToken = newShelf?.ContinuationToken;
+			SelectedSongIndex++;
+		}
 
 		private void ExecutePrevious(object parameter)
 		{

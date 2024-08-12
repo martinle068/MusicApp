@@ -77,7 +77,7 @@ namespace MusicApp.Models
 			}
 		}
 
-		public async Task<MyShelf?> FetchSongsAsync(string query, string? continuationToken)
+		public async Task<MyShelf<MySong>?> FetchSongsAsync(string query, string? continuationToken)
 		{
 			IEnumerable<Shelf> shelves = await _youtubeMusicClient.SearchAsync(query, continuationToken, ShelfKind.Songs);
 
@@ -85,7 +85,7 @@ namespace MusicApp.Models
 			continuationToken = shelves.FirstOrDefault()?.NextContinuationToken;
 			var mySongs = await Task.WhenAll(songs.Select(async song => await MySong.CreateAsync(song)));
 
-			return new MyShelf(new ObservableCollection<MySong>(mySongs), continuationToken);
+			return new MyShelf<MySong>(new ObservableCollection<MySong>(mySongs), continuationToken);
 		}
 
 		public async Task<string?> GetAudioStreamUrlAsync(string songId)
@@ -278,13 +278,18 @@ namespace MusicApp.Models
 			}
 		}
 
-		public async Task<ObservableCollection<MySong>> FetchPopularSongsAsync()
+		public async Task<MyShelf<MySong>> FetchPopularSongsAsync(string? nextPageToken)
 		{
 			var trendingVideosRequest = _googleYouTubeService.Videos.List("snippet");
 			trendingVideosRequest.Chart = VideosResource.ListRequest.ChartEnum.MostPopular;
 			trendingVideosRequest.RegionCode = "US";
 			trendingVideosRequest.MaxResults = 20;
 			trendingVideosRequest.VideoCategoryId = "10";
+
+			if (nextPageToken != null)
+			{
+				trendingVideosRequest.PageToken = nextPageToken;
+			}
 
 			var trendingVideosResponse = await trendingVideosRequest.ExecuteAsync();
 
@@ -306,7 +311,7 @@ namespace MusicApp.Models
 			await Task.WhenAll(tasks);
 
 			var mySongs = await Task.WhenAll(songs.Select(async song => await MySong.CreateAsync(song)));
-			return new ObservableCollection<MySong>(mySongs);
+			return new MyShelf<MySong>(new ObservableCollection<MySong>(mySongs),trendingVideosResponse.NextPageToken);
 		}
 	}
 }

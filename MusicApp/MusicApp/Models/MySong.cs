@@ -44,7 +44,7 @@ namespace MusicApp.Models
 		{
 			MySong mySong = new MySong(songVideoInfo.Name, songVideoInfo.Id, songVideoInfo.Artists, songVideoInfo.Duration)
 			{
-				Thumbnail = await ThumbnailHelper.GetMediumQualityThumbnailAsync(songVideoInfo.Id)
+				Thumbnail = await ThumbnailHelper.GetLowQualityThumbnailAsync(songVideoInfo.Id)
 			};
 			return mySong;
 		}
@@ -53,7 +53,7 @@ namespace MusicApp.Models
 		{
 			var mySong = new MySong(song)
 			{
-				Thumbnail = await ThumbnailHelper.GetLowQualityThumbnailAsync(song.Id)
+				Thumbnail = await ThumbnailHelper.GetMediumQualityThumbnailAsync(song.Id)
 			};
 			return mySong;
 		}

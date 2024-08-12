@@ -12,5 +12,6 @@ namespace MusicApp.Views
 
 			DataContext = new MainViewModel(this);
 		}
+
 	}
 }
