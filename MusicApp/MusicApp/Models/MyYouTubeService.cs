@@ -17,6 +17,8 @@ using System.Security.RightsManagement;
 using System.Collections.ObjectModel;
 using YouTubeMusicAPI.Models.Shelf;
 using YouTubeMusicAPI.Types;
+using Newtonsoft.Json.Linq;
+using Google.Apis.Requests;
 
 namespace MusicApp.Models
 {
@@ -27,10 +29,10 @@ namespace MusicApp.Models
 			"https://www.googleapis.com/auth/youtube.force-ssl"
 		};
 		private static readonly string ApplicationName = "MusicApp";
-		private static YouTubeService _googleYouTubeService;
+		private static YouTubeService _googleYouTubeService = new();
 
-		private static YouTubeMusicClient _youtubeMusicClient;
-		private static YoutubeClient _youtubeClient;
+		private static YouTubeMusicClient _youtubeMusicClient = new();
+		private static YoutubeClient _youtubeClient = new();
 
 		public static async Task<MyYouTubeService> CreateYoutubeServiceAsync()
 		{
@@ -88,6 +90,14 @@ namespace MusicApp.Models
 			return new MyShelf<MySong>(new ObservableCollection<MySong>(mySongs), continuationToken);
 		}
 
+		public static async Task<MySong?> FetchSongAsync(string query)
+		{
+			IEnumerable<Song> songs = await _youtubeMusicClient.SearchAsync<Song>(query, 1);
+			if (!songs.Any()) return null;
+
+			return await MySong.CreateAsync(songs.FirstOrDefault());
+		}
+
 		public async Task<string?> GetAudioStreamUrlAsync(string songId)
 		{
 			var videoId = YoutubeExplode.Videos.VideoId.Parse(songId);
@@ -99,7 +109,7 @@ namespace MusicApp.Models
 		public async Task<ObservableCollection<Playlist>> FetchAllPlaylistsAsync()
 		{
 			var playlists = new List<Playlist>();
-			string nextPageToken = null;
+			string? nextPageToken = null;
 
 			try
 			{
@@ -293,12 +303,58 @@ namespace MusicApp.Models
 
 			var trendingVideosResponse = await trendingVideosRequest.ExecuteAsync();
 
-			var songs = new List<Song>();
-			var tasks = trendingVideosResponse.Items.Select(async video =>
+			var songs = await ConvertToSongs(trendingVideosResponse);
+			
+
+			return await ConvertSongsToMySongsShelf(songs, trendingVideosResponse.NextPageToken);
+		}
+
+		public async Task<MyShelf<MySong>?> FetchMixSongsAsync(string? id, string? nextPageToken)
+		{
+			var mixItemsRequest = _googleYouTubeService.PlaylistItems.List("snippet");
+			mixItemsRequest.PlaylistId = id;
+			mixItemsRequest.MaxResults = 25;
+
+			if (nextPageToken != null)
 			{
+				mixItemsRequest.PageToken = nextPageToken;
+			}
+
+			try
+			{
+				var mixItemsResponse = await mixItemsRequest.ExecuteAsync();
+				var songs = await ConvertToSongs(mixItemsResponse);
+
+				return await ConvertSongsToMySongsShelf(songs, mixItemsResponse.NextPageToken);
+			}
+			catch (GoogleApiException ex)
+			{
+				MessageBox.Show($"An API error occurred: {ex.Message}");
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show($"An error occurred: {ex.Message}");
+			}
+
+			return null;
+		}
+
+		private async Task<MyShelf<MySong>> ConvertSongsToMySongsShelf(IEnumerable<Song> songs, string? nextPageToken)
+		{
+			var mySongs = await Task.WhenAll(songs.Select(async song => await MySong.CreateAsync(song)));
+			return new MyShelf<MySong>(new ObservableCollection<MySong>(mySongs), nextPageToken);
+		}
+
+		private async Task<List<Song>> ConvertToSongs<T>(IEnumerable<T> items, Func<T, string> getTitle)
+		{
+			var songs = new List<Song>();
+			var tasks = items.Select(async item =>
+			{
+				// Extract the title using the delegate
+				var title = getTitle(item);
 
 				// Search for the song in parallel
-				IEnumerable<Song> searchResults = await _youtubeMusicClient.SearchAsync<Song>(video.Snippet.Title, 1);
+				IEnumerable<Song> searchResults = await _youtubeMusicClient.SearchAsync<Song>(title, 1);
 				var song = searchResults.FirstOrDefault();
 				if (song != null)
 				{
@@ -309,9 +365,20 @@ namespace MusicApp.Models
 
 			// Await all tasks to complete
 			await Task.WhenAll(tasks);
+			return songs;
+		}
 
-			var mySongs = await Task.WhenAll(songs.Select(async song => await MySong.CreateAsync(song)));
-			return new MyShelf<MySong>(new ObservableCollection<MySong>(mySongs),trendingVideosResponse.NextPageToken);
+
+		// Specific method for VideoListResponse
+		private async Task<List<Song>> ConvertToSongs(VideoListResponse response)
+		{
+			return await ConvertToSongs(response.Items, video => video.Snippet.Title);
+		}
+
+		// Specific method for PlaylistItemListResponse
+		private async Task<List<Song>> ConvertToSongs(PlaylistItemListResponse response)
+		{
+			return await ConvertToSongs(response.Items, item => item.Snippet.Title);
 		}
 	}
 }

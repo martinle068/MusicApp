@@ -20,7 +20,7 @@ namespace MusicApp.ViewModels
 		private MyShelf<MySong> _songs;
 		private string _searchQuery = string.Empty;
 		private int _selectedSongIndex = -1;
-		private string? _continuationToken;
+		private string? _searchContinuationToken;
 
 		public void ResetIndices()
 		{
@@ -39,14 +39,34 @@ namespace MusicApp.ViewModels
 			{
 				if (SetProperty(ref _selectedSongIndex, value))
 				{
-					if (Songs.Items.ElementAtOrDefault(value) is MySong)
-					{
-						_mainViewModel.ResetIndices();
-						_mainViewModel.CurrentMusicSource = MainViewModel.MusicSource.Search;
-						_mainViewModel.PlayerViewModel.ProvidePlayerInfo(new(Songs.Items), value, GetInfoString("Queue"), _continuationToken);
-						_mainViewModel.SwitchToPlayerView();
-					}
+					HandleSelectedSongIndex(value);
 				}
+			}
+		}
+
+		private async void HandleSelectedSongIndex(int index)
+		{
+			if (Songs.Items.ElementAtOrDefault(index) is MySong song and not null)
+			{
+				var newSongs = new MyShelf<MySong>(new ObservableCollection<MySong>() { song }, null);
+				var mixId = await song.GetPlaylistIdAsync();
+				var mixedSongs = await _mainViewModel.MyYouTubeService.FetchMixSongsAsync(mixId, null);
+				_mainViewModel.ResetIndices();
+				_mainViewModel.CurrentMusicSource = MainViewModel.MusicSource.Search;
+
+				if (mixedSongs == null)
+				{
+					MessageBox.Show("No songs found.");
+					return;
+				}
+
+				foreach (var item in mixedSongs.Items)
+				{
+					newSongs.Items.Add(item);
+				}
+
+				_mainViewModel.PlayerViewModel.ProvidePlayerInfo(newSongs.Items, 0, GetInfoString("Queue"), mixedSongs.ContinuationToken, mixId);
+				_mainViewModel.SwitchToPlayerView();
 			}
 		}
 
@@ -56,7 +76,7 @@ namespace MusicApp.ViewModels
 			set
 			{
 				SetProperty(ref _searchQuery, value);
-				_continuationToken = null;
+				_searchContinuationToken = null;
 			}
 		}
 
@@ -83,22 +103,21 @@ namespace MusicApp.ViewModels
 
 			try
 			{
-				var shelf = await _youTubeService.FetchSongsAsync(query, _continuationToken);
+				var shelf = await _youTubeService.FetchSongsAsync(query, _searchContinuationToken);
 				if (shelf == null) 
 				{
 					MessageBox.Show("No songs found.");
 					return;
 				}
 
-				_continuationToken = shelf.ContinuationToken;
+				Songs = shelf;
+				_searchContinuationToken = shelf.ContinuationToken;
 
 				if (!shelf.Items.Any())
 				{
 					MessageBox.Show("No songs found.");
 					return;
 				}
-
-				Songs = shelf;
 			}
 			catch (Exception ex)
 			{
@@ -108,7 +127,7 @@ namespace MusicApp.ViewModels
 
 		private void ExecuteBack(object parameter)
 		{
-			_continuationToken = null;
+			_searchContinuationToken = null;
 			_mainViewModel.NavigateBack();
 		}
 	}

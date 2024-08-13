@@ -18,24 +18,39 @@ namespace MusicApp.Models
 		public string ArtistAndSongName { get; }
 		public ShelfItem[] Artists { get; }
 		public string ArtistsString => string.Join(", ", Artists.Select(artist => artist.Name));
+		private string? _playlistId { get; } = null;
 
 		public TimeSpan Duration { get; }
 		public BitmapImage? Thumbnail { get; private set; }
+
+		public async Task<string> GetPlaylistIdAsync()
+		{
+			if (_playlistId != null)
+			{
+				return _playlistId;
+			}
+
+			var song = await MyYouTubeService.FetchSongAsync(ArtistAndSongName);
+
+			return song._playlistId;
+		}
 
 		private MySong(Song song)
 		{
 			Name = song.Name;
 			Id = song.Id;
 			Artists = song.Artists;
+			_playlistId = song.Radio.PlaylistId;
 			Duration = song.Duration;
 			ArtistAndSongName = GetArtistAndSongNameString();
 		}
 
-		private MySong(string name, string id, ShelfItem[] artists, TimeSpan duration)
+		private MySong(string name, string id, ShelfItem[] artists, TimeSpan duration, string? playlistId = null)
 		{
 			Name = name;
 			Id = id;
 			Artists = artists;
+			_playlistId = playlistId;
 			Duration = duration;
 			ArtistAndSongName = GetArtistAndSongNameString();
 		}

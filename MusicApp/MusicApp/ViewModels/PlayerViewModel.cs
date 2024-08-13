@@ -17,6 +17,8 @@ using MediaPlayer = LibVLCSharp.Shared.MediaPlayer;
 using MusicApp.Views;
 using System.Collections.ObjectModel;
 using static MusicApp.Utils.Utils;
+using Newtonsoft.Json.Linq;
+using System.Runtime;
 
 
 namespace MusicApp.ViewModels
@@ -44,6 +46,7 @@ namespace MusicApp.ViewModels
 		private bool _isSongSelected;
 		private string? _infoText;
 		private string? _continuationToken;
+		private string? _mixId;
 
 		public string? ContinuationToken
 		{
@@ -60,7 +63,11 @@ namespace MusicApp.ViewModels
 		public ObservableCollection<MySong> Songs
 		{
 			get => _songs;
-			set => SetProperty(ref _songs, value);
+			set
+			{
+				SetProperty(ref _songs, value);
+				GC.Collect();
+			}
 		}
 
 		public MySong? SelectedSong
@@ -76,12 +83,15 @@ namespace MusicApp.ViewModels
 			{
 				if (SetProperty(ref _selectedSongIndex, value))
 				{
-					var currentSong = SelectedSong;
-					SelectedSong = Songs?.ElementAtOrDefault(value);
-
-					if (SelectedSong != null && currentSong != SelectedSong)
+					if (value != -1)
 					{
-						PlaySelectedSong();
+						var currentSong = SelectedSong;
+						SelectedSong = Songs?.ElementAtOrDefault(value);
+
+						if (SelectedSong != null && currentSong != SelectedSong)
+						{
+							PlaySelectedSong();
+						}
 					}
 				}
 			}
@@ -205,12 +215,15 @@ namespace MusicApp.ViewModels
 			SelectedSongIndex = -1;
 		}
 
-		public void ProvidePlayerInfo(ObservableCollection<MySong> songs, int index, string text, string? continuationToken = null)
+		public void ProvidePlayerInfo(ObservableCollection<MySong> songs, int index, string text, string? continuationToken = null, string? mixId = null)
 		{
 			Songs = songs;
+			//ResetIndices();
 			SelectedSongIndex = index;
+			SelectedSong = Songs?.ElementAtOrDefault(index);
 			InfoText = text;
 			ContinuationToken = continuationToken;
+			_mixId = mixId;
 		}
 
 		private void ExecuteRemoveSongFromPlaylist(object parameter)
@@ -322,7 +335,7 @@ namespace MusicApp.ViewModels
 			}
             else if (_mainViewModel.CurrentMusicSource is MainViewModel.MusicSource.Search)
             {
-				var newShelf = await _youTubeService.FetchSongsAsync(_mainViewModel.SearchViewModel.SearchQuery, ContinuationToken);
+				var newShelf = await _youTubeService.FetchMixSongsAsync(_mixId, ContinuationToken);
 				ProcessNewShelf(newShelf);
 			}
 			else if (_mainViewModel.CurrentMusicSource is MainViewModel.MusicSource.Popular)
@@ -336,14 +349,18 @@ namespace MusicApp.ViewModels
 		{
 			if (newShelf != null)
 			{
-				foreach (var song in newShelf.Items)
+				Application.Current.Dispatcher.Invoke(() =>
 				{
-					Songs.Add(song);
-				}
+					foreach (var song in newShelf.Items)
+					{
+						Songs.Add(song);
+					}
+				});
 			}
 			ContinuationToken = newShelf?.ContinuationToken;
 			SelectedSongIndex++;
 		}
+
 
 		private void ExecutePrevious(object parameter)
 		{
