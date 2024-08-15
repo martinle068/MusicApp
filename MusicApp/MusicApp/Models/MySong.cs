@@ -21,7 +21,6 @@ namespace MusicApp.Models
 		private string? _playlistId { get; } = null;
 
 		public TimeSpan Duration { get; }
-		//public BitmapImage? Thumbnail { get; private set; }
 		public string? Thumbnail { get; private set; }
 
 		public async Task<string> GetPlaylistIdAsync()

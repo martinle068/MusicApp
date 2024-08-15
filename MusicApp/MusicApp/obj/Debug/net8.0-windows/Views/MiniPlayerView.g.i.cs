@@ -52,7 +52,7 @@ namespace MusicApp.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/MusicApp;component/views/miniplayerview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/MusicApp;V1.0.0.0;component/views/miniplayerview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\MiniPlayerView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -114,19 +114,6 @@ namespace MusicApp.Models
 			return audioStreamInfo?.Url;
 		}
 
-		//public async Task<ObservableCollection<MySong>> FetchRadioSongsAsync(string songId)
-		//{
-		//	var radioSongs = new List<MySong>();
-		//	var radioPlaylistId = await GetRadioPlaylistIdAsync(songId);
-		//	var radioSongsResponse = await FetchPlaylistContentAsync(radioPlaylistId);
-
-		//	if (radioSongsResponse != null)
-		//	{
-		//		radioSongs.AddRange(radioSongsResponse);
-		//	}
-
-		//	return new ObservableCollection<MySong>(radioSongs);
-		//}
 		public async Task<ObservableCollection<Playlist>> FetchAllPlaylistsAsync()
 		{
 			var playlists = new List<Playlist>();
@@ -153,7 +140,7 @@ namespace MusicApp.Models
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show($"An error occurred: {ex.Message}");
+				MessageBox.Show($"1An error occurred: {ex.Message}");
 			}
 
 			return new ObservableCollection<Playlist>(playlists);
@@ -187,7 +174,7 @@ namespace MusicApp.Models
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+				MessageBox.Show($"2An error occurred: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 				return null;
 			}
 		}
@@ -355,7 +342,7 @@ namespace MusicApp.Models
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+				MessageBox.Show($"3An error occurred: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 			}
 
 			return null;

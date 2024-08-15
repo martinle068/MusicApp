@@ -103,42 +103,51 @@ namespace MusicApp.ViewModels
 			SelectPlaylistCommand = new RelayCommand(async _ => await HandlePlaylistSelectionAsync());
 			SelectPopularSongCommand = new RelayCommand(_ => HandlePopularSongSelection());
 			DeletePlaylistCommand = new RelayCommand(ExecuteDeletePlaylist);
-			LoadPlaylists();
-			LoadPopularSongs();
+			LoadData();
 		}
 
-		private async void LoadPopularSongs()
+		private async void LoadData()
+		{
+			var loadPlaylistsTask = LoadPlaylists();
+			var loadPopularSongsTask = LoadPopularSongs();
+			var loadAllPlaylistSongs = LoadAllPlaylistSongs();
+
+			await Task.WhenAll(loadPlaylistsTask, loadPopularSongsTask, loadAllPlaylistSongs);
+
+		}
+		private async Task LoadPopularSongs()
 		{
 			var popularSongs = await _mainViewModel.MyYouTubeService.FetchPopularSongsAsync(null);
 			PopularSongs = popularSongs;
 		}
 
-		private async void LoadPlaylists()
+		private async Task LoadPlaylists()
 		{
 			var playlists = await _mainViewModel.MyYouTubeService.FetchAllPlaylistsAsync();
 			Playlists = playlists;
-
-			await LoadAllPlaylistSongs();
 		}
 
 		private async Task LoadAllPlaylistSongs()
 		{
 			var allSongs = new ObservableCollection<MySong>();
 
-			foreach (var playlist in Playlists)
+			var tasks = Playlists.Select(async playlist =>
 			{
 				var playlistItems = await _mainViewModel.MyYouTubeService.FetchPlaylistContentAsync(playlist.Id);
 				if (playlistItems != null)
 				{
 					foreach (var song in playlistItems)
 					{
-						allSongs.Add(song);
+						Application.Current.Dispatcher.Invoke(() => allSongs.Add(song));
 					}
 				}
-			}
+			});
+
+			await Task.WhenAll(tasks);
 
 			AllPlaylistSongs = allSongs;
 		}
+
 
 		private async Task HandlePlaylistSelectionAsync()
 		{
@@ -233,7 +242,7 @@ namespace MusicApp.ViewModels
 				await _mainViewModel.MyYouTubeService.AddNewPlaylist(title, description, privacyStatus);
 
 				await Task.Delay(5000); // Wait for the playlist to be created
-				LoadPlaylists();
+				await LoadPlaylists();
 			}
 			catch (Google.GoogleApiException ex)
 			{

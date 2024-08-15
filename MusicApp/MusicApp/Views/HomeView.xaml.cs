@@ -112,7 +112,7 @@ namespace MusicApp.Views
 			switch (selectedType)
 			{
 				case ListBoxType.RandomSongsFromAllPlaylists:
-					await AddRandomSongsListBoxAsync();
+					AddRandomSongsListBox();
 					break;
 
 				case ListBoxType.SongsFromSpecificAuthor:
@@ -121,7 +121,7 @@ namespace MusicApp.Views
 			}
 		}
 
-		private async Task AddRandomSongsListBoxAsync()
+		private void AddRandomSongsListBox()
 		{
 			var viewModel = DataContext as HomeViewModel;
 			if (viewModel == null || viewModel.AllPlaylistSongs == null || !viewModel.AllPlaylistSongs.Any())
@@ -270,7 +270,7 @@ namespace MusicApp.Views
 			return new ObservableCollection<MySong>(randomSongs);
 		}
 
-		private string GetRandomAuthor(IEnumerable<MySong> songs)
+		private string? GetRandomAuthor(IEnumerable<MySong> songs)
 		{
 			var authors = songs.SelectMany(song => song.Artists.Select(artist => artist.Name)).Distinct().ToList();
 			if (authors.Count == 0) return null;
