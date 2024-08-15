@@ -21,7 +21,8 @@ namespace MusicApp.Models
 		private string? _playlistId { get; } = null;
 
 		public TimeSpan Duration { get; }
-		public BitmapImage? Thumbnail { get; private set; }
+		//public BitmapImage? Thumbnail { get; private set; }
+		public string? Thumbnail { get; private set; }
 
 		public async Task<string> GetPlaylistIdAsync()
 		{
@@ -42,34 +43,39 @@ namespace MusicApp.Models
 			Artists = song.Artists;
 			_playlistId = song.Radio.PlaylistId;
 			Duration = song.Duration;
+			Thumbnail = song.Thumbnails.LastOrDefault()?.Url;
 			ArtistAndSongName = GetArtistAndSongNameString();
 		}
 
-		private MySong(string name, string id, ShelfItem[] artists, TimeSpan duration, string? playlistId = null)
+		private MySong(string name, string id, ShelfItem[] artists, TimeSpan duration, string? thumbnail, string? playlistId = null)
 		{
 			Name = name;
 			Id = id;
 			Artists = artists;
 			_playlistId = playlistId;
 			Duration = duration;
+			Thumbnail = thumbnail;
 			ArtistAndSongName = GetArtistAndSongNameString();
 		}
 
-		public static async Task<MySong> CreateAsync(SongVideoInfo songVideoInfo)
+		public static MySong Create(SongVideoInfo songVideoInfo)
 		{
-			MySong mySong = new MySong(songVideoInfo.Name, songVideoInfo.Id, songVideoInfo.Artists, songVideoInfo.Duration)
-			{
-				Thumbnail = await ThumbnailHelper.GetLowQualityThumbnailAsync(songVideoInfo.Id)
-			};
+			MySong mySong = new MySong(songVideoInfo.Name, songVideoInfo.Id, songVideoInfo.Artists, songVideoInfo.Duration, songVideoInfo.Thumbnails.LastOrDefault()?.Url);
+			
 			return mySong;
 		}
 
-		public static async Task<MySong> CreateAsync(Song song)
+		public static MySong Create(CommunityPlaylistSongInfo communityPlaylistSongInfo)
 		{
-			var mySong = new MySong(song)
-			{
-				Thumbnail = await ThumbnailHelper.GetMediumQualityThumbnailAsync(song.Id)
-			};
+			MySong mySong = new MySong(communityPlaylistSongInfo.Name, communityPlaylistSongInfo.Id, communityPlaylistSongInfo.Artists, communityPlaylistSongInfo.Duration, communityPlaylistSongInfo.Thumbnails.LastOrDefault()?.Url);
+
+			return mySong;
+		}
+
+		public static MySong Create(Song song)
+		{
+			var mySong = new MySong(song);
+
 			return mySong;
 		}
 

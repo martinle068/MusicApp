@@ -6,10 +6,8 @@ using Google.Apis.YouTube.v3.Data;
 using MusicApp.Commands;
 using MusicApp.Models;
 using MusicApp.Views;
-using YoutubeExplode.Playlists;
-using Playlist = Google.Apis.YouTube.v3.Data.Playlist;
 using static MusicApp.Utils.Utils;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using System.Linq;
 
 namespace MusicApp.ViewModels
 {
@@ -24,6 +22,21 @@ namespace MusicApp.ViewModels
 		private int _selectedPopularSongIndex = -1;
 		private string? _popularSongsContinuationToken;
 
+		private ObservableCollection<MySong> _allPlaylistSongs = new();
+		private ObservableCollection<ObservableCollection<MySong>> _randomSongs = new();
+
+		public ObservableCollection<ObservableCollection<MySong>> RandomSongs
+		{
+			get => _randomSongs;
+			set => SetProperty(ref _randomSongs, value);
+		}
+
+		public ObservableCollection<MySong> AllPlaylistSongs
+		{
+			get => _allPlaylistSongs;
+			set => SetProperty(ref _allPlaylistSongs, value);
+		}
+
 		public void ResetIndices()
 		{
 			SelectedPlaylistIndex = -1;
@@ -36,13 +49,6 @@ namespace MusicApp.ViewModels
 			set
 			{
 				SetProperty(ref _selectedPopularSongIndex, value);
-				if (value != -1)
-				{
-					_mainViewModel.ResetIndices();
-					_mainViewModel.CurrentMusicSource = MainViewModel.MusicSource.Popular;
-					_mainViewModel.PlayerViewModel.ProvidePlayerInfo(PopularSongs.Items, value, GetInfoString("Popular Songs"), _popularSongsContinuationToken);
-					_mainViewModel.SwitchToPlayerView();
-				}
 			}
 		}
 
@@ -69,6 +75,69 @@ namespace MusicApp.ViewModels
 					SelectedPlaylist = Playlists[value];
 				}
 			}
+		}
+
+		public string SearchQuery
+		{
+			get => _searchQuery;
+			set => SetProperty(ref _searchQuery, value);
+		}
+
+		public ObservableCollection<Playlist> Playlists
+		{
+			get => _playlists;
+			set => SetProperty(ref _playlists, value);
+		}
+
+		public ICommand SearchCommand { get; }
+		public ICommand AddPlaylistCommand { get; }
+		public ICommand SelectPlaylistCommand { get; }
+		public ICommand SelectPopularSongCommand { get; }
+		public ICommand DeletePlaylistCommand { get; }
+
+		public HomeViewModel(MainViewModel mainViewModel)
+		{
+			_mainViewModel = mainViewModel;
+			SearchCommand = new RelayCommand(async _ => await ExecuteSearch());
+			AddPlaylistCommand = new RelayCommand(OpenAddPlaylistDialog);
+			SelectPlaylistCommand = new RelayCommand(async _ => await HandlePlaylistSelectionAsync());
+			SelectPopularSongCommand = new RelayCommand(_ => HandlePopularSongSelection());
+			DeletePlaylistCommand = new RelayCommand(ExecuteDeletePlaylist);
+			LoadPlaylists();
+			LoadPopularSongs();
+		}
+
+		private async void LoadPopularSongs()
+		{
+			var popularSongs = await _mainViewModel.MyYouTubeService.FetchPopularSongsAsync(null);
+			PopularSongs = popularSongs;
+		}
+
+		private async void LoadPlaylists()
+		{
+			var playlists = await _mainViewModel.MyYouTubeService.FetchAllPlaylistsAsync();
+			Playlists = playlists;
+
+			await LoadAllPlaylistSongs();
+		}
+
+		private async Task LoadAllPlaylistSongs()
+		{
+			var allSongs = new ObservableCollection<MySong>();
+
+			foreach (var playlist in Playlists)
+			{
+				var playlistItems = await _mainViewModel.MyYouTubeService.FetchPlaylistContentAsync(playlist.Id);
+				if (playlistItems != null)
+				{
+					foreach (var song in playlistItems)
+					{
+						allSongs.Add(song);
+					}
+				}
+			}
+
+			AllPlaylistSongs = allSongs;
 		}
 
 		private async Task HandlePlaylistSelectionAsync()
@@ -101,38 +170,40 @@ namespace MusicApp.ViewModels
 			}
 		}
 
-		public string SearchQuery
+		public async Task HandleRadioSongSelection(ObservableCollection<MySong> Songs, int index)
 		{
-			get => _searchQuery;
-			set => SetProperty(ref _searchQuery, value);
+			if (Songs.ElementAtOrDefault(index) is MySong song and not null)
+			{
+				var newSongs = new ObservableCollection<MySong>() { song };
+				var radioPlaylistId = await song.GetPlaylistIdAsync();
+				var radioSongs = await _mainViewModel.MyYouTubeService.FetchRadioSongsAsync(radioPlaylistId);
+				_mainViewModel.ResetIndices();
+				_mainViewModel.CurrentMusicSource = MainViewModel.MusicSource.Search;
+
+				if (radioSongs == null)
+				{
+					MessageBox.Show("No songs found.");
+					return;
+				}
+
+				foreach (var item in radioSongs)
+				{
+					newSongs.Add(item);
+				}
+
+				_mainViewModel.PlayerViewModel.ProvidePlayerInfo(newSongs, 0, GetInfoString($"Radio {song.Name}"));
+				_mainViewModel.SwitchToPlayerView();
+			}
 		}
 
-		public ObservableCollection<Playlist> Playlists
+		private void HandlePopularSongSelection()
 		{
-			get => _playlists;
-			set => SetProperty(ref _playlists, value);
-		}
-
-		public ICommand SearchCommand { get; }
-		public ICommand AddPlaylistCommand { get; }
-		public ICommand SelectPlaylistCommand { get;}
-		public ICommand DeletePlaylistCommand { get; }
-
-		public HomeViewModel(MainViewModel mainViewModel)
-		{
-			_mainViewModel = mainViewModel;
-			SearchCommand = new RelayCommand(async _ => await ExecuteSearch());
-			AddPlaylistCommand = new RelayCommand(OpenAddPlaylistDialog);
-			SelectPlaylistCommand = new RelayCommand(async _ => await HandlePlaylistSelectionAsync());
-			DeletePlaylistCommand = new RelayCommand(ExecuteDeletePlaylist);
-			LoadPlaylists();
-			LoadPopularSongs();
-		}
-
-		private async void LoadPopularSongs()
-		{
-			var popularSongs = await _mainViewModel.MyYouTubeService.FetchPopularSongsAsync(null);
-			PopularSongs = popularSongs;
+			if (PopularSongs.Items.ElementAtOrDefault(SelectedPopularSongIndex) is MySong song)
+			{
+				_mainViewModel.CurrentMusicSource = MainViewModel.MusicSource.Popular;
+				_mainViewModel.PlayerViewModel.ProvidePlayerInfo(PopularSongs.Items, SelectedPopularSongIndex, GetInfoString("Popular Songs"), _popularSongsContinuationToken);
+				_mainViewModel.SwitchToPlayerView();
+			}
 		}
 
 		private async Task ExecuteSearch()
@@ -142,12 +213,6 @@ namespace MusicApp.ViewModels
 				_mainViewModel.SearchViewModel.SearchQuery = SearchQuery;
 				await _mainViewModel.SearchAndNavigateAsync(SearchQuery);
 			}
-		}
-
-		private async void LoadPlaylists()
-		{
-			var playlists = await _mainViewModel.MyYouTubeService.FetchAllPlaylistsAsync();
-			Playlists = playlists;
 		}
 
 		private void OpenAddPlaylistDialog(object parameter)
@@ -214,6 +279,5 @@ namespace MusicApp.ViewModels
 				MessageBox.Show($"An error occurred: {ex.Message}");
 			}
 		}
-
 	}
 }

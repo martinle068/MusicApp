@@ -49,23 +49,23 @@ namespace MusicApp.ViewModels
 			if (Songs.Items.ElementAtOrDefault(index) is MySong song and not null)
 			{
 				var newSongs = new MyShelf<MySong>(new ObservableCollection<MySong>() { song }, null);
-				var mixId = await song.GetPlaylistIdAsync();
-				var mixedSongs = await _mainViewModel.MyYouTubeService.FetchMixSongsAsync(mixId, null);
+				var radioPlaylistId = await song.GetPlaylistIdAsync();
+				var radioSongs = await _mainViewModel.MyYouTubeService.FetchRadioSongsAsync(radioPlaylistId);
 				_mainViewModel.ResetIndices();
 				_mainViewModel.CurrentMusicSource = MainViewModel.MusicSource.Search;
 
-				if (mixedSongs == null)
+				if (radioSongs == null)
 				{
 					MessageBox.Show("No songs found.");
 					return;
 				}
 
-				foreach (var item in mixedSongs.Items)
+				foreach (var item in radioSongs)
 				{
 					newSongs.Items.Add(item);
 				}
 
-				_mainViewModel.PlayerViewModel.ProvidePlayerInfo(newSongs.Items, 0, GetInfoString("Queue"), mixedSongs.ContinuationToken, mixId);
+				_mainViewModel.PlayerViewModel.ProvidePlayerInfo(newSongs.Items, 0, GetInfoString("Queue"));
 				_mainViewModel.SwitchToPlayerView();
 			}
 		}
@@ -103,7 +103,7 @@ namespace MusicApp.ViewModels
 
 			try
 			{
-				var shelf = await _youTubeService.FetchSongsAsync(query, _searchContinuationToken);
+				var shelf = await _youTubeService.FetchSongShelvesAsync(query, _searchContinuationToken);
 				if (shelf == null) 
 				{
 					MessageBox.Show("No songs found.");

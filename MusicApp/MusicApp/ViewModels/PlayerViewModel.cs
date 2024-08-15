@@ -215,7 +215,7 @@ namespace MusicApp.ViewModels
 			SelectedSongIndex = -1;
 		}
 
-		public void ProvidePlayerInfo(ObservableCollection<MySong> songs, int index, string text, string? continuationToken = null, string? mixId = null)
+		public void ProvidePlayerInfo(ObservableCollection<MySong> songs, int index, string text, string? continuationToken = null)
 		{
 			Songs = songs;
 			//ResetIndices();
@@ -223,7 +223,6 @@ namespace MusicApp.ViewModels
 			SelectedSong = Songs?.ElementAtOrDefault(index);
 			InfoText = text;
 			ContinuationToken = continuationToken;
-			_mixId = mixId;
 		}
 
 		private void ExecuteRemoveSongFromPlaylist(object parameter)
@@ -335,8 +334,9 @@ namespace MusicApp.ViewModels
 			}
             else if (_mainViewModel.CurrentMusicSource is MainViewModel.MusicSource.Search)
             {
-				var newShelf = await _youTubeService.FetchMixSongsAsync(_mixId, ContinuationToken);
-				ProcessNewShelf(newShelf);
+				//var newShelf = await _youTubeService.FetchMixSongsAsync(_mixId, ContinuationToken);
+				//ProcessNewShelf(newShelf);
+				MessageBox.Show("Not implemented yet.");
 			}
 			else if (_mainViewModel.CurrentMusicSource is MainViewModel.MusicSource.Popular)
 			{
