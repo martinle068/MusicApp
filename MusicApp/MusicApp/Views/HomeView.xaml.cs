@@ -84,7 +84,7 @@ namespace MusicApp.Views
 		private async void DynamicScrollViewer_ScrollChanged(object sender, ScrollChangedEventArgs e)
 		{
 			// Check if the user is nearing the bottom of the scrollable area
-			if (sender == DynamicScrollViewer && e.VerticalOffset + e.ViewportHeight >= e.ExtentHeight - 100)
+			if (sender == DynamicScrollViewer && e.VerticalOffset + e.ViewportHeight >= e.ExtentHeight - 200)
 			{
 				if (!_isLoadingPanel)
 				{
@@ -112,7 +112,7 @@ namespace MusicApp.Views
 			switch (selectedType)
 			{
 				case ListBoxType.RandomSongsFromAllPlaylists:
-					AddRandomSongsListBox();
+					await AddRandomSongsListBoxAsync();
 					break;
 
 				case ListBoxType.SongsFromSpecificAuthor:
@@ -121,14 +121,15 @@ namespace MusicApp.Views
 			}
 		}
 
-		private void AddRandomSongsListBox()
+		private async Task AddRandomSongsListBoxAsync()
 		{
 			var viewModel = DataContext as HomeViewModel;
 			if (viewModel == null || viewModel.AllPlaylistSongs == null || !viewModel.AllPlaylistSongs.Any())
 				return;
 
 			// Get a random collection of 10 songs
-			var randomSongs = GetRandomSongs(viewModel.AllPlaylistSongs, 10);
+			var randomSongs = await GetRandomSongs();
+			if (randomSongs == null || randomSongs.Count == 0) return;
 
 			// Add a new TextBlock for the new "Random Songs" section
 			var textBlock = new TextBlock
@@ -185,9 +186,6 @@ namespace MusicApp.Views
 				SelectedIndex = -1,
 				ItemsSource = songs
 			};
-
-			// Bind the SelectedIndex to SelectedPlaylistIndex (or similar)
-			listBox.SetBinding(ListBox.SelectedIndexProperty, new Binding("SelectedPlaylistIndex") { Source = this.DataContext });
 
 			// Attach the MouseLeftButtonUp event handler for playing songs
 			listBox.PreviewMouseLeftButtonUp += (s, e) => RadioSongListBoxCommand(s, e, songs, listBox.SelectedIndex);
@@ -264,11 +262,26 @@ namespace MusicApp.Views
 			return dataTemplate;
 		}
 
-		private ObservableCollection<MySong> GetRandomSongs(IEnumerable<MySong> songs, int count)
+		private async Task<ObservableCollection<MySong>?> GetRandomSongs()
 		{
-			var randomSongs = songs.OrderBy(x => _random.Next()).Take(count);
-			return new ObservableCollection<MySong>(randomSongs);
+			var viewModel = DataContext as HomeViewModel;
+			var randomSongIds = viewModel?._mainViewModel.SongDatabase?.GetSongsForRecommendation();
+			if (randomSongIds == null || randomSongIds.Count == 0) return null;
+
+			var fetchTasks = randomSongIds.Select(async songId =>
+			{
+				return MySong.Create(await MyYouTubeService.FetchSongVideoInfoAsync(songId));
+			});
+
+			var songs = await Task.WhenAll(fetchTasks);
+
+			if (songs == null || songs.Length == 0) return null;
+
+			var randomSongs = new ObservableCollection<MySong>(songs.Where(song => song != null));
+
+			return randomSongs;
 		}
+
 
 		private string? GetRandomAuthor(IEnumerable<MySong> songs)
 		{

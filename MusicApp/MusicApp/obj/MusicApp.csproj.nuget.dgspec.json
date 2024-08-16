@@ -66,6 +66,10 @@
               "target": "Package",
               "version": "[2.2.1, )"
             },
+            "System.Data.SQLite.Core": {
+              "target": "Package",
+              "version": "[1.0.118, )"
+            },
             "VideoLAN.LibVLC.Windows": {
               "target": "Package",
               "version": "[3.0.20, )"

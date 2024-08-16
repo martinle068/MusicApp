@@ -32,6 +32,9 @@
 							<Trigger Property="IsMouseOver" Value="True">
 								<Setter TargetName="Bd" Property="Background" Value="#555555"/>
 							</Trigger>
+							<Trigger Property="IsSelected" Value="True">
+								<Setter TargetName="Bd" Property="Background" Value="#777777"/>
+							</Trigger>
 						</ControlTemplate.Triggers>
 					</ControlTemplate>
 				</Setter.Value>
@@ -71,7 +74,7 @@
                          BorderThickness="0"
                          Background="Transparent"
                          SelectedIndex="{Binding SelectedPlaylistIndex}"
-                         PreviewMouseLeftButtonUp="PlaylistListBoxItemCommand"
+                         
 						 ScrollViewer.ScrollChanged="ListBox_ScrollChanged">
 					<ListBox.ItemsPanel>
 						<ItemsPanelTemplate>
@@ -80,7 +83,7 @@
 					</ListBox.ItemsPanel>
 					<ListBox.ItemTemplate>
 						<DataTemplate>
-							<StackPanel Margin="10" HorizontalAlignment="Center">
+							<StackPanel Margin="10" HorizontalAlignment="Center" PreviewMouseLeftButtonUp="PlaylistListBoxItemCommand">
 								<Border Background="#333333" CornerRadius="10" Width="120" Height="120" HorizontalAlignment="Center">
 									<Image Source="{Binding Snippet.Thumbnails.Default__.Url}" Width="120" Height="120" Stretch="UniformToFill">
 										<Image.Clip>
@@ -114,7 +117,7 @@
 					 BorderThickness="0"
 					 Background="Transparent"
 					 SelectedIndex="{Binding SelectedPopularSongIndex}"
-					 PreviewMouseLeftButtonUp="PopularSongsListBoxCommand"
+					 
 					 ScrollViewer.ScrollChanged="ListBox_ScrollChanged"
 					 >
 
@@ -126,7 +129,7 @@
 
 					<ListBox.ItemTemplate>
 						<DataTemplate>
-							<StackPanel Margin="10" HorizontalAlignment="Center" >
+							<StackPanel Margin="10" HorizontalAlignment="Center" PreviewMouseLeftButtonUp="PopularSongsListBoxCommand">
 
 								<Viewbox  HorizontalAlignment="Center" VerticalAlignment="Center">
 									<Border Background="#333333" CornerRadius="10" Width="120" Height="120" HorizontalAlignment="Center">

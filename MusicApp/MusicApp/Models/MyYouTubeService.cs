@@ -146,6 +146,11 @@ namespace MusicApp.Models
 			return new ObservableCollection<Playlist>(playlists);
 		}
 
+		public static async Task<SongVideoInfo> FetchSongVideoInfoAsync(string songId)
+		{
+			return await _youtubeMusicClient.GetSongVideoInfoAsync(songId);
+		}
+
 		public async Task<ObservableCollection<MySong>?> FetchPlaylistContentAsync(string playlistId)
 		{
 			try
@@ -158,7 +163,7 @@ namespace MusicApp.Models
 
 				var tasks = response.Items.Select(async item =>
 				{
-					var itemInfo = await _youtubeMusicClient.GetSongVideoInfoAsync(item.ContentDetails.VideoId);
+					var itemInfo = await FetchSongVideoInfoAsync(item.ContentDetails.VideoId);
 					var song = MySong.Create(itemInfo);
 					return song;
 				});

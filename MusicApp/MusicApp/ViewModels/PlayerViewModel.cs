@@ -393,6 +393,8 @@ namespace MusicApp.ViewModels
 			IsSongSelected = true;
 			string songId = SelectedSong.Id;
 
+			_mainViewModel.SongDatabase?.UpdateSongCount(songId);
+
 			try
 			{
 				

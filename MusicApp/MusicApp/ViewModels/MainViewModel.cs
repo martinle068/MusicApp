@@ -9,6 +9,7 @@ namespace MusicApp.ViewModels
 	public class MainViewModel : BaseViewModel
 	{
 		public MainWindow MainWindow { get; private set; }
+		public SongDatabase? SongDatabase { get; private set; }
 		public MyYouTubeService MyYouTubeService { get; private set; }
 		public Stack<BaseViewModel> HistoryStack { get; set; } = new Stack<BaseViewModel>();
 		private BaseViewModel _currentViewModel;
@@ -56,8 +57,18 @@ namespace MusicApp.ViewModels
 			PlayerViewModel.ResetIndices();
 		}
 
+		private void InitializeDB()
+		{
+			string databasePath = "songs.db";
+
+			SongDatabase = new SongDatabase(databasePath);
+			var count = SongDatabase.GetSongCount("iKejQrGq04w");
+			MessageBox.Show(count.ToString());
+		}
+
 		private async void InitializeAsync()
 		{
+			InitializeDB();
 			MyYouTubeService = await MyYouTubeService.CreateYoutubeServiceAsync();
 			HomeViewModel = new HomeViewModel(this);
 			SearchViewModel = new SearchViewModel(this, MyYouTubeService);

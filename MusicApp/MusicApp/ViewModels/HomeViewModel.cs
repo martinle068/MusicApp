@@ -13,7 +13,7 @@ namespace MusicApp.ViewModels
 {
 	public class HomeViewModel : BaseViewModel
 	{
-		private readonly MainViewModel _mainViewModel;
+		public readonly MainViewModel _mainViewModel;
 		private string _searchQuery = string.Empty;
 		private ObservableCollection<Playlist> _playlists = new();
 		private Playlist _selectedPlaylist = new();
@@ -110,9 +110,10 @@ namespace MusicApp.ViewModels
 		{
 			var loadPlaylistsTask = LoadPlaylists();
 			var loadPopularSongsTask = LoadPopularSongs();
-			var loadAllPlaylistSongs = LoadAllPlaylistSongs();
 
-			await Task.WhenAll(loadPlaylistsTask, loadPopularSongsTask, loadAllPlaylistSongs);
+			// Start loading both playlists and popular songs concurrently
+			await Task.WhenAll(loadPlaylistsTask, loadPopularSongsTask);
+			await LoadAllPlaylistSongs();
 
 		}
 		private async Task LoadPopularSongs()
@@ -139,6 +140,7 @@ namespace MusicApp.ViewModels
 					foreach (var song in playlistItems)
 					{
 						Application.Current.Dispatcher.Invoke(() => allSongs.Add(song));
+						_mainViewModel.SongDatabase?.InsertSong(song.Id);
 					}
 				}
 			});

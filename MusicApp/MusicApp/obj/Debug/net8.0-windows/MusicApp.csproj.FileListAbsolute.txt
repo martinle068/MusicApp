@@ -992,3 +992,8 @@ C:\Users\leduc\source\repos\MusicApp\MusicApp\MusicApp\obj\Debug\net8.0-windows\
 C:\Users\leduc\source\repos\MusicApp\MusicApp\MusicApp\obj\Debug\net8.0-windows\MusicApp.pdb
 C:\Users\leduc\source\repos\MusicApp\MusicApp\MusicApp\obj\Debug\net8.0-windows\MusicApp.genruntimeconfig.cache
 C:\Users\leduc\source\repos\MusicApp\MusicApp\MusicApp\obj\Debug\net8.0-windows\ref\MusicApp.dll
+C:\Users\leduc\source\repos\MusicApp\MusicApp\MusicApp\bin\Debug\net8.0-windows\System.Data.SQLite.dll
+C:\Users\leduc\source\repos\MusicApp\MusicApp\MusicApp\bin\Debug\net8.0-windows\runtimes\linux-x64\native\SQLite.Interop.dll
+C:\Users\leduc\source\repos\MusicApp\MusicApp\MusicApp\bin\Debug\net8.0-windows\runtimes\osx-x64\native\SQLite.Interop.dll
+C:\Users\leduc\source\repos\MusicApp\MusicApp\MusicApp\bin\Debug\net8.0-windows\runtimes\win-x64\native\SQLite.Interop.dll
+C:\Users\leduc\source\repos\MusicApp\MusicApp\MusicApp\bin\Debug\net8.0-windows\runtimes\win-x86\native\SQLite.Interop.dll
