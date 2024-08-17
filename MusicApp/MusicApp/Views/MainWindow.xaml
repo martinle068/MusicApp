@@ -4,6 +4,7 @@
         xmlns:local="clr-namespace:MusicApp.Views"
         Title="MusicApp" Height="500" Width="800"
         Background="#222222" WindowStartupLocation="CenterScreen"
+		PreviewKeyDown="Window_PreviewKeyDown"
 		>
 
 	<Grid>

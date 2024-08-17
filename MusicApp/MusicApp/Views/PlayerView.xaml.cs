@@ -75,5 +75,13 @@ namespace MusicApp.Views
 			e.Handled = true;
 		}
 
+		private void Button_PreviewKeyDown(object sender, KeyEventArgs e)
+		{
+			if (e.Key == Key.Enter || e.Key == Key.Space)
+			{
+				e.Handled = true; // Suppress the Enter and Spacebar key presses
+			}
+		}
+
 	}
 }

@@ -30,9 +30,9 @@
 		<!-- Slider and buttons -->
 		<StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.Column="2" Margin="10,0,10,0">
 			<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5,0,0">
-				<Button Content="Previous" Width="75" Command="{Binding PreviousCommand}"/>
-				<Button Content="{Binding PlayPauseText}" Width="75" Command="{Binding PlayPauseCommand}" Margin="5,0"/>
-				<Button Content="Next" Width="75" Command="{Binding NextCommand}"/>
+				<Button Content="Previous" Width="75" Command="{Binding PreviousCommand}" PreviewKeyDown="Button_PreviewKeyDown"/>
+				<Button Content="{Binding PlayPauseText}" Width="75" Command="{Binding PlayPauseCommand}" Margin="5,0" PreviewKeyDown="Button_PreviewKeyDown"/>
+				<Button Content="Next" Width="75" Command="{Binding NextCommand}" PreviewKeyDown="Button_PreviewKeyDown"/>
 			</StackPanel>
 			<Grid HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10,0,10,0">
 				<Grid.ColumnDefinitions>

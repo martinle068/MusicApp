@@ -231,6 +231,9 @@ namespace MusicApp.ViewModels
 
 		private async void RemoveSongFromPlaylist(object parameter)
 		{
+			if (_mainViewModel.CurrentMusicSource != MainViewModel.MusicSource.Playlist)
+				return;
+
 			if (parameter is MySong song && _mainViewModel.HomeViewModel.SelectedPlaylist != null)
 			{
 				var selectedPlaylist = _mainViewModel.HomeViewModel.SelectedPlaylist;

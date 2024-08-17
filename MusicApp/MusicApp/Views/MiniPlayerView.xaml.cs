@@ -48,5 +48,13 @@ namespace MusicApp.Views
 				viewModel.TrackBarSeek_ValueChanged(sender, e);
 			}
 		}
+
+		private void Button_PreviewKeyDown(object sender, KeyEventArgs e)
+		{
+			if (e.Key == Key.Enter || e.Key == Key.Space)
+			{
+				e.Handled = true; // Suppress the Enter and Spacebar key presses
+			}
+		}
 	}
 }

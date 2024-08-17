@@ -88,11 +88,11 @@
 		</Grid>
 
 		<StackPanel Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="10" HorizontalAlignment="Center">
-			<Button Content="&#128256;" Width="25" Command="{Binding ShuffleCommand}" ToolTip="Shuffle"/>
-			<Button Content="Previous" Width="60" Command="{Binding PreviousCommand}"/>
-			<Button Content="{Binding PlayPauseText}" Width="60" Command="{Binding PlayPauseCommand}" Margin="5,0"/>
-			<Button Content="Next" Width="60" Command="{Binding NextCommand}"/>
-			<Button Content="&#128315;" Width="20" Command="{Binding BackCommand}" Margin="5,0" ToolTip="Return"/>
+			<Button Content="&#128256;" Width="25" Command="{Binding ShuffleCommand}" ToolTip="Shuffle" PreviewKeyDown="Button_PreviewKeyDown"/>
+			<Button Content="Previous" Width="60" Command="{Binding PreviousCommand}" PreviewKeyDown="Button_PreviewKeyDown"/>
+			<Button Content="{Binding PlayPauseText}" Width="60" Command="{Binding PlayPauseCommand}" Margin="5,0" PreviewKeyDown="Button_PreviewKeyDown"/>
+			<Button Content="Next" Width="60" Command="{Binding NextCommand}" PreviewKeyDown="Button_PreviewKeyDown"/>
+			<Button Content="&#128315;" Width="20" Command="{Binding BackCommand}" Margin="5,0" ToolTip="Return" PreviewKeyDown="Button_PreviewKeyDown"/>
 		</StackPanel>
 	</Grid>
 </UserControl>
