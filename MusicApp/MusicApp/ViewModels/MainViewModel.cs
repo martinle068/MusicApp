@@ -62,8 +62,6 @@ namespace MusicApp.ViewModels
 			string databasePath = "songs.db";
 
 			SongDatabase = new SongDatabase(databasePath);
-			var count = SongDatabase.GetSongCount("iKejQrGq04w");
-			MessageBox.Show(count.ToString());
 		}
 
 		private async void InitializeAsync()

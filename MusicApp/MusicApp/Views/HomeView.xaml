@@ -145,6 +145,11 @@
 								<StackPanel.ToolTip>
 									<ToolTip Content="{Binding ArtistAndSongName}"/>
 								</StackPanel.ToolTip>
+								<StackPanel.ContextMenu>
+									<ContextMenu>
+										<MenuItem Header="Add to Playlist" Click="AddSongToPlaylist_ComboBox"/>
+									</ContextMenu>
+								</StackPanel.ContextMenu>
 							</StackPanel>
 						</DataTemplate>
 					</ListBox.ItemTemplate>

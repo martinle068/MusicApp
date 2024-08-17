@@ -258,8 +258,21 @@ namespace MusicApp.Views
 			textBlockArtistsFactory.SetValue(TextBlock.MarginProperty, new Thickness(5, 10, 5, 0));
 			stackPanelFactory.AppendChild(textBlockArtistsFactory);
 
+			// Context Menu for "Add to Playlist"
+			var contextMenuSetter = new Setter(ContextMenuService.ContextMenuProperty, CreateContextMenu());
+			stackPanelFactory.SetValue(FrameworkElement.ContextMenuProperty, CreateContextMenu());
+
 			var dataTemplate = new DataTemplate { VisualTree = stackPanelFactory };
 			return dataTemplate;
+		}
+
+		private ContextMenu CreateContextMenu()
+		{
+			var contextMenu = new ContextMenu();
+			var addMenuItem = new MenuItem { Header = "Add to Playlist" };
+			addMenuItem.Click += AddSongToPlaylist_ComboBox;
+			contextMenu.Items.Add(addMenuItem);
+			return contextMenu;
 		}
 
 		private async Task<ObservableCollection<MySong>?> GetRandomSongs()
@@ -288,6 +301,22 @@ namespace MusicApp.Views
 			var authors = songs.SelectMany(song => song.Artists.Select(artist => artist.Name)).Distinct().ToList();
 			if (authors.Count == 0) return null;
 			return authors[_random.Next(authors.Count)];
+		}
+
+		private void ExecuteAddSongToPlaylist(object sender)
+		{
+			var song = Utils.Utils.GetItemFromMenuItem<MySong>(sender);
+
+			if (song != null)
+			{
+				var viewModel = DataContext as HomeViewModel;
+				viewModel?._mainViewModel.PlayerViewModel.AddSongToPlaylistCommand.Execute(song);
+			}
+		}
+
+		private void AddSongToPlaylist_ComboBox(object sender, RoutedEventArgs e)
+		{
+			ExecuteAddSongToPlaylist(sender);
 		}
 	}
 }
