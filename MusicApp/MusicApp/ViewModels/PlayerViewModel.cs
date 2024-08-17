@@ -218,6 +218,7 @@ namespace MusicApp.ViewModels
 		public void ProvidePlayerInfo(ObservableCollection<MySong> songs, int index, string text, string? continuationToken = null)
 		{
 			Songs = songs;
+			SelectedSongIndex = -1;
 			SelectedSongIndex = index;
 			SelectedSong = Songs?.ElementAtOrDefault(index);
 			InfoText = text;
