@@ -1,0 +1,370 @@
+\doxysection{Song\+Database Class Reference}
+\hypertarget{class_song_database}{}\label{class_song_database}\index{SongDatabase@{SongDatabase}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_song_database_a417fd44e8e17cf7593984316fe4c4dbb}{Song\+Database}} (string database\+Path)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the \doxylink{class_song_database}{Song\+Database} class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_song_database_a0b5c5f3d9930ea7a0c05aa1d5de7139c}{Insert\+Song}} (string id)
+\begin{DoxyCompactList}\small\item\em Inserts a new song into the Songs table with an initial count of 0. If the song already exists, the operation is ignored. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_song_database_a53dd1827c78c5c98933ca9ff31e5202a}{Update\+Song\+Count}} (string id)
+\begin{DoxyCompactList}\small\item\em Increments the count of a song in the Songs table by 1. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_song_database_a479f854f889b9a4d253029c9f93c45eb}{Get\+Song\+Count}} (string id)
+\begin{DoxyCompactList}\small\item\em Retrieves the current count of a song from the Songs table. \end{DoxyCompactList}\item 
+List$<$ string $>$ \mbox{\hyperlink{class_song_database_a83f2da4b1ff67049326a16e99ae9a305}{Get\+Songs\+For\+Recommendation}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves 5 songs with the lowest count and 5 random songs from the Songs table. Also increments the count of each selected song by 1. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_song_database_a17b8ba2970142beb5f40426356ac298d}{Increase\+Song\+Count}} (string id)
+\begin{DoxyCompactList}\small\item\em Increases the count of a song by 1. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_song_database_a8f0b0f24450776cd8efcbaa9aab761bf}{Create\+Table}} ()
+\begin{DoxyCompactList}\small\item\em Creates the Songs table in the database if it doesn\textquotesingle{}t exist. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+readonly string \mbox{\hyperlink{class_song_database_a95c78c6d4e7026f0dce8a9b01449d66f}{\+\_\+connection\+String}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_song_database_8cs_source_l00006}{6}} of file \mbox{\hyperlink{_song_database_8cs_source}{Song\+Database.\+cs}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_song_database_a417fd44e8e17cf7593984316fe4c4dbb}\label{class_song_database_a417fd44e8e17cf7593984316fe4c4dbb} 
+\index{SongDatabase@{SongDatabase}!SongDatabase@{SongDatabase}}
+\index{SongDatabase@{SongDatabase}!SongDatabase@{SongDatabase}}
+\doxysubsubsection{\texorpdfstring{SongDatabase()}{SongDatabase()}}
+{\footnotesize\ttfamily Song\+Database.\+Song\+Database (\begin{DoxyParamCaption}\item[{string}]{database\+Path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the \doxylink{class_song_database}{Song\+Database} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em database\+Path} & The path to the SQLite database file.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_song_database_8cs_source_l00014}{14}} of file \mbox{\hyperlink{_song_database_8cs_source}{Song\+Database.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00015\ \ \ \ \ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \_connectionString\ =\ \$\textcolor{stringliteral}{"{}Data\ Source=\{databasePath\};"{}};}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_song_database_a8f0b0f24450776cd8efcbaa9aab761bf}{CreateTable}}();}
+\DoxyCodeLine{00018\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_song_database_8cs_source_l00023}{Create\+Table()}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_song_database_a8f0b0f24450776cd8efcbaa9aab761bf}\label{class_song_database_a8f0b0f24450776cd8efcbaa9aab761bf} 
+\index{SongDatabase@{SongDatabase}!CreateTable@{CreateTable}}
+\index{CreateTable@{CreateTable}!SongDatabase@{SongDatabase}}
+\doxysubsubsection{\texorpdfstring{CreateTable()}{CreateTable()}}
+{\footnotesize\ttfamily void Song\+Database.\+Create\+Table (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Creates the Songs table in the database if it doesn\textquotesingle{}t exist. 
+
+
+
+Definition at line \mbox{\hyperlink{_song_database_8cs_source_l00023}{23}} of file \mbox{\hyperlink{_song_database_8cs_source}{Song\+Database.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00024\ \ \ \ \ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using}\ (var\ connection\ =\ \textcolor{keyword}{new}\ SQLiteConnection(\_connectionString))}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ connection.Open();}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ createTableQuery\ =\ \textcolor{stringliteral}{@"{}}}
+\DoxyCodeLine{00030\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CREATE\ TABLE\ IF\ NOT\ EXISTS\ Songs\ ( }}
+\DoxyCodeLine{00031\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Id\ TEXT\ PRIMARY\ KEY, }}
+\DoxyCodeLine{00032\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Count\ INTEGER\ DEFAULT\ 0 }}
+\DoxyCodeLine{00033\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ )"{}};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using}\ (var\ command\ =\ \textcolor{keyword}{new}\ SQLiteCommand(createTableQuery,\ connection))}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ command.ExecuteNonQuery();}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00040\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{_song_database_8cs_source_l00014}{Song\+Database()}}.
+
+\Hypertarget{class_song_database_a479f854f889b9a4d253029c9f93c45eb}\label{class_song_database_a479f854f889b9a4d253029c9f93c45eb} 
+\index{SongDatabase@{SongDatabase}!GetSongCount@{GetSongCount}}
+\index{GetSongCount@{GetSongCount}!SongDatabase@{SongDatabase}}
+\doxysubsubsection{\texorpdfstring{GetSongCount()}{GetSongCount()}}
+{\footnotesize\ttfamily int Song\+Database.\+Get\+Song\+Count (\begin{DoxyParamCaption}\item[{string}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves the current count of a song from the Songs table. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The unique identifier of the song.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The count of the song, or 0 if the song does not exist.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_song_database_8cs_source_l00094}{94}} of file \mbox{\hyperlink{_song_database_8cs_source}{Song\+Database.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00095\ \ \ \ \ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using}\ (var\ connection\ =\ \textcolor{keyword}{new}\ SQLiteConnection(\_connectionString))}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ connection.Open();}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ selectQuery\ =\ \textcolor{stringliteral}{"{}SELECT\ Count\ FROM\ Songs\ WHERE\ Id\ =\ @id"{}};}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using}\ (var\ command\ =\ \textcolor{keyword}{new}\ SQLiteCommand(selectQuery,\ connection))}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ command.Parameters.AddWithValue(\textcolor{stringliteral}{"{}@id"{}},\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ result\ =\ command.ExecuteScalar();}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result\ !=\ \textcolor{keyword}{null}\ ?\ Convert.ToInt32(result)\ :\ 0;}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00109\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_song_database_a83f2da4b1ff67049326a16e99ae9a305}\label{class_song_database_a83f2da4b1ff67049326a16e99ae9a305} 
+\index{SongDatabase@{SongDatabase}!GetSongsForRecommendation@{GetSongsForRecommendation}}
+\index{GetSongsForRecommendation@{GetSongsForRecommendation}!SongDatabase@{SongDatabase}}
+\doxysubsubsection{\texorpdfstring{GetSongsForRecommendation()}{GetSongsForRecommendation()}}
+{\footnotesize\ttfamily List$<$ string $>$ Song\+Database.\+Get\+Songs\+For\+Recommendation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves 5 songs with the lowest count and 5 random songs from the Songs table. Also increments the count of each selected song by 1. 
+
+\begin{DoxyReturn}{Returns}
+A list of song IDs for recommendation.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_song_database_8cs_source_l00116}{116}} of file \mbox{\hyperlink{_song_database_8cs_source}{Song\+Database.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00117\ \ \ \ \ \{}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using}\ (var\ connection\ =\ \textcolor{keyword}{new}\ SQLiteConnection(\_connectionString))}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ connection.Open();}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Get\ 5\ songs\ with\ the\ lowest\ count}}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ queryLowestCount\ =\ \textcolor{stringliteral}{@"{}}}
+\DoxyCodeLine{00124\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ SELECT\ Id\  }}
+\DoxyCodeLine{00125\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ FROM\ Songs\  }}
+\DoxyCodeLine{00126\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ ORDER\ BY\ Count\ ASC\  }}
+\DoxyCodeLine{00127\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ LIMIT\ 5"{}};}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ var\ songIds\ =\ \textcolor{keyword}{new}\ List<string>();}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using}\ (var\ command\ =\ \textcolor{keyword}{new}\ SQLiteCommand(queryLowestCount,\ connection))}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using}\ (var\ reader\ =\ command.ExecuteReader())}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (reader.Read())}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ songIds.Add(reader.GetString(0));}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Get\ 5\ random\ songs,\ excluding\ those\ with\ the\ lowest\ count}}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ queryRandomSongs\ =\ \textcolor{stringliteral}{@"{}}}
+\DoxyCodeLine{00144\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ SELECT\ Id\  }}
+\DoxyCodeLine{00145\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ FROM\ Songs\  }}
+\DoxyCodeLine{00146\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ WHERE\ Id\ NOT\ IN\ ("{}}\ +\ \textcolor{keywordtype}{string}.Join(\textcolor{stringliteral}{"{},"{}},\ songIds.Select(\textcolor{keywordtype}{id}\ =>\ \$\textcolor{stringliteral}{"{}'\{id\}'"{}}))\ +\ \textcolor{stringliteral}{@"{}) }}
+\DoxyCodeLine{00147\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ ORDER\ BY\ RANDOM()\  }}
+\DoxyCodeLine{00148\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ LIMIT\ 5"{}};}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using}\ (var\ command\ =\ \textcolor{keyword}{new}\ SQLiteCommand(queryRandomSongs,\ connection))}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using}\ (var\ reader\ =\ command.ExecuteReader())}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (reader.Read())}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ songIds.Add(reader.GetString(0));}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Increment\ the\ count\ for\ each\ selected\ song}}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ queryIncrementCount\ =\ \textcolor{stringliteral}{@"{}}}
+\DoxyCodeLine{00163\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ UPDATE\ Songs\  }}
+\DoxyCodeLine{00164\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ SET\ Count\ =\ Count\ +\ 1\  }}
+\DoxyCodeLine{00165\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ WHERE\ Id\ =\ @Id"{}};}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{foreach}\ (var\ songId\ \textcolor{keywordflow}{in}\ songIds)}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using}\ (var\ updateCommand\ =\ \textcolor{keyword}{new}\ SQLiteCommand(queryIncrementCount,\ connection))}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ updateCommand.Parameters.AddWithValue(\textcolor{stringliteral}{"{}@Id"{}},\ songId);}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ updateCommand.ExecuteNonQuery();}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ songIds;}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00178\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{_home_view_8xaml_8cs_source_l00308}{Music\+App.\+Views.\+Home\+View.\+Get\+Random\+Songs()}}.
+
+\Hypertarget{class_song_database_a17b8ba2970142beb5f40426356ac298d}\label{class_song_database_a17b8ba2970142beb5f40426356ac298d} 
+\index{SongDatabase@{SongDatabase}!IncreaseSongCount@{IncreaseSongCount}}
+\index{IncreaseSongCount@{IncreaseSongCount}!SongDatabase@{SongDatabase}}
+\doxysubsubsection{\texorpdfstring{IncreaseSongCount()}{IncreaseSongCount()}}
+{\footnotesize\ttfamily void Song\+Database.\+Increase\+Song\+Count (\begin{DoxyParamCaption}\item[{string}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Increases the count of a song by 1. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The unique identifier of the song.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_song_database_8cs_source_l00184}{184}} of file \mbox{\hyperlink{_song_database_8cs_source}{Song\+Database.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00185\ \ \ \ \ \{}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_song_database_a53dd1827c78c5c98933ca9ff31e5202a}{UpdateSongCount}}(\textcolor{keywordtype}{id});}
+\DoxyCodeLine{00187\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_song_database_8cs_source_l00070}{Update\+Song\+Count()}}.
+
+\Hypertarget{class_song_database_a0b5c5f3d9930ea7a0c05aa1d5de7139c}\label{class_song_database_a0b5c5f3d9930ea7a0c05aa1d5de7139c} 
+\index{SongDatabase@{SongDatabase}!InsertSong@{InsertSong}}
+\index{InsertSong@{InsertSong}!SongDatabase@{SongDatabase}}
+\doxysubsubsection{\texorpdfstring{InsertSong()}{InsertSong()}}
+{\footnotesize\ttfamily void Song\+Database.\+Insert\+Song (\begin{DoxyParamCaption}\item[{string}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Inserts a new song into the Songs table with an initial count of 0. If the song already exists, the operation is ignored. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The unique identifier of the song.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_song_database_8cs_source_l00047}{47}} of file \mbox{\hyperlink{_song_database_8cs_source}{Song\+Database.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00048\ \ \ \ \ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using}\ (var\ connection\ =\ \textcolor{keyword}{new}\ SQLiteConnection(\_connectionString))}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ connection.Open();}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ insertQuery\ =\ \textcolor{stringliteral}{@"{}}}
+\DoxyCodeLine{00054\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ INSERT\ INTO\ Songs\ (Id,\ Count) }}
+\DoxyCodeLine{00055\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ VALUES\ (@id,\ 0) }}
+\DoxyCodeLine{00056\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ON\ CONFLICT(Id)\ DO\ NOTHING"{}};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using}\ (var\ command\ =\ \textcolor{keyword}{new}\ SQLiteCommand(insertQuery,\ connection))}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ command.Parameters.AddWithValue(\textcolor{stringliteral}{"{}@id"{}},\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ command.ExecuteNonQuery();}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00064\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_song_database_a53dd1827c78c5c98933ca9ff31e5202a}\label{class_song_database_a53dd1827c78c5c98933ca9ff31e5202a} 
+\index{SongDatabase@{SongDatabase}!UpdateSongCount@{UpdateSongCount}}
+\index{UpdateSongCount@{UpdateSongCount}!SongDatabase@{SongDatabase}}
+\doxysubsubsection{\texorpdfstring{UpdateSongCount()}{UpdateSongCount()}}
+{\footnotesize\ttfamily void Song\+Database.\+Update\+Song\+Count (\begin{DoxyParamCaption}\item[{string}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Increments the count of a song in the Songs table by 1. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The unique identifier of the song.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_song_database_8cs_source_l00070}{70}} of file \mbox{\hyperlink{_song_database_8cs_source}{Song\+Database.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00071\ \ \ \ \ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using}\ (var\ connection\ =\ \textcolor{keyword}{new}\ SQLiteConnection(\_connectionString))}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ connection.Open();}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ updateQuery\ =\ \textcolor{stringliteral}{@"{}}}
+\DoxyCodeLine{00077\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ UPDATE\ Songs\  }}
+\DoxyCodeLine{00078\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SET\ Count\ =\ Count\ +\ 1\  }}
+\DoxyCodeLine{00079\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ WHERE\ Id\ =\ @id"{}};}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using}\ (var\ command\ =\ \textcolor{keyword}{new}\ SQLiteCommand(updateQuery,\ connection))}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ command.Parameters.AddWithValue(\textcolor{stringliteral}{"{}@id"{}},\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ command.ExecuteNonQuery();}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00087\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{_song_database_8cs_source_l00184}{Increase\+Song\+Count()}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_song_database_a95c78c6d4e7026f0dce8a9b01449d66f}\label{class_song_database_a95c78c6d4e7026f0dce8a9b01449d66f} 
+\index{SongDatabase@{SongDatabase}!\_connectionString@{\_connectionString}}
+\index{\_connectionString@{\_connectionString}!SongDatabase@{SongDatabase}}
+\doxysubsubsection{\texorpdfstring{\_connectionString}{\_connectionString}}
+{\footnotesize\ttfamily readonly string Song\+Database.\+\_\+connection\+String\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_song_database_8cs_source_l00008}{8}} of file \mbox{\hyperlink{_song_database_8cs_source}{Song\+Database.\+cs}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Models/Song\+Database.\+cs\end{DoxyCompactItemize}

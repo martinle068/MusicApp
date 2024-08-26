@@ -1,0 +1,215 @@
+\doxysection{Music\+App.\+View\+Models.\+Base\+View\+Model Class Reference}
+\hypertarget{class_music_app_1_1_view_models_1_1_base_view_model}{}\label{class_music_app_1_1_view_models_1_1_base_view_model}\index{MusicApp.ViewModels.BaseViewModel@{MusicApp.ViewModels.BaseViewModel}}
+
+
+A base class for View\+Models that provides property change notification and navigation to previous View\+Model functionality.  
+
+
+Inheritance diagram for Music\+App.\+View\+Models.\+Base\+View\+Model\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.627907cm]{class_music_app_1_1_view_models_1_1_base_view_model}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_base_view_model_a882e4b54fd19e155fd1b457bf5633942}{Set\+Previous\+View\+Model}} (\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_base_view_model}{Base\+View\+Model}} previous\+View\+Model)
+\begin{DoxyCompactList}\small\item\em Sets the previous View\+Model for navigation purposes. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_base_view_model}{Base\+View\+Model}} \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_base_view_model_a523f9b3c5e052342c918de72450723c3}{Get\+Previous\+View\+Model}} ()
+\begin{DoxyCompactList}\small\item\em Gets the previous View\+Model for navigation purposes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_base_view_model_ac6bc19bc65370e11ecef50611f6f7240}{On\+Property\+Changed}} (\mbox{[}Caller\+Member\+Name\mbox{]} string property\+Name=null)
+\begin{DoxyCompactList}\small\item\em Raises the Property\+Changed event to notify the UI of a property value change. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_base_view_model_a86974cd973d8821588cd64ac33a54598}{Set\+Property$<$ T $>$}} (ref T field, T value, \mbox{[}Caller\+Member\+Name\mbox{]} string property\+Name=null)
+\begin{DoxyCompactList}\small\item\em Sets the specified property if the value is different, and raises the Property\+Changed event. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Events}
+\begin{DoxyCompactItemize}
+\item 
+Property\+Changed\+Event\+Handler \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_base_view_model_af3c4cffe5aa7db13b074ce12a5296750}{Property\+Changed}}
+\begin{DoxyCompactList}\small\item\em Occurs when a property value changes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_base_view_model}{Base\+View\+Model}} \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_base_view_model_a36b24c354be45588322dbc888ca82294}{\+\_\+previous\+View\+Model}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A base class for View\+Models that provides property change notification and navigation to previous View\+Model functionality. 
+
+Definition at line \mbox{\hyperlink{_base_view_model_8cs_source_l00009}{9}} of file \mbox{\hyperlink{_base_view_model_8cs_source}{Base\+View\+Model.\+cs}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_music_app_1_1_view_models_1_1_base_view_model_a523f9b3c5e052342c918de72450723c3}\label{class_music_app_1_1_view_models_1_1_base_view_model_a523f9b3c5e052342c918de72450723c3} 
+\index{MusicApp.ViewModels.BaseViewModel@{MusicApp.ViewModels.BaseViewModel}!GetPreviousViewModel@{GetPreviousViewModel}}
+\index{GetPreviousViewModel@{GetPreviousViewModel}!MusicApp.ViewModels.BaseViewModel@{MusicApp.ViewModels.BaseViewModel}}
+\doxysubsubsection{\texorpdfstring{GetPreviousViewModel()}{GetPreviousViewModel()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_base_view_model}{Base\+View\+Model}} Music\+App.\+View\+Models.\+Base\+View\+Model.\+Get\+Previous\+View\+Model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the previous View\+Model for navigation purposes. 
+
+\begin{DoxyReturn}{Returns}
+The previous View\+Model.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_base_view_model_8cs_source_l00056}{56}} of file \mbox{\hyperlink{_base_view_model_8cs_source}{Base\+View\+Model.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_previousViewModel;}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_music_app_1_1_view_models_1_1_base_view_model_ac6bc19bc65370e11ecef50611f6f7240}\label{class_music_app_1_1_view_models_1_1_base_view_model_ac6bc19bc65370e11ecef50611f6f7240} 
+\index{MusicApp.ViewModels.BaseViewModel@{MusicApp.ViewModels.BaseViewModel}!OnPropertyChanged@{OnPropertyChanged}}
+\index{OnPropertyChanged@{OnPropertyChanged}!MusicApp.ViewModels.BaseViewModel@{MusicApp.ViewModels.BaseViewModel}}
+\doxysubsubsection{\texorpdfstring{OnPropertyChanged()}{OnPropertyChanged()}}
+{\footnotesize\ttfamily void Music\+App.\+View\+Models.\+Base\+View\+Model.\+On\+Property\+Changed (\begin{DoxyParamCaption}\item[{\mbox{[}\+Caller\+Member\+Name\mbox{]} string}]{property\+Name = {\ttfamily null} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Raises the Property\+Changed event to notify the UI of a property value change. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em property\+Name} & The name of the property that changed.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_base_view_model_8cs_source_l00022}{22}} of file \mbox{\hyperlink{_base_view_model_8cs_source}{Base\+View\+Model.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_base_view_model_af3c4cffe5aa7db13b074ce12a5296750}{PropertyChanged}}?.Invoke(\textcolor{keyword}{this},\ \textcolor{keyword}{new}\ PropertyChangedEventArgs(propertyName));}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_base_view_model_8cs_source_l00016}{Music\+App.\+View\+Models.\+Base\+View\+Model.\+Property\+Changed}}.
+
+
+
+Referenced by \mbox{\hyperlink{_base_view_model_8cs_source_l00035}{Music\+App.\+View\+Models.\+Base\+View\+Model.\+Set\+Property$<$ T $>$()}}.
+
+\Hypertarget{class_music_app_1_1_view_models_1_1_base_view_model_a882e4b54fd19e155fd1b457bf5633942}\label{class_music_app_1_1_view_models_1_1_base_view_model_a882e4b54fd19e155fd1b457bf5633942} 
+\index{MusicApp.ViewModels.BaseViewModel@{MusicApp.ViewModels.BaseViewModel}!SetPreviousViewModel@{SetPreviousViewModel}}
+\index{SetPreviousViewModel@{SetPreviousViewModel}!MusicApp.ViewModels.BaseViewModel@{MusicApp.ViewModels.BaseViewModel}}
+\doxysubsubsection{\texorpdfstring{SetPreviousViewModel()}{SetPreviousViewModel()}}
+{\footnotesize\ttfamily void Music\+App.\+View\+Models.\+Base\+View\+Model.\+Set\+Previous\+View\+Model (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_base_view_model}{Base\+View\+Model}}}]{previous\+View\+Model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the previous View\+Model for navigation purposes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em previous\+View\+Model} & The previous View\+Model to set.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_base_view_model_8cs_source_l00047}{47}} of file \mbox{\hyperlink{_base_view_model_8cs_source}{Base\+View\+Model.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \_previousViewModel\ =\ previousViewModel;}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_music_app_1_1_view_models_1_1_base_view_model_a86974cd973d8821588cd64ac33a54598}\label{class_music_app_1_1_view_models_1_1_base_view_model_a86974cd973d8821588cd64ac33a54598} 
+\index{MusicApp.ViewModels.BaseViewModel@{MusicApp.ViewModels.BaseViewModel}!SetProperty$<$ T $>$@{SetProperty$<$ T $>$}}
+\index{SetProperty$<$ T $>$@{SetProperty$<$ T $>$}!MusicApp.ViewModels.BaseViewModel@{MusicApp.ViewModels.BaseViewModel}}
+\doxysubsubsection{\texorpdfstring{SetProperty$<$ T $>$()}{SetProperty< T >()}}
+{\footnotesize\ttfamily bool Music\+App.\+View\+Models.\+Base\+View\+Model.\+Set\+Property$<$ T $>$ (\begin{DoxyParamCaption}\item[{ref T}]{field,  }\item[{T}]{value,  }\item[{\mbox{[}\+Caller\+Member\+Name\mbox{]} string}]{property\+Name = {\ttfamily null} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Sets the specified property if the value is different, and raises the Property\+Changed event. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of the property.\\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em field} & A reference to the field that stores the property\textquotesingle{}s value.\\
+\hline
+{\em value} & The new value to set.\\
+\hline
+{\em property\+Name} & The name of the property being set.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the property was changed, otherwise false.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_base_view_model_8cs_source_l00035}{35}} of file \mbox{\hyperlink{_base_view_model_8cs_source}{Base\+View\+Model.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Equals(field,\ value))\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ field\ =\ value;}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_base_view_model_ac6bc19bc65370e11ecef50611f6f7240}{OnPropertyChanged}}(propertyName);}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_base_view_model_8cs_source_l00022}{Music\+App.\+View\+Models.\+Base\+View\+Model.\+On\+Property\+Changed()}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_music_app_1_1_view_models_1_1_base_view_model_a36b24c354be45588322dbc888ca82294}\label{class_music_app_1_1_view_models_1_1_base_view_model_a36b24c354be45588322dbc888ca82294} 
+\index{MusicApp.ViewModels.BaseViewModel@{MusicApp.ViewModels.BaseViewModel}!\_previousViewModel@{\_previousViewModel}}
+\index{\_previousViewModel@{\_previousViewModel}!MusicApp.ViewModels.BaseViewModel@{MusicApp.ViewModels.BaseViewModel}}
+\doxysubsubsection{\texorpdfstring{\_previousViewModel}{\_previousViewModel}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_base_view_model}{Base\+View\+Model}} Music\+App.\+View\+Models.\+Base\+View\+Model.\+\_\+previous\+View\+Model\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_base_view_model_8cs_source_l00011}{11}} of file \mbox{\hyperlink{_base_view_model_8cs_source}{Base\+View\+Model.\+cs}}.
+
+
+
+\doxysubsection{Event Documentation}
+\Hypertarget{class_music_app_1_1_view_models_1_1_base_view_model_af3c4cffe5aa7db13b074ce12a5296750}\label{class_music_app_1_1_view_models_1_1_base_view_model_af3c4cffe5aa7db13b074ce12a5296750} 
+\index{MusicApp.ViewModels.BaseViewModel@{MusicApp.ViewModels.BaseViewModel}!PropertyChanged@{PropertyChanged}}
+\index{PropertyChanged@{PropertyChanged}!MusicApp.ViewModels.BaseViewModel@{MusicApp.ViewModels.BaseViewModel}}
+\doxysubsubsection{\texorpdfstring{PropertyChanged}{PropertyChanged}}
+{\footnotesize\ttfamily Property\+Changed\+Event\+Handler Music\+App.\+View\+Models.\+Base\+View\+Model.\+Property\+Changed}
+
+
+
+Occurs when a property value changes. 
+
+
+
+Definition at line \mbox{\hyperlink{_base_view_model_8cs_source_l00016}{16}} of file \mbox{\hyperlink{_base_view_model_8cs_source}{Base\+View\+Model.\+cs}}.
+
+
+
+Referenced by \mbox{\hyperlink{_base_view_model_8cs_source_l00022}{Music\+App.\+View\+Models.\+Base\+View\+Model.\+On\+Property\+Changed()}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+View\+Models/Base\+View\+Model.\+cs\end{DoxyCompactItemize}

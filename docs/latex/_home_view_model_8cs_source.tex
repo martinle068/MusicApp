@@ -1,0 +1,292 @@
+\doxysection{Home\+View\+Model.\+cs}
+\hypertarget{_home_view_model_8cs_source}{}\label{_home_view_model_8cs_source}\index{ViewModels/HomeViewModel.cs@{ViewModels/HomeViewModel.cs}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00001}00001\ \textcolor{keyword}{using\ }System.Collections.ObjectModel;}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00002}00002\ \textcolor{keyword}{using\ }System.Threading.Tasks;}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00003}00003\ \textcolor{keyword}{using\ }System.Windows;}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00004}00004\ \textcolor{keyword}{using\ }System.Windows.Input;}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00005}00005\ \textcolor{keyword}{using\ }Google.Apis.YouTube.v3.Data;}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00006}00006\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespace_music_app_1_1_commands}{MusicApp.Commands}};}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00007}00007\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespace_music_app_1_1_models}{MusicApp.Models}};}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00008}00008\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespace_music_app_1_1_views}{MusicApp.Views}};}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00009}00009\ \textcolor{keyword}{using\ }static\ \mbox{\hyperlink{namespace_music_app}{MusicApp}}.\mbox{\hyperlink{namespace_music_app_1_1_utils}{Utils}}.\mbox{\hyperlink{class_music_app_1_1_utils_1_1_utils}{Utils}};}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00010}00010\ \textcolor{keyword}{using\ }System.Linq;}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00012}00012\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_music_app_1_1_view_models}{MusicApp.ViewModels}}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00013}00013\ \{}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00017}\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model}{00017}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model}{HomeViewModel}}\ :\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_base_view_model}{BaseViewModel}}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00018}00018\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00019}00019\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ readonly\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_main_view_model}{MainViewModel}}\ \_mainViewModel;}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00020}00020\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{string}\ \_searchQuery\ =\ \textcolor{keywordtype}{string}.Empty;}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00021}00021\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ ObservableCollection<Playlist>\ \_playlists\ =\ \textcolor{keyword}{new}();}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00022}00022\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ Playlist\ \_selectedPlaylist\ =\ \textcolor{keyword}{new}();}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00023}00023\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{int}\ \_selectedPlaylistIndex\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00024}00024\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_shelf}{MyShelf<MySong>}}\ \_popularSongs\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_shelf}{MyShelf<MySong>}}(\textcolor{keyword}{new}(),\ \textcolor{keyword}{null});}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00025}00025\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{int}\ \_selectedPopularSongIndex\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00026}00026\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{string}?\ \_popularSongsContinuationToken;}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00028}00028\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ ObservableCollection<MySong>\ \_allPlaylistSongs\ =\ \textcolor{keyword}{new}();}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00033}\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_ad809b87b445a853cd2265e882fe33500}{00033}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ ObservableCollection<MySong>\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_ad809b87b445a853cd2265e882fe33500}{AllPlaylistSongs}}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00034}00034\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{get}\ =>\ \_allPlaylistSongs;}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{set}\ =>\ SetProperty(ref\ \_allPlaylistSongs,\ value);}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00037}00037\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00042}\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a2812098461dfba0d121c358dd3e9c5be}{00042}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a2812098461dfba0d121c358dd3e9c5be}{ResetIndices}}()}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00043}00043\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a78b9e95d314c3d5d9deb94b62e3d8f13}{SelectedPlaylistIndex}}\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a778486eb9914993b5a0a7c96cd4f72d3}{SelectedPopularSongIndex}}\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00046}00046\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00051}\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a778486eb9914993b5a0a7c96cd4f72d3}{00051}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a778486eb9914993b5a0a7c96cd4f72d3}{SelectedPopularSongIndex}}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00052}00052\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{get}\ =>\ \_selectedPopularSongIndex;}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{set}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SetProperty(ref\ \_selectedPopularSongIndex,\ value);}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00058}00058\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00063}\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a517c48b81be4248cb38b78ab3ef4d1d0}{00063}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_shelf}{MyShelf<MySong>}}\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a517c48b81be4248cb38b78ab3ef4d1d0}{PopularSongs}}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00064}00064\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{get}\ =>\ \_popularSongs;}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{set}\ =>\ SetProperty(ref\ \_popularSongs,\ value);}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00067}00067\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00072}\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a05f9b41caf8b472bfce15d6b8f8b4139}{00072}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ Playlist\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a05f9b41caf8b472bfce15d6b8f8b4139}{SelectedPlaylist}}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00073}00073\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{get}\ =>\ \_selectedPlaylist;}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{set}\ =>\ SetProperty(ref\ \_selectedPlaylist,\ value);}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00076}00076\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00081}\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a78b9e95d314c3d5d9deb94b62e3d8f13}{00081}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a78b9e95d314c3d5d9deb94b62e3d8f13}{SelectedPlaylistIndex}}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00082}00082\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{get}\ =>\ \_selectedPlaylistIndex;}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{set}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SetProperty(ref\ \_selectedPlaylistIndex,\ value);}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (value\ >=\ 0\ \&\&\ value\ <\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_ad6db3bbdf49e04dc89bd1b0ad54702b1}{Playlists}}.Count)}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a05f9b41caf8b472bfce15d6b8f8b4139}{SelectedPlaylist}}\ =\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_ad6db3bbdf49e04dc89bd1b0ad54702b1}{Playlists}}[value];}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00092}00092\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00097}\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a2c746061bbbd04cdf5bfa18e35548709}{00097}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a2c746061bbbd04cdf5bfa18e35548709}{SearchQuery}}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00098}00098\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{get}\ =>\ \_searchQuery;}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{set}\ =>\ SetProperty(ref\ \_searchQuery,\ value);}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00101}00101\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00106}\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_ad6db3bbdf49e04dc89bd1b0ad54702b1}{00106}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ ObservableCollection<Playlist>\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_ad6db3bbdf49e04dc89bd1b0ad54702b1}{Playlists}}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00107}00107\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00108}00108\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{get}\ =>\ \_playlists;}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{set}\ =>\ SetProperty(ref\ \_playlists,\ value);}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00110}00110\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00112}00112\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ ICommand\ SearchCommand\ \{\ \textcolor{keyword}{get};\ \}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00113}00113\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ ICommand\ AddPlaylistCommand\ \{\ \textcolor{keyword}{get};\ \}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00114}00114\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ ICommand\ SelectPlaylistCommand\ \{\ \textcolor{keyword}{get};\ \}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00115}00115\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ ICommand\ SelectPopularSongCommand\ \{\ \textcolor{keyword}{get};\ \}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00116}00116\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ ICommand\ DeletePlaylistCommand\ \{\ \textcolor{keyword}{get};\ \}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00117}00117\ }
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00122}\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a906c93ccb82916486e54484d2ce63be0}{00122}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a906c93ccb82916486e54484d2ce63be0}{HomeViewModel}}(\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_main_view_model}{MainViewModel}}\ mainViewModel)}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00123}00123\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00124}00124\ \ \ \ \ \ \ \ \ \ \ \ \ \_mainViewModel\ =\ mainViewModel;}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00125}00125\ \ \ \ \ \ \ \ \ \ \ \ \ SearchCommand\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_music_app_1_1_commands_1_1_relay_command}{RelayCommand}}(async\ \_\ =>\ await\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a0fecfdd53c8c202b8d98ef97c7b8218f}{ExecuteSearch}}());}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \ \ AddPlaylistCommand\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_music_app_1_1_commands_1_1_relay_command}{RelayCommand}}(\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_af5353e55554ea04f6914ca6a002e5020}{OpenAddPlaylistDialog}});}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ SelectPlaylistCommand\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_music_app_1_1_commands_1_1_relay_command}{RelayCommand}}(async\ \_\ =>\ await\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a59bf6b6a3b396342e016ffc734c46b94}{HandlePlaylistSelectionAsync}}());}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ SelectPopularSongCommand\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_music_app_1_1_commands_1_1_relay_command}{RelayCommand}}(\_\ =>\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a02fdf679f8dcc1cac512a64b5f452c49}{HandlePopularSongSelection}}());}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00129}00129\ \ \ \ \ \ \ \ \ \ \ \ \ DeletePlaylistCommand\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_music_app_1_1_commands_1_1_relay_command}{RelayCommand}}(\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a4cbece0dd092a95447173564f6d9c080}{ExecuteDeletePlaylist}});}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00130}00130\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a9a41c1b5b5dd814ef9fc031c71f4b80d}{LoadData}}();}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00131}00131\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00132}00132\ }
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00136}\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a9a41c1b5b5dd814ef9fc031c71f4b80d}{00136}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ async\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a9a41c1b5b5dd814ef9fc031c71f4b80d}{LoadData}}()}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00137}00137\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ var\ loadPlaylistsTask\ =\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_abeb0fd43a83815e14884a68f8b6f689b}{LoadPlaylists}}();}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ var\ loadPopularSongsTask\ =\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a48520be42c61e60847044bacb79c7119}{LoadPopularSongs}}();}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00140}00140\ }
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Start\ loading\ both\ playlists\ and\ popular\ songs\ concurrently}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ await\ Task.WhenAll(loadPlaylistsTask,\ loadPopularSongsTask);}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ await\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a1eb0fc493b775b5f93ab1c7f675ee1cb}{LoadAllPlaylistSongs}}();}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00144}00144\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00145}00145\ }
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00149}\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a48520be42c61e60847044bacb79c7119}{00149}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ async\ Task\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a48520be42c61e60847044bacb79c7119}{LoadPopularSongs}}()}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00150}00150\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00151}00151\ \ \ \ \ \ \ \ \ \ \ \ \ var\ popularSongs\ =\ await\ \_mainViewModel.MyYouTubeService.FetchPopularSongsAsync(\textcolor{keyword}{null});}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00152}00152\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a517c48b81be4248cb38b78ab3ef4d1d0}{PopularSongs}}\ =\ popularSongs;}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00153}00153\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00154}00154\ }
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00158}\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_abeb0fd43a83815e14884a68f8b6f689b}{00158}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ async\ Task\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_abeb0fd43a83815e14884a68f8b6f689b}{LoadPlaylists}}()}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00159}00159\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00160}00160\ \ \ \ \ \ \ \ \ \ \ \ \ var\ playlists\ =\ await\ \_mainViewModel.MyYouTubeService.FetchAllPlaylistsAsync();}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_ad6db3bbdf49e04dc89bd1b0ad54702b1}{Playlists}}\ =\ playlists;}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00162}00162\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00163}00163\ }
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00167}\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a1eb0fc493b775b5f93ab1c7f675ee1cb}{00167}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ async\ Task\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a1eb0fc493b775b5f93ab1c7f675ee1cb}{LoadAllPlaylistSongs}}()}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00168}00168\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00169}00169\ \ \ \ \ \ \ \ \ \ \ \ \ var\ allSongs\ =\ \textcolor{keyword}{new}\ ObservableCollection<MySong>();}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00170}00170\ }
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00171}00171\ \ \ \ \ \ \ \ \ \ \ \ \ var\ tasks\ =\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_ad6db3bbdf49e04dc89bd1b0ad54702b1}{Playlists}}.Select(async\ playlist\ =>}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00172}00172\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00173}00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ playlistItems\ =\ await\ \_mainViewModel.MyYouTubeService.FetchPlaylistContentAsync(playlist.Id);}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00174}00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (playlistItems\ !=\ \textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00175}00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00176}00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{foreach}\ (var\ song\ \textcolor{keywordflow}{in}\ playlistItems)}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00177}00177\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00178}00178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Application.Current.Dispatcher.Invoke(()\ =>\ allSongs.Add(song));}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00179}00179\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_mainViewModel.SongDatabase?.InsertSong(song.Id);}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00180}00180\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00181}00181\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00182}00182\ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00183}00183\ }
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00184}00184\ \ \ \ \ \ \ \ \ \ \ \ \ await\ Task.WhenAll(tasks);}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00185}00185\ }
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00186}00186\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_ad809b87b445a853cd2265e882fe33500}{AllPlaylistSongs}}\ =\ allSongs;}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00187}00187\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00188}00188\ }
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00192}\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a59bf6b6a3b396342e016ffc734c46b94}{00192}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ async\ Task\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a59bf6b6a3b396342e016ffc734c46b94}{HandlePlaylistSelectionAsync}}()}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00193}00193\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00194}00194\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00195}00195\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00196}00196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_ad6db3bbdf49e04dc89bd1b0ad54702b1}{Playlists}}.ElementAtOrDefault(\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a78b9e95d314c3d5d9deb94b62e3d8f13}{SelectedPlaylistIndex}})\ is\ Playlist\ playlist)}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00197}00197\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00198}00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ playlistItems\ =\ await\ \_mainViewModel.MyYouTubeService.FetchPlaylistContentAsync(playlist.Id);}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00199}00199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (playlistItems\ ==\ \textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00200}00200\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00201}00201\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MessageBox.Show(\textcolor{stringliteral}{"{}Failed\ to\ fetch\ playlist\ content."{}});}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00202}00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00203}00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00204}00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (playlistItems.Count\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00205}00205\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00206}00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MessageBox.Show(\textcolor{stringliteral}{"{}This\ playlist\ is\ empty."{}});}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00207}00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00208}00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00209}00209\ }
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00210}00210\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_mainViewModel.ResetIndices();}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00211}00211\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_mainViewModel.CurrentMusicSource\ =\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_main_view_model}{MainViewModel}}.\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_main_view_model_a5227a282f7e079b7c7f3dbc593b06949}{MusicSource}}.Playlist;}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00212}00212\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_mainViewModel.PlayerViewModel.ProvidePlayerInfo(playlistItems,\ 0,\ GetInfoString(playlist.Snippet.Title));}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00213}00213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_mainViewModel.SwitchToPlayerView();}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00214}00214\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00215}00215\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00216}00216\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (Exception\ ex)}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00217}00217\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00218}00218\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MessageBox.Show(ex.Message);}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00219}00219\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00220}00220\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00221}00221\ }
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00227}\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a1e1572c8a3d0c12c613e03ca7cb4fe9c}{00227}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ async\ Task\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a1e1572c8a3d0c12c613e03ca7cb4fe9c}{HandleRadioSongSelection}}(ObservableCollection<MySong>\ Songs,\ \textcolor{keywordtype}{int}\ index)}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00228}00228\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00229}00229\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Songs.ElementAtOrDefault(index)\ is\ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{MySong}}\ song\ and\ not\ \textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00230}00230\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00231}00231\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ newSongs\ =\ \textcolor{keyword}{new}\ ObservableCollection<MySong>()\ \{\ song\ \};}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00232}00232\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ radioPlaylistId\ =\ await\ song.GetPlaylistIdAsync();}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00233}00233\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ radioSongs\ =\ await\ \_mainViewModel.MyYouTubeService.FetchRadioSongsAsync(radioPlaylistId);}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00234}00234\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_mainViewModel.ResetIndices();}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00235}00235\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_mainViewModel.CurrentMusicSource\ =\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_main_view_model}{MainViewModel}}.\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_main_view_model_a5227a282f7e079b7c7f3dbc593b06949}{MusicSource}}.Search;}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00236}00236\ }
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00237}00237\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (radioSongs\ ==\ \textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00238}00238\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00239}00239\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MessageBox.Show(\textcolor{stringliteral}{"{}No\ songs\ found."{}});}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00240}00240\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00241}00241\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00242}00242\ }
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00243}00243\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{foreach}\ (var\ item\ \textcolor{keywordflow}{in}\ radioSongs)}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00244}00244\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00245}00245\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ newSongs.Add(item);}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00246}00246\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00247}00247\ }
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00248}00248\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_mainViewModel.PlayerViewModel.ProvidePlayerInfo(newSongs,\ 0,\ GetInfoString(\$\textcolor{stringliteral}{"{}Radio\ \{song.Name\}"{}}));}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00249}00249\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_mainViewModel.SwitchToPlayerView();}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00250}00250\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00251}00251\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00252}00252\ }
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00256}\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a02fdf679f8dcc1cac512a64b5f452c49}{00256}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a02fdf679f8dcc1cac512a64b5f452c49}{HandlePopularSongSelection}}()}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00257}00257\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00258}00258\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a517c48b81be4248cb38b78ab3ef4d1d0}{PopularSongs}}.\mbox{\hyperlink{class_music_app_1_1_models_1_1_my_shelf_af85b914e7cc42e3d6ca7e018e3f60fbe}{Items}}.ElementAtOrDefault(\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a778486eb9914993b5a0a7c96cd4f72d3}{SelectedPopularSongIndex}})\ is\ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{MySong}}\ song)}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00259}00259\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00260}00260\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_mainViewModel.CurrentMusicSource\ =\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_main_view_model}{MainViewModel}}.\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_main_view_model_a5227a282f7e079b7c7f3dbc593b06949}{MusicSource}}.Popular;}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00261}00261\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_mainViewModel.PlayerViewModel.ProvidePlayerInfo(\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a517c48b81be4248cb38b78ab3ef4d1d0}{PopularSongs}}.\mbox{\hyperlink{class_music_app_1_1_models_1_1_my_shelf_af85b914e7cc42e3d6ca7e018e3f60fbe}{Items}},\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a778486eb9914993b5a0a7c96cd4f72d3}{SelectedPopularSongIndex}},\ GetInfoString(\textcolor{stringliteral}{"{}Popular\ Songs"{}}),\ \_popularSongsContinuationToken);}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00262}00262\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_mainViewModel.SwitchToPlayerView();}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00263}00263\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00264}00264\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00265}00265\ }
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00269}\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a0fecfdd53c8c202b8d98ef97c7b8218f}{00269}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ async\ Task\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a0fecfdd53c8c202b8d98ef97c7b8218f}{ExecuteSearch}}()}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00270}00270\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00271}00271\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\textcolor{keywordtype}{string}.IsNullOrWhiteSpace(\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a2c746061bbbd04cdf5bfa18e35548709}{SearchQuery}}))}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00272}00272\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00273}00273\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_mainViewModel.SearchViewModel.SearchQuery\ =\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a2c746061bbbd04cdf5bfa18e35548709}{SearchQuery}};}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00274}00274\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ await\ \_mainViewModel.SearchAndNavigateAsync(\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a2c746061bbbd04cdf5bfa18e35548709}{SearchQuery}});}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00275}00275\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00276}00276\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00277}00277\ }
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00282}\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_af5353e55554ea04f6914ca6a002e5020}{00282}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_af5353e55554ea04f6914ca6a002e5020}{OpenAddPlaylistDialog}}(\textcolor{keywordtype}{object}\ parameter)}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00283}00283\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00284}00284\ \ \ \ \ \ \ \ \ \ \ \ \ var\ dialog\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_music_app_1_1_views_1_1_add_playlist_dialog}{AddPlaylistDialog}}();}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00285}00285\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dialog.ShowDialog()\ ==\ \textcolor{keyword}{true})}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00286}00286\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00287}00287\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a1589dd54b7887885536ae7f18c138ce6}{AddNewPlaylist}}(dialog.PlaylistName,\ dialog.PlaylistDescription,\ dialog.PlaylistVisibility\ ==\ \textcolor{stringliteral}{"{}Public"{}});}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00288}00288\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00289}00289\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00290}00290\ }
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00297}\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a1589dd54b7887885536ae7f18c138ce6}{00297}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ async\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a1589dd54b7887885536ae7f18c138ce6}{AddNewPlaylist}}(\textcolor{keywordtype}{string}\ title,\ \textcolor{keywordtype}{string}\ description,\ \textcolor{keywordtype}{bool}\ isPublic)}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00298}00298\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00299}00299\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00300}00300\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00301}00301\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ privacyStatus\ =\ isPublic\ ?\ \textcolor{stringliteral}{"{}public"{}}\ :\ \textcolor{stringliteral}{"{}private"{}};}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00302}00302\ }
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00303}00303\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ await\ \_mainViewModel.MyYouTubeService.AddNewPlaylist(title,\ description,\ privacyStatus);}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00304}00304\ }
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00305}00305\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ await\ Task.Delay(5000);\ \textcolor{comment}{//\ Wait\ for\ the\ playlist\ to\ be\ created}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00306}00306\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ await\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_abeb0fd43a83815e14884a68f8b6f689b}{LoadPlaylists}}();}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00307}00307\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00308}00308\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (Google.GoogleApiException\ ex)}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00309}00309\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00310}00310\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MessageBox.Show(\$\textcolor{stringliteral}{"{}An\ API\ error\ occurred:\ \{ex.Message\}\(\backslash\)n\{ex.Error.Message\}"{}});}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00311}00311\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00312}00312\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (Exception\ ex)}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00313}00313\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00314}00314\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MessageBox.Show(\$\textcolor{stringliteral}{"{}An\ error\ occurred:\ \{ex.Message\}"{}});}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00315}00315\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00316}00316\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00317}00317\ }
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00322}\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a4cbece0dd092a95447173564f6d9c080}{00322}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a4cbece0dd092a95447173564f6d9c080}{ExecuteDeletePlaylist}}(\textcolor{keywordtype}{object}\ parameter)}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00323}00323\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00324}00324\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (parameter\ is\ Playlist\ playlist)}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00325}00325\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00326}00326\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ result\ =\ MessageBox.Show(\$\textcolor{stringliteral}{"{}Are\ you\ sure\ you\ want\ to\ delete\ the\ playlist\ \(\backslash\)"{}\{playlist.Snippet.Title\}\(\backslash\)"{}?"{}},\ \textcolor{stringliteral}{"{}Confirm\ Deletion"{}},\ MessageBoxButton.YesNo,\ MessageBoxImage.Warning);}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00327}00327\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (result\ ==\ MessageBoxResult.Yes)}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00328}00328\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00329}00329\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a30ee54d4ed2594ccf0e94d49e5d7fef4}{DeletePlaylist}}(playlist);}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00330}00330\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00331}00331\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00332}00332\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00333}00333\ }
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00338}\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a30ee54d4ed2594ccf0e94d49e5d7fef4}{00338}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ async\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a30ee54d4ed2594ccf0e94d49e5d7fef4}{DeletePlaylist}}(Playlist\ playlist)}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00339}00339\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00340}00340\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (playlist\ ==\ \textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00341}00341\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00342}00342\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00343}00343\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00344}00344\ }
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00345}00345\ \ \ \ \ \ \ \ \ \ \ \ \ var\ index\ =\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_ad6db3bbdf49e04dc89bd1b0ad54702b1}{Playlists}}.IndexOf(playlist);}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00346}00346\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00347}00347\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00348}00348\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ await\ \_mainViewModel.MyYouTubeService.DeletePlaylistAsync(playlist.Id);}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00349}00349\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_ad6db3bbdf49e04dc89bd1b0ad54702b1}{Playlists}}.RemoveAt(index);}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00350}00350\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00351}00351\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (Google.GoogleApiException\ ex)}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00352}00352\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00353}00353\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MessageBox.Show(\$\textcolor{stringliteral}{"{}An\ API\ error\ occurred:\ \{ex.Message\}\(\backslash\)n\{ex.Error.Message\}"{}});}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00354}00354\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00355}00355\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (Exception\ ex)}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00356}00356\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00357}00357\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MessageBox.Show(\$\textcolor{stringliteral}{"{}An\ error\ occurred:\ \{ex.Message\}"{}});}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00358}00358\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00359}00359\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00360}00360\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_home_view_model_8cs_source_l00361}00361\ \}}
+
+\end{DoxyCode}

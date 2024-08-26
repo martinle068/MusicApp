@@ -1,0 +1,367 @@
+\doxysection{Music\+App.\+Views.\+Player\+View Class Reference}
+\hypertarget{class_music_app_1_1_views_1_1_player_view}{}\label{class_music_app_1_1_views_1_1_player_view}\index{MusicApp.Views.PlayerView@{MusicApp.Views.PlayerView}}
+
+
+Interaction logic for Player\+View.\+xaml. This class handles the interactions for the player view.  
+
+
+Inheritance diagram for Music\+App.\+Views.\+Player\+View\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_music_app_1_1_views_1_1_player_view}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_music_app_1_1_views_1_1_player_view_a56a12f4f33f83c5b6eb98d3a107a9bb7}{Player\+View}} ()
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the Player\+View class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_music_app_1_1_views_1_1_player_view_a9ffe66154e3526353b4e6584ab62790a}{Track\+Bar\+Seek\+\_\+\+Preview\+Mouse\+Left\+Button\+Down}} (object sender, Mouse\+Button\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Handles the Preview\+Mouse\+Left\+Button\+Down event for the track bar (seek slider). Begins the seek operation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_music_app_1_1_views_1_1_player_view_a835929b5828bbe3e60d178994fda9957}{Track\+Bar\+Seek\+\_\+\+Preview\+Mouse\+Left\+Button\+Up}} (object sender, Mouse\+Button\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Handles the Preview\+Mouse\+Left\+Button\+Up event for the track bar (seek slider). Ends the seek operation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_music_app_1_1_views_1_1_player_view_a0d9c5a30220fb400b6d0b44c23e4407e}{Track\+Bar\+Seek\+\_\+\+Value\+Changed}} (object sender, Routed\+Property\+Changed\+Event\+Args$<$ double $>$ e)
+\begin{DoxyCompactList}\small\item\em Handles the Value\+Changed event for the track bar (seek slider). Updates the current position in the media. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_music_app_1_1_views_1_1_player_view_a05c823e8a36e5cb6d2fa58d59a8d2b3f}{Execute\+Add\+Song\+To\+Playlist}} (object sender)
+\begin{DoxyCompactList}\small\item\em Executes the Add\+Song\+To\+Playlist command when the context menu item is clicked. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_music_app_1_1_views_1_1_player_view_a00f0d517519c773fd3c8cece191c6884}{Add\+Song\+To\+Playlist\+\_\+\+Combo\+Box}} (object sender, Routed\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Handles the Routed\+Event for adding a song to a playlist from the context menu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_music_app_1_1_views_1_1_player_view_a30185dbf7fd46d5da14284dae4f2c180}{Execute\+Remove\+Song\+From\+Playlist}} (object sender)
+\begin{DoxyCompactList}\small\item\em Executes the Remove\+Song\+From\+Playlist command when the context menu item is clicked. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_music_app_1_1_views_1_1_player_view_a3af1e05453f3b18bd005c0b7a47f4929}{Remove\+Song\+From\+Playlist}} (object sender, Routed\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Handles the Routed\+Event for removing a song from a playlist from the context menu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_music_app_1_1_views_1_1_player_view_a93000e75252faefc8605a476a518f230}{Preview\+Mouse\+Right\+Button\+Down\+\_\+\+Ignore\+Index\+Selection}} (object sender, Mouse\+Button\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Handles the Preview\+Mouse\+Right\+Button\+Down event to prevent the selection index from changing. This is useful for context menu operations where the selection should remain unchanged. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_music_app_1_1_views_1_1_player_view_a61bbed8dbdcf4f454d9265e00c0869af}{Button\+\_\+\+Preview\+Key\+Down}} (object sender, Key\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Handles the Preview\+Key\+Down event for buttons to suppress the Enter and Spacebar key presses. This prevents unintended command execution from these keys. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interaction logic for Player\+View.\+xaml. This class handles the interactions for the player view. 
+
+Definition at line \mbox{\hyperlink{_player_view_8xaml_8cs_source_l00013}{13}} of file \mbox{\hyperlink{_player_view_8xaml_8cs_source}{Player\+View.\+xaml.\+cs}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_music_app_1_1_views_1_1_player_view_a56a12f4f33f83c5b6eb98d3a107a9bb7}\label{class_music_app_1_1_views_1_1_player_view_a56a12f4f33f83c5b6eb98d3a107a9bb7} 
+\index{MusicApp.Views.PlayerView@{MusicApp.Views.PlayerView}!PlayerView@{PlayerView}}
+\index{PlayerView@{PlayerView}!MusicApp.Views.PlayerView@{MusicApp.Views.PlayerView}}
+\doxysubsubsection{\texorpdfstring{PlayerView()}{PlayerView()}}
+{\footnotesize\ttfamily Music\+App.\+Views.\+Player\+View.\+Player\+View (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the Player\+View class. 
+
+
+
+Definition at line \mbox{\hyperlink{_player_view_8xaml_8cs_source_l00018}{18}} of file \mbox{\hyperlink{_player_view_8xaml_8cs_source}{Player\+View.\+xaml.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ InitializeComponent();}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_music_app_1_1_views_1_1_player_view_a00f0d517519c773fd3c8cece191c6884}\label{class_music_app_1_1_views_1_1_player_view_a00f0d517519c773fd3c8cece191c6884} 
+\index{MusicApp.Views.PlayerView@{MusicApp.Views.PlayerView}!AddSongToPlaylist\_ComboBox@{AddSongToPlaylist\_ComboBox}}
+\index{AddSongToPlaylist\_ComboBox@{AddSongToPlaylist\_ComboBox}!MusicApp.Views.PlayerView@{MusicApp.Views.PlayerView}}
+\doxysubsubsection{\texorpdfstring{AddSongToPlaylist\_ComboBox()}{AddSongToPlaylist\_ComboBox()}}
+{\footnotesize\ttfamily void Music\+App.\+Views.\+Player\+View.\+Add\+Song\+To\+Playlist\+\_\+\+Combo\+Box (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Routed\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Handles the Routed\+Event for adding a song to a playlist from the context menu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & The source of the event.\\
+\hline
+{\em e} & The Routed\+Event\+Args containing event data.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_player_view_8xaml_8cs_source_l00085}{85}} of file \mbox{\hyperlink{_player_view_8xaml_8cs_source}{Player\+View.\+xaml.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_music_app_1_1_views_1_1_player_view_a05c823e8a36e5cb6d2fa58d59a8d2b3f}{ExecuteAddSongToPlaylist}}(sender);}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_player_view_8xaml_8cs_source_l00069}{Music\+App.\+Views.\+Player\+View.\+Execute\+Add\+Song\+To\+Playlist()}}.
+
+\Hypertarget{class_music_app_1_1_views_1_1_player_view_a61bbed8dbdcf4f454d9265e00c0869af}\label{class_music_app_1_1_views_1_1_player_view_a61bbed8dbdcf4f454d9265e00c0869af} 
+\index{MusicApp.Views.PlayerView@{MusicApp.Views.PlayerView}!Button\_PreviewKeyDown@{Button\_PreviewKeyDown}}
+\index{Button\_PreviewKeyDown@{Button\_PreviewKeyDown}!MusicApp.Views.PlayerView@{MusicApp.Views.PlayerView}}
+\doxysubsubsection{\texorpdfstring{Button\_PreviewKeyDown()}{Button\_PreviewKeyDown()}}
+{\footnotesize\ttfamily void Music\+App.\+Views.\+Player\+View.\+Button\+\_\+\+Preview\+Key\+Down (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Key\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Handles the Preview\+Key\+Down event for buttons to suppress the Enter and Spacebar key presses. This prevents unintended command execution from these keys. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & The source of the event.\\
+\hline
+{\em e} & The Key\+Event\+Args containing event data.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_player_view_8xaml_8cs_source_l00133}{133}} of file \mbox{\hyperlink{_player_view_8xaml_8cs_source}{Player\+View.\+xaml.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (e.Key\ ==\ Key.Enter\ ||\ e.Key\ ==\ Key.Space)}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ e.Handled\ =\ \textcolor{keyword}{true};\ \textcolor{comment}{//\ Suppress\ the\ Enter\ and\ Spacebar\ key\ presses}}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_music_app_1_1_views_1_1_player_view_a05c823e8a36e5cb6d2fa58d59a8d2b3f}\label{class_music_app_1_1_views_1_1_player_view_a05c823e8a36e5cb6d2fa58d59a8d2b3f} 
+\index{MusicApp.Views.PlayerView@{MusicApp.Views.PlayerView}!ExecuteAddSongToPlaylist@{ExecuteAddSongToPlaylist}}
+\index{ExecuteAddSongToPlaylist@{ExecuteAddSongToPlaylist}!MusicApp.Views.PlayerView@{MusicApp.Views.PlayerView}}
+\doxysubsubsection{\texorpdfstring{ExecuteAddSongToPlaylist()}{ExecuteAddSongToPlaylist()}}
+{\footnotesize\ttfamily void Music\+App.\+Views.\+Player\+View.\+Execute\+Add\+Song\+To\+Playlist (\begin{DoxyParamCaption}\item[{object}]{sender }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Executes the Add\+Song\+To\+Playlist command when the context menu item is clicked. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & The source of the event, typically the Menu\+Item.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_player_view_8xaml_8cs_source_l00069}{69}} of file \mbox{\hyperlink{_player_view_8xaml_8cs_source}{Player\+View.\+xaml.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ var\ song\ =\ Utils.Utils.GetItemFromMenuItem<\mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{MySong}}>(sender);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (song\ !=\ \textcolor{keyword}{null})}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ viewModel\ =\ DataContext\ as\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_player_view_model}{PlayerViewModel}};}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ viewModel?.AddSongToPlaylistCommand.Execute(song);}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{_player_view_8xaml_8cs_source_l00085}{Music\+App.\+Views.\+Player\+View.\+Add\+Song\+To\+Playlist\+\_\+\+Combo\+Box()}}.
+
+\Hypertarget{class_music_app_1_1_views_1_1_player_view_a30185dbf7fd46d5da14284dae4f2c180}\label{class_music_app_1_1_views_1_1_player_view_a30185dbf7fd46d5da14284dae4f2c180} 
+\index{MusicApp.Views.PlayerView@{MusicApp.Views.PlayerView}!ExecuteRemoveSongFromPlaylist@{ExecuteRemoveSongFromPlaylist}}
+\index{ExecuteRemoveSongFromPlaylist@{ExecuteRemoveSongFromPlaylist}!MusicApp.Views.PlayerView@{MusicApp.Views.PlayerView}}
+\doxysubsubsection{\texorpdfstring{ExecuteRemoveSongFromPlaylist()}{ExecuteRemoveSongFromPlaylist()}}
+{\footnotesize\ttfamily void Music\+App.\+Views.\+Player\+View.\+Execute\+Remove\+Song\+From\+Playlist (\begin{DoxyParamCaption}\item[{object}]{sender }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Executes the Remove\+Song\+From\+Playlist command when the context menu item is clicked. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & The source of the event, typically the Menu\+Item.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_player_view_8xaml_8cs_source_l00094}{94}} of file \mbox{\hyperlink{_player_view_8xaml_8cs_source}{Player\+View.\+xaml.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ var\ song\ =\ Utils.Utils.GetItemFromMenuItem<\mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{MySong}}>(sender);}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (song\ !=\ \textcolor{keyword}{null})}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ viewModel\ =\ DataContext\ as\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_player_view_model}{PlayerViewModel}};}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ viewModel?.RemoveSongFromPlaylistCommand.Execute(song);}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{_player_view_8xaml_8cs_source_l00110}{Music\+App.\+Views.\+Player\+View.\+Remove\+Song\+From\+Playlist()}}.
+
+\Hypertarget{class_music_app_1_1_views_1_1_player_view_a93000e75252faefc8605a476a518f230}\label{class_music_app_1_1_views_1_1_player_view_a93000e75252faefc8605a476a518f230} 
+\index{MusicApp.Views.PlayerView@{MusicApp.Views.PlayerView}!PreviewMouseRightButtonDown\_IgnoreIndexSelection@{PreviewMouseRightButtonDown\_IgnoreIndexSelection}}
+\index{PreviewMouseRightButtonDown\_IgnoreIndexSelection@{PreviewMouseRightButtonDown\_IgnoreIndexSelection}!MusicApp.Views.PlayerView@{MusicApp.Views.PlayerView}}
+\doxysubsubsection{\texorpdfstring{PreviewMouseRightButtonDown\_IgnoreIndexSelection()}{PreviewMouseRightButtonDown\_IgnoreIndexSelection()}}
+{\footnotesize\ttfamily void Music\+App.\+Views.\+Player\+View.\+Preview\+Mouse\+Right\+Button\+Down\+\_\+\+Ignore\+Index\+Selection (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Mouse\+Button\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Handles the Preview\+Mouse\+Right\+Button\+Down event to prevent the selection index from changing. This is useful for context menu operations where the selection should remain unchanged. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & The source of the event.\\
+\hline
+{\em e} & The Mouse\+Button\+Event\+Args containing event data.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_player_view_8xaml_8cs_source_l00121}{121}} of file \mbox{\hyperlink{_player_view_8xaml_8cs_source}{Player\+View.\+xaml.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Mark\ the\ event\ as\ handled\ so\ the\ SelectedIndex\ doesn't\ change}}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ e.Handled\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_music_app_1_1_views_1_1_player_view_a3af1e05453f3b18bd005c0b7a47f4929}\label{class_music_app_1_1_views_1_1_player_view_a3af1e05453f3b18bd005c0b7a47f4929} 
+\index{MusicApp.Views.PlayerView@{MusicApp.Views.PlayerView}!RemoveSongFromPlaylist@{RemoveSongFromPlaylist}}
+\index{RemoveSongFromPlaylist@{RemoveSongFromPlaylist}!MusicApp.Views.PlayerView@{MusicApp.Views.PlayerView}}
+\doxysubsubsection{\texorpdfstring{RemoveSongFromPlaylist()}{RemoveSongFromPlaylist()}}
+{\footnotesize\ttfamily void Music\+App.\+Views.\+Player\+View.\+Remove\+Song\+From\+Playlist (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Routed\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Handles the Routed\+Event for removing a song from a playlist from the context menu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & The source of the event.\\
+\hline
+{\em e} & The Routed\+Event\+Args containing event data.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_player_view_8xaml_8cs_source_l00110}{110}} of file \mbox{\hyperlink{_player_view_8xaml_8cs_source}{Player\+View.\+xaml.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_music_app_1_1_views_1_1_player_view_a30185dbf7fd46d5da14284dae4f2c180}{ExecuteRemoveSongFromPlaylist}}(sender);}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_player_view_8xaml_8cs_source_l00094}{Music\+App.\+Views.\+Player\+View.\+Execute\+Remove\+Song\+From\+Playlist()}}.
+
+\Hypertarget{class_music_app_1_1_views_1_1_player_view_a9ffe66154e3526353b4e6584ab62790a}\label{class_music_app_1_1_views_1_1_player_view_a9ffe66154e3526353b4e6584ab62790a} 
+\index{MusicApp.Views.PlayerView@{MusicApp.Views.PlayerView}!TrackBarSeek\_PreviewMouseLeftButtonDown@{TrackBarSeek\_PreviewMouseLeftButtonDown}}
+\index{TrackBarSeek\_PreviewMouseLeftButtonDown@{TrackBarSeek\_PreviewMouseLeftButtonDown}!MusicApp.Views.PlayerView@{MusicApp.Views.PlayerView}}
+\doxysubsubsection{\texorpdfstring{TrackBarSeek\_PreviewMouseLeftButtonDown()}{TrackBarSeek\_PreviewMouseLeftButtonDown()}}
+{\footnotesize\ttfamily void Music\+App.\+Views.\+Player\+View.\+Track\+Bar\+Seek\+\_\+\+Preview\+Mouse\+Left\+Button\+Down (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Mouse\+Button\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Handles the Preview\+Mouse\+Left\+Button\+Down event for the track bar (seek slider). Begins the seek operation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & The source of the event.\\
+\hline
+{\em e} & The Mouse\+Button\+Event\+Args containing event data.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_player_view_8xaml_8cs_source_l00029}{29}} of file \mbox{\hyperlink{_player_view_8xaml_8cs_source}{Player\+View.\+xaml.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (DataContext\ is\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_player_view_model}{PlayerViewModel}}\ viewModel)}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ viewModel.TrackBarSeek\_PreviewMouseLeftButtonDown(sender,\ e);}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_music_app_1_1_views_1_1_player_view_a835929b5828bbe3e60d178994fda9957}\label{class_music_app_1_1_views_1_1_player_view_a835929b5828bbe3e60d178994fda9957} 
+\index{MusicApp.Views.PlayerView@{MusicApp.Views.PlayerView}!TrackBarSeek\_PreviewMouseLeftButtonUp@{TrackBarSeek\_PreviewMouseLeftButtonUp}}
+\index{TrackBarSeek\_PreviewMouseLeftButtonUp@{TrackBarSeek\_PreviewMouseLeftButtonUp}!MusicApp.Views.PlayerView@{MusicApp.Views.PlayerView}}
+\doxysubsubsection{\texorpdfstring{TrackBarSeek\_PreviewMouseLeftButtonUp()}{TrackBarSeek\_PreviewMouseLeftButtonUp()}}
+{\footnotesize\ttfamily void Music\+App.\+Views.\+Player\+View.\+Track\+Bar\+Seek\+\_\+\+Preview\+Mouse\+Left\+Button\+Up (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Mouse\+Button\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Handles the Preview\+Mouse\+Left\+Button\+Up event for the track bar (seek slider). Ends the seek operation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & The source of the event.\\
+\hline
+{\em e} & The Mouse\+Button\+Event\+Args containing event data.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_player_view_8xaml_8cs_source_l00043}{43}} of file \mbox{\hyperlink{_player_view_8xaml_8cs_source}{Player\+View.\+xaml.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (DataContext\ is\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_player_view_model}{PlayerViewModel}}\ viewModel)}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ viewModel.TrackBarSeek\_PreviewMouseLeftButtonUp(sender,\ e);}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_music_app_1_1_views_1_1_player_view_a0d9c5a30220fb400b6d0b44c23e4407e}\label{class_music_app_1_1_views_1_1_player_view_a0d9c5a30220fb400b6d0b44c23e4407e} 
+\index{MusicApp.Views.PlayerView@{MusicApp.Views.PlayerView}!TrackBarSeek\_ValueChanged@{TrackBarSeek\_ValueChanged}}
+\index{TrackBarSeek\_ValueChanged@{TrackBarSeek\_ValueChanged}!MusicApp.Views.PlayerView@{MusicApp.Views.PlayerView}}
+\doxysubsubsection{\texorpdfstring{TrackBarSeek\_ValueChanged()}{TrackBarSeek\_ValueChanged()}}
+{\footnotesize\ttfamily void Music\+App.\+Views.\+Player\+View.\+Track\+Bar\+Seek\+\_\+\+Value\+Changed (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Routed\+Property\+Changed\+Event\+Args$<$ double $>$}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Handles the Value\+Changed event for the track bar (seek slider). Updates the current position in the media. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & The source of the event.\\
+\hline
+{\em e} & The Routed\+Property\+Changed\+Event\+Args containing event data.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_player_view_8xaml_8cs_source_l00057}{57}} of file \mbox{\hyperlink{_player_view_8xaml_8cs_source}{Player\+View.\+xaml.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (DataContext\ is\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_player_view_model}{PlayerViewModel}}\ viewModel)}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ viewModel.TrackBarSeek\_ValueChanged(sender,\ e);}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Views/Player\+View.\+xaml.\+cs\end{DoxyCompactItemize}

@@ -1,0 +1,92 @@
+\doxysection{Player\+View.\+xaml.\+cs}
+\hypertarget{_player_view_8xaml_8cs_source}{}\label{_player_view_8xaml_8cs_source}\index{Views/PlayerView.xaml.cs@{Views/PlayerView.xaml.cs}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00001}00001\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespace_music_app_1_1_view_models}{MusicApp.ViewModels}};}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00002}00002\ \textcolor{keyword}{using\ }System.Windows;}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00003}00003\ \textcolor{keyword}{using\ }System.Windows.Controls;}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00004}00004\ \textcolor{keyword}{using\ }System.Windows.Input;}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00005}00005\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespace_music_app_1_1_models}{MusicApp.Models}};}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00007}00007\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_music_app_1_1_views}{MusicApp.Views}}}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00008}00008\ \{}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00013}\mbox{\hyperlink{class_music_app_1_1_views_1_1_player_view}{00013}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{partial\ class\ }\mbox{\hyperlink{class_music_app_1_1_views_1_1_player_view}{PlayerView}}\ :\ UserControl}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00014}00014\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00018}\mbox{\hyperlink{class_music_app_1_1_views_1_1_player_view_a56a12f4f33f83c5b6eb98d3a107a9bb7}{00018}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_music_app_1_1_views_1_1_player_view_a56a12f4f33f83c5b6eb98d3a107a9bb7}{PlayerView}}()}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00019}00019\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ \ \ InitializeComponent();}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00021}00021\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00029}\mbox{\hyperlink{class_music_app_1_1_views_1_1_player_view_a9ffe66154e3526353b4e6584ab62790a}{00029}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_music_app_1_1_views_1_1_player_view_a9ffe66154e3526353b4e6584ab62790a}{TrackBarSeek\_PreviewMouseLeftButtonDown}}(\textcolor{keywordtype}{object}\ sender,\ MouseButtonEventArgs\ e)}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00030}00030\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (DataContext\ is\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_player_view_model}{PlayerViewModel}}\ viewModel)}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ viewModel.TrackBarSeek\_PreviewMouseLeftButtonDown(sender,\ e);}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00035}00035\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00043}\mbox{\hyperlink{class_music_app_1_1_views_1_1_player_view_a835929b5828bbe3e60d178994fda9957}{00043}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_music_app_1_1_views_1_1_player_view_a835929b5828bbe3e60d178994fda9957}{TrackBarSeek\_PreviewMouseLeftButtonUp}}(\textcolor{keywordtype}{object}\ sender,\ MouseButtonEventArgs\ e)}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00044}00044\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (DataContext\ is\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_player_view_model}{PlayerViewModel}}\ viewModel)}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ viewModel.TrackBarSeek\_PreviewMouseLeftButtonUp(sender,\ e);}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00049}00049\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00057}\mbox{\hyperlink{class_music_app_1_1_views_1_1_player_view_a0d9c5a30220fb400b6d0b44c23e4407e}{00057}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_music_app_1_1_views_1_1_player_view_a0d9c5a30220fb400b6d0b44c23e4407e}{TrackBarSeek\_ValueChanged}}(\textcolor{keywordtype}{object}\ sender,\ RoutedPropertyChangedEventArgs<double>\ e)}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00058}00058\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (DataContext\ is\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_player_view_model}{PlayerViewModel}}\ viewModel)}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ viewModel.TrackBarSeek\_ValueChanged(sender,\ e);}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00063}00063\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00069}\mbox{\hyperlink{class_music_app_1_1_views_1_1_player_view_a05c823e8a36e5cb6d2fa58d59a8d2b3f}{00069}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_music_app_1_1_views_1_1_player_view_a05c823e8a36e5cb6d2fa58d59a8d2b3f}{ExecuteAddSongToPlaylist}}(\textcolor{keywordtype}{object}\ sender)}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00070}00070\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ var\ song\ =\ Utils.Utils.GetItemFromMenuItem<\mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{MySong}}>(sender);}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (song\ !=\ \textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ viewModel\ =\ DataContext\ as\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_player_view_model}{PlayerViewModel}};}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ viewModel?.AddSongToPlaylistCommand.Execute(song);}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00078}00078\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00085}\mbox{\hyperlink{class_music_app_1_1_views_1_1_player_view_a00f0d517519c773fd3c8cece191c6884}{00085}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_music_app_1_1_views_1_1_player_view_a00f0d517519c773fd3c8cece191c6884}{AddSongToPlaylist\_ComboBox}}(\textcolor{keywordtype}{object}\ sender,\ RoutedEventArgs\ e)}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00086}00086\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_music_app_1_1_views_1_1_player_view_a05c823e8a36e5cb6d2fa58d59a8d2b3f}{ExecuteAddSongToPlaylist}}(sender);}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00088}00088\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00094}\mbox{\hyperlink{class_music_app_1_1_views_1_1_player_view_a30185dbf7fd46d5da14284dae4f2c180}{00094}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_music_app_1_1_views_1_1_player_view_a30185dbf7fd46d5da14284dae4f2c180}{ExecuteRemoveSongFromPlaylist}}(\textcolor{keywordtype}{object}\ sender)}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00095}00095\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ var\ song\ =\ Utils.Utils.GetItemFromMenuItem<\mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{MySong}}>(sender);}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (song\ !=\ \textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ viewModel\ =\ DataContext\ as\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_player_view_model}{PlayerViewModel}};}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ viewModel?.RemoveSongFromPlaylistCommand.Execute(song);}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00103}00103\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00110}\mbox{\hyperlink{class_music_app_1_1_views_1_1_player_view_a3af1e05453f3b18bd005c0b7a47f4929}{00110}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_music_app_1_1_views_1_1_player_view_a3af1e05453f3b18bd005c0b7a47f4929}{RemoveSongFromPlaylist}}(\textcolor{keywordtype}{object}\ sender,\ RoutedEventArgs\ e)}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00111}00111\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_music_app_1_1_views_1_1_player_view_a30185dbf7fd46d5da14284dae4f2c180}{ExecuteRemoveSongFromPlaylist}}(sender);}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00113}00113\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00121}\mbox{\hyperlink{class_music_app_1_1_views_1_1_player_view_a93000e75252faefc8605a476a518f230}{00121}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_music_app_1_1_views_1_1_player_view_a93000e75252faefc8605a476a518f230}{PreviewMouseRightButtonDown\_IgnoreIndexSelection}}(\textcolor{keywordtype}{object}\ sender,\ MouseButtonEventArgs\ e)}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00122}00122\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Mark\ the\ event\ as\ handled\ so\ the\ SelectedIndex\ doesn't\ change}}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00124}00124\ \ \ \ \ \ \ \ \ \ \ \ \ e.Handled\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00125}00125\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00126}00126\ }
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00133}\mbox{\hyperlink{class_music_app_1_1_views_1_1_player_view_a61bbed8dbdcf4f454d9265e00c0869af}{00133}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_music_app_1_1_views_1_1_player_view_a61bbed8dbdcf4f454d9265e00c0869af}{Button\_PreviewKeyDown}}(\textcolor{keywordtype}{object}\ sender,\ KeyEventArgs\ e)}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00134}00134\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (e.Key\ ==\ Key.Enter\ ||\ e.Key\ ==\ Key.Space)}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ e.Handled\ =\ \textcolor{keyword}{true};\ \textcolor{comment}{//\ Suppress\ the\ Enter\ and\ Spacebar\ key\ presses}}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00139}00139\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00140}00140\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_view_8xaml_8cs_source_l00141}00141\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,22 @@
+var searchData=
+[
+  ['searchandnavigateasync_0',['SearchAndNavigateAsync',['../class_music_app_1_1_view_models_1_1_main_view_model.html#aee4c0f37e4090e1c347259d50bcfaef2',1,'MusicApp::ViewModels::MainViewModel']]],
+  ['searchcommand_1',['SearchCommand',['../class_music_app_1_1_view_models_1_1_search_view_model.html#af68a5ec1a4812576082602a80d5c8173',1,'MusicApp::ViewModels::SearchViewModel']]],
+  ['searchquery_2',['SearchQuery',['../class_music_app_1_1_view_models_1_1_home_view_model.html#a2c746061bbbd04cdf5bfa18e35548709',1,'MusicApp.ViewModels.HomeViewModel.SearchQuery'],['../class_music_app_1_1_view_models_1_1_search_view_model.html#ab5f41746b6c1853b19c8d54e47d9da9f',1,'MusicApp.ViewModels.SearchViewModel.SearchQuery']]],
+  ['searchview_3',['SearchView',['../class_music_app_1_1_views_1_1_search_view.html',1,'MusicApp.Views.SearchView'],['../class_music_app_1_1_views_1_1_search_view.html#a26d6d74209a3eb1d9097fead719a7040',1,'MusicApp.Views.SearchView.SearchView()']]],
+  ['searchviewmodel_4',['SearchViewModel',['../class_music_app_1_1_view_models_1_1_search_view_model.html',1,'MusicApp.ViewModels.SearchViewModel'],['../class_music_app_1_1_view_models_1_1_search_view_model.html#af5f3f409d074b0f0d24ceecc55fac44c',1,'MusicApp.ViewModels.SearchViewModel.SearchViewModel()']]],
+  ['selectedplaylist_5',['SelectedPlaylist',['../class_music_app_1_1_view_models_1_1_home_view_model.html#a05f9b41caf8b472bfce15d6b8f8b4139',1,'MusicApp.ViewModels.HomeViewModel.SelectedPlaylist'],['../class_music_app_1_1_views_1_1_playlist_selection_dialog.html#a36b5573c3fca9c3179ff7d1009d1014a',1,'MusicApp.Views.PlaylistSelectionDialog.SelectedPlaylist']]],
+  ['selectedplaylistindex_6',['SelectedPlaylistIndex',['../class_music_app_1_1_view_models_1_1_home_view_model.html#a78b9e95d314c3d5d9deb94b62e3d8f13',1,'MusicApp::ViewModels::HomeViewModel']]],
+  ['selectedpopularsongindex_7',['SelectedPopularSongIndex',['../class_music_app_1_1_view_models_1_1_home_view_model.html#a778486eb9914993b5a0a7c96cd4f72d3',1,'MusicApp::ViewModels::HomeViewModel']]],
+  ['selectedsong_8',['SelectedSong',['../class_music_app_1_1_view_models_1_1_player_view_model.html#ab7b45c35b121aa4c006999ce43106916',1,'MusicApp::ViewModels::PlayerViewModel']]],
+  ['selectedsongindex_9',['SelectedSongIndex',['../class_music_app_1_1_view_models_1_1_player_view_model.html#a295ea2da2694c36a9d71a68465219347',1,'MusicApp.ViewModels.PlayerViewModel.SelectedSongIndex'],['../class_music_app_1_1_view_models_1_1_search_view_model.html#a4a8dbdd192b62b2c08b8044c9f9f4c69',1,'MusicApp.ViewModels.SearchViewModel.SelectedSongIndex']]],
+  ['selectplaylist_10',['SelectPlaylist',['../class_music_app_1_1_views_1_1_playlist_selection_dialog.html#aa3293fc4abdc8840c959cb8e7255d4f4',1,'MusicApp::Views::PlaylistSelectionDialog']]],
+  ['setpreviousviewmodel_11',['SetPreviousViewModel',['../class_music_app_1_1_view_models_1_1_base_view_model.html#a882e4b54fd19e155fd1b457bf5633942',1,'MusicApp::ViewModels::BaseViewModel']]],
+  ['setproperty_3c_20t_20_3e_12',['SetProperty&lt; T &gt;',['../class_music_app_1_1_view_models_1_1_base_view_model.html#a86974cd973d8821588cd64ac33a54598',1,'MusicApp::ViewModels::BaseViewModel']]],
+  ['slidervalue_13',['SliderValue',['../class_music_app_1_1_view_models_1_1_player_view_model.html#a83104f51b4f29cd856e8f6f7dc83cf6e',1,'MusicApp::ViewModels::PlayerViewModel']]],
+  ['songdatabase_14',['SongDatabase',['../class_song_database.html',1,'SongDatabase'],['../class_song_database.html#a417fd44e8e17cf7593984316fe4c4dbb',1,'SongDatabase.SongDatabase()']]],
+  ['songs_15',['Songs',['../class_music_app_1_1_view_models_1_1_player_view_model.html#a1cd468a1f17ef69604b73a710c69cb5e',1,'MusicApp.ViewModels.PlayerViewModel.Songs'],['../class_music_app_1_1_view_models_1_1_search_view_model.html#a95dbae372eb2496057fe1c1c7e624669',1,'MusicApp.ViewModels.SearchViewModel.Songs']]],
+  ['switchtohomeview_16',['SwitchToHomeView',['../class_music_app_1_1_view_models_1_1_main_view_model.html#a0b9c9babbf9239bd0da63a6728a91b1e',1,'MusicApp::ViewModels::MainViewModel']]],
+  ['switchtoplayerview_17',['SwitchToPlayerView',['../class_music_app_1_1_view_models_1_1_main_view_model.html#a3e20cd59f781041c094aef21e939b33a',1,'MusicApp::ViewModels::MainViewModel']]],
+  ['switchtosearchview_18',['SwitchToSearchView',['../class_music_app_1_1_view_models_1_1_main_view_model.html#a4d0c8e60628cb44c7adeb87eb5c3e408',1,'MusicApp::ViewModels::MainViewModel']]]
+];

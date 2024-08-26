@@ -1,0 +1,267 @@
+\doxysection{Thumbnail\+Helper Class Reference}
+\hypertarget{class_thumbnail_helper}{}\label{class_thumbnail_helper}\index{ThumbnailHelper@{ThumbnailHelper}}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static async Task$<$ Bitmap\+Image $>$ \mbox{\hyperlink{class_thumbnail_helper_a5b18ec6167cc2121ed5a13e453083189}{Get\+High\+Quality\+Thumbnail\+Async}} (string song\+Id)
+\begin{DoxyCompactList}\small\item\em Asynchronously retrieves the high-\/quality thumbnail for a given song ID. If the high-\/quality thumbnail is not available, it attempts to retrieve the medium-\/quality thumbnail. If neither are available, it falls back to a low-\/quality thumbnail. \end{DoxyCompactList}\item 
+static async Task$<$ Bitmap\+Image $>$ \mbox{\hyperlink{class_thumbnail_helper_a9a927da38f01f53a9c2fe57036b44ce7}{Get\+Medium\+Quality\+Thumbnail\+Async}} (string song\+Id)
+\begin{DoxyCompactList}\small\item\em Asynchronously retrieves the medium-\/quality thumbnail for a given song ID. \end{DoxyCompactList}\item 
+static async Task$<$ Bitmap\+Image $>$ \mbox{\hyperlink{class_thumbnail_helper_a39c5b218e5034d214bde8a50ae0d372e}{Get\+Low\+Quality\+Thumbnail\+Async}} (string song\+Id)
+\begin{DoxyCompactList}\small\item\em Asynchronously retrieves the low-\/quality thumbnail for a given song ID. \end{DoxyCompactList}\item 
+static async Task$<$ Bitmap\+Image $>$ \mbox{\hyperlink{class_thumbnail_helper_ad1958f2b51cc7ac921c2a0ebc4c7c47e}{Get\+Square\+Thumbnail\+Async}} (string video\+Url)
+\begin{DoxyCompactList}\small\item\em Asynchronously retrieves and crops a thumbnail to a square aspect ratio. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static Bitmap\+Image \mbox{\hyperlink{class_thumbnail_helper_ae325cee56c7231b3f74e9a6b52644780}{Bitmap\+To\+Bitmap\+Image}} (Bitmap bitmap)
+\begin{DoxyCompactList}\small\item\em Converts a Bitmap to a Bitmap\+Image. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_thumbnail_helper_8cs_source_l00008}{8}} of file \mbox{\hyperlink{_thumbnail_helper_8cs_source}{Thumbnail\+Helper.\+cs}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_thumbnail_helper_ae325cee56c7231b3f74e9a6b52644780}\label{class_thumbnail_helper_ae325cee56c7231b3f74e9a6b52644780} 
+\index{ThumbnailHelper@{ThumbnailHelper}!BitmapToBitmapImage@{BitmapToBitmapImage}}
+\index{BitmapToBitmapImage@{BitmapToBitmapImage}!ThumbnailHelper@{ThumbnailHelper}}
+\doxysubsubsection{\texorpdfstring{BitmapToBitmapImage()}{BitmapToBitmapImage()}}
+{\footnotesize\ttfamily static Bitmap\+Image Thumbnail\+Helper.\+Bitmap\+To\+Bitmap\+Image (\begin{DoxyParamCaption}\item[{Bitmap}]{bitmap }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Converts a Bitmap to a Bitmap\+Image. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bitmap} & The bitmap to convert.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Bitmap\+Image created from the bitmap.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_thumbnail_helper_8cs_source_l00101}{101}} of file \mbox{\hyperlink{_thumbnail_helper_8cs_source}{Thumbnail\+Helper.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00102\ \ \ \ \ \{}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using}\ (MemoryStream\ memory\ =\ \textcolor{keyword}{new}\ MemoryStream())}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ bitmap.Save(memory,\ System.Drawing.Imaging.ImageFormat.Png);}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ memory.Position\ =\ 0;}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ BitmapImage\ bitmapImage\ =\ \textcolor{keyword}{new}\ BitmapImage();}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ bitmapImage.BeginInit();}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ bitmapImage.StreamSource\ =\ memory;}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ bitmapImage.CacheOption\ =\ BitmapCacheOption.OnLoad;}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ bitmapImage.EndInit();}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ bitmapImage.Freeze();}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ bitmapImage;}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00117\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{_thumbnail_helper_8cs_source_l00069}{Get\+Square\+Thumbnail\+Async()}}.
+
+\Hypertarget{class_thumbnail_helper_a5b18ec6167cc2121ed5a13e453083189}\label{class_thumbnail_helper_a5b18ec6167cc2121ed5a13e453083189} 
+\index{ThumbnailHelper@{ThumbnailHelper}!GetHighQualityThumbnailAsync@{GetHighQualityThumbnailAsync}}
+\index{GetHighQualityThumbnailAsync@{GetHighQualityThumbnailAsync}!ThumbnailHelper@{ThumbnailHelper}}
+\doxysubsubsection{\texorpdfstring{GetHighQualityThumbnailAsync()}{GetHighQualityThumbnailAsync()}}
+{\footnotesize\ttfamily static async Task$<$ Bitmap\+Image $>$ Thumbnail\+Helper.\+Get\+High\+Quality\+Thumbnail\+Async (\begin{DoxyParamCaption}\item[{string}]{song\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Asynchronously retrieves the high-\/quality thumbnail for a given song ID. If the high-\/quality thumbnail is not available, it attempts to retrieve the medium-\/quality thumbnail. If neither are available, it falls back to a low-\/quality thumbnail. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em song\+Id} & The ID of the song to retrieve the thumbnail for.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Bitmap\+Image containing the thumbnail image.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_thumbnail_helper_8cs_source_l00017}{17}} of file \mbox{\hyperlink{_thumbnail_helper_8cs_source}{Thumbnail\+Helper.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00018\ \ \ \ \ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ var\ imageUrl\ =\ \$\textcolor{stringliteral}{"{}https://img.youtube.com/vi/\{songId\}/maxresdefault.jpg"{}};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ await\ \mbox{\hyperlink{class_thumbnail_helper_ad1958f2b51cc7ac921c2a0ebc4c7c47e}{GetSquareThumbnailAsync}}(imageUrl);}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (Exception)}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ await\ \mbox{\hyperlink{class_thumbnail_helper_a9a927da38f01f53a9c2fe57036b44ce7}{GetMediumQualityThumbnailAsync}}(songId);}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (Exception)}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ imageUrl\ =\ \$\textcolor{stringliteral}{"{}https://img.youtube.com/vi/\{songId\}/0.jpg"{}};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ await\ \mbox{\hyperlink{class_thumbnail_helper_ad1958f2b51cc7ac921c2a0ebc4c7c47e}{GetSquareThumbnailAsync}}(imageUrl);}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00038\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_thumbnail_helper_8cs_source_l00045}{Get\+Medium\+Quality\+Thumbnail\+Async()}}, and \mbox{\hyperlink{_thumbnail_helper_8cs_source_l00069}{Get\+Square\+Thumbnail\+Async()}}.
+
+
+
+Referenced by \mbox{\hyperlink{_player_view_model_8cs_source_l00598}{Music\+App.\+View\+Models.\+Player\+View\+Model.\+Display\+Picture()}}.
+
+\Hypertarget{class_thumbnail_helper_a39c5b218e5034d214bde8a50ae0d372e}\label{class_thumbnail_helper_a39c5b218e5034d214bde8a50ae0d372e} 
+\index{ThumbnailHelper@{ThumbnailHelper}!GetLowQualityThumbnailAsync@{GetLowQualityThumbnailAsync}}
+\index{GetLowQualityThumbnailAsync@{GetLowQualityThumbnailAsync}!ThumbnailHelper@{ThumbnailHelper}}
+\doxysubsubsection{\texorpdfstring{GetLowQualityThumbnailAsync()}{GetLowQualityThumbnailAsync()}}
+{\footnotesize\ttfamily static async Task$<$ Bitmap\+Image $>$ Thumbnail\+Helper.\+Get\+Low\+Quality\+Thumbnail\+Async (\begin{DoxyParamCaption}\item[{string}]{song\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Asynchronously retrieves the low-\/quality thumbnail for a given song ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em song\+Id} & The ID of the song to retrieve the thumbnail for.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Bitmap\+Image containing the thumbnail image.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_thumbnail_helper_8cs_source_l00057}{57}} of file \mbox{\hyperlink{_thumbnail_helper_8cs_source}{Thumbnail\+Helper.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00058\ \ \ \ \ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ var\ imageUrl\ =\ \$\textcolor{stringliteral}{"{}https://img.youtube.com/vi/\{songId\}/1.jpg"{}};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ await\ \mbox{\hyperlink{class_thumbnail_helper_ad1958f2b51cc7ac921c2a0ebc4c7c47e}{GetSquareThumbnailAsync}}(imageUrl);}
+\DoxyCodeLine{00062\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_thumbnail_helper_8cs_source_l00069}{Get\+Square\+Thumbnail\+Async()}}.
+
+\Hypertarget{class_thumbnail_helper_a9a927da38f01f53a9c2fe57036b44ce7}\label{class_thumbnail_helper_a9a927da38f01f53a9c2fe57036b44ce7} 
+\index{ThumbnailHelper@{ThumbnailHelper}!GetMediumQualityThumbnailAsync@{GetMediumQualityThumbnailAsync}}
+\index{GetMediumQualityThumbnailAsync@{GetMediumQualityThumbnailAsync}!ThumbnailHelper@{ThumbnailHelper}}
+\doxysubsubsection{\texorpdfstring{GetMediumQualityThumbnailAsync()}{GetMediumQualityThumbnailAsync()}}
+{\footnotesize\ttfamily static async Task$<$ Bitmap\+Image $>$ Thumbnail\+Helper.\+Get\+Medium\+Quality\+Thumbnail\+Async (\begin{DoxyParamCaption}\item[{string}]{song\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Asynchronously retrieves the medium-\/quality thumbnail for a given song ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em song\+Id} & The ID of the song to retrieve the thumbnail for.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Bitmap\+Image containing the thumbnail image.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_thumbnail_helper_8cs_source_l00045}{45}} of file \mbox{\hyperlink{_thumbnail_helper_8cs_source}{Thumbnail\+Helper.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00046\ \ \ \ \ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ var\ imageUrl\ =\ \$\textcolor{stringliteral}{"{}https://img.youtube.com/vi/\{songId\}/sd1.jpg"{}};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ await\ \mbox{\hyperlink{class_thumbnail_helper_ad1958f2b51cc7ac921c2a0ebc4c7c47e}{GetSquareThumbnailAsync}}(imageUrl);}
+\DoxyCodeLine{00050\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_thumbnail_helper_8cs_source_l00069}{Get\+Square\+Thumbnail\+Async()}}.
+
+
+
+Referenced by \mbox{\hyperlink{_thumbnail_helper_8cs_source_l00017}{Get\+High\+Quality\+Thumbnail\+Async()}}.
+
+\Hypertarget{class_thumbnail_helper_ad1958f2b51cc7ac921c2a0ebc4c7c47e}\label{class_thumbnail_helper_ad1958f2b51cc7ac921c2a0ebc4c7c47e} 
+\index{ThumbnailHelper@{ThumbnailHelper}!GetSquareThumbnailAsync@{GetSquareThumbnailAsync}}
+\index{GetSquareThumbnailAsync@{GetSquareThumbnailAsync}!ThumbnailHelper@{ThumbnailHelper}}
+\doxysubsubsection{\texorpdfstring{GetSquareThumbnailAsync()}{GetSquareThumbnailAsync()}}
+{\footnotesize\ttfamily static async Task$<$ Bitmap\+Image $>$ Thumbnail\+Helper.\+Get\+Square\+Thumbnail\+Async (\begin{DoxyParamCaption}\item[{string}]{video\+Url }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Asynchronously retrieves and crops a thumbnail to a square aspect ratio. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em video\+Url} & The URL of the video thumbnail to retrieve.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Bitmap\+Image containing the square-\/cropped thumbnail image.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_thumbnail_helper_8cs_source_l00069}{69}} of file \mbox{\hyperlink{_thumbnail_helper_8cs_source}{Thumbnail\+Helper.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00070\ \ \ \ \ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using}\ (HttpClient\ client\ =\ \textcolor{keyword}{new}\ HttpClient())}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ var\ response\ =\ await\ client.GetAsync(videoUrl);}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ response.EnsureSuccessStatusCode();}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ var\ stream\ =\ await\ response.Content.ReadAsStreamAsync();}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using}\ (var\ originalImage\ =\ \textcolor{keyword}{new}\ Bitmap(stream))}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ size\ =\ Math.Min(originalImage.Width,\ originalImage.Height);}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ x\ =\ (originalImage.Width\ -\/\ size)\ /\ 2;}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ y\ =\ (originalImage.Height\ -\/\ size)\ /\ 2;}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using}\ (var\ croppedImage\ =\ \textcolor{keyword}{new}\ Bitmap(size,\ size))}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using}\ (Graphics\ g\ =\ Graphics.FromImage(croppedImage))}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ g.DrawImage(originalImage,\ \textcolor{keyword}{new}\ Rectangle(0,\ 0,\ size,\ size),\ x,\ y,\ size,\ size,\ GraphicsUnit.Pixel);}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_thumbnail_helper_ae325cee56c7231b3f74e9a6b52644780}{BitmapToBitmapImage}}(croppedImage);}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00094\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_thumbnail_helper_8cs_source_l00101}{Bitmap\+To\+Bitmap\+Image()}}.
+
+
+
+Referenced by \mbox{\hyperlink{_thumbnail_helper_8cs_source_l00017}{Get\+High\+Quality\+Thumbnail\+Async()}}, \mbox{\hyperlink{_thumbnail_helper_8cs_source_l00057}{Get\+Low\+Quality\+Thumbnail\+Async()}}, and \mbox{\hyperlink{_thumbnail_helper_8cs_source_l00045}{Get\+Medium\+Quality\+Thumbnail\+Async()}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Models/Thumbnail\+Helper.\+cs\end{DoxyCompactItemize}

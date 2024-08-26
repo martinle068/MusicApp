@@ -1,0 +1,499 @@
+\doxysection{Music\+App.\+Models.\+My\+Song Class Reference}
+\hypertarget{class_music_app_1_1_models_1_1_my_song}{}\label{class_music_app_1_1_models_1_1_my_song}\index{MusicApp.Models.MySong@{MusicApp.Models.MySong}}
+
+
+Represents a song with various details such as name, artist, duration, and thumbnail.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+async Task$<$ string?$>$ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song_ad8202cdd45000488f4f847b1d5e1c746}{Get\+Playlist\+Id\+Async}} ()
+\begin{DoxyCompactList}\small\item\em Asynchronously retrieves the playlist ID associated with the song, if available. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{My\+Song}} \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song_a7e0f378fa4b2763bd77a6b37e91c7cbf}{Create}} (Song\+Video\+Info song\+Video\+Info)
+\begin{DoxyCompactList}\small\item\em Creates a new My\+Song instance from a Song\+Video\+Info object. \end{DoxyCompactList}\item 
+static ? \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{My\+Song}} \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song_a32516e9a78ae084a7bfc8ccbd6570c47}{Create}} (Community\+Playlist\+Song\+Info community\+Playlist\+Song\+Info)
+\begin{DoxyCompactList}\small\item\em Creates a new My\+Song instance from a Community\+Playlist\+Song\+Info object. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{My\+Song}} \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song_a1c09eb3a74d0f087be3ed0391e6fe98f}{Create}} (Song song)
+\begin{DoxyCompactList}\small\item\em Creates a new My\+Song instance from a Song object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song_aae243348750c85fde98b905413d30907}{Name}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the name of the song. \end{DoxyCompactList}\item 
+string? \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song_a9781a34d885380722f23ca9f9b477e4b}{Id}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the unique identifier of the song. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song_a6b755fbfa6b28c8bf6f84bb35c44ff2b}{Artist\+And\+Song\+Name}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets a formatted string containing the artist(s) and the song name. \end{DoxyCompactList}\item 
+Shelf\+Item\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song_a8f8b79945b9d4258c08ff81b55181b80}{Artists}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets an array of Shelf\+Item representing the artists of the song. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song_a084c521585eef2b2fc6721d112081368}{Artists\+String}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets a string representing the names of the artists, joined by commas. \end{DoxyCompactList}\item 
+Time\+Span \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song_ac87fd71ce0d56ef3edf31dcca09fa375}{Duration}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the duration of the song. \end{DoxyCompactList}\item 
+string? \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song_a42ecb40bc0b9b002f42c835fcbd44f21}{Thumbnail}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, private set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the URL of the song\textquotesingle{}s thumbnail. \end{DoxyCompactList}\item 
+string? \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song_a286b8739ca5d55e5efcbeb44b9188a55}{\+\_\+playlist\+Id}} = null\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song_ae202126768bc2e684ea0175d78e5a777}{My\+Song}} (Song song)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the My\+Song class based on a Song object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song_a8d284a071db5530e5b994f03aee0efbe}{My\+Song}} (string name, string? id, Shelf\+Item\mbox{[}$\,$\mbox{]} artists, Time\+Span duration, string? thumbnail, string? playlist\+Id=null)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the My\+Song class with specified parameters. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song_adbccfdf1d9c2904a89ff80619f3a3d14}{Get\+Artist\+And\+Song\+Name\+String}} ()
+\begin{DoxyCompactList}\small\item\em Generates a formatted string representing the artist(s) and song name. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a song with various details such as name, artist, duration, and thumbnail. 
+
+Definition at line \mbox{\hyperlink{_my_song_8cs_source_l00017}{17}} of file \mbox{\hyperlink{_my_song_8cs_source}{My\+Song.\+cs}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_music_app_1_1_models_1_1_my_song_ae202126768bc2e684ea0175d78e5a777}\label{class_music_app_1_1_models_1_1_my_song_ae202126768bc2e684ea0175d78e5a777} 
+\index{MusicApp.Models.MySong@{MusicApp.Models.MySong}!MySong@{MySong}}
+\index{MySong@{MySong}!MusicApp.Models.MySong@{MusicApp.Models.MySong}}
+\doxysubsubsection{\texorpdfstring{MySong()}{MySong()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Music\+App.\+Models.\+My\+Song.\+My\+Song (\begin{DoxyParamCaption}\item[{Song}]{song }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Initializes a new instance of the My\+Song class based on a Song object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em song} & The Song object to initialize from.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_my_song_8cs_source_l00076}{76}} of file \mbox{\hyperlink{_my_song_8cs_source}{My\+Song.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song_aae243348750c85fde98b905413d30907}{Name}}\ =\ song.Name;}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song_a9781a34d885380722f23ca9f9b477e4b}{Id}}\ =\ song.Id;}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song_a8f8b79945b9d4258c08ff81b55181b80}{Artists}}\ =\ song.Artists;}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \_playlistId\ =\ song.Radio.PlaylistId;}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song_ac87fd71ce0d56ef3edf31dcca09fa375}{Duration}}\ =\ song.Duration;}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song_a42ecb40bc0b9b002f42c835fcbd44f21}{Thumbnail}}\ =\ song.Thumbnails.LastOrDefault()?.Url;}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song_a6b755fbfa6b28c8bf6f84bb35c44ff2b}{ArtistAndSongName}}\ =\ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song_adbccfdf1d9c2904a89ff80619f3a3d14}{GetArtistAndSongNameString}}();}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_my_song_8cs_source_l00032}{Music\+App.\+Models.\+My\+Song.\+Artist\+And\+Song\+Name}}, \mbox{\hyperlink{_my_song_8cs_source_l00037}{Music\+App.\+Models.\+My\+Song.\+Artists}}, \mbox{\hyperlink{_my_song_8cs_source_l00047}{Music\+App.\+Models.\+My\+Song.\+Duration}}, \mbox{\hyperlink{_my_song_8cs_source_l00151}{Music\+App.\+Models.\+My\+Song.\+Get\+Artist\+And\+Song\+Name\+String()}}, \mbox{\hyperlink{_my_song_8cs_source_l00027}{Music\+App.\+Models.\+My\+Song.\+Id}}, \mbox{\hyperlink{_my_song_8cs_source_l00022}{Music\+App.\+Models.\+My\+Song.\+Name}}, and \mbox{\hyperlink{_my_song_8cs_source_l00052}{Music\+App.\+Models.\+My\+Song.\+Thumbnail}}.
+
+
+
+Referenced by \mbox{\hyperlink{_my_song_8cs_source_l00124}{Music\+App.\+Models.\+My\+Song.\+Create()}}, \mbox{\hyperlink{_my_song_8cs_source_l00140}{Music\+App.\+Models.\+My\+Song.\+Create()}}, and \mbox{\hyperlink{_my_song_8cs_source_l00112}{Music\+App.\+Models.\+My\+Song.\+Create()}}.
+
+\Hypertarget{class_music_app_1_1_models_1_1_my_song_a8d284a071db5530e5b994f03aee0efbe}\label{class_music_app_1_1_models_1_1_my_song_a8d284a071db5530e5b994f03aee0efbe} 
+\index{MusicApp.Models.MySong@{MusicApp.Models.MySong}!MySong@{MySong}}
+\index{MySong@{MySong}!MusicApp.Models.MySong@{MusicApp.Models.MySong}}
+\doxysubsubsection{\texorpdfstring{MySong()}{MySong()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Music\+App.\+Models.\+My\+Song.\+My\+Song (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{string?}]{id,  }\item[{Shelf\+Item\mbox{[}$\,$\mbox{]}}]{artists,  }\item[{Time\+Span}]{duration,  }\item[{string?}]{thumbnail,  }\item[{string?}]{playlist\+Id = {\ttfamily null} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Initializes a new instance of the My\+Song class with specified parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the song.\\
+\hline
+{\em id} & The unique identifier of the song.\\
+\hline
+{\em artists} & An array of Shelf\+Item representing the artists of the song.\\
+\hline
+{\em duration} & The duration of the song.\\
+\hline
+{\em thumbnail} & The URL of the song\textquotesingle{}s thumbnail.\\
+\hline
+{\em playlist\+Id} & The playlist ID associated with the song, if available.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_my_song_8cs_source_l00096}{96}} of file \mbox{\hyperlink{_my_song_8cs_source}{My\+Song.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song_aae243348750c85fde98b905413d30907}{Name}}\ =\ name;}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song_a9781a34d885380722f23ca9f9b477e4b}{Id}}\ =\ id;}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song_a8f8b79945b9d4258c08ff81b55181b80}{Artists}}\ =\ artists;}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \_playlistId\ =\ playlistId;}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song_ac87fd71ce0d56ef3edf31dcca09fa375}{Duration}}\ =\ duration;}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song_a42ecb40bc0b9b002f42c835fcbd44f21}{Thumbnail}}\ =\ thumbnail;}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song_a6b755fbfa6b28c8bf6f84bb35c44ff2b}{ArtistAndSongName}}\ =\ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song_adbccfdf1d9c2904a89ff80619f3a3d14}{GetArtistAndSongNameString}}();}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_my_song_8cs_source_l00032}{Music\+App.\+Models.\+My\+Song.\+Artist\+And\+Song\+Name}}, \mbox{\hyperlink{_my_song_8cs_source_l00037}{Music\+App.\+Models.\+My\+Song.\+Artists}}, \mbox{\hyperlink{_my_song_8cs_source_l00047}{Music\+App.\+Models.\+My\+Song.\+Duration}}, \mbox{\hyperlink{_my_song_8cs_source_l00151}{Music\+App.\+Models.\+My\+Song.\+Get\+Artist\+And\+Song\+Name\+String()}}, \mbox{\hyperlink{_my_song_8cs_source_l00027}{Music\+App.\+Models.\+My\+Song.\+Id}}, \mbox{\hyperlink{_my_song_8cs_source_l00022}{Music\+App.\+Models.\+My\+Song.\+Name}}, and \mbox{\hyperlink{_my_song_8cs_source_l00052}{Music\+App.\+Models.\+My\+Song.\+Thumbnail}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_music_app_1_1_models_1_1_my_song_a32516e9a78ae084a7bfc8ccbd6570c47}\label{class_music_app_1_1_models_1_1_my_song_a32516e9a78ae084a7bfc8ccbd6570c47} 
+\index{MusicApp.Models.MySong@{MusicApp.Models.MySong}!Create@{Create}}
+\index{Create@{Create}!MusicApp.Models.MySong@{MusicApp.Models.MySong}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily static ? \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{My\+Song}} Music\+App.\+Models.\+My\+Song.\+Create (\begin{DoxyParamCaption}\item[{Community\+Playlist\+Song\+Info}]{community\+Playlist\+Song\+Info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Creates a new My\+Song instance from a Community\+Playlist\+Song\+Info object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em community\+Playlist\+Song\+Info} & The Community\+Playlist\+Song\+Info object to create from.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new instance of My\+Song, or null if the input is null.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_my_song_8cs_source_l00124}{124}} of file \mbox{\hyperlink{_my_song_8cs_source}{My\+Song.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (communityPlaylistSongInfo\ ==\ \textcolor{keyword}{null})}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{null};}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song_ae202126768bc2e684ea0175d78e5a777}{MySong}}\ mySong\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song_ae202126768bc2e684ea0175d78e5a777}{MySong}}(communityPlaylistSongInfo.Name,\ communityPlaylistSongInfo.Id,\ communityPlaylistSongInfo.Artists,\ communityPlaylistSongInfo.Duration,\ communityPlaylistSongInfo.Thumbnails.LastOrDefault()?.Url);}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mySong;}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_my_song_8cs_source_l00076}{Music\+App.\+Models.\+My\+Song.\+My\+Song()}}.
+
+\Hypertarget{class_music_app_1_1_models_1_1_my_song_a1c09eb3a74d0f087be3ed0391e6fe98f}\label{class_music_app_1_1_models_1_1_my_song_a1c09eb3a74d0f087be3ed0391e6fe98f} 
+\index{MusicApp.Models.MySong@{MusicApp.Models.MySong}!Create@{Create}}
+\index{Create@{Create}!MusicApp.Models.MySong@{MusicApp.Models.MySong}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{My\+Song}} Music\+App.\+Models.\+My\+Song.\+Create (\begin{DoxyParamCaption}\item[{Song}]{song }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Creates a new My\+Song instance from a Song object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em song} & The Song object to create from.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new instance of My\+Song.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_my_song_8cs_source_l00140}{140}} of file \mbox{\hyperlink{_my_song_8cs_source}{My\+Song.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ var\ mySong\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song_ae202126768bc2e684ea0175d78e5a777}{MySong}}(song);}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mySong;}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_my_song_8cs_source_l00076}{Music\+App.\+Models.\+My\+Song.\+My\+Song()}}.
+
+\Hypertarget{class_music_app_1_1_models_1_1_my_song_a7e0f378fa4b2763bd77a6b37e91c7cbf}\label{class_music_app_1_1_models_1_1_my_song_a7e0f378fa4b2763bd77a6b37e91c7cbf} 
+\index{MusicApp.Models.MySong@{MusicApp.Models.MySong}!Create@{Create}}
+\index{Create@{Create}!MusicApp.Models.MySong@{MusicApp.Models.MySong}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{My\+Song}} Music\+App.\+Models.\+My\+Song.\+Create (\begin{DoxyParamCaption}\item[{Song\+Video\+Info}]{song\+Video\+Info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Creates a new My\+Song instance from a Song\+Video\+Info object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em song\+Video\+Info} & The Song\+Video\+Info object to create from.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new instance of My\+Song.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_my_song_8cs_source_l00112}{112}} of file \mbox{\hyperlink{_my_song_8cs_source}{My\+Song.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song_ae202126768bc2e684ea0175d78e5a777}{MySong}}\ mySong\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song_ae202126768bc2e684ea0175d78e5a777}{MySong}}(songVideoInfo.Name,\ songVideoInfo.Id,\ songVideoInfo.Artists,\ songVideoInfo.Duration,\ songVideoInfo.Thumbnails.LastOrDefault()?.Url);}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mySong;}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_my_song_8cs_source_l00076}{Music\+App.\+Models.\+My\+Song.\+My\+Song()}}.
+
+
+
+Referenced by \mbox{\hyperlink{_my_you_tube_service_8cs_source_l00433}{Music\+App.\+Models.\+My\+You\+Tube\+Service.\+Convert\+Songs\+To\+My\+Songs\+Shelf()}}, \mbox{\hyperlink{_my_you_tube_service_8cs_source_l00197}{Music\+App.\+Models.\+My\+You\+Tube\+Service.\+Fetch\+Playlist\+Content\+Async()}}, \mbox{\hyperlink{_my_you_tube_service_8cs_source_l00396}{Music\+App.\+Models.\+My\+You\+Tube\+Service.\+Fetch\+Radio\+Songs\+Async()}}, \mbox{\hyperlink{_my_you_tube_service_8cs_source_l00125}{Music\+App.\+Models.\+My\+You\+Tube\+Service.\+Fetch\+Song\+Async()}}, \mbox{\hyperlink{_my_you_tube_service_8cs_source_l00113}{Music\+App.\+Models.\+My\+You\+Tube\+Service.\+Fetch\+Songs\+Async()}}, \mbox{\hyperlink{_my_you_tube_service_8cs_source_l00096}{Music\+App.\+Models.\+My\+You\+Tube\+Service.\+Fetch\+Song\+Shelves\+Async()}}, and \mbox{\hyperlink{_home_view_8xaml_8cs_source_l00308}{Music\+App.\+Views.\+Home\+View.\+Get\+Random\+Songs()}}.
+
+\Hypertarget{class_music_app_1_1_models_1_1_my_song_adbccfdf1d9c2904a89ff80619f3a3d14}\label{class_music_app_1_1_models_1_1_my_song_adbccfdf1d9c2904a89ff80619f3a3d14} 
+\index{MusicApp.Models.MySong@{MusicApp.Models.MySong}!GetArtistAndSongNameString@{GetArtistAndSongNameString}}
+\index{GetArtistAndSongNameString@{GetArtistAndSongNameString}!MusicApp.Models.MySong@{MusicApp.Models.MySong}}
+\doxysubsubsection{\texorpdfstring{GetArtistAndSongNameString()}{GetArtistAndSongNameString()}}
+{\footnotesize\ttfamily string Music\+App.\+Models.\+My\+Song.\+Get\+Artist\+And\+Song\+Name\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Generates a formatted string representing the artist(s) and song name. 
+
+\begin{DoxyReturn}{Returns}
+A string in the format "{}\+Artist(s) -\/ Song Name"{}.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_my_song_8cs_source_l00151}{151}} of file \mbox{\hyperlink{_my_song_8cs_source}{My\+Song.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \$\textcolor{stringliteral}{"{}\ \{string.Join("{}},\ \textcolor{stringliteral}{"{},\ Artists.Select(artist\ =>\ artist.Name))\}\ -\/\ \{Name\}"{}};}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{_my_song_8cs_source_l00076}{Music\+App.\+Models.\+My\+Song.\+My\+Song()}}, and \mbox{\hyperlink{_my_song_8cs_source_l00096}{Music\+App.\+Models.\+My\+Song.\+My\+Song()}}.
+
+\Hypertarget{class_music_app_1_1_models_1_1_my_song_ad8202cdd45000488f4f847b1d5e1c746}\label{class_music_app_1_1_models_1_1_my_song_ad8202cdd45000488f4f847b1d5e1c746} 
+\index{MusicApp.Models.MySong@{MusicApp.Models.MySong}!GetPlaylistIdAsync@{GetPlaylistIdAsync}}
+\index{GetPlaylistIdAsync@{GetPlaylistIdAsync}!MusicApp.Models.MySong@{MusicApp.Models.MySong}}
+\doxysubsubsection{\texorpdfstring{GetPlaylistIdAsync()}{GetPlaylistIdAsync()}}
+{\footnotesize\ttfamily async Task$<$ string?$>$ Music\+App.\+Models.\+My\+Song.\+Get\+Playlist\+Id\+Async (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Asynchronously retrieves the playlist ID associated with the song, if available. 
+
+\begin{DoxyReturn}{Returns}
+The playlist ID as a string, or null if not available.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_my_song_8cs_source_l00060}{60}} of file \mbox{\hyperlink{_my_song_8cs_source}{My\+Song.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\_playlistId\ !=\ \textcolor{keyword}{null})}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_playlistId;}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ var\ song\ =\ await\ MyYouTubeService.FetchSongAsync(\mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song_a6b755fbfa6b28c8bf6f84bb35c44ff2b}{ArtistAndSongName}});}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ song?.\_playlistId;}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_my_song_8cs_source_l00032}{Music\+App.\+Models.\+My\+Song.\+Artist\+And\+Song\+Name}}, and \mbox{\hyperlink{_my_you_tube_service_8cs_source_l00125}{Music\+App.\+Models.\+My\+You\+Tube\+Service.\+Fetch\+Song\+Async()}}.
+
+
+
+\doxysubsection{Property Documentation}
+\Hypertarget{class_music_app_1_1_models_1_1_my_song_a286b8739ca5d55e5efcbeb44b9188a55}\label{class_music_app_1_1_models_1_1_my_song_a286b8739ca5d55e5efcbeb44b9188a55} 
+\index{MusicApp.Models.MySong@{MusicApp.Models.MySong}!\_playlistId@{\_playlistId}}
+\index{\_playlistId@{\_playlistId}!MusicApp.Models.MySong@{MusicApp.Models.MySong}}
+\doxysubsubsection{\texorpdfstring{\_playlistId}{\_playlistId}}
+{\footnotesize\ttfamily string? Music\+App.\+Models.\+My\+Song.\+\_\+playlist\+Id = null\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_my_song_8cs_source_l00054}{54}} of file \mbox{\hyperlink{_my_song_8cs_source}{My\+Song.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00054\ \{\ \textcolor{keyword}{get};\ \}\ =\ \textcolor{keyword}{null};}
+
+\end{DoxyCode}
+\Hypertarget{class_music_app_1_1_models_1_1_my_song_a6b755fbfa6b28c8bf6f84bb35c44ff2b}\label{class_music_app_1_1_models_1_1_my_song_a6b755fbfa6b28c8bf6f84bb35c44ff2b} 
+\index{MusicApp.Models.MySong@{MusicApp.Models.MySong}!ArtistAndSongName@{ArtistAndSongName}}
+\index{ArtistAndSongName@{ArtistAndSongName}!MusicApp.Models.MySong@{MusicApp.Models.MySong}}
+\doxysubsubsection{\texorpdfstring{ArtistAndSongName}{ArtistAndSongName}}
+{\footnotesize\ttfamily string Music\+App.\+Models.\+My\+Song.\+Artist\+And\+Song\+Name\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets a formatted string containing the artist(s) and the song name. 
+
+
+
+Definition at line \mbox{\hyperlink{_my_song_8cs_source_l00032}{32}} of file \mbox{\hyperlink{_my_song_8cs_source}{My\+Song.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00032\ \{\ \textcolor{keyword}{get};\ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{_my_song_8cs_source_l00060}{Music\+App.\+Models.\+My\+Song.\+Get\+Playlist\+Id\+Async()}}, \mbox{\hyperlink{_my_song_8cs_source_l00076}{Music\+App.\+Models.\+My\+Song.\+My\+Song()}}, and \mbox{\hyperlink{_my_song_8cs_source_l00096}{Music\+App.\+Models.\+My\+Song.\+My\+Song()}}.
+
+\Hypertarget{class_music_app_1_1_models_1_1_my_song_a8f8b79945b9d4258c08ff81b55181b80}\label{class_music_app_1_1_models_1_1_my_song_a8f8b79945b9d4258c08ff81b55181b80} 
+\index{MusicApp.Models.MySong@{MusicApp.Models.MySong}!Artists@{Artists}}
+\index{Artists@{Artists}!MusicApp.Models.MySong@{MusicApp.Models.MySong}}
+\doxysubsubsection{\texorpdfstring{Artists}{Artists}}
+{\footnotesize\ttfamily Shelf\+Item \mbox{[}$\,$\mbox{]} Music\+App.\+Models.\+My\+Song.\+Artists\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets an array of Shelf\+Item representing the artists of the song. 
+
+
+
+Definition at line \mbox{\hyperlink{_my_song_8cs_source_l00037}{37}} of file \mbox{\hyperlink{_my_song_8cs_source}{My\+Song.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00037\ \{\ \textcolor{keyword}{get};\ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{_my_song_8cs_source_l00076}{Music\+App.\+Models.\+My\+Song.\+My\+Song()}}, \mbox{\hyperlink{_my_song_8cs_source_l00096}{Music\+App.\+Models.\+My\+Song.\+My\+Song()}}, and \mbox{\hyperlink{_player_view_model_8cs_source_l00481}{Music\+App.\+View\+Models.\+Player\+View\+Model.\+Play\+Selected\+Song()}}.
+
+\Hypertarget{class_music_app_1_1_models_1_1_my_song_a084c521585eef2b2fc6721d112081368}\label{class_music_app_1_1_models_1_1_my_song_a084c521585eef2b2fc6721d112081368} 
+\index{MusicApp.Models.MySong@{MusicApp.Models.MySong}!ArtistsString@{ArtistsString}}
+\index{ArtistsString@{ArtistsString}!MusicApp.Models.MySong@{MusicApp.Models.MySong}}
+\doxysubsubsection{\texorpdfstring{ArtistsString}{ArtistsString}}
+{\footnotesize\ttfamily string Music\+App.\+Models.\+My\+Song.\+Artists\+String\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets a string representing the names of the artists, joined by commas. 
+
+
+
+Definition at line \mbox{\hyperlink{_my_song_8cs_source_l00042}{42}} of file \mbox{\hyperlink{_my_song_8cs_source}{My\+Song.\+cs}}.
+
+\Hypertarget{class_music_app_1_1_models_1_1_my_song_ac87fd71ce0d56ef3edf31dcca09fa375}\label{class_music_app_1_1_models_1_1_my_song_ac87fd71ce0d56ef3edf31dcca09fa375} 
+\index{MusicApp.Models.MySong@{MusicApp.Models.MySong}!Duration@{Duration}}
+\index{Duration@{Duration}!MusicApp.Models.MySong@{MusicApp.Models.MySong}}
+\doxysubsubsection{\texorpdfstring{Duration}{Duration}}
+{\footnotesize\ttfamily Time\+Span Music\+App.\+Models.\+My\+Song.\+Duration\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the duration of the song. 
+
+
+
+Definition at line \mbox{\hyperlink{_my_song_8cs_source_l00047}{47}} of file \mbox{\hyperlink{_my_song_8cs_source}{My\+Song.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00047\ \{\ \textcolor{keyword}{get};\ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{_my_song_8cs_source_l00076}{Music\+App.\+Models.\+My\+Song.\+My\+Song()}}, and \mbox{\hyperlink{_my_song_8cs_source_l00096}{Music\+App.\+Models.\+My\+Song.\+My\+Song()}}.
+
+\Hypertarget{class_music_app_1_1_models_1_1_my_song_a9781a34d885380722f23ca9f9b477e4b}\label{class_music_app_1_1_models_1_1_my_song_a9781a34d885380722f23ca9f9b477e4b} 
+\index{MusicApp.Models.MySong@{MusicApp.Models.MySong}!Id@{Id}}
+\index{Id@{Id}!MusicApp.Models.MySong@{MusicApp.Models.MySong}}
+\doxysubsubsection{\texorpdfstring{Id}{Id}}
+{\footnotesize\ttfamily string? Music\+App.\+Models.\+My\+Song.\+Id\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the unique identifier of the song. 
+
+
+
+Definition at line \mbox{\hyperlink{_my_song_8cs_source_l00027}{27}} of file \mbox{\hyperlink{_my_song_8cs_source}{My\+Song.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00027\ \{\ \textcolor{keyword}{get};\ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{_player_view_model_8cs_source_l00598}{Music\+App.\+View\+Models.\+Player\+View\+Model.\+Display\+Picture()}}, \mbox{\hyperlink{_my_song_8cs_source_l00076}{Music\+App.\+Models.\+My\+Song.\+My\+Song()}}, \mbox{\hyperlink{_my_song_8cs_source_l00096}{Music\+App.\+Models.\+My\+Song.\+My\+Song()}}, \mbox{\hyperlink{_player_view_model_8cs_source_l00481}{Music\+App.\+View\+Models.\+Player\+View\+Model.\+Play\+Selected\+Song()}}, and \mbox{\hyperlink{_my_you_tube_service_8cs_source_l00325}{Music\+App.\+Models.\+My\+You\+Tube\+Service.\+Remove\+Song\+From\+Playlist()}}.
+
+\Hypertarget{class_music_app_1_1_models_1_1_my_song_aae243348750c85fde98b905413d30907}\label{class_music_app_1_1_models_1_1_my_song_aae243348750c85fde98b905413d30907} 
+\index{MusicApp.Models.MySong@{MusicApp.Models.MySong}!Name@{Name}}
+\index{Name@{Name}!MusicApp.Models.MySong@{MusicApp.Models.MySong}}
+\doxysubsubsection{\texorpdfstring{Name}{Name}}
+{\footnotesize\ttfamily string Music\+App.\+Models.\+My\+Song.\+Name\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets the name of the song. 
+
+
+
+Definition at line \mbox{\hyperlink{_my_song_8cs_source_l00022}{22}} of file \mbox{\hyperlink{_my_song_8cs_source}{My\+Song.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00022\ \{\ \textcolor{keyword}{get};\ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{_my_song_8cs_source_l00076}{Music\+App.\+Models.\+My\+Song.\+My\+Song()}}, \mbox{\hyperlink{_my_song_8cs_source_l00096}{Music\+App.\+Models.\+My\+Song.\+My\+Song()}}, and \mbox{\hyperlink{_player_view_model_8cs_source_l00481}{Music\+App.\+View\+Models.\+Player\+View\+Model.\+Play\+Selected\+Song()}}.
+
+\Hypertarget{class_music_app_1_1_models_1_1_my_song_a42ecb40bc0b9b002f42c835fcbd44f21}\label{class_music_app_1_1_models_1_1_my_song_a42ecb40bc0b9b002f42c835fcbd44f21} 
+\index{MusicApp.Models.MySong@{MusicApp.Models.MySong}!Thumbnail@{Thumbnail}}
+\index{Thumbnail@{Thumbnail}!MusicApp.Models.MySong@{MusicApp.Models.MySong}}
+\doxysubsubsection{\texorpdfstring{Thumbnail}{Thumbnail}}
+{\footnotesize\ttfamily string? Music\+App.\+Models.\+My\+Song.\+Thumbnail\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+
+
+Gets the URL of the song\textquotesingle{}s thumbnail. 
+
+
+
+Definition at line \mbox{\hyperlink{_my_song_8cs_source_l00052}{52}} of file \mbox{\hyperlink{_my_song_8cs_source}{My\+Song.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00052\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{private}\ \textcolor{keyword}{set};\ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{_my_song_8cs_source_l00076}{Music\+App.\+Models.\+My\+Song.\+My\+Song()}}, and \mbox{\hyperlink{_my_song_8cs_source_l00096}{Music\+App.\+Models.\+My\+Song.\+My\+Song()}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Models/My\+Song.\+cs\end{DoxyCompactItemize}

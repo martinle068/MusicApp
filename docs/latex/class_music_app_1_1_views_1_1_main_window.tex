@@ -1,0 +1,107 @@
+\doxysection{Music\+App.\+Views.\+Main\+Window Class Reference}
+\hypertarget{class_music_app_1_1_views_1_1_main_window}{}\label{class_music_app_1_1_views_1_1_main_window}\index{MusicApp.Views.MainWindow@{MusicApp.Views.MainWindow}}
+Inheritance diagram for Music\+App.\+Views.\+Main\+Window\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_music_app_1_1_views_1_1_main_window}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_music_app_1_1_views_1_1_main_window_a2e33668c4199af9268c89431f34541d2}{Main\+Window}} ()
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the Main\+Window class. Sets the Data\+Context to a new instance of Main\+View\+Model. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_music_app_1_1_views_1_1_main_window_a9bf1f791b1c12f120287f766c4957b32}{Window\+\_\+\+Preview\+Key\+Down}} (object sender, Key\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Handles the Preview\+Key\+Down event for the window. If the spacebar is pressed and the focus is not on a Text\+Box, it toggles the play/pause state of the media player. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_main_window_8xaml_8cs_source_l00008}{8}} of file \mbox{\hyperlink{_main_window_8xaml_8cs_source}{Main\+Window.\+xaml.\+cs}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_music_app_1_1_views_1_1_main_window_a2e33668c4199af9268c89431f34541d2}\label{class_music_app_1_1_views_1_1_main_window_a2e33668c4199af9268c89431f34541d2} 
+\index{MusicApp.Views.MainWindow@{MusicApp.Views.MainWindow}!MainWindow@{MainWindow}}
+\index{MainWindow@{MainWindow}!MusicApp.Views.MainWindow@{MusicApp.Views.MainWindow}}
+\doxysubsubsection{\texorpdfstring{MainWindow()}{MainWindow()}}
+{\footnotesize\ttfamily Music\+App.\+Views.\+Main\+Window.\+Main\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the Main\+Window class. Sets the Data\+Context to a new instance of Main\+View\+Model. 
+
+
+
+Definition at line \mbox{\hyperlink{_main_window_8xaml_8cs_source_l00014}{14}} of file \mbox{\hyperlink{_main_window_8xaml_8cs_source}{Main\+Window.\+xaml.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ InitializeComponent();}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ DataContext\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_main_view_model}{MainViewModel}}(\textcolor{keyword}{this});}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_music_app_1_1_views_1_1_main_window_a9bf1f791b1c12f120287f766c4957b32}\label{class_music_app_1_1_views_1_1_main_window_a9bf1f791b1c12f120287f766c4957b32} 
+\index{MusicApp.Views.MainWindow@{MusicApp.Views.MainWindow}!Window\_PreviewKeyDown@{Window\_PreviewKeyDown}}
+\index{Window\_PreviewKeyDown@{Window\_PreviewKeyDown}!MusicApp.Views.MainWindow@{MusicApp.Views.MainWindow}}
+\doxysubsubsection{\texorpdfstring{Window\_PreviewKeyDown()}{Window\_PreviewKeyDown()}}
+{\footnotesize\ttfamily void Music\+App.\+Views.\+Main\+Window.\+Window\+\_\+\+Preview\+Key\+Down (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Key\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Handles the Preview\+Key\+Down event for the window. If the spacebar is pressed and the focus is not on a Text\+Box, it toggles the play/pause state of the media player. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & The source of the event.\\
+\hline
+{\em e} & The Key\+Event\+Args containing event data.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_main_window_8xaml_8cs_source_l00028}{28}} of file \mbox{\hyperlink{_main_window_8xaml_8cs_source}{Main\+Window.\+xaml.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Check\ if\ the\ spacebar\ is\ pressed}}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (e.Key\ ==\ Key.Space)}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Check\ if\ the\ currently\ focused\ element\ is\ a\ TextBox}}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Keyboard.FocusedElement\ is\ TextBox)}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Ignore\ the\ spacebar\ press\ if\ the\ focus\ is\ on\ a\ TextBox}}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Get\ the\ main\ view\ model\ and\ the\ player\ view\ model}}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ viewModel\ =\ DataContext\ as\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_main_view_model}{MainViewModel}};}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ playerViewModel\ =\ viewModel?.PlayerViewModel;}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ a\ song\ is\ selected,\ toggle\ play/pause}}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (playerViewModel?.SelectedSongIndex\ !=\ -\/1)}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ playerViewModel?.PlayPauseCommand.Execute(\textcolor{keyword}{null});}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ e.Handled\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Views/Main\+Window.\+xaml.\+cs\end{DoxyCompactItemize}

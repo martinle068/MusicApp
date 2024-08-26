@@ -1,0 +1,107 @@
+\doxysection{Music\+App.\+Views.\+Search\+View Class Reference}
+\hypertarget{class_music_app_1_1_views_1_1_search_view}{}\label{class_music_app_1_1_views_1_1_search_view}\index{MusicApp.Views.SearchView@{MusicApp.Views.SearchView}}
+
+
+Interaction logic for Search\+View.\+xaml. This class handles the user interactions in the search view of the application.  
+
+
+Inheritance diagram for Music\+App.\+Views.\+Search\+View\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_music_app_1_1_views_1_1_search_view}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_music_app_1_1_views_1_1_search_view_a26d6d74209a3eb1d9097fead719a7040}{Search\+View}} ()
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the Search\+View class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_music_app_1_1_views_1_1_search_view_a0870fc05ee0d7da2555de7001e501ec8}{Text\+Box\+\_\+\+Key\+Down}} (object sender, Key\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Handles the Key\+Down event for the Text\+Box. Executes the search command when the Enter key is pressed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interaction logic for Search\+View.\+xaml. This class handles the user interactions in the search view of the application. 
+
+Definition at line \mbox{\hyperlink{_search_view_8xaml_8cs_source_l00011}{11}} of file \mbox{\hyperlink{_search_view_8xaml_8cs_source}{Search\+View.\+xaml.\+cs}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_music_app_1_1_views_1_1_search_view_a26d6d74209a3eb1d9097fead719a7040}\label{class_music_app_1_1_views_1_1_search_view_a26d6d74209a3eb1d9097fead719a7040} 
+\index{MusicApp.Views.SearchView@{MusicApp.Views.SearchView}!SearchView@{SearchView}}
+\index{SearchView@{SearchView}!MusicApp.Views.SearchView@{MusicApp.Views.SearchView}}
+\doxysubsubsection{\texorpdfstring{SearchView()}{SearchView()}}
+{\footnotesize\ttfamily Music\+App.\+Views.\+Search\+View.\+Search\+View (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the Search\+View class. 
+
+
+
+Definition at line \mbox{\hyperlink{_search_view_8xaml_8cs_source_l00016}{16}} of file \mbox{\hyperlink{_search_view_8xaml_8cs_source}{Search\+View.\+xaml.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ InitializeComponent();}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_music_app_1_1_views_1_1_search_view_a0870fc05ee0d7da2555de7001e501ec8}\label{class_music_app_1_1_views_1_1_search_view_a0870fc05ee0d7da2555de7001e501ec8} 
+\index{MusicApp.Views.SearchView@{MusicApp.Views.SearchView}!TextBox\_KeyDown@{TextBox\_KeyDown}}
+\index{TextBox\_KeyDown@{TextBox\_KeyDown}!MusicApp.Views.SearchView@{MusicApp.Views.SearchView}}
+\doxysubsubsection{\texorpdfstring{TextBox\_KeyDown()}{TextBox\_KeyDown()}}
+{\footnotesize\ttfamily void Music\+App.\+Views.\+Search\+View.\+Text\+Box\+\_\+\+Key\+Down (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Key\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Handles the Key\+Down event for the Text\+Box. Executes the search command when the Enter key is pressed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & The source of the event, expected to be a Text\+Box.\\
+\hline
+{\em e} & The Key\+Event\+Args containing event data.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_search_view_8xaml_8cs_source_l00027}{27}} of file \mbox{\hyperlink{_search_view_8xaml_8cs_source}{Search\+View.\+xaml.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (e.Key\ ==\ Key.Enter)}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ viewModel\ =\ DataContext\ as\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_search_view_model}{SearchViewModel}};}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (viewModel\ !=\ \textcolor{keyword}{null})}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ textBox\ =\ sender\ as\ TextBox;}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (textBox\ !=\ \textcolor{keyword}{null})}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Force\ update\ the\ binding\ source}}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ textBox.GetBindingExpression(TextBox.TextProperty).UpdateSource();}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ viewModel.\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_search_view_model_af68a5ec1a4812576082602a80d5c8173}{SearchCommand}}.Execute(\textcolor{keyword}{null});}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_search_view_model_8cs_source_l00105}{Music\+App.\+View\+Models.\+Search\+View\+Model.\+Search\+Command}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Views/Search\+View.\+xaml.\+cs\end{DoxyCompactItemize}

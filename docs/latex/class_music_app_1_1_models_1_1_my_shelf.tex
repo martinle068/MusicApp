@@ -1,0 +1,127 @@
+\doxysection{Music\+App.\+Models.\+My\+Shelf\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{class_music_app_1_1_models_1_1_my_shelf}{}\label{class_music_app_1_1_models_1_1_my_shelf}\index{MusicApp.Models.MyShelf$<$ T $>$@{MusicApp.Models.MyShelf$<$ T $>$}}
+
+
+Represents a collection of items of type {\itshape T}  with an optional continuation token for pagination.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_music_app_1_1_models_1_1_my_shelf_acf1841816e73713b41e282461619d4ad}{My\+Shelf}} (Observable\+Collection$<$ T $>$ items, string? continuation\+Token)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the My\+Shelf$<$\+T$>$ class with the specified items and continuation token. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+Observable\+Collection$<$ T $>$ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_shelf_af85b914e7cc42e3d6ca7e018e3f60fbe}{Items}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets or sets the collection of items. \end{DoxyCompactList}\item 
+string? \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_shelf_a12b670028fadea6764409373620e9272}{Continuation\+Token}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets or sets the continuation token, which can be used for paginated data fetching. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a collection of items of type {\itshape T}  with an optional continuation token for pagination. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of items stored in the shelf. Must be a reference type.\\
+\hline
+\end{DoxyTemplParams}
+\begin{Desc}
+\item[Type Constraints]\begin{description}
+\item[{\em T} : {\em class}]\end{description}
+\end{Desc}
+
+
+Definition at line \mbox{\hyperlink{_my_shelf_8cs_source_l00014}{14}} of file \mbox{\hyperlink{_my_shelf_8cs_source}{My\+Shelf.\+cs}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_music_app_1_1_models_1_1_my_shelf_acf1841816e73713b41e282461619d4ad}\label{class_music_app_1_1_models_1_1_my_shelf_acf1841816e73713b41e282461619d4ad} 
+\index{MusicApp.Models.MyShelf$<$ T $>$@{MusicApp.Models.MyShelf$<$ T $>$}!MyShelf@{MyShelf}}
+\index{MyShelf@{MyShelf}!MusicApp.Models.MyShelf$<$ T $>$@{MusicApp.Models.MyShelf$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{MyShelf()}{MyShelf()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_shelf}{Music\+App.\+Models.\+My\+Shelf}}$<$ T $>$.\mbox{\hyperlink{class_music_app_1_1_models_1_1_my_shelf}{My\+Shelf}} (\begin{DoxyParamCaption}\item[{Observable\+Collection$<$ T $>$}]{items,  }\item[{string?}]{continuation\+Token }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the My\+Shelf$<$\+T$>$ class with the specified items and continuation token. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em items} & The collection of items.\\
+\hline
+{\em continuation\+Token} & The continuation token, or null if not applicable.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_my_shelf_8cs_source_l00031}{31}} of file \mbox{\hyperlink{_my_shelf_8cs_source}{My\+Shelf.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_shelf_af85b914e7cc42e3d6ca7e018e3f60fbe}{Items}}\ =\ items;}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_shelf_a12b670028fadea6764409373620e9272}{ContinuationToken}}\ =\ continuationToken;}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_my_shelf_8cs_source_l00024}{Music\+App.\+Models.\+My\+Shelf$<$ T $>$.\+Continuation\+Token}}, and \mbox{\hyperlink{_my_shelf_8cs_source_l00019}{Music\+App.\+Models.\+My\+Shelf$<$ T $>$.\+Items}}.
+
+
+
+\doxysubsection{Property Documentation}
+\Hypertarget{class_music_app_1_1_models_1_1_my_shelf_a12b670028fadea6764409373620e9272}\label{class_music_app_1_1_models_1_1_my_shelf_a12b670028fadea6764409373620e9272} 
+\index{MusicApp.Models.MyShelf$<$ T $>$@{MusicApp.Models.MyShelf$<$ T $>$}!ContinuationToken@{ContinuationToken}}
+\index{ContinuationToken@{ContinuationToken}!MusicApp.Models.MyShelf$<$ T $>$@{MusicApp.Models.MyShelf$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{ContinuationToken}{ContinuationToken}}
+{\footnotesize\ttfamily string? \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_shelf}{Music\+App.\+Models.\+My\+Shelf}}$<$ T $>$.Continuation\+Token\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the continuation token, which can be used for paginated data fetching. 
+
+
+
+Definition at line \mbox{\hyperlink{_my_shelf_8cs_source_l00024}{24}} of file \mbox{\hyperlink{_my_shelf_8cs_source}{My\+Shelf.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00024\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{_search_view_model_8cs_source_l00132}{Music\+App.\+View\+Models.\+Search\+View\+Model.\+Execute\+Search()}}, \mbox{\hyperlink{_my_shelf_8cs_source_l00031}{Music\+App.\+Models.\+My\+Shelf$<$ T $>$.\+My\+Shelf()}}, and \mbox{\hyperlink{_player_view_model_8cs_source_l00435}{Music\+App.\+View\+Models.\+Player\+View\+Model.\+Process\+New\+Shelf()}}.
+
+\Hypertarget{class_music_app_1_1_models_1_1_my_shelf_af85b914e7cc42e3d6ca7e018e3f60fbe}\label{class_music_app_1_1_models_1_1_my_shelf_af85b914e7cc42e3d6ca7e018e3f60fbe} 
+\index{MusicApp.Models.MyShelf$<$ T $>$@{MusicApp.Models.MyShelf$<$ T $>$}!Items@{Items}}
+\index{Items@{Items}!MusicApp.Models.MyShelf$<$ T $>$@{MusicApp.Models.MyShelf$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Items}{Items}}
+{\footnotesize\ttfamily Observable\+Collection$<$T$>$ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_shelf}{Music\+App.\+Models.\+My\+Shelf}}$<$ T $>$.Items\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the collection of items. 
+
+
+
+Definition at line \mbox{\hyperlink{_my_shelf_8cs_source_l00019}{19}} of file \mbox{\hyperlink{_my_shelf_8cs_source}{My\+Shelf.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00019\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{set};\ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{_home_view_model_8cs_source_l00256}{Music\+App.\+View\+Models.\+Home\+View\+Model.\+Handle\+Popular\+Song\+Selection()}}, \mbox{\hyperlink{_search_view_model_8cs_source_l00063}{Music\+App.\+View\+Models.\+Search\+View\+Model.\+Handle\+Selected\+Song\+Index()}}, \mbox{\hyperlink{_my_shelf_8cs_source_l00031}{Music\+App.\+Models.\+My\+Shelf$<$ T $>$.\+My\+Shelf()}}, and \mbox{\hyperlink{_player_view_model_8cs_source_l00435}{Music\+App.\+View\+Models.\+Player\+View\+Model.\+Process\+New\+Shelf()}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Models/My\+Shelf.\+cs\end{DoxyCompactItemize}

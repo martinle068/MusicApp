@@ -1,0 +1,184 @@
+\doxysection{Music\+App.\+Commands.\+Relay\+Command Class Reference}
+\hypertarget{class_music_app_1_1_commands_1_1_relay_command}{}\label{class_music_app_1_1_commands_1_1_relay_command}\index{MusicApp.Commands.RelayCommand@{MusicApp.Commands.RelayCommand}}
+
+
+A command that relays its functionality by invoking delegates. This command can be used for commands that do not require parameters.  
+
+
+Inheritance diagram for Music\+App.\+Commands.\+Relay\+Command\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_music_app_1_1_commands_1_1_relay_command}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_music_app_1_1_commands_1_1_relay_command_a83d3a2db4f2fe6d2cab7c9bcddef7312}{Relay\+Command}} (Action$<$ object $>$ execute, Predicate$<$ object $>$ can\+Execute=null)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the Relay\+Command class. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_music_app_1_1_commands_1_1_relay_command_a8a7aa749fd69b3da1ab167818a99448e}{Can\+Execute}} (object? parameter)
+\begin{DoxyCompactList}\small\item\em Defines the method that determines whether the command can execute in its current state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_music_app_1_1_commands_1_1_relay_command_aa76cd9355c6605b51986d28c9211e1f3}{Execute}} (object? parameter)
+\begin{DoxyCompactList}\small\item\em Defines the method to be called when the command is invoked. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+Event\+Handler \mbox{\hyperlink{class_music_app_1_1_commands_1_1_relay_command_afdd5e24234b9448edfd23fe5d7ac3d21}{Can\+Execute\+Changed}}
+\begin{DoxyCompactList}\small\item\em Occurs when changes occur that affect whether or not the command should execute. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+readonly Action$<$ object $>$ \mbox{\hyperlink{class_music_app_1_1_commands_1_1_relay_command_aba9096d7b00f9e4c25b0f5cdd8620d51}{\+\_\+execute}}
+\item 
+readonly Predicate$<$ object $>$ \mbox{\hyperlink{class_music_app_1_1_commands_1_1_relay_command_abd17cc9177eb1823f7ec18ac36fb20f6}{\+\_\+can\+Execute}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A command that relays its functionality by invoking delegates. This command can be used for commands that do not require parameters. 
+
+Definition at line \mbox{\hyperlink{_relay_commands_8cs_source_l00010}{10}} of file \mbox{\hyperlink{_relay_commands_8cs_source}{Relay\+Commands.\+cs}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_music_app_1_1_commands_1_1_relay_command_a83d3a2db4f2fe6d2cab7c9bcddef7312}\label{class_music_app_1_1_commands_1_1_relay_command_a83d3a2db4f2fe6d2cab7c9bcddef7312} 
+\index{MusicApp.Commands.RelayCommand@{MusicApp.Commands.RelayCommand}!RelayCommand@{RelayCommand}}
+\index{RelayCommand@{RelayCommand}!MusicApp.Commands.RelayCommand@{MusicApp.Commands.RelayCommand}}
+\doxysubsubsection{\texorpdfstring{RelayCommand()}{RelayCommand()}}
+{\footnotesize\ttfamily Music\+App.\+Commands.\+Relay\+Command.\+Relay\+Command (\begin{DoxyParamCaption}\item[{Action$<$ object $>$}]{execute,  }\item[{Predicate$<$ object $>$}]{can\+Execute = {\ttfamily null} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the Relay\+Command class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em execute} & The execution logic.\\
+\hline
+{\em can\+Execute} & The execution status logic.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_relay_commands_8cs_source_l00020}{20}} of file \mbox{\hyperlink{_relay_commands_8cs_source}{Relay\+Commands.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \_execute\ =\ execute;}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \_canExecute\ =\ canExecute;}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_music_app_1_1_commands_1_1_relay_command_a8a7aa749fd69b3da1ab167818a99448e}\label{class_music_app_1_1_commands_1_1_relay_command_a8a7aa749fd69b3da1ab167818a99448e} 
+\index{MusicApp.Commands.RelayCommand@{MusicApp.Commands.RelayCommand}!CanExecute@{CanExecute}}
+\index{CanExecute@{CanExecute}!MusicApp.Commands.RelayCommand@{MusicApp.Commands.RelayCommand}}
+\doxysubsubsection{\texorpdfstring{CanExecute()}{CanExecute()}}
+{\footnotesize\ttfamily bool Music\+App.\+Commands.\+Relay\+Command.\+Can\+Execute (\begin{DoxyParamCaption}\item[{object?}]{parameter }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Defines the method that determines whether the command can execute in its current state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parameter} & Data used by the command. If the command does not require data to be passed, this object can be set to null.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if this command can be executed; otherwise, false.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_relay_commands_8cs_source_l00040}{40}} of file \mbox{\hyperlink{_relay_commands_8cs_source}{Relay\+Commands.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_canExecute\ ==\ \textcolor{keyword}{null}\ ||\ \_canExecute(parameter);}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_music_app_1_1_commands_1_1_relay_command_aa76cd9355c6605b51986d28c9211e1f3}\label{class_music_app_1_1_commands_1_1_relay_command_aa76cd9355c6605b51986d28c9211e1f3} 
+\index{MusicApp.Commands.RelayCommand@{MusicApp.Commands.RelayCommand}!Execute@{Execute}}
+\index{Execute@{Execute}!MusicApp.Commands.RelayCommand@{MusicApp.Commands.RelayCommand}}
+\doxysubsubsection{\texorpdfstring{Execute()}{Execute()}}
+{\footnotesize\ttfamily void Music\+App.\+Commands.\+Relay\+Command.\+Execute (\begin{DoxyParamCaption}\item[{object?}]{parameter }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Defines the method to be called when the command is invoked. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parameter} & Data used by the command. If the command does not require data to be passed, this object can be set to null.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_relay_commands_8cs_source_l00049}{49}} of file \mbox{\hyperlink{_relay_commands_8cs_source}{Relay\+Commands.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \_execute(parameter);}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_music_app_1_1_commands_1_1_relay_command_abd17cc9177eb1823f7ec18ac36fb20f6}\label{class_music_app_1_1_commands_1_1_relay_command_abd17cc9177eb1823f7ec18ac36fb20f6} 
+\index{MusicApp.Commands.RelayCommand@{MusicApp.Commands.RelayCommand}!\_canExecute@{\_canExecute}}
+\index{\_canExecute@{\_canExecute}!MusicApp.Commands.RelayCommand@{MusicApp.Commands.RelayCommand}}
+\doxysubsubsection{\texorpdfstring{\_canExecute}{\_canExecute}}
+{\footnotesize\ttfamily readonly Predicate$<$object$>$ Music\+App.\+Commands.\+Relay\+Command.\+\_\+can\+Execute\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_relay_commands_8cs_source_l00013}{13}} of file \mbox{\hyperlink{_relay_commands_8cs_source}{Relay\+Commands.\+cs}}.
+
+\Hypertarget{class_music_app_1_1_commands_1_1_relay_command_aba9096d7b00f9e4c25b0f5cdd8620d51}\label{class_music_app_1_1_commands_1_1_relay_command_aba9096d7b00f9e4c25b0f5cdd8620d51} 
+\index{MusicApp.Commands.RelayCommand@{MusicApp.Commands.RelayCommand}!\_execute@{\_execute}}
+\index{\_execute@{\_execute}!MusicApp.Commands.RelayCommand@{MusicApp.Commands.RelayCommand}}
+\doxysubsubsection{\texorpdfstring{\_execute}{\_execute}}
+{\footnotesize\ttfamily readonly Action$<$object$>$ Music\+App.\+Commands.\+Relay\+Command.\+\_\+execute\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_relay_commands_8cs_source_l00012}{12}} of file \mbox{\hyperlink{_relay_commands_8cs_source}{Relay\+Commands.\+cs}}.
+
+
+
+\doxysubsection{Property Documentation}
+\Hypertarget{class_music_app_1_1_commands_1_1_relay_command_afdd5e24234b9448edfd23fe5d7ac3d21}\label{class_music_app_1_1_commands_1_1_relay_command_afdd5e24234b9448edfd23fe5d7ac3d21} 
+\index{MusicApp.Commands.RelayCommand@{MusicApp.Commands.RelayCommand}!CanExecuteChanged@{CanExecuteChanged}}
+\index{CanExecuteChanged@{CanExecuteChanged}!MusicApp.Commands.RelayCommand@{MusicApp.Commands.RelayCommand}}
+\doxysubsubsection{\texorpdfstring{CanExecuteChanged}{CanExecuteChanged}}
+{\footnotesize\ttfamily Event\+Handler Music\+App.\+Commands.\+Relay\+Command.\+Can\+Execute\+Changed\hspace{0.3cm}{\ttfamily [add]}, {\ttfamily [remove]}}
+
+
+
+Occurs when changes occur that affect whether or not the command should execute. 
+
+
+
+Definition at line \mbox{\hyperlink{_relay_commands_8cs_source_l00029}{29}} of file \mbox{\hyperlink{_relay_commands_8cs_source}{Relay\+Commands.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ add\ =>\ CommandManager.RequerySuggested\ +=\ value;}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{remove}\ =>\ CommandManager.RequerySuggested\ -\/=\ value;}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Commands/Relay\+Commands.\+cs\end{DoxyCompactItemize}

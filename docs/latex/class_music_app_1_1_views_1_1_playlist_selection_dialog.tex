@@ -1,0 +1,193 @@
+\doxysection{Music\+App.\+Views.\+Playlist\+Selection\+Dialog Class Reference}
+\hypertarget{class_music_app_1_1_views_1_1_playlist_selection_dialog}{}\label{class_music_app_1_1_views_1_1_playlist_selection_dialog}\index{MusicApp.Views.PlaylistSelectionDialog@{MusicApp.Views.PlaylistSelectionDialog}}
+
+
+Interaction logic for Playlist\+Selection\+Dialog.\+xaml. This class handles the logic for selecting a playlist from a list of available playlists.  
+
+
+Inheritance diagram for Music\+App.\+Views.\+Playlist\+Selection\+Dialog\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_music_app_1_1_views_1_1_playlist_selection_dialog}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_music_app_1_1_views_1_1_playlist_selection_dialog_a88ed79712208ac56fef961b5e82fd3ce}{Playlist\+Selection\+Dialog}} (Observable\+Collection$<$ Playlist $>$ playlists)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the Playlist\+Selection\+Dialog class. \end{DoxyCompactList}\item 
+Playlist? \mbox{\hyperlink{class_music_app_1_1_views_1_1_playlist_selection_dialog_aa3293fc4abdc8840c959cb8e7255d4f4}{Select\+Playlist}} ()
+\begin{DoxyCompactList}\small\item\em Displays the dialog and returns the selected playlist. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+Playlist \mbox{\hyperlink{class_music_app_1_1_views_1_1_playlist_selection_dialog_a36b5573c3fca9c3179ff7d1009d1014a}{Selected\+Playlist}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, private set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the playlist selected by the user. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_music_app_1_1_views_1_1_playlist_selection_dialog_ae07486965bd07f99426cfecdc146f107}{Ok\+Button\+\_\+\+Click}} (object sender, Routed\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Handles the Click event for the OK button. Sets the selected playlist and closes the dialog. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_music_app_1_1_views_1_1_playlist_selection_dialog_a81a39d8ba8dc18c9fe05e11cd1554f37}{Cancel\+Button\+\_\+\+Click}} (object sender, Routed\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Handles the Click event for the Cancel button. Closes the dialog without setting a selected playlist. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interaction logic for Playlist\+Selection\+Dialog.\+xaml. This class handles the logic for selecting a playlist from a list of available playlists. 
+
+Definition at line \mbox{\hyperlink{_playlist_selection_dialog_8xaml_8cs_source_l00011}{11}} of file \mbox{\hyperlink{_playlist_selection_dialog_8xaml_8cs_source}{Playlist\+Selection\+Dialog.\+xaml.\+cs}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_music_app_1_1_views_1_1_playlist_selection_dialog_a88ed79712208ac56fef961b5e82fd3ce}\label{class_music_app_1_1_views_1_1_playlist_selection_dialog_a88ed79712208ac56fef961b5e82fd3ce} 
+\index{MusicApp.Views.PlaylistSelectionDialog@{MusicApp.Views.PlaylistSelectionDialog}!PlaylistSelectionDialog@{PlaylistSelectionDialog}}
+\index{PlaylistSelectionDialog@{PlaylistSelectionDialog}!MusicApp.Views.PlaylistSelectionDialog@{MusicApp.Views.PlaylistSelectionDialog}}
+\doxysubsubsection{\texorpdfstring{PlaylistSelectionDialog()}{PlaylistSelectionDialog()}}
+{\footnotesize\ttfamily Music\+App.\+Views.\+Playlist\+Selection\+Dialog.\+Playlist\+Selection\+Dialog (\begin{DoxyParamCaption}\item[{Observable\+Collection$<$ Playlist $>$}]{playlists }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the Playlist\+Selection\+Dialog class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em playlists} & A collection of playlists to be displayed for selection.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_playlist_selection_dialog_8xaml_8cs_source_l00022}{22}} of file \mbox{\hyperlink{_playlist_selection_dialog_8xaml_8cs_source}{Playlist\+Selection\+Dialog.\+xaml.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ InitializeComponent();}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ PlaylistsListBox.ItemsSource\ =\ playlists;}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_music_app_1_1_views_1_1_playlist_selection_dialog_a81a39d8ba8dc18c9fe05e11cd1554f37}\label{class_music_app_1_1_views_1_1_playlist_selection_dialog_a81a39d8ba8dc18c9fe05e11cd1554f37} 
+\index{MusicApp.Views.PlaylistSelectionDialog@{MusicApp.Views.PlaylistSelectionDialog}!CancelButton\_Click@{CancelButton\_Click}}
+\index{CancelButton\_Click@{CancelButton\_Click}!MusicApp.Views.PlaylistSelectionDialog@{MusicApp.Views.PlaylistSelectionDialog}}
+\doxysubsubsection{\texorpdfstring{CancelButton\_Click()}{CancelButton\_Click()}}
+{\footnotesize\ttfamily void Music\+App.\+Views.\+Playlist\+Selection\+Dialog.\+Cancel\+Button\+\_\+\+Click (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Routed\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Handles the Click event for the Cancel button. Closes the dialog without setting a selected playlist. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & The source of the event.\\
+\hline
+{\em e} & The Routed\+Event\+Args containing event data.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_playlist_selection_dialog_8xaml_8cs_source_l00056}{56}} of file \mbox{\hyperlink{_playlist_selection_dialog_8xaml_8cs_source}{Playlist\+Selection\+Dialog.\+xaml.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ Close();}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_music_app_1_1_views_1_1_playlist_selection_dialog_ae07486965bd07f99426cfecdc146f107}\label{class_music_app_1_1_views_1_1_playlist_selection_dialog_ae07486965bd07f99426cfecdc146f107} 
+\index{MusicApp.Views.PlaylistSelectionDialog@{MusicApp.Views.PlaylistSelectionDialog}!OkButton\_Click@{OkButton\_Click}}
+\index{OkButton\_Click@{OkButton\_Click}!MusicApp.Views.PlaylistSelectionDialog@{MusicApp.Views.PlaylistSelectionDialog}}
+\doxysubsubsection{\texorpdfstring{OkButton\_Click()}{OkButton\_Click()}}
+{\footnotesize\ttfamily void Music\+App.\+Views.\+Playlist\+Selection\+Dialog.\+Ok\+Button\+\_\+\+Click (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Routed\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Handles the Click event for the OK button. Sets the selected playlist and closes the dialog. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & The source of the event.\\
+\hline
+{\em e} & The Routed\+Event\+Args containing event data.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_playlist_selection_dialog_8xaml_8cs_source_l00044}{44}} of file \mbox{\hyperlink{_playlist_selection_dialog_8xaml_8cs_source}{Playlist\+Selection\+Dialog.\+xaml.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_music_app_1_1_views_1_1_playlist_selection_dialog_a36b5573c3fca9c3179ff7d1009d1014a}{SelectedPlaylist}}\ =\ PlaylistsListBox.SelectedItem\ as\ Playlist;}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ Close();}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_playlist_selection_dialog_8xaml_8cs_source_l00016}{Music\+App.\+Views.\+Playlist\+Selection\+Dialog.\+Selected\+Playlist}}.
+
+\Hypertarget{class_music_app_1_1_views_1_1_playlist_selection_dialog_aa3293fc4abdc8840c959cb8e7255d4f4}\label{class_music_app_1_1_views_1_1_playlist_selection_dialog_aa3293fc4abdc8840c959cb8e7255d4f4} 
+\index{MusicApp.Views.PlaylistSelectionDialog@{MusicApp.Views.PlaylistSelectionDialog}!SelectPlaylist@{SelectPlaylist}}
+\index{SelectPlaylist@{SelectPlaylist}!MusicApp.Views.PlaylistSelectionDialog@{MusicApp.Views.PlaylistSelectionDialog}}
+\doxysubsubsection{\texorpdfstring{SelectPlaylist()}{SelectPlaylist()}}
+{\footnotesize\ttfamily Playlist? Music\+App.\+Views.\+Playlist\+Selection\+Dialog.\+Select\+Playlist (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Displays the dialog and returns the selected playlist. 
+
+\begin{DoxyReturn}{Returns}
+The selected playlist, or null if no selection was made.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_playlist_selection_dialog_8xaml_8cs_source_l00032}{32}} of file \mbox{\hyperlink{_playlist_selection_dialog_8xaml_8cs_source}{Playlist\+Selection\+Dialog.\+xaml.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ ShowDialog();}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_music_app_1_1_views_1_1_playlist_selection_dialog_a36b5573c3fca9c3179ff7d1009d1014a}{SelectedPlaylist}}\ ??\ \textcolor{keyword}{null};}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_playlist_selection_dialog_8xaml_8cs_source_l00016}{Music\+App.\+Views.\+Playlist\+Selection\+Dialog.\+Selected\+Playlist}}.
+
+
+
+\doxysubsection{Property Documentation}
+\Hypertarget{class_music_app_1_1_views_1_1_playlist_selection_dialog_a36b5573c3fca9c3179ff7d1009d1014a}\label{class_music_app_1_1_views_1_1_playlist_selection_dialog_a36b5573c3fca9c3179ff7d1009d1014a} 
+\index{MusicApp.Views.PlaylistSelectionDialog@{MusicApp.Views.PlaylistSelectionDialog}!SelectedPlaylist@{SelectedPlaylist}}
+\index{SelectedPlaylist@{SelectedPlaylist}!MusicApp.Views.PlaylistSelectionDialog@{MusicApp.Views.PlaylistSelectionDialog}}
+\doxysubsubsection{\texorpdfstring{SelectedPlaylist}{SelectedPlaylist}}
+{\footnotesize\ttfamily Playlist Music\+App.\+Views.\+Playlist\+Selection\+Dialog.\+Selected\+Playlist\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+
+
+Gets the playlist selected by the user. 
+
+
+
+Definition at line \mbox{\hyperlink{_playlist_selection_dialog_8xaml_8cs_source_l00016}{16}} of file \mbox{\hyperlink{_playlist_selection_dialog_8xaml_8cs_source}{Playlist\+Selection\+Dialog.\+xaml.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00016\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{private}\ \textcolor{keyword}{set};\ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{_playlist_selection_dialog_8xaml_8cs_source_l00044}{Music\+App.\+Views.\+Playlist\+Selection\+Dialog.\+Ok\+Button\+\_\+\+Click()}}, and \mbox{\hyperlink{_playlist_selection_dialog_8xaml_8cs_source_l00032}{Music\+App.\+Views.\+Playlist\+Selection\+Dialog.\+Select\+Playlist()}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Views/Playlist\+Selection\+Dialog.\+xaml.\+cs\end{DoxyCompactItemize}

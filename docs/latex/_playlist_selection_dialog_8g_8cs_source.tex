@@ -1,0 +1,105 @@
+\doxysection{Playlist\+Selection\+Dialog.\+g.\+cs}
+\hypertarget{_playlist_selection_dialog_8g_8cs_source}{}\label{_playlist_selection_dialog_8g_8cs_source}\index{obj/Debug/net8.0-\/windows/Views/PlaylistSelectionDialog.g.cs@{obj/Debug/net8.0-\/windows/Views/PlaylistSelectionDialog.g.cs}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ checksum\ "{}..\(\backslash\)..\(\backslash\)..\(\backslash\)..\(\backslash\)Views\(\backslash\)PlaylistSelectionDialog.xaml"{}\ "{}\{ff1816ec-\/aa5e-\/4d10-\/87f7-\/6f4963833460\}"{}\ "{}F54E9AF43DC0589C9B238ACC0D10974FD1A5F828"{}}}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00002}00002\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00003}00003\ \textcolor{comment}{//\ <auto-\/generated>}}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00004}00004\ \textcolor{comment}{//\ \ \ \ \ This\ code\ was\ generated\ by\ a\ tool.}}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00005}00005\ \textcolor{comment}{//\ \ \ \ \ Runtime\ Version:4.0.30319.42000}}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00006}00006\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00007}00007\ \textcolor{comment}{//\ \ \ \ \ Changes\ to\ this\ file\ may\ cause\ incorrect\ behavior\ and\ will\ be\ lost\ if}}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00008}00008\ \textcolor{comment}{//\ \ \ \ \ the\ code\ is\ regenerated.}}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00009}00009\ \textcolor{comment}{//\ </auto-\/generated>}}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00010}00010\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00012}00012\ \textcolor{keyword}{using\ }System;}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00013}00013\ \textcolor{keyword}{using\ }System.Diagnostics;}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00014}00014\ \textcolor{keyword}{using\ }System.Windows;}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00015}00015\ \textcolor{keyword}{using\ }System.Windows.Automation;}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00016}00016\ \textcolor{keyword}{using\ }System.Windows.Controls;}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00017}00017\ \textcolor{keyword}{using\ }System.Windows.Controls.Primitives;}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00018}00018\ \textcolor{keyword}{using\ }System.Windows.Controls.Ribbon;}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00019}00019\ \textcolor{keyword}{using\ }System.Windows.Data;}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00020}00020\ \textcolor{keyword}{using\ }System.Windows.Documents;}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00021}00021\ \textcolor{keyword}{using\ }System.Windows.Ink;}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00022}00022\ \textcolor{keyword}{using\ }System.Windows.Input;}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00023}00023\ \textcolor{keyword}{using\ }System.Windows.Markup;}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00024}00024\ \textcolor{keyword}{using\ }System.Windows.Media;}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00025}00025\ \textcolor{keyword}{using\ }System.Windows.Media.Animation;}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00026}00026\ \textcolor{keyword}{using\ }System.Windows.Media.Effects;}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00027}00027\ \textcolor{keyword}{using\ }System.Windows.Media.Imaging;}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00028}00028\ \textcolor{keyword}{using\ }System.Windows.Media.Media3D;}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00029}00029\ \textcolor{keyword}{using\ }System.Windows.Media.TextFormatting;}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00030}00030\ \textcolor{keyword}{using\ }System.Windows.Navigation;}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00031}00031\ \textcolor{keyword}{using\ }System.Windows.Shapes;}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00032}00032\ \textcolor{keyword}{using\ }System.Windows.Shell;}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00035}00035\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_music_app_1_1_views}{MusicApp.Views}}\ \{}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00036}00036\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00037}00037\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00041}\mbox{\hyperlink{class_music_app_1_1_views_1_1_playlist_selection_dialog}{00041}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{partial\ class\ }\mbox{\hyperlink{class_music_app_1_1_views_1_1_playlist_selection_dialog}{PlaylistSelectionDialog}}\ :\ System.Windows.Window,\ System.Windows.Markup.IComponentConnector\ \{}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00042}00042\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00043}00043\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00044}00044\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#line\ 9\ "{}..\(\backslash\)..\(\backslash\)..\(\backslash\)..\(\backslash\)Views\(\backslash\)PlaylistSelectionDialog.xaml"{}}}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00045}00045\ \ \ \ \ \ \ \ \ [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute(\textcolor{stringliteral}{"{}Microsoft.Performance"{}},\ \textcolor{stringliteral}{"{}CA1823:AvoidUnusedPrivateFields"{}})]}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00046}00046\ \ \ \ \ \ \ \ \ \textcolor{keyword}{internal}\ System.Windows.Controls.ListBox\ PlaylistsListBox;}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00047}00047\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00048}00048\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#line\ default}}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00049}00049\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#line\ hidden}}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00050}00050\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00051}00051\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{bool}\ \_contentLoaded;}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00052}00052\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00056}00056\ \ \ \ \ \ \ \ \ [System.Diagnostics.DebuggerNonUserCodeAttribute()]}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00057}00057\ \ \ \ \ \ \ \ \ [System.CodeDom.Compiler.GeneratedCodeAttribute(\textcolor{stringliteral}{"{}PresentationBuildTasks"{}},\ \textcolor{stringliteral}{"{}8.0.8.0"{}})]}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00058}\mbox{\hyperlink{class_music_app_1_1_views_1_1_playlist_selection_dialog_aa9402918963fe8fc7ceee9ec34e4a8ab}{00058}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_music_app_1_1_views_1_1_playlist_selection_dialog_aa9402918963fe8fc7ceee9ec34e4a8ab}{InitializeComponent}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\_contentLoaded)\ \{}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \_contentLoaded\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ System.Uri\ resourceLocater\ =\ \textcolor{keyword}{new}\ System.Uri(\textcolor{stringliteral}{"{}/MusicApp;component/views/playlistselectiondialog.xaml"{}},\ System.UriKind.Relative);}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00065}00065\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \#line\ 1\ "{}..\(\backslash\)..\(\backslash\)..\(\backslash\)..\(\backslash\)Views\(\backslash\)PlaylistSelectionDialog.xaml"{}}}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ System.Windows.Application.LoadComponent(\textcolor{keyword}{this},\ resourceLocater);}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00068}00068\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \#line\ default}}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00069}00069\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \#line\ hidden}}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00070}00070\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00071}00071\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00072}00072\ \ \ \ \ \ \ \ \ [System.Diagnostics.DebuggerNonUserCodeAttribute()]}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00073}00073\ \ \ \ \ \ \ \ \ [System.CodeDom.Compiler.GeneratedCodeAttribute(\textcolor{stringliteral}{"{}PresentationBuildTasks"{}},\ \textcolor{stringliteral}{"{}8.0.8.0"{}})]}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00074}00074\ \ \ \ \ \ \ \ \ [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00075}00075\ \ \ \ \ \ \ \ \ [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute(\textcolor{stringliteral}{"{}Microsoft.Design"{}},\ \textcolor{stringliteral}{"{}CA1033:InterfaceMethodsShouldBeCallableByChildTypes"{}})]}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00076}00076\ \ \ \ \ \ \ \ \ [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute(\textcolor{stringliteral}{"{}Microsoft.Maintainability"{}},\ \textcolor{stringliteral}{"{}CA1502:AvoidExcessiveComplexity"{}})]}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00077}00077\ \ \ \ \ \ \ \ \ [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute(\textcolor{stringliteral}{"{}Microsoft.Performance"{}},\ \textcolor{stringliteral}{"{}CA1800:DoNotCastUnnecessarily"{}})]}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00078}00078\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ System.Windows.Markup.IComponentConnector.Connect(\textcolor{keywordtype}{int}\ connectionId,\ \textcolor{keywordtype}{object}\ target)\ \{}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (connectionId)}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1:}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ this.PlaylistsListBox\ =\ ((System.Windows.Controls.ListBox)(target));}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 2:}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00086}00086\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \#line\ 11\ "{}..\(\backslash\)..\(\backslash\)..\(\backslash\)..\(\backslash\)Views\(\backslash\)PlaylistSelectionDialog.xaml"{}}}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ ((System.Windows.Controls.Button)(target)).Click\ +=\ \textcolor{keyword}{new}\ System.Windows.RoutedEventHandler(\textcolor{keyword}{this}.CancelButton\_Click);}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00089}00089\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \#line\ default}}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00090}00090\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \#line\ hidden}}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 3:}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00094}00094\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \#line\ 12\ "{}..\(\backslash\)..\(\backslash\)..\(\backslash\)..\(\backslash\)Views\(\backslash\)PlaylistSelectionDialog.xaml"{}}}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ ((System.Windows.Controls.Button)(target)).Click\ +=\ \textcolor{keyword}{new}\ System.Windows.RoutedEventHandler(\textcolor{keyword}{this}.OkButton\_Click);}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00097}00097\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \#line\ default}}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00098}00098\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \#line\ hidden}}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ this.\_contentLoaded\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00102}00102\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00103}00103\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00104}00104\ \}}
+\DoxyCodeLine{\Hypertarget{_playlist_selection_dialog_8g_8cs_source_l00105}00105\ }
+
+\end{DoxyCode}

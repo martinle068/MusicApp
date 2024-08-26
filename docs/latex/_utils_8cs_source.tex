@@ -1,0 +1,68 @@
+\doxysection{Utils.\+cs}
+\hypertarget{_utils_8cs_source}{}\label{_utils_8cs_source}\index{Utils/Utils.cs@{Utils/Utils.cs}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00001}00001\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespace_music_app_1_1_models}{MusicApp.Models}};}
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00002}00002\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespace_music_app_1_1_view_models}{MusicApp.ViewModels}};}
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00003}00003\ \textcolor{keyword}{using\ }System;}
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00004}00004\ \textcolor{keyword}{using\ }System.Collections.Generic;}
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00005}00005\ \textcolor{keyword}{using\ }System.Linq;}
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00006}00006\ \textcolor{keyword}{using\ }System.Text;}
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00007}00007\ \textcolor{keyword}{using\ }System.Threading.Tasks;}
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00008}00008\ \textcolor{keyword}{using\ }System.Windows.Controls;}
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00009}00009\ \textcolor{keyword}{using\ }System.Windows;}
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00010}00010\ \textcolor{keyword}{using\ }YouTubeMusicAPI.Models;}
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00011}00011\ \textcolor{keyword}{using\ }Google.Apis.YouTube.v3.Data;}
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00013}\mbox{\hyperlink{namespace_music_app_1_1_utils}{00013}}\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_music_app_1_1_utils}{MusicApp.Utils}}}
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00014}00014\ \{}
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00018}00018\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keyword}{class\ }ShuffleExtensionClass}
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00019}00019\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00020}00020\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ Random\ rng\ =\ \textcolor{keyword}{new}\ Random();}
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00027}00027\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ Shuffle<T>(\textcolor{keyword}{this}\ IList<T>\ list)}
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00028}00028\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ n\ =\ list.Count;}
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (n\ >\ 1)}
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ n-\/-\/;}
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ k\ =\ rng.Next(n\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ T\ value\ =\ list[k];}
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ list[k]\ =\ list[n];}
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ list[n]\ =\ value;}
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00038}00038\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00039}00039\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00044}00044\ \ \ \ \ \textcolor{keyword}{internal}\ \textcolor{keyword}{class\ }Utils}
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00045}00045\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00051}00051\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{string}\ SongToString(\mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{MySong}}\ song)}
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00052}00052\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \$\textcolor{stringliteral}{"{}\ \{string.Join("{}},\ \textcolor{stringliteral}{"{},\ song.Artists.Select(artist\ =>\ artist.Name))\}\ -\/\ \{song.Name\}"{}};}
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00054}00054\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00062}00062\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ T?\ GetItemFromMenuItem<T>(\textcolor{keywordtype}{object}\ sender)\ where\ T\ :\ \textcolor{keyword}{class}}
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00063}00063\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (sender\ is\ MenuItem\ menuItem)}
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ contextMenu\ =\ menuItem.Parent\ as\ ContextMenu;}
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (contextMenu\ !=\ \textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (contextMenu.PlacementTarget\ is\ FrameworkElement\ placementTarget)}
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ placementTarget.DataContext\ as\ T;}
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{null};}
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00077}00077\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00084}00084\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{string}\ GetInfoString(\textcolor{keywordtype}{string}\ name)}
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00085}00085\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \$\textcolor{stringliteral}{"{}Playing\ from\ \{name\}"{}};}
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00087}00087\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00088}00088\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_utils_8cs_source_l00089}00089\ \}}
+
+\end{DoxyCode}

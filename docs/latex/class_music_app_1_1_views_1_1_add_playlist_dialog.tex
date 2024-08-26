@@ -1,0 +1,210 @@
+\doxysection{Music\+App.\+Views.\+Add\+Playlist\+Dialog Class Reference}
+\hypertarget{class_music_app_1_1_views_1_1_add_playlist_dialog}{}\label{class_music_app_1_1_views_1_1_add_playlist_dialog}\index{MusicApp.Views.AddPlaylistDialog@{MusicApp.Views.AddPlaylistDialog}}
+
+
+Interaction logic for Add\+Playlist\+Dialog.\+xaml. This dialog allows the user to input details for creating a new playlist.  
+
+
+Inheritance diagram for Music\+App.\+Views.\+Add\+Playlist\+Dialog\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_music_app_1_1_views_1_1_add_playlist_dialog}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_music_app_1_1_views_1_1_add_playlist_dialog_ab23411d49c754f0f32e75f4fc6647553}{Add\+Playlist\+Dialog}} ()
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the Add\+Playlist\+Dialog class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_music_app_1_1_views_1_1_add_playlist_dialog_a4ba56e5b9d1941b5080055def1d62212}{Playlist\+Name}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, private set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the name of the playlist entered by the user. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_music_app_1_1_views_1_1_add_playlist_dialog_a26eabde36e2c67ee564118b34310c9db}{Playlist\+Description}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, private set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the description of the playlist entered by the user. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_music_app_1_1_views_1_1_add_playlist_dialog_a335bd289847d3e31656f618f268c3c6b}{Playlist\+Visibility}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, private set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets the visibility status of the playlist (e.\+g., Public, Private) selected by the user. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_music_app_1_1_views_1_1_add_playlist_dialog_a8d1d73ecfb8462e4f4d9b8f04b1e43b3}{Cancel\+\_\+\+Click}} (object sender, Routed\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Handles the Click event of the Cancel button. Closes the dialog without saving any changes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_music_app_1_1_views_1_1_add_playlist_dialog_a7b0a11cb8aae485af8f12402dabda269}{Create\+\_\+\+Click}} (object sender, Routed\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Handles the Click event of the Create button. Saves the entered playlist details and closes the dialog. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interaction logic for Add\+Playlist\+Dialog.\+xaml. This dialog allows the user to input details for creating a new playlist. 
+
+Definition at line \mbox{\hyperlink{_add_playlist_dialog_8xaml_8cs_source_l00010}{10}} of file \mbox{\hyperlink{_add_playlist_dialog_8xaml_8cs_source}{Add\+Playlist\+Dialog.\+xaml.\+cs}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_music_app_1_1_views_1_1_add_playlist_dialog_ab23411d49c754f0f32e75f4fc6647553}\label{class_music_app_1_1_views_1_1_add_playlist_dialog_ab23411d49c754f0f32e75f4fc6647553} 
+\index{MusicApp.Views.AddPlaylistDialog@{MusicApp.Views.AddPlaylistDialog}!AddPlaylistDialog@{AddPlaylistDialog}}
+\index{AddPlaylistDialog@{AddPlaylistDialog}!MusicApp.Views.AddPlaylistDialog@{MusicApp.Views.AddPlaylistDialog}}
+\doxysubsubsection{\texorpdfstring{AddPlaylistDialog()}{AddPlaylistDialog()}}
+{\footnotesize\ttfamily Music\+App.\+Views.\+Add\+Playlist\+Dialog.\+Add\+Playlist\+Dialog (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the Add\+Playlist\+Dialog class. 
+
+
+
+Definition at line \mbox{\hyperlink{_add_playlist_dialog_8xaml_8cs_source_l00030}{30}} of file \mbox{\hyperlink{_add_playlist_dialog_8xaml_8cs_source}{Add\+Playlist\+Dialog.\+xaml.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ InitializeComponent();}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_music_app_1_1_views_1_1_add_playlist_dialog_a8d1d73ecfb8462e4f4d9b8f04b1e43b3}\label{class_music_app_1_1_views_1_1_add_playlist_dialog_a8d1d73ecfb8462e4f4d9b8f04b1e43b3} 
+\index{MusicApp.Views.AddPlaylistDialog@{MusicApp.Views.AddPlaylistDialog}!Cancel\_Click@{Cancel\_Click}}
+\index{Cancel\_Click@{Cancel\_Click}!MusicApp.Views.AddPlaylistDialog@{MusicApp.Views.AddPlaylistDialog}}
+\doxysubsubsection{\texorpdfstring{Cancel\_Click()}{Cancel\_Click()}}
+{\footnotesize\ttfamily void Music\+App.\+Views.\+Add\+Playlist\+Dialog.\+Cancel\+\_\+\+Click (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Routed\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Handles the Click event of the Cancel button. Closes the dialog without saving any changes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & The source of the event.\\
+\hline
+{\em e} & The event data.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_add_playlist_dialog_8xaml_8cs_source_l00041}{41}} of file \mbox{\hyperlink{_add_playlist_dialog_8xaml_8cs_source}{Add\+Playlist\+Dialog.\+xaml.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ DialogResult\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ Close();}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_music_app_1_1_views_1_1_add_playlist_dialog_a7b0a11cb8aae485af8f12402dabda269}\label{class_music_app_1_1_views_1_1_add_playlist_dialog_a7b0a11cb8aae485af8f12402dabda269} 
+\index{MusicApp.Views.AddPlaylistDialog@{MusicApp.Views.AddPlaylistDialog}!Create\_Click@{Create\_Click}}
+\index{Create\_Click@{Create\_Click}!MusicApp.Views.AddPlaylistDialog@{MusicApp.Views.AddPlaylistDialog}}
+\doxysubsubsection{\texorpdfstring{Create\_Click()}{Create\_Click()}}
+{\footnotesize\ttfamily void Music\+App.\+Views.\+Add\+Playlist\+Dialog.\+Create\+\_\+\+Click (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Routed\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Handles the Click event of the Create button. Saves the entered playlist details and closes the dialog. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & The source of the event.\\
+\hline
+{\em e} & The event data.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_add_playlist_dialog_8xaml_8cs_source_l00053}{53}} of file \mbox{\hyperlink{_add_playlist_dialog_8xaml_8cs_source}{Add\+Playlist\+Dialog.\+xaml.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_music_app_1_1_views_1_1_add_playlist_dialog_a4ba56e5b9d1941b5080055def1d62212}{PlaylistName}}\ =\ PlaylistNameTextBox.Text;}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_music_app_1_1_views_1_1_add_playlist_dialog_a26eabde36e2c67ee564118b34310c9db}{PlaylistDescription}}\ =\ PlaylistDescriptionTextBox.Text;}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_music_app_1_1_views_1_1_add_playlist_dialog_a335bd289847d3e31656f618f268c3c6b}{PlaylistVisibility}}\ =\ ((ComboBoxItem)PlaylistVisibilityComboBox.SelectedItem).Content.ToString();}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ DialogResult\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ Close();}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_add_playlist_dialog_8xaml_8cs_source_l00020}{Music\+App.\+Views.\+Add\+Playlist\+Dialog.\+Playlist\+Description}}, \mbox{\hyperlink{_add_playlist_dialog_8xaml_8cs_source_l00015}{Music\+App.\+Views.\+Add\+Playlist\+Dialog.\+Playlist\+Name}}, and \mbox{\hyperlink{_add_playlist_dialog_8xaml_8cs_source_l00025}{Music\+App.\+Views.\+Add\+Playlist\+Dialog.\+Playlist\+Visibility}}.
+
+
+
+\doxysubsection{Property Documentation}
+\Hypertarget{class_music_app_1_1_views_1_1_add_playlist_dialog_a26eabde36e2c67ee564118b34310c9db}\label{class_music_app_1_1_views_1_1_add_playlist_dialog_a26eabde36e2c67ee564118b34310c9db} 
+\index{MusicApp.Views.AddPlaylistDialog@{MusicApp.Views.AddPlaylistDialog}!PlaylistDescription@{PlaylistDescription}}
+\index{PlaylistDescription@{PlaylistDescription}!MusicApp.Views.AddPlaylistDialog@{MusicApp.Views.AddPlaylistDialog}}
+\doxysubsubsection{\texorpdfstring{PlaylistDescription}{PlaylistDescription}}
+{\footnotesize\ttfamily string Music\+App.\+Views.\+Add\+Playlist\+Dialog.\+Playlist\+Description\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+
+
+Gets the description of the playlist entered by the user. 
+
+
+
+Definition at line \mbox{\hyperlink{_add_playlist_dialog_8xaml_8cs_source_l00020}{20}} of file \mbox{\hyperlink{_add_playlist_dialog_8xaml_8cs_source}{Add\+Playlist\+Dialog.\+xaml.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00020\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{private}\ \textcolor{keyword}{set};\ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{_add_playlist_dialog_8xaml_8cs_source_l00053}{Music\+App.\+Views.\+Add\+Playlist\+Dialog.\+Create\+\_\+\+Click()}}.
+
+\Hypertarget{class_music_app_1_1_views_1_1_add_playlist_dialog_a4ba56e5b9d1941b5080055def1d62212}\label{class_music_app_1_1_views_1_1_add_playlist_dialog_a4ba56e5b9d1941b5080055def1d62212} 
+\index{MusicApp.Views.AddPlaylistDialog@{MusicApp.Views.AddPlaylistDialog}!PlaylistName@{PlaylistName}}
+\index{PlaylistName@{PlaylistName}!MusicApp.Views.AddPlaylistDialog@{MusicApp.Views.AddPlaylistDialog}}
+\doxysubsubsection{\texorpdfstring{PlaylistName}{PlaylistName}}
+{\footnotesize\ttfamily string Music\+App.\+Views.\+Add\+Playlist\+Dialog.\+Playlist\+Name\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+
+
+Gets the name of the playlist entered by the user. 
+
+
+
+Definition at line \mbox{\hyperlink{_add_playlist_dialog_8xaml_8cs_source_l00015}{15}} of file \mbox{\hyperlink{_add_playlist_dialog_8xaml_8cs_source}{Add\+Playlist\+Dialog.\+xaml.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00015\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{private}\ \textcolor{keyword}{set};\ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{_add_playlist_dialog_8xaml_8cs_source_l00053}{Music\+App.\+Views.\+Add\+Playlist\+Dialog.\+Create\+\_\+\+Click()}}.
+
+\Hypertarget{class_music_app_1_1_views_1_1_add_playlist_dialog_a335bd289847d3e31656f618f268c3c6b}\label{class_music_app_1_1_views_1_1_add_playlist_dialog_a335bd289847d3e31656f618f268c3c6b} 
+\index{MusicApp.Views.AddPlaylistDialog@{MusicApp.Views.AddPlaylistDialog}!PlaylistVisibility@{PlaylistVisibility}}
+\index{PlaylistVisibility@{PlaylistVisibility}!MusicApp.Views.AddPlaylistDialog@{MusicApp.Views.AddPlaylistDialog}}
+\doxysubsubsection{\texorpdfstring{PlaylistVisibility}{PlaylistVisibility}}
+{\footnotesize\ttfamily string Music\+App.\+Views.\+Add\+Playlist\+Dialog.\+Playlist\+Visibility\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+
+
+Gets the visibility status of the playlist (e.\+g., Public, Private) selected by the user. 
+
+
+
+Definition at line \mbox{\hyperlink{_add_playlist_dialog_8xaml_8cs_source_l00025}{25}} of file \mbox{\hyperlink{_add_playlist_dialog_8xaml_8cs_source}{Add\+Playlist\+Dialog.\+xaml.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00025\ \{\ \textcolor{keyword}{get};\ \textcolor{keyword}{private}\ \textcolor{keyword}{set};\ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{_add_playlist_dialog_8xaml_8cs_source_l00053}{Music\+App.\+Views.\+Add\+Playlist\+Dialog.\+Create\+\_\+\+Click()}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Views/Add\+Playlist\+Dialog.\+xaml.\+cs\end{DoxyCompactItemize}

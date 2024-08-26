@@ -1,0 +1,502 @@
+\doxysection{Music\+App.\+View\+Models.\+Search\+View\+Model Class Reference}
+\hypertarget{class_music_app_1_1_view_models_1_1_search_view_model}{}\label{class_music_app_1_1_view_models_1_1_search_view_model}\index{MusicApp.ViewModels.SearchViewModel@{MusicApp.ViewModels.SearchViewModel}}
+
+
+View\+Model for handling song search functionality, interacting with the You\+Tube Music API, and managing search results.  
+
+
+Inheritance diagram for Music\+App.\+View\+Models.\+Search\+View\+Model\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_music_app_1_1_view_models_1_1_search_view_model}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_search_view_model_a8c6762ff9933a63e4ee526638513697f}{Reset\+Indices}} ()
+\begin{DoxyCompactList}\small\item\em Resets the selected song index to its default value (-\/1). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_search_view_model_af5f3f409d074b0f0d24ceecc55fac44c}{Search\+View\+Model}} (\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_main_view_model}{Main\+View\+Model}} main\+View\+Model, \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_you_tube_service}{My\+You\+Tube\+Service}} ys)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the Search\+View\+Model class. \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_search_view_model_ab6963ba98081ad6be590479897ae6b47}{Execute\+Search}} (string query)
+\begin{DoxyCompactList}\small\item\em Executes the search using the You\+Tube Music API and updates the song collection. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_base_view_model}{Music\+App.\+View\+Models.\+Base\+View\+Model}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_base_view_model_a882e4b54fd19e155fd1b457bf5633942}{Set\+Previous\+View\+Model}} (\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_base_view_model}{Base\+View\+Model}} previous\+View\+Model)
+\begin{DoxyCompactList}\small\item\em Sets the previous View\+Model for navigation purposes. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_base_view_model}{Base\+View\+Model}} \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_base_view_model_a523f9b3c5e052342c918de72450723c3}{Get\+Previous\+View\+Model}} ()
+\begin{DoxyCompactList}\small\item\em Gets the previous View\+Model for navigation purposes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_music_app_1_1_models_1_1_my_shelf}{My\+Shelf}}$<$ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{My\+Song}} $>$ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_search_view_model_a95dbae372eb2496057fe1c1c7e624669}{Songs}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets or sets the collection of songs returned by the search query. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_search_view_model_a4a8dbdd192b62b2c08b8044c9f9f4c69}{Selected\+Song\+Index}}\hspace{0.3cm}{\ttfamily  \mbox{[}set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets or sets the index of the currently selected song in the search results. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_search_view_model_ab5f41746b6c1853b19c8d54e47d9da9f}{Search\+Query}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets or sets the search query entered by the user. \end{DoxyCompactList}\item 
+ICommand \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_search_view_model_af68a5ec1a4812576082602a80d5c8173}{Search\+Command}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Command for executing the search based on the search query. \end{DoxyCompactList}\item 
+ICommand \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_search_view_model_a44fec25ede36f26b225b0cb95fc03be2}{Back\+Command}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Command for navigating back to the previous view. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+async void \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_search_view_model_a7d6c4e864dd7cf9a27fc2d9a176f3d54}{Handle\+Selected\+Song\+Index}} (int index)
+\begin{DoxyCompactList}\small\item\em Handles the selection of a song, fetching related songs and updating the player view. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_search_view_model_a205132ebe2d4ae25675a99499a84a740}{Execute\+Back}} (object parameter)
+\begin{DoxyCompactList}\small\item\em Navigates back to the previous view, clearing the continuation token. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+readonly \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_main_view_model}{Main\+View\+Model}} \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_search_view_model_a3456e9f32dc027b60efffd2cb5583a0c}{\+\_\+main\+View\+Model}}
+\item 
+readonly \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_you_tube_service}{My\+You\+Tube\+Service}} \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_search_view_model_a085a63288cab2dd4e7b808038b5d9d0c}{\+\_\+you\+Tube\+Service}}
+\item 
+\mbox{\hyperlink{class_music_app_1_1_models_1_1_my_shelf}{My\+Shelf}}$<$ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{My\+Song}} $>$ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_search_view_model_a6a80a7292815fecf1c13371bb71877f4}{\+\_\+songs}}
+\item 
+string \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_search_view_model_afc709c8a1e4214ea2e1359e657114c14}{\+\_\+search\+Query}} = string.\+Empty
+\item 
+int \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_search_view_model_ab1dd9346887b8ba4669d95e1450ba936}{\+\_\+selected\+Song\+Index}} = -\/1
+\item 
+string? \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_search_view_model_a30bab016b2b63f3509191241afd5dcf8}{\+\_\+search\+Continuation\+Token}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_base_view_model}{Music\+App.\+View\+Models.\+Base\+View\+Model}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_base_view_model_ac6bc19bc65370e11ecef50611f6f7240}{On\+Property\+Changed}} (\mbox{[}Caller\+Member\+Name\mbox{]} string property\+Name=null)
+\begin{DoxyCompactList}\small\item\em Raises the Property\+Changed event to notify the UI of a property value change. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_base_view_model_a86974cd973d8821588cd64ac33a54598}{Set\+Property$<$ T $>$}} (ref T field, T value, \mbox{[}Caller\+Member\+Name\mbox{]} string property\+Name=null)
+\begin{DoxyCompactList}\small\item\em Sets the specified property if the value is different, and raises the Property\+Changed event. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Events inherited from \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_base_view_model}{Music\+App.\+View\+Models.\+Base\+View\+Model}}}
+\begin{DoxyCompactItemize}
+\item 
+Property\+Changed\+Event\+Handler \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_base_view_model_af3c4cffe5aa7db13b074ce12a5296750}{Property\+Changed}}
+\begin{DoxyCompactList}\small\item\em Occurs when a property value changes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+View\+Model for handling song search functionality, interacting with the You\+Tube Music API, and managing search results. 
+
+Definition at line \mbox{\hyperlink{_search_view_model_8cs_source_l00019}{19}} of file \mbox{\hyperlink{_search_view_model_8cs_source}{Search\+View\+Model.\+cs}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_music_app_1_1_view_models_1_1_search_view_model_af5f3f409d074b0f0d24ceecc55fac44c}\label{class_music_app_1_1_view_models_1_1_search_view_model_af5f3f409d074b0f0d24ceecc55fac44c} 
+\index{MusicApp.ViewModels.SearchViewModel@{MusicApp.ViewModels.SearchViewModel}!SearchViewModel@{SearchViewModel}}
+\index{SearchViewModel@{SearchViewModel}!MusicApp.ViewModels.SearchViewModel@{MusicApp.ViewModels.SearchViewModel}}
+\doxysubsubsection{\texorpdfstring{SearchViewModel()}{SearchViewModel()}}
+{\footnotesize\ttfamily Music\+App.\+View\+Models.\+Search\+View\+Model.\+Search\+View\+Model (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_main_view_model}{Main\+View\+Model}}}]{main\+View\+Model,  }\item[{\mbox{\hyperlink{class_music_app_1_1_models_1_1_my_you_tube_service}{My\+You\+Tube\+Service}}}]{ys }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the Search\+View\+Model class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em main\+View\+Model} & The main view model controlling the application\textquotesingle{}s state.\\
+\hline
+{\em ys} & The You\+Tube service for interacting with the You\+Tube Music API.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_search_view_model_8cs_source_l00117}{117}} of file \mbox{\hyperlink{_search_view_model_8cs_source}{Search\+View\+Model.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \_mainViewModel\ =\ mainViewModel;}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \_youTubeService\ =\ ys;}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \_songs\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_shelf}{MyShelf<MySong>}}(\textcolor{keyword}{new}(),\ \textcolor{keyword}{null});}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_search_view_model_af68a5ec1a4812576082602a80d5c8173}{SearchCommand}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_music_app_1_1_commands_1_1_relay_command}{RelayCommand}}(async\ \_\ =>\ await\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_search_view_model_ab6963ba98081ad6be590479897ae6b47}{ExecuteSearch}}(\_searchQuery));}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_search_view_model_a44fec25ede36f26b225b0cb95fc03be2}{BackCommand}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_music_app_1_1_commands_1_1_relay_command}{RelayCommand}}(\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_search_view_model_a205132ebe2d4ae25675a99499a84a740}{ExecuteBack}});}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_search_view_model_8cs_source_l00110}{Music\+App.\+View\+Models.\+Search\+View\+Model.\+Back\+Command}}, \mbox{\hyperlink{_search_view_model_8cs_source_l00168}{Music\+App.\+View\+Models.\+Search\+View\+Model.\+Execute\+Back()}}, \mbox{\hyperlink{_search_view_model_8cs_source_l00132}{Music\+App.\+View\+Models.\+Search\+View\+Model.\+Execute\+Search()}}, and \mbox{\hyperlink{_search_view_model_8cs_source_l00105}{Music\+App.\+View\+Models.\+Search\+View\+Model.\+Search\+Command}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_music_app_1_1_view_models_1_1_search_view_model_a205132ebe2d4ae25675a99499a84a740}\label{class_music_app_1_1_view_models_1_1_search_view_model_a205132ebe2d4ae25675a99499a84a740} 
+\index{MusicApp.ViewModels.SearchViewModel@{MusicApp.ViewModels.SearchViewModel}!ExecuteBack@{ExecuteBack}}
+\index{ExecuteBack@{ExecuteBack}!MusicApp.ViewModels.SearchViewModel@{MusicApp.ViewModels.SearchViewModel}}
+\doxysubsubsection{\texorpdfstring{ExecuteBack()}{ExecuteBack()}}
+{\footnotesize\ttfamily void Music\+App.\+View\+Models.\+Search\+View\+Model.\+Execute\+Back (\begin{DoxyParamCaption}\item[{object}]{parameter }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Navigates back to the previous view, clearing the continuation token. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parameter} & Optional parameter for the command.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_search_view_model_8cs_source_l00168}{168}} of file \mbox{\hyperlink{_search_view_model_8cs_source}{Search\+View\+Model.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \_searchContinuationToken\ =\ \textcolor{keyword}{null};}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \_mainViewModel.\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_main_view_model_afdb011ceb82f937d0b0ae8715a19d693}{NavigateBack}}();}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{_search_view_model_8cs_source_l00117}{Music\+App.\+View\+Models.\+Search\+View\+Model.\+Search\+View\+Model()}}.
+
+\Hypertarget{class_music_app_1_1_view_models_1_1_search_view_model_ab6963ba98081ad6be590479897ae6b47}\label{class_music_app_1_1_view_models_1_1_search_view_model_ab6963ba98081ad6be590479897ae6b47} 
+\index{MusicApp.ViewModels.SearchViewModel@{MusicApp.ViewModels.SearchViewModel}!ExecuteSearch@{ExecuteSearch}}
+\index{ExecuteSearch@{ExecuteSearch}!MusicApp.ViewModels.SearchViewModel@{MusicApp.ViewModels.SearchViewModel}}
+\doxysubsubsection{\texorpdfstring{ExecuteSearch()}{ExecuteSearch()}}
+{\footnotesize\ttfamily async Task Music\+App.\+View\+Models.\+Search\+View\+Model.\+Execute\+Search (\begin{DoxyParamCaption}\item[{string}]{query }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Executes the search using the You\+Tube Music API and updates the song collection. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em query} & The search query entered by the user.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A task representing the asynchronous operation.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_search_view_model_8cs_source_l00132}{132}} of file \mbox{\hyperlink{_search_view_model_8cs_source}{Search\+View\+Model.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keywordtype}{string}.IsNullOrWhiteSpace(query))}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MessageBox.Show(\textcolor{stringliteral}{"{}Please\ enter\ a\ search\ query."{}});}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ shelf\ =\ await\ \_youTubeService.\mbox{\hyperlink{class_music_app_1_1_models_1_1_my_you_tube_service_a8789eb0f0e5276b2cf58e4eacfb0ed46}{FetchSongShelvesAsync}}(query,\ \_searchContinuationToken);}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (shelf\ ==\ \textcolor{keyword}{null})}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MessageBox.Show(\textcolor{stringliteral}{"{}No\ songs\ found."{}});}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_search_view_model_a95dbae372eb2496057fe1c1c7e624669}{Songs}}\ =\ shelf;}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_searchContinuationToken\ =\ shelf.ContinuationToken;}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!shelf.Items.Any())}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MessageBox.Show(\textcolor{stringliteral}{"{}No\ songs\ found."{}});}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (Exception\ ex)}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MessageBox.Show(\$\textcolor{stringliteral}{"{}An\ error\ occurred:\ \{ex.Message\}"{}});}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_my_shelf_8cs_source_l00024}{Music\+App.\+Models.\+My\+Shelf$<$ T $>$.\+Continuation\+Token}}, and \mbox{\hyperlink{_search_view_model_8cs_source_l00040}{Music\+App.\+View\+Models.\+Search\+View\+Model.\+Songs}}.
+
+
+
+Referenced by \mbox{\hyperlink{_main_view_model_8cs_source_l00132}{Music\+App.\+View\+Models.\+Main\+View\+Model.\+Search\+And\+Navigate\+Async()}}, and \mbox{\hyperlink{_search_view_model_8cs_source_l00117}{Music\+App.\+View\+Models.\+Search\+View\+Model.\+Search\+View\+Model()}}.
+
+\Hypertarget{class_music_app_1_1_view_models_1_1_search_view_model_a7d6c4e864dd7cf9a27fc2d9a176f3d54}\label{class_music_app_1_1_view_models_1_1_search_view_model_a7d6c4e864dd7cf9a27fc2d9a176f3d54} 
+\index{MusicApp.ViewModels.SearchViewModel@{MusicApp.ViewModels.SearchViewModel}!HandleSelectedSongIndex@{HandleSelectedSongIndex}}
+\index{HandleSelectedSongIndex@{HandleSelectedSongIndex}!MusicApp.ViewModels.SearchViewModel@{MusicApp.ViewModels.SearchViewModel}}
+\doxysubsubsection{\texorpdfstring{HandleSelectedSongIndex()}{HandleSelectedSongIndex()}}
+{\footnotesize\ttfamily async void Music\+App.\+View\+Models.\+Search\+View\+Model.\+Handle\+Selected\+Song\+Index (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Handles the selection of a song, fetching related songs and updating the player view. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The index of the selected song.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_search_view_model_8cs_source_l00063}{63}} of file \mbox{\hyperlink{_search_view_model_8cs_source}{Search\+View\+Model.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_search_view_model_a95dbae372eb2496057fe1c1c7e624669}{Songs}}.\mbox{\hyperlink{class_music_app_1_1_models_1_1_my_shelf_af85b914e7cc42e3d6ca7e018e3f60fbe}{Items}}.ElementAtOrDefault(index)\ is\ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{MySong}}\ song\ and\ not\ \textcolor{keyword}{null})}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ newSongs\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_shelf}{MyShelf<MySong>}}(\textcolor{keyword}{new}\ ObservableCollection<MySong>()\ \{\ song\ \},\ \textcolor{keyword}{null});}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ radioPlaylistId\ =\ await\ song.GetPlaylistIdAsync();}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ radioSongs\ =\ await\ \_mainViewModel.MyYouTubeService.\mbox{\hyperlink{class_music_app_1_1_models_1_1_my_you_tube_service_a465ed16eb7cf88a47d23ae006b907062}{FetchRadioSongsAsync}}(radioPlaylistId);}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_mainViewModel.\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_main_view_model_aadb48c652ff33ef99a57682e59537741}{ResetIndices}}();}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_mainViewModel.CurrentMusicSource\ =\ MainViewModel.MusicSource.Search;}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (radioSongs\ ==\ \textcolor{keyword}{null})}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MessageBox.Show(\textcolor{stringliteral}{"{}No\ songs\ found."{}});}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{foreach}\ (var\ item\ \textcolor{keywordflow}{in}\ radioSongs)}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ newSongs.Items.Add(item);}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_mainViewModel.PlayerViewModel.\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_player_view_model_a2646699e165de91f9e6e1522bdeb2523}{ProvidePlayerInfo}}(newSongs.Items,\ 0,\ GetInfoString(\textcolor{stringliteral}{"{}Queue"{}}));}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_mainViewModel.\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_main_view_model_a3e20cd59f781041c094aef21e939b33a}{SwitchToPlayerView}}();}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_my_shelf_8cs_source_l00019}{Music\+App.\+Models.\+My\+Shelf$<$ T $>$.\+Items}}, and \mbox{\hyperlink{_search_view_model_8cs_source_l00040}{Music\+App.\+View\+Models.\+Search\+View\+Model.\+Songs}}.
+
+\Hypertarget{class_music_app_1_1_view_models_1_1_search_view_model_a8c6762ff9933a63e4ee526638513697f}\label{class_music_app_1_1_view_models_1_1_search_view_model_a8c6762ff9933a63e4ee526638513697f} 
+\index{MusicApp.ViewModels.SearchViewModel@{MusicApp.ViewModels.SearchViewModel}!ResetIndices@{ResetIndices}}
+\index{ResetIndices@{ResetIndices}!MusicApp.ViewModels.SearchViewModel@{MusicApp.ViewModels.SearchViewModel}}
+\doxysubsubsection{\texorpdfstring{ResetIndices()}{ResetIndices()}}
+{\footnotesize\ttfamily void Music\+App.\+View\+Models.\+Search\+View\+Model.\+Reset\+Indices (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Resets the selected song index to its default value (-\/1). 
+
+
+
+Definition at line \mbox{\hyperlink{_search_view_model_8cs_source_l00031}{31}} of file \mbox{\hyperlink{_search_view_model_8cs_source}{Search\+View\+Model.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_search_view_model_a4a8dbdd192b62b2c08b8044c9f9f4c69}{SelectedSongIndex}}\ =\ -\/1;}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_search_view_model_8cs_source_l00049}{Music\+App.\+View\+Models.\+Search\+View\+Model.\+Selected\+Song\+Index}}.
+
+
+
+Referenced by \mbox{\hyperlink{_main_view_model_8cs_source_l00073}{Music\+App.\+View\+Models.\+Main\+View\+Model.\+Reset\+Indices()}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_music_app_1_1_view_models_1_1_search_view_model_a3456e9f32dc027b60efffd2cb5583a0c}\label{class_music_app_1_1_view_models_1_1_search_view_model_a3456e9f32dc027b60efffd2cb5583a0c} 
+\index{MusicApp.ViewModels.SearchViewModel@{MusicApp.ViewModels.SearchViewModel}!\_mainViewModel@{\_mainViewModel}}
+\index{\_mainViewModel@{\_mainViewModel}!MusicApp.ViewModels.SearchViewModel@{MusicApp.ViewModels.SearchViewModel}}
+\doxysubsubsection{\texorpdfstring{\_mainViewModel}{\_mainViewModel}}
+{\footnotesize\ttfamily readonly \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_main_view_model}{Main\+View\+Model}} Music\+App.\+View\+Models.\+Search\+View\+Model.\+\_\+main\+View\+Model\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_search_view_model_8cs_source_l00021}{21}} of file \mbox{\hyperlink{_search_view_model_8cs_source}{Search\+View\+Model.\+cs}}.
+
+\Hypertarget{class_music_app_1_1_view_models_1_1_search_view_model_a30bab016b2b63f3509191241afd5dcf8}\label{class_music_app_1_1_view_models_1_1_search_view_model_a30bab016b2b63f3509191241afd5dcf8} 
+\index{MusicApp.ViewModels.SearchViewModel@{MusicApp.ViewModels.SearchViewModel}!\_searchContinuationToken@{\_searchContinuationToken}}
+\index{\_searchContinuationToken@{\_searchContinuationToken}!MusicApp.ViewModels.SearchViewModel@{MusicApp.ViewModels.SearchViewModel}}
+\doxysubsubsection{\texorpdfstring{\_searchContinuationToken}{\_searchContinuationToken}}
+{\footnotesize\ttfamily string? Music\+App.\+View\+Models.\+Search\+View\+Model.\+\_\+search\+Continuation\+Token\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_search_view_model_8cs_source_l00026}{26}} of file \mbox{\hyperlink{_search_view_model_8cs_source}{Search\+View\+Model.\+cs}}.
+
+\Hypertarget{class_music_app_1_1_view_models_1_1_search_view_model_afc709c8a1e4214ea2e1359e657114c14}\label{class_music_app_1_1_view_models_1_1_search_view_model_afc709c8a1e4214ea2e1359e657114c14} 
+\index{MusicApp.ViewModels.SearchViewModel@{MusicApp.ViewModels.SearchViewModel}!\_searchQuery@{\_searchQuery}}
+\index{\_searchQuery@{\_searchQuery}!MusicApp.ViewModels.SearchViewModel@{MusicApp.ViewModels.SearchViewModel}}
+\doxysubsubsection{\texorpdfstring{\_searchQuery}{\_searchQuery}}
+{\footnotesize\ttfamily string Music\+App.\+View\+Models.\+Search\+View\+Model.\+\_\+search\+Query = string.\+Empty\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_search_view_model_8cs_source_l00024}{24}} of file \mbox{\hyperlink{_search_view_model_8cs_source}{Search\+View\+Model.\+cs}}.
+
+\Hypertarget{class_music_app_1_1_view_models_1_1_search_view_model_ab1dd9346887b8ba4669d95e1450ba936}\label{class_music_app_1_1_view_models_1_1_search_view_model_ab1dd9346887b8ba4669d95e1450ba936} 
+\index{MusicApp.ViewModels.SearchViewModel@{MusicApp.ViewModels.SearchViewModel}!\_selectedSongIndex@{\_selectedSongIndex}}
+\index{\_selectedSongIndex@{\_selectedSongIndex}!MusicApp.ViewModels.SearchViewModel@{MusicApp.ViewModels.SearchViewModel}}
+\doxysubsubsection{\texorpdfstring{\_selectedSongIndex}{\_selectedSongIndex}}
+{\footnotesize\ttfamily int Music\+App.\+View\+Models.\+Search\+View\+Model.\+\_\+selected\+Song\+Index = -\/1\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_search_view_model_8cs_source_l00025}{25}} of file \mbox{\hyperlink{_search_view_model_8cs_source}{Search\+View\+Model.\+cs}}.
+
+\Hypertarget{class_music_app_1_1_view_models_1_1_search_view_model_a6a80a7292815fecf1c13371bb71877f4}\label{class_music_app_1_1_view_models_1_1_search_view_model_a6a80a7292815fecf1c13371bb71877f4} 
+\index{MusicApp.ViewModels.SearchViewModel@{MusicApp.ViewModels.SearchViewModel}!\_songs@{\_songs}}
+\index{\_songs@{\_songs}!MusicApp.ViewModels.SearchViewModel@{MusicApp.ViewModels.SearchViewModel}}
+\doxysubsubsection{\texorpdfstring{\_songs}{\_songs}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_shelf}{My\+Shelf}}$<$\mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{My\+Song}}$>$ Music\+App.\+View\+Models.\+Search\+View\+Model.\+\_\+songs\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_search_view_model_8cs_source_l00023}{23}} of file \mbox{\hyperlink{_search_view_model_8cs_source}{Search\+View\+Model.\+cs}}.
+
+\Hypertarget{class_music_app_1_1_view_models_1_1_search_view_model_a085a63288cab2dd4e7b808038b5d9d0c}\label{class_music_app_1_1_view_models_1_1_search_view_model_a085a63288cab2dd4e7b808038b5d9d0c} 
+\index{MusicApp.ViewModels.SearchViewModel@{MusicApp.ViewModels.SearchViewModel}!\_youTubeService@{\_youTubeService}}
+\index{\_youTubeService@{\_youTubeService}!MusicApp.ViewModels.SearchViewModel@{MusicApp.ViewModels.SearchViewModel}}
+\doxysubsubsection{\texorpdfstring{\_youTubeService}{\_youTubeService}}
+{\footnotesize\ttfamily readonly \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_you_tube_service}{My\+You\+Tube\+Service}} Music\+App.\+View\+Models.\+Search\+View\+Model.\+\_\+you\+Tube\+Service\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_search_view_model_8cs_source_l00022}{22}} of file \mbox{\hyperlink{_search_view_model_8cs_source}{Search\+View\+Model.\+cs}}.
+
+
+
+\doxysubsection{Property Documentation}
+\Hypertarget{class_music_app_1_1_view_models_1_1_search_view_model_a44fec25ede36f26b225b0cb95fc03be2}\label{class_music_app_1_1_view_models_1_1_search_view_model_a44fec25ede36f26b225b0cb95fc03be2} 
+\index{MusicApp.ViewModels.SearchViewModel@{MusicApp.ViewModels.SearchViewModel}!BackCommand@{BackCommand}}
+\index{BackCommand@{BackCommand}!MusicApp.ViewModels.SearchViewModel@{MusicApp.ViewModels.SearchViewModel}}
+\doxysubsubsection{\texorpdfstring{BackCommand}{BackCommand}}
+{\footnotesize\ttfamily ICommand Music\+App.\+View\+Models.\+Search\+View\+Model.\+Back\+Command\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Command for navigating back to the previous view. 
+
+
+
+Definition at line \mbox{\hyperlink{_search_view_model_8cs_source_l00110}{110}} of file \mbox{\hyperlink{_search_view_model_8cs_source}{Search\+View\+Model.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00110\ \{\ \textcolor{keyword}{get};\ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{_search_view_model_8cs_source_l00117}{Music\+App.\+View\+Models.\+Search\+View\+Model.\+Search\+View\+Model()}}.
+
+\Hypertarget{class_music_app_1_1_view_models_1_1_search_view_model_af68a5ec1a4812576082602a80d5c8173}\label{class_music_app_1_1_view_models_1_1_search_view_model_af68a5ec1a4812576082602a80d5c8173} 
+\index{MusicApp.ViewModels.SearchViewModel@{MusicApp.ViewModels.SearchViewModel}!SearchCommand@{SearchCommand}}
+\index{SearchCommand@{SearchCommand}!MusicApp.ViewModels.SearchViewModel@{MusicApp.ViewModels.SearchViewModel}}
+\doxysubsubsection{\texorpdfstring{SearchCommand}{SearchCommand}}
+{\footnotesize\ttfamily ICommand Music\+App.\+View\+Models.\+Search\+View\+Model.\+Search\+Command\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Command for executing the search based on the search query. 
+
+
+
+Definition at line \mbox{\hyperlink{_search_view_model_8cs_source_l00105}{105}} of file \mbox{\hyperlink{_search_view_model_8cs_source}{Search\+View\+Model.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00105\ \{\ \textcolor{keyword}{get};\ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{_search_view_model_8cs_source_l00117}{Music\+App.\+View\+Models.\+Search\+View\+Model.\+Search\+View\+Model()}}, and \mbox{\hyperlink{_search_view_8xaml_8cs_source_l00027}{Music\+App.\+Views.\+Search\+View.\+Text\+Box\+\_\+\+Key\+Down()}}.
+
+\Hypertarget{class_music_app_1_1_view_models_1_1_search_view_model_ab5f41746b6c1853b19c8d54e47d9da9f}\label{class_music_app_1_1_view_models_1_1_search_view_model_ab5f41746b6c1853b19c8d54e47d9da9f} 
+\index{MusicApp.ViewModels.SearchViewModel@{MusicApp.ViewModels.SearchViewModel}!SearchQuery@{SearchQuery}}
+\index{SearchQuery@{SearchQuery}!MusicApp.ViewModels.SearchViewModel@{MusicApp.ViewModels.SearchViewModel}}
+\doxysubsubsection{\texorpdfstring{SearchQuery}{SearchQuery}}
+{\footnotesize\ttfamily string Music\+App.\+View\+Models.\+Search\+View\+Model.\+Search\+Query\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the search query entered by the user. 
+
+
+
+Definition at line \mbox{\hyperlink{_search_view_model_8cs_source_l00092}{92}} of file \mbox{\hyperlink{_search_view_model_8cs_source}{Search\+View\+Model.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{get}\ =>\ \_searchQuery;}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{set}}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SetProperty(ref\ \_searchQuery,\ value);}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_searchContinuationToken\ =\ \textcolor{keyword}{null};}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_music_app_1_1_view_models_1_1_search_view_model_a4a8dbdd192b62b2c08b8044c9f9f4c69}\label{class_music_app_1_1_view_models_1_1_search_view_model_a4a8dbdd192b62b2c08b8044c9f9f4c69} 
+\index{MusicApp.ViewModels.SearchViewModel@{MusicApp.ViewModels.SearchViewModel}!SelectedSongIndex@{SelectedSongIndex}}
+\index{SelectedSongIndex@{SelectedSongIndex}!MusicApp.ViewModels.SearchViewModel@{MusicApp.ViewModels.SearchViewModel}}
+\doxysubsubsection{\texorpdfstring{SelectedSongIndex}{SelectedSongIndex}}
+{\footnotesize\ttfamily int Music\+App.\+View\+Models.\+Search\+View\+Model.\+Selected\+Song\+Index\hspace{0.3cm}{\ttfamily [set]}}
+
+
+
+Gets or sets the index of the currently selected song in the search results. 
+
+
+
+Definition at line \mbox{\hyperlink{_search_view_model_8cs_source_l00048}{48}} of file \mbox{\hyperlink{_search_view_model_8cs_source}{Search\+View\+Model.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{set}}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (SetProperty(ref\ \_selectedSongIndex,\ value))}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_search_view_model_a7d6c4e864dd7cf9a27fc2d9a176f3d54}{HandleSelectedSongIndex}}(value);}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{_search_view_model_8cs_source_l00031}{Music\+App.\+View\+Models.\+Search\+View\+Model.\+Reset\+Indices()}}.
+
+\Hypertarget{class_music_app_1_1_view_models_1_1_search_view_model_a95dbae372eb2496057fe1c1c7e624669}\label{class_music_app_1_1_view_models_1_1_search_view_model_a95dbae372eb2496057fe1c1c7e624669} 
+\index{MusicApp.ViewModels.SearchViewModel@{MusicApp.ViewModels.SearchViewModel}!Songs@{Songs}}
+\index{Songs@{Songs}!MusicApp.ViewModels.SearchViewModel@{MusicApp.ViewModels.SearchViewModel}}
+\doxysubsubsection{\texorpdfstring{Songs}{Songs}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_shelf}{My\+Shelf}}$<$\mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{My\+Song}}$>$ Music\+App.\+View\+Models.\+Search\+View\+Model.\+Songs\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the collection of songs returned by the search query. 
+
+
+
+Definition at line \mbox{\hyperlink{_search_view_model_8cs_source_l00039}{39}} of file \mbox{\hyperlink{_search_view_model_8cs_source}{Search\+View\+Model.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{get}\ =>\ \_songs;}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{set}\ =>\ SetProperty(ref\ \_songs,\ value);}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{_search_view_model_8cs_source_l00132}{Music\+App.\+View\+Models.\+Search\+View\+Model.\+Execute\+Search()}}, and \mbox{\hyperlink{_search_view_model_8cs_source_l00063}{Music\+App.\+View\+Models.\+Search\+View\+Model.\+Handle\+Selected\+Song\+Index()}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+View\+Models/Search\+View\+Model.\+cs\end{DoxyCompactItemize}

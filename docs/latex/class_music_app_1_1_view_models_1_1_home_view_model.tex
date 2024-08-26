@@ -1,0 +1,1060 @@
+\doxysection{Music\+App.\+View\+Models.\+Home\+View\+Model Class Reference}
+\hypertarget{class_music_app_1_1_view_models_1_1_home_view_model}{}\label{class_music_app_1_1_view_models_1_1_home_view_model}\index{MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}}
+
+
+View\+Model for the Home\+View, responsible for managing playlists, popular songs, and handling user interactions.  
+
+
+Inheritance diagram for Music\+App.\+View\+Models.\+Home\+View\+Model\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_music_app_1_1_view_models_1_1_home_view_model}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a2812098461dfba0d121c358dd3e9c5be}{Reset\+Indices}} ()
+\begin{DoxyCompactList}\small\item\em Resets the selected indices for playlists and popular songs. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a906c93ccb82916486e54484d2ce63be0}{Home\+View\+Model}} (\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_main_view_model}{Main\+View\+Model}} main\+View\+Model)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the Home\+View\+Model class. \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a1e1572c8a3d0c12c613e03ca7cb4fe9c}{Handle\+Radio\+Song\+Selection}} (Observable\+Collection$<$ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{My\+Song}} $>$ Songs, int index)
+\begin{DoxyCompactList}\small\item\em Handles the selection of a radio song asynchronously. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_base_view_model}{Music\+App.\+View\+Models.\+Base\+View\+Model}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_base_view_model_a882e4b54fd19e155fd1b457bf5633942}{Set\+Previous\+View\+Model}} (\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_base_view_model}{Base\+View\+Model}} previous\+View\+Model)
+\begin{DoxyCompactList}\small\item\em Sets the previous View\+Model for navigation purposes. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_base_view_model}{Base\+View\+Model}} \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_base_view_model_a523f9b3c5e052342c918de72450723c3}{Get\+Previous\+View\+Model}} ()
+\begin{DoxyCompactList}\small\item\em Gets the previous View\+Model for navigation purposes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+readonly \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_main_view_model}{Main\+View\+Model}} \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_afd4ee3a5d4b97a83ea1dfc46b2cf7bcc}{\+\_\+main\+View\+Model}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+Observable\+Collection$<$ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{My\+Song}} $>$ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_ad809b87b445a853cd2265e882fe33500}{All\+Playlist\+Songs}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets or sets the collection of all songs from all playlists. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a778486eb9914993b5a0a7c96cd4f72d3}{Selected\+Popular\+Song\+Index}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets or sets the index of the selected popular song. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_music_app_1_1_models_1_1_my_shelf}{My\+Shelf}}$<$ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{My\+Song}} $>$ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a517c48b81be4248cb38b78ab3ef4d1d0}{Popular\+Songs}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets or sets the collection of popular songs. \end{DoxyCompactList}\item 
+Playlist \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a05f9b41caf8b472bfce15d6b8f8b4139}{Selected\+Playlist}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets or sets the selected playlist. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a78b9e95d314c3d5d9deb94b62e3d8f13}{Selected\+Playlist\+Index}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets or sets the index of the selected playlist. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a2c746061bbbd04cdf5bfa18e35548709}{Search\+Query}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets or sets the search query string. \end{DoxyCompactList}\item 
+Observable\+Collection$<$ Playlist $>$ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_ad6db3bbdf49e04dc89bd1b0ad54702b1}{Playlists}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets or sets the collection of playlists. \end{DoxyCompactList}\item 
+ICommand \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a7bc7a56bf31b974490158f93b99eb202}{Search\+Command}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\item 
+ICommand \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a1985119729aa98a8fbc8da0f39a1ecea}{Add\+Playlist\+Command}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\item 
+ICommand \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_aef755c7ffd6ee0f3ebfb59113f3c79d4}{Select\+Playlist\+Command}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\item 
+ICommand \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_ab7812029484914917c3f6f698c3aad23}{Select\+Popular\+Song\+Command}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\item 
+ICommand \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a44e360e9a448cc36e77668524944ffd6}{Delete\+Playlist\+Command}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+async void \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a9a41c1b5b5dd814ef9fc031c71f4b80d}{Load\+Data}} ()
+\begin{DoxyCompactList}\small\item\em Loads playlists and popular songs asynchronously. \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a48520be42c61e60847044bacb79c7119}{Load\+Popular\+Songs}} ()
+\begin{DoxyCompactList}\small\item\em Loads popular songs asynchronously. \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_abeb0fd43a83815e14884a68f8b6f689b}{Load\+Playlists}} ()
+\begin{DoxyCompactList}\small\item\em Loads playlists asynchronously. \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a1eb0fc493b775b5f93ab1c7f675ee1cb}{Load\+All\+Playlist\+Songs}} ()
+\begin{DoxyCompactList}\small\item\em Loads all songs from all playlists asynchronously. \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a59bf6b6a3b396342e016ffc734c46b94}{Handle\+Playlist\+Selection\+Async}} ()
+\begin{DoxyCompactList}\small\item\em Handles the selection of a playlist asynchronously. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a02fdf679f8dcc1cac512a64b5f452c49}{Handle\+Popular\+Song\+Selection}} ()
+\begin{DoxyCompactList}\small\item\em Handles the selection of a popular song. \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a0fecfdd53c8c202b8d98ef97c7b8218f}{Execute\+Search}} ()
+\begin{DoxyCompactList}\small\item\em Executes the search command asynchronously. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_af5353e55554ea04f6914ca6a002e5020}{Open\+Add\+Playlist\+Dialog}} (object parameter)
+\begin{DoxyCompactList}\small\item\em Opens the Add Playlist dialog. \end{DoxyCompactList}\item 
+async void \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a1589dd54b7887885536ae7f18c138ce6}{Add\+New\+Playlist}} (string title, string description, bool is\+Public)
+\begin{DoxyCompactList}\small\item\em Adds a new playlist asynchronously. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a4cbece0dd092a95447173564f6d9c080}{Execute\+Delete\+Playlist}} (object parameter)
+\begin{DoxyCompactList}\small\item\em Executes the delete playlist command. \end{DoxyCompactList}\item 
+async void \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a30ee54d4ed2594ccf0e94d49e5d7fef4}{Delete\+Playlist}} (Playlist playlist)
+\begin{DoxyCompactList}\small\item\em Deletes a playlist asynchronously. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a992218a3d71df44da956162fe120b54a}{\+\_\+search\+Query}} = string.\+Empty
+\item 
+Observable\+Collection$<$ Playlist $>$ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a4d99c34b4c894a44366770f309275f35}{\+\_\+playlists}} = new()
+\item 
+Playlist \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a99324c68d35815c336d2b88fb0e28744}{\+\_\+selected\+Playlist}} = new()
+\item 
+int \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_aad5ccb4e51577f820844d042e163d29b}{\+\_\+selected\+Playlist\+Index}} = -\/1
+\item 
+\mbox{\hyperlink{class_music_app_1_1_models_1_1_my_shelf}{My\+Shelf}}$<$ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{My\+Song}} $>$ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a85e54d5364d99cd4dd9f2be88b8f4e0b}{\+\_\+popular\+Songs}} = new \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_shelf}{My\+Shelf}}$<$\mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{My\+Song}}$>$(new(), null)
+\item 
+int \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a022b9245ec848e1544a753db30a9d194}{\+\_\+selected\+Popular\+Song\+Index}} = -\/1
+\item 
+string? \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_af94d2ecbece596a117fc109cf1d89770}{\+\_\+popular\+Songs\+Continuation\+Token}}
+\item 
+Observable\+Collection$<$ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{My\+Song}} $>$ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_ae5d180591e0545f2aae5c5816e5a9067}{\+\_\+all\+Playlist\+Songs}} = new()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_base_view_model}{Music\+App.\+View\+Models.\+Base\+View\+Model}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_base_view_model_ac6bc19bc65370e11ecef50611f6f7240}{On\+Property\+Changed}} (\mbox{[}Caller\+Member\+Name\mbox{]} string property\+Name=null)
+\begin{DoxyCompactList}\small\item\em Raises the Property\+Changed event to notify the UI of a property value change. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_base_view_model_a86974cd973d8821588cd64ac33a54598}{Set\+Property$<$ T $>$}} (ref T field, T value, \mbox{[}Caller\+Member\+Name\mbox{]} string property\+Name=null)
+\begin{DoxyCompactList}\small\item\em Sets the specified property if the value is different, and raises the Property\+Changed event. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Events inherited from \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_base_view_model}{Music\+App.\+View\+Models.\+Base\+View\+Model}}}
+\begin{DoxyCompactItemize}
+\item 
+Property\+Changed\+Event\+Handler \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_base_view_model_af3c4cffe5aa7db13b074ce12a5296750}{Property\+Changed}}
+\begin{DoxyCompactList}\small\item\em Occurs when a property value changes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+View\+Model for the Home\+View, responsible for managing playlists, popular songs, and handling user interactions. 
+
+Definition at line \mbox{\hyperlink{_home_view_model_8cs_source_l00017}{17}} of file \mbox{\hyperlink{_home_view_model_8cs_source}{Home\+View\+Model.\+cs}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_music_app_1_1_view_models_1_1_home_view_model_a906c93ccb82916486e54484d2ce63be0}\label{class_music_app_1_1_view_models_1_1_home_view_model_a906c93ccb82916486e54484d2ce63be0} 
+\index{MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}!HomeViewModel@{HomeViewModel}}
+\index{HomeViewModel@{HomeViewModel}!MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}}
+\doxysubsubsection{\texorpdfstring{HomeViewModel()}{HomeViewModel()}}
+{\footnotesize\ttfamily Music\+App.\+View\+Models.\+Home\+View\+Model.\+Home\+View\+Model (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_main_view_model}{Main\+View\+Model}}}]{main\+View\+Model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the Home\+View\+Model class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em main\+View\+Model} & The main View\+Model instance.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_home_view_model_8cs_source_l00122}{122}} of file \mbox{\hyperlink{_home_view_model_8cs_source}{Home\+View\+Model.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \_mainViewModel\ =\ mainViewModel;}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ SearchCommand\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_music_app_1_1_commands_1_1_relay_command}{RelayCommand}}(async\ \_\ =>\ await\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a0fecfdd53c8c202b8d98ef97c7b8218f}{ExecuteSearch}}());}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ AddPlaylistCommand\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_music_app_1_1_commands_1_1_relay_command}{RelayCommand}}(\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_af5353e55554ea04f6914ca6a002e5020}{OpenAddPlaylistDialog}});}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ SelectPlaylistCommand\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_music_app_1_1_commands_1_1_relay_command}{RelayCommand}}(async\ \_\ =>\ await\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a59bf6b6a3b396342e016ffc734c46b94}{HandlePlaylistSelectionAsync}}());}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ SelectPopularSongCommand\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_music_app_1_1_commands_1_1_relay_command}{RelayCommand}}(\_\ =>\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a02fdf679f8dcc1cac512a64b5f452c49}{HandlePopularSongSelection}}());}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ DeletePlaylistCommand\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_music_app_1_1_commands_1_1_relay_command}{RelayCommand}}(\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a4cbece0dd092a95447173564f6d9c080}{ExecuteDeletePlaylist}});}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a9a41c1b5b5dd814ef9fc031c71f4b80d}{LoadData}}();}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_home_view_model_8cs_source_l00322}{Music\+App.\+View\+Models.\+Home\+View\+Model.\+Execute\+Delete\+Playlist()}}, \mbox{\hyperlink{_home_view_model_8cs_source_l00269}{Music\+App.\+View\+Models.\+Home\+View\+Model.\+Execute\+Search()}}, \mbox{\hyperlink{_home_view_model_8cs_source_l00192}{Music\+App.\+View\+Models.\+Home\+View\+Model.\+Handle\+Playlist\+Selection\+Async()}}, \mbox{\hyperlink{_home_view_model_8cs_source_l00256}{Music\+App.\+View\+Models.\+Home\+View\+Model.\+Handle\+Popular\+Song\+Selection()}}, \mbox{\hyperlink{_home_view_model_8cs_source_l00136}{Music\+App.\+View\+Models.\+Home\+View\+Model.\+Load\+Data()}}, and \mbox{\hyperlink{_home_view_model_8cs_source_l00282}{Music\+App.\+View\+Models.\+Home\+View\+Model.\+Open\+Add\+Playlist\+Dialog()}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_music_app_1_1_view_models_1_1_home_view_model_a1589dd54b7887885536ae7f18c138ce6}\label{class_music_app_1_1_view_models_1_1_home_view_model_a1589dd54b7887885536ae7f18c138ce6} 
+\index{MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}!AddNewPlaylist@{AddNewPlaylist}}
+\index{AddNewPlaylist@{AddNewPlaylist}!MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}}
+\doxysubsubsection{\texorpdfstring{AddNewPlaylist()}{AddNewPlaylist()}}
+{\footnotesize\ttfamily async void Music\+App.\+View\+Models.\+Home\+View\+Model.\+Add\+New\+Playlist (\begin{DoxyParamCaption}\item[{string}]{title,  }\item[{string}]{description,  }\item[{bool}]{is\+Public }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Adds a new playlist asynchronously. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em title} & The title of the new playlist.\\
+\hline
+{\em description} & The description of the new playlist.\\
+\hline
+{\em is\+Public} & Indicates whether the playlist is public.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_home_view_model_8cs_source_l00297}{297}} of file \mbox{\hyperlink{_home_view_model_8cs_source}{Home\+View\+Model.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ privacyStatus\ =\ isPublic\ ?\ \textcolor{stringliteral}{"{}public"{}}\ :\ \textcolor{stringliteral}{"{}private"{}};}
+\DoxyCodeLine{00302\ }
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ await\ \_mainViewModel.MyYouTubeService.\mbox{\hyperlink{class_music_app_1_1_models_1_1_my_you_tube_service_a6bf07c8e3502346c0608697f5d11e5c0}{AddNewPlaylist}}(title,\ description,\ privacyStatus);}
+\DoxyCodeLine{00304\ }
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ await\ Task.Delay(5000);\ \textcolor{comment}{//\ Wait\ for\ the\ playlist\ to\ be\ created}}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ await\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_abeb0fd43a83815e14884a68f8b6f689b}{LoadPlaylists}}();}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (Google.GoogleApiException\ ex)}
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MessageBox.Show(\$\textcolor{stringliteral}{"{}An\ API\ error\ occurred:\ \{ex.Message\}\(\backslash\)n\{ex.Error.Message\}"{}});}
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (Exception\ ex)}
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MessageBox.Show(\$\textcolor{stringliteral}{"{}An\ error\ occurred:\ \{ex.Message\}"{}});}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_home_view_model_8cs_source_l00158}{Music\+App.\+View\+Models.\+Home\+View\+Model.\+Load\+Playlists()}}.
+
+
+
+Referenced by \mbox{\hyperlink{_home_view_model_8cs_source_l00282}{Music\+App.\+View\+Models.\+Home\+View\+Model.\+Open\+Add\+Playlist\+Dialog()}}.
+
+\Hypertarget{class_music_app_1_1_view_models_1_1_home_view_model_a30ee54d4ed2594ccf0e94d49e5d7fef4}\label{class_music_app_1_1_view_models_1_1_home_view_model_a30ee54d4ed2594ccf0e94d49e5d7fef4} 
+\index{MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}!DeletePlaylist@{DeletePlaylist}}
+\index{DeletePlaylist@{DeletePlaylist}!MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}}
+\doxysubsubsection{\texorpdfstring{DeletePlaylist()}{DeletePlaylist()}}
+{\footnotesize\ttfamily async void Music\+App.\+View\+Models.\+Home\+View\+Model.\+Delete\+Playlist (\begin{DoxyParamCaption}\item[{Playlist}]{playlist }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Deletes a playlist asynchronously. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em playlist} & The playlist to delete.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_home_view_model_8cs_source_l00338}{338}} of file \mbox{\hyperlink{_home_view_model_8cs_source}{Home\+View\+Model.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (playlist\ ==\ \textcolor{keyword}{null})}
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00344\ }
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \ \ \ \ var\ index\ =\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_ad6db3bbdf49e04dc89bd1b0ad54702b1}{Playlists}}.IndexOf(playlist);}
+\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ await\ \_mainViewModel.MyYouTubeService.\mbox{\hyperlink{class_music_app_1_1_models_1_1_my_you_tube_service_ab752689ea1f6cfddcb05d8da9c37f79d}{DeletePlaylistAsync}}(playlist.Id);}
+\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_ad6db3bbdf49e04dc89bd1b0ad54702b1}{Playlists}}.RemoveAt(index);}
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (Google.GoogleApiException\ ex)}
+\DoxyCodeLine{00352\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00353\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MessageBox.Show(\$\textcolor{stringliteral}{"{}An\ API\ error\ occurred:\ \{ex.Message\}\(\backslash\)n\{ex.Error.Message\}"{}});}
+\DoxyCodeLine{00354\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (Exception\ ex)}
+\DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MessageBox.Show(\$\textcolor{stringliteral}{"{}An\ error\ occurred:\ \{ex.Message\}"{}});}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_home_view_model_8cs_source_l00107}{Music\+App.\+View\+Models.\+Home\+View\+Model.\+Playlists}}.
+
+
+
+Referenced by \mbox{\hyperlink{_home_view_model_8cs_source_l00322}{Music\+App.\+View\+Models.\+Home\+View\+Model.\+Execute\+Delete\+Playlist()}}.
+
+\Hypertarget{class_music_app_1_1_view_models_1_1_home_view_model_a4cbece0dd092a95447173564f6d9c080}\label{class_music_app_1_1_view_models_1_1_home_view_model_a4cbece0dd092a95447173564f6d9c080} 
+\index{MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}!ExecuteDeletePlaylist@{ExecuteDeletePlaylist}}
+\index{ExecuteDeletePlaylist@{ExecuteDeletePlaylist}!MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}}
+\doxysubsubsection{\texorpdfstring{ExecuteDeletePlaylist()}{ExecuteDeletePlaylist()}}
+{\footnotesize\ttfamily void Music\+App.\+View\+Models.\+Home\+View\+Model.\+Execute\+Delete\+Playlist (\begin{DoxyParamCaption}\item[{object}]{parameter }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Executes the delete playlist command. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parameter} & The command parameter.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_home_view_model_8cs_source_l00322}{322}} of file \mbox{\hyperlink{_home_view_model_8cs_source}{Home\+View\+Model.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (parameter\ is\ Playlist\ playlist)}
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ result\ =\ MessageBox.Show(\$\textcolor{stringliteral}{"{}Are\ you\ sure\ you\ want\ to\ delete\ the\ playlist\ \(\backslash\)"{}\{playlist.Snippet.Title\}\(\backslash\)"{}?"{}},\ \textcolor{stringliteral}{"{}Confirm\ Deletion"{}},\ MessageBoxButton.YesNo,\ MessageBoxImage.Warning);}
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (result\ ==\ MessageBoxResult.Yes)}
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a30ee54d4ed2594ccf0e94d49e5d7fef4}{DeletePlaylist}}(playlist);}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_home_view_model_8cs_source_l00338}{Music\+App.\+View\+Models.\+Home\+View\+Model.\+Delete\+Playlist()}}.
+
+
+
+Referenced by \mbox{\hyperlink{_home_view_model_8cs_source_l00122}{Music\+App.\+View\+Models.\+Home\+View\+Model.\+Home\+View\+Model()}}.
+
+\Hypertarget{class_music_app_1_1_view_models_1_1_home_view_model_a0fecfdd53c8c202b8d98ef97c7b8218f}\label{class_music_app_1_1_view_models_1_1_home_view_model_a0fecfdd53c8c202b8d98ef97c7b8218f} 
+\index{MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}!ExecuteSearch@{ExecuteSearch}}
+\index{ExecuteSearch@{ExecuteSearch}!MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}}
+\doxysubsubsection{\texorpdfstring{ExecuteSearch()}{ExecuteSearch()}}
+{\footnotesize\ttfamily async Task Music\+App.\+View\+Models.\+Home\+View\+Model.\+Execute\+Search (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Executes the search command asynchronously. 
+
+
+
+Definition at line \mbox{\hyperlink{_home_view_model_8cs_source_l00269}{269}} of file \mbox{\hyperlink{_home_view_model_8cs_source}{Home\+View\+Model.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\textcolor{keywordtype}{string}.IsNullOrWhiteSpace(\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a2c746061bbbd04cdf5bfa18e35548709}{SearchQuery}}))}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_mainViewModel.SearchViewModel.SearchQuery\ =\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a2c746061bbbd04cdf5bfa18e35548709}{SearchQuery}};}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ await\ \_mainViewModel.\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_main_view_model_aee4c0f37e4090e1c347259d50bcfaef2}{SearchAndNavigateAsync}}(\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a2c746061bbbd04cdf5bfa18e35548709}{SearchQuery}});}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_home_view_model_8cs_source_l00098}{Music\+App.\+View\+Models.\+Home\+View\+Model.\+Search\+Query}}.
+
+
+
+Referenced by \mbox{\hyperlink{_home_view_model_8cs_source_l00122}{Music\+App.\+View\+Models.\+Home\+View\+Model.\+Home\+View\+Model()}}.
+
+\Hypertarget{class_music_app_1_1_view_models_1_1_home_view_model_a59bf6b6a3b396342e016ffc734c46b94}\label{class_music_app_1_1_view_models_1_1_home_view_model_a59bf6b6a3b396342e016ffc734c46b94} 
+\index{MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}!HandlePlaylistSelectionAsync@{HandlePlaylistSelectionAsync}}
+\index{HandlePlaylistSelectionAsync@{HandlePlaylistSelectionAsync}!MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}}
+\doxysubsubsection{\texorpdfstring{HandlePlaylistSelectionAsync()}{HandlePlaylistSelectionAsync()}}
+{\footnotesize\ttfamily async Task Music\+App.\+View\+Models.\+Home\+View\+Model.\+Handle\+Playlist\+Selection\+Async (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Handles the selection of a playlist asynchronously. 
+
+
+
+Definition at line \mbox{\hyperlink{_home_view_model_8cs_source_l00192}{192}} of file \mbox{\hyperlink{_home_view_model_8cs_source}{Home\+View\+Model.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_ad6db3bbdf49e04dc89bd1b0ad54702b1}{Playlists}}.ElementAtOrDefault(\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a78b9e95d314c3d5d9deb94b62e3d8f13}{SelectedPlaylistIndex}})\ is\ Playlist\ playlist)}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ playlistItems\ =\ await\ \_mainViewModel.MyYouTubeService.\mbox{\hyperlink{class_music_app_1_1_models_1_1_my_you_tube_service_a1309c3b7e94c58ce8a8c33c0cdaf2ea0}{FetchPlaylistContentAsync}}(playlist.Id);}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (playlistItems\ ==\ \textcolor{keyword}{null})}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MessageBox.Show(\textcolor{stringliteral}{"{}Failed\ to\ fetch\ playlist\ content."{}});}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (playlistItems.Count\ ==\ 0)}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MessageBox.Show(\textcolor{stringliteral}{"{}This\ playlist\ is\ empty."{}});}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_mainViewModel.\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_main_view_model_aadb48c652ff33ef99a57682e59537741}{ResetIndices}}();}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_mainViewModel.CurrentMusicSource\ =\ MainViewModel.MusicSource.Playlist;}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_mainViewModel.PlayerViewModel.\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_player_view_model_a2646699e165de91f9e6e1522bdeb2523}{ProvidePlayerInfo}}(playlistItems,\ 0,\ GetInfoString(playlist.Snippet.Title));}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_mainViewModel.\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_main_view_model_a3e20cd59f781041c094aef21e939b33a}{SwitchToPlayerView}}();}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (Exception\ ex)}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MessageBox.Show(ex.Message);}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_home_view_model_8cs_source_l00107}{Music\+App.\+View\+Models.\+Home\+View\+Model.\+Playlists}}, and \mbox{\hyperlink{_home_view_model_8cs_source_l00082}{Music\+App.\+View\+Models.\+Home\+View\+Model.\+Selected\+Playlist\+Index}}.
+
+
+
+Referenced by \mbox{\hyperlink{_home_view_model_8cs_source_l00122}{Music\+App.\+View\+Models.\+Home\+View\+Model.\+Home\+View\+Model()}}.
+
+\Hypertarget{class_music_app_1_1_view_models_1_1_home_view_model_a02fdf679f8dcc1cac512a64b5f452c49}\label{class_music_app_1_1_view_models_1_1_home_view_model_a02fdf679f8dcc1cac512a64b5f452c49} 
+\index{MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}!HandlePopularSongSelection@{HandlePopularSongSelection}}
+\index{HandlePopularSongSelection@{HandlePopularSongSelection}!MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}}
+\doxysubsubsection{\texorpdfstring{HandlePopularSongSelection()}{HandlePopularSongSelection()}}
+{\footnotesize\ttfamily void Music\+App.\+View\+Models.\+Home\+View\+Model.\+Handle\+Popular\+Song\+Selection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Handles the selection of a popular song. 
+
+
+
+Definition at line \mbox{\hyperlink{_home_view_model_8cs_source_l00256}{256}} of file \mbox{\hyperlink{_home_view_model_8cs_source}{Home\+View\+Model.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a517c48b81be4248cb38b78ab3ef4d1d0}{PopularSongs}}.\mbox{\hyperlink{class_music_app_1_1_models_1_1_my_shelf_af85b914e7cc42e3d6ca7e018e3f60fbe}{Items}}.ElementAtOrDefault(\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a778486eb9914993b5a0a7c96cd4f72d3}{SelectedPopularSongIndex}})\ is\ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{MySong}}\ song)}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_mainViewModel.CurrentMusicSource\ =\ MainViewModel.MusicSource.Popular;}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_mainViewModel.PlayerViewModel.\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_player_view_model_a2646699e165de91f9e6e1522bdeb2523}{ProvidePlayerInfo}}(\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a517c48b81be4248cb38b78ab3ef4d1d0}{PopularSongs}}.\mbox{\hyperlink{class_music_app_1_1_models_1_1_my_shelf_af85b914e7cc42e3d6ca7e018e3f60fbe}{Items}},\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a778486eb9914993b5a0a7c96cd4f72d3}{SelectedPopularSongIndex}},\ GetInfoString(\textcolor{stringliteral}{"{}Popular\ Songs"{}}),\ \_popularSongsContinuationToken);}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_mainViewModel.\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_main_view_model_a3e20cd59f781041c094aef21e939b33a}{SwitchToPlayerView}}();}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_my_shelf_8cs_source_l00019}{Music\+App.\+Models.\+My\+Shelf$<$ T $>$.\+Items}}, \mbox{\hyperlink{_home_view_model_8cs_source_l00064}{Music\+App.\+View\+Models.\+Home\+View\+Model.\+Popular\+Songs}}, and \mbox{\hyperlink{_home_view_model_8cs_source_l00052}{Music\+App.\+View\+Models.\+Home\+View\+Model.\+Selected\+Popular\+Song\+Index}}.
+
+
+
+Referenced by \mbox{\hyperlink{_home_view_model_8cs_source_l00122}{Music\+App.\+View\+Models.\+Home\+View\+Model.\+Home\+View\+Model()}}.
+
+\Hypertarget{class_music_app_1_1_view_models_1_1_home_view_model_a1e1572c8a3d0c12c613e03ca7cb4fe9c}\label{class_music_app_1_1_view_models_1_1_home_view_model_a1e1572c8a3d0c12c613e03ca7cb4fe9c} 
+\index{MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}!HandleRadioSongSelection@{HandleRadioSongSelection}}
+\index{HandleRadioSongSelection@{HandleRadioSongSelection}!MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}}
+\doxysubsubsection{\texorpdfstring{HandleRadioSongSelection()}{HandleRadioSongSelection()}}
+{\footnotesize\ttfamily async Task Music\+App.\+View\+Models.\+Home\+View\+Model.\+Handle\+Radio\+Song\+Selection (\begin{DoxyParamCaption}\item[{Observable\+Collection$<$ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{My\+Song}} $>$}]{Songs,  }\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Handles the selection of a radio song asynchronously. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Songs} & The collection of songs to play.\\
+\hline
+{\em index} & The index of the selected song.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_home_view_model_8cs_source_l00227}{227}} of file \mbox{\hyperlink{_home_view_model_8cs_source}{Home\+View\+Model.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Songs.ElementAtOrDefault(index)\ is\ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{MySong}}\ song\ and\ not\ \textcolor{keyword}{null})}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ newSongs\ =\ \textcolor{keyword}{new}\ ObservableCollection<MySong>()\ \{\ song\ \};}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ radioPlaylistId\ =\ await\ song.GetPlaylistIdAsync();}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ radioSongs\ =\ await\ \_mainViewModel.MyYouTubeService.\mbox{\hyperlink{class_music_app_1_1_models_1_1_my_you_tube_service_a465ed16eb7cf88a47d23ae006b907062}{FetchRadioSongsAsync}}(radioPlaylistId);}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_mainViewModel.\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_main_view_model_aadb48c652ff33ef99a57682e59537741}{ResetIndices}}();}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_mainViewModel.CurrentMusicSource\ =\ MainViewModel.MusicSource.Search;}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (radioSongs\ ==\ \textcolor{keyword}{null})}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MessageBox.Show(\textcolor{stringliteral}{"{}No\ songs\ found."{}});}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00242\ }
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{foreach}\ (var\ item\ \textcolor{keywordflow}{in}\ radioSongs)}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ newSongs.Add(item);}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00247\ }
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_mainViewModel.PlayerViewModel.\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_player_view_model_a2646699e165de91f9e6e1522bdeb2523}{ProvidePlayerInfo}}(newSongs,\ 0,\ GetInfoString(\$\textcolor{stringliteral}{"{}Radio\ \{song.Name\}"{}}));}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_mainViewModel.\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_main_view_model_a3e20cd59f781041c094aef21e939b33a}{SwitchToPlayerView}}();}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{_home_view_8xaml_8cs_source_l00070}{Music\+App.\+Views.\+Home\+View.\+Radio\+Song\+List\+Box\+Command()}}.
+
+\Hypertarget{class_music_app_1_1_view_models_1_1_home_view_model_a1eb0fc493b775b5f93ab1c7f675ee1cb}\label{class_music_app_1_1_view_models_1_1_home_view_model_a1eb0fc493b775b5f93ab1c7f675ee1cb} 
+\index{MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}!LoadAllPlaylistSongs@{LoadAllPlaylistSongs}}
+\index{LoadAllPlaylistSongs@{LoadAllPlaylistSongs}!MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}}
+\doxysubsubsection{\texorpdfstring{LoadAllPlaylistSongs()}{LoadAllPlaylistSongs()}}
+{\footnotesize\ttfamily async Task Music\+App.\+View\+Models.\+Home\+View\+Model.\+Load\+All\+Playlist\+Songs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Loads all songs from all playlists asynchronously. 
+
+
+
+Definition at line \mbox{\hyperlink{_home_view_model_8cs_source_l00167}{167}} of file \mbox{\hyperlink{_home_view_model_8cs_source}{Home\+View\+Model.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ var\ allSongs\ =\ \textcolor{keyword}{new}\ ObservableCollection<MySong>();}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ var\ tasks\ =\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_ad6db3bbdf49e04dc89bd1b0ad54702b1}{Playlists}}.Select(async\ playlist\ =>}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ playlistItems\ =\ await\ \_mainViewModel.MyYouTubeService.\mbox{\hyperlink{class_music_app_1_1_models_1_1_my_you_tube_service_a1309c3b7e94c58ce8a8c33c0cdaf2ea0}{FetchPlaylistContentAsync}}(playlist.Id);}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (playlistItems\ !=\ \textcolor{keyword}{null})}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{foreach}\ (var\ song\ \textcolor{keywordflow}{in}\ playlistItems)}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Application.Current.Dispatcher.Invoke(()\ =>\ allSongs.Add(song));}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_mainViewModel.SongDatabase?.\mbox{\hyperlink{class_song_database_a0b5c5f3d9930ea7a0c05aa1d5de7139c}{InsertSong}}(song.Id);}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ await\ Task.WhenAll(tasks);}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_ad809b87b445a853cd2265e882fe33500}{AllPlaylistSongs}}\ =\ allSongs;}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_home_view_model_8cs_source_l00034}{Music\+App.\+View\+Models.\+Home\+View\+Model.\+All\+Playlist\+Songs}}, and \mbox{\hyperlink{_home_view_model_8cs_source_l00107}{Music\+App.\+View\+Models.\+Home\+View\+Model.\+Playlists}}.
+
+
+
+Referenced by \mbox{\hyperlink{_home_view_model_8cs_source_l00136}{Music\+App.\+View\+Models.\+Home\+View\+Model.\+Load\+Data()}}.
+
+\Hypertarget{class_music_app_1_1_view_models_1_1_home_view_model_a9a41c1b5b5dd814ef9fc031c71f4b80d}\label{class_music_app_1_1_view_models_1_1_home_view_model_a9a41c1b5b5dd814ef9fc031c71f4b80d} 
+\index{MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}!LoadData@{LoadData}}
+\index{LoadData@{LoadData}!MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}}
+\doxysubsubsection{\texorpdfstring{LoadData()}{LoadData()}}
+{\footnotesize\ttfamily async void Music\+App.\+View\+Models.\+Home\+View\+Model.\+Load\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Loads playlists and popular songs asynchronously. 
+
+
+
+Definition at line \mbox{\hyperlink{_home_view_model_8cs_source_l00136}{136}} of file \mbox{\hyperlink{_home_view_model_8cs_source}{Home\+View\+Model.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ var\ loadPlaylistsTask\ =\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_abeb0fd43a83815e14884a68f8b6f689b}{LoadPlaylists}}();}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ var\ loadPopularSongsTask\ =\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a48520be42c61e60847044bacb79c7119}{LoadPopularSongs}}();}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Start\ loading\ both\ playlists\ and\ popular\ songs\ concurrently}}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ await\ Task.WhenAll(loadPlaylistsTask,\ loadPopularSongsTask);}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ await\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a1eb0fc493b775b5f93ab1c7f675ee1cb}{LoadAllPlaylistSongs}}();}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_home_view_model_8cs_source_l00167}{Music\+App.\+View\+Models.\+Home\+View\+Model.\+Load\+All\+Playlist\+Songs()}}, \mbox{\hyperlink{_home_view_model_8cs_source_l00158}{Music\+App.\+View\+Models.\+Home\+View\+Model.\+Load\+Playlists()}}, and \mbox{\hyperlink{_home_view_model_8cs_source_l00149}{Music\+App.\+View\+Models.\+Home\+View\+Model.\+Load\+Popular\+Songs()}}.
+
+
+
+Referenced by \mbox{\hyperlink{_home_view_model_8cs_source_l00122}{Music\+App.\+View\+Models.\+Home\+View\+Model.\+Home\+View\+Model()}}.
+
+\Hypertarget{class_music_app_1_1_view_models_1_1_home_view_model_abeb0fd43a83815e14884a68f8b6f689b}\label{class_music_app_1_1_view_models_1_1_home_view_model_abeb0fd43a83815e14884a68f8b6f689b} 
+\index{MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}!LoadPlaylists@{LoadPlaylists}}
+\index{LoadPlaylists@{LoadPlaylists}!MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}}
+\doxysubsubsection{\texorpdfstring{LoadPlaylists()}{LoadPlaylists()}}
+{\footnotesize\ttfamily async Task Music\+App.\+View\+Models.\+Home\+View\+Model.\+Load\+Playlists (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Loads playlists asynchronously. 
+
+
+
+Definition at line \mbox{\hyperlink{_home_view_model_8cs_source_l00158}{158}} of file \mbox{\hyperlink{_home_view_model_8cs_source}{Home\+View\+Model.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ var\ playlists\ =\ await\ \_mainViewModel.MyYouTubeService.\mbox{\hyperlink{class_music_app_1_1_models_1_1_my_you_tube_service_a28a88ac12789212fff6c7dd5a7bd8c78}{FetchAllPlaylistsAsync}}();}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_ad6db3bbdf49e04dc89bd1b0ad54702b1}{Playlists}}\ =\ playlists;}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_home_view_model_8cs_source_l00107}{Music\+App.\+View\+Models.\+Home\+View\+Model.\+Playlists}}.
+
+
+
+Referenced by \mbox{\hyperlink{_home_view_model_8cs_source_l00297}{Music\+App.\+View\+Models.\+Home\+View\+Model.\+Add\+New\+Playlist()}}, and \mbox{\hyperlink{_home_view_model_8cs_source_l00136}{Music\+App.\+View\+Models.\+Home\+View\+Model.\+Load\+Data()}}.
+
+\Hypertarget{class_music_app_1_1_view_models_1_1_home_view_model_a48520be42c61e60847044bacb79c7119}\label{class_music_app_1_1_view_models_1_1_home_view_model_a48520be42c61e60847044bacb79c7119} 
+\index{MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}!LoadPopularSongs@{LoadPopularSongs}}
+\index{LoadPopularSongs@{LoadPopularSongs}!MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}}
+\doxysubsubsection{\texorpdfstring{LoadPopularSongs()}{LoadPopularSongs()}}
+{\footnotesize\ttfamily async Task Music\+App.\+View\+Models.\+Home\+View\+Model.\+Load\+Popular\+Songs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Loads popular songs asynchronously. 
+
+
+
+Definition at line \mbox{\hyperlink{_home_view_model_8cs_source_l00149}{149}} of file \mbox{\hyperlink{_home_view_model_8cs_source}{Home\+View\+Model.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ var\ popularSongs\ =\ await\ \_mainViewModel.MyYouTubeService.\mbox{\hyperlink{class_music_app_1_1_models_1_1_my_you_tube_service_a4c24bd643c1c277ef09ea5d9b2d8f0d4}{FetchPopularSongsAsync}}(\textcolor{keyword}{null});}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a517c48b81be4248cb38b78ab3ef4d1d0}{PopularSongs}}\ =\ popularSongs;}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_home_view_model_8cs_source_l00064}{Music\+App.\+View\+Models.\+Home\+View\+Model.\+Popular\+Songs}}.
+
+
+
+Referenced by \mbox{\hyperlink{_home_view_model_8cs_source_l00136}{Music\+App.\+View\+Models.\+Home\+View\+Model.\+Load\+Data()}}.
+
+\Hypertarget{class_music_app_1_1_view_models_1_1_home_view_model_af5353e55554ea04f6914ca6a002e5020}\label{class_music_app_1_1_view_models_1_1_home_view_model_af5353e55554ea04f6914ca6a002e5020} 
+\index{MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}!OpenAddPlaylistDialog@{OpenAddPlaylistDialog}}
+\index{OpenAddPlaylistDialog@{OpenAddPlaylistDialog}!MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}}
+\doxysubsubsection{\texorpdfstring{OpenAddPlaylistDialog()}{OpenAddPlaylistDialog()}}
+{\footnotesize\ttfamily void Music\+App.\+View\+Models.\+Home\+View\+Model.\+Open\+Add\+Playlist\+Dialog (\begin{DoxyParamCaption}\item[{object}]{parameter }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Opens the Add Playlist dialog. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parameter} & The command parameter.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_home_view_model_8cs_source_l00282}{282}} of file \mbox{\hyperlink{_home_view_model_8cs_source}{Home\+View\+Model.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \ \ \ \ var\ dialog\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_music_app_1_1_views_1_1_add_playlist_dialog}{AddPlaylistDialog}}();}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dialog.ShowDialog()\ ==\ \textcolor{keyword}{true})}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a1589dd54b7887885536ae7f18c138ce6}{AddNewPlaylist}}(dialog.PlaylistName,\ dialog.PlaylistDescription,\ dialog.PlaylistVisibility\ ==\ \textcolor{stringliteral}{"{}Public"{}});}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_home_view_model_8cs_source_l00297}{Music\+App.\+View\+Models.\+Home\+View\+Model.\+Add\+New\+Playlist()}}.
+
+
+
+Referenced by \mbox{\hyperlink{_home_view_model_8cs_source_l00122}{Music\+App.\+View\+Models.\+Home\+View\+Model.\+Home\+View\+Model()}}.
+
+\Hypertarget{class_music_app_1_1_view_models_1_1_home_view_model_a2812098461dfba0d121c358dd3e9c5be}\label{class_music_app_1_1_view_models_1_1_home_view_model_a2812098461dfba0d121c358dd3e9c5be} 
+\index{MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}!ResetIndices@{ResetIndices}}
+\index{ResetIndices@{ResetIndices}!MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}}
+\doxysubsubsection{\texorpdfstring{ResetIndices()}{ResetIndices()}}
+{\footnotesize\ttfamily void Music\+App.\+View\+Models.\+Home\+View\+Model.\+Reset\+Indices (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Resets the selected indices for playlists and popular songs. 
+
+
+
+Definition at line \mbox{\hyperlink{_home_view_model_8cs_source_l00042}{42}} of file \mbox{\hyperlink{_home_view_model_8cs_source}{Home\+View\+Model.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a78b9e95d314c3d5d9deb94b62e3d8f13}{SelectedPlaylistIndex}}\ =\ -\/1;}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a778486eb9914993b5a0a7c96cd4f72d3}{SelectedPopularSongIndex}}\ =\ -\/1;}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_home_view_model_8cs_source_l00082}{Music\+App.\+View\+Models.\+Home\+View\+Model.\+Selected\+Playlist\+Index}}, and \mbox{\hyperlink{_home_view_model_8cs_source_l00052}{Music\+App.\+View\+Models.\+Home\+View\+Model.\+Selected\+Popular\+Song\+Index}}.
+
+
+
+Referenced by \mbox{\hyperlink{_main_view_model_8cs_source_l00073}{Music\+App.\+View\+Models.\+Main\+View\+Model.\+Reset\+Indices()}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_music_app_1_1_view_models_1_1_home_view_model_ae5d180591e0545f2aae5c5816e5a9067}\label{class_music_app_1_1_view_models_1_1_home_view_model_ae5d180591e0545f2aae5c5816e5a9067} 
+\index{MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}!\_allPlaylistSongs@{\_allPlaylistSongs}}
+\index{\_allPlaylistSongs@{\_allPlaylistSongs}!MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}}
+\doxysubsubsection{\texorpdfstring{\_allPlaylistSongs}{\_allPlaylistSongs}}
+{\footnotesize\ttfamily Observable\+Collection$<$\mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{My\+Song}}$>$ Music\+App.\+View\+Models.\+Home\+View\+Model.\+\_\+all\+Playlist\+Songs = new()\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_home_view_model_8cs_source_l00028}{28}} of file \mbox{\hyperlink{_home_view_model_8cs_source}{Home\+View\+Model.\+cs}}.
+
+\Hypertarget{class_music_app_1_1_view_models_1_1_home_view_model_afd4ee3a5d4b97a83ea1dfc46b2cf7bcc}\label{class_music_app_1_1_view_models_1_1_home_view_model_afd4ee3a5d4b97a83ea1dfc46b2cf7bcc} 
+\index{MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}!\_mainViewModel@{\_mainViewModel}}
+\index{\_mainViewModel@{\_mainViewModel}!MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}}
+\doxysubsubsection{\texorpdfstring{\_mainViewModel}{\_mainViewModel}}
+{\footnotesize\ttfamily readonly \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_main_view_model}{Main\+View\+Model}} Music\+App.\+View\+Models.\+Home\+View\+Model.\+\_\+main\+View\+Model}
+
+
+
+Definition at line \mbox{\hyperlink{_home_view_model_8cs_source_l00019}{19}} of file \mbox{\hyperlink{_home_view_model_8cs_source}{Home\+View\+Model.\+cs}}.
+
+\Hypertarget{class_music_app_1_1_view_models_1_1_home_view_model_a4d99c34b4c894a44366770f309275f35}\label{class_music_app_1_1_view_models_1_1_home_view_model_a4d99c34b4c894a44366770f309275f35} 
+\index{MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}!\_playlists@{\_playlists}}
+\index{\_playlists@{\_playlists}!MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}}
+\doxysubsubsection{\texorpdfstring{\_playlists}{\_playlists}}
+{\footnotesize\ttfamily Observable\+Collection$<$Playlist$>$ Music\+App.\+View\+Models.\+Home\+View\+Model.\+\_\+playlists = new()\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_home_view_model_8cs_source_l00021}{21}} of file \mbox{\hyperlink{_home_view_model_8cs_source}{Home\+View\+Model.\+cs}}.
+
+\Hypertarget{class_music_app_1_1_view_models_1_1_home_view_model_a85e54d5364d99cd4dd9f2be88b8f4e0b}\label{class_music_app_1_1_view_models_1_1_home_view_model_a85e54d5364d99cd4dd9f2be88b8f4e0b} 
+\index{MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}!\_popularSongs@{\_popularSongs}}
+\index{\_popularSongs@{\_popularSongs}!MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}}
+\doxysubsubsection{\texorpdfstring{\_popularSongs}{\_popularSongs}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_shelf}{My\+Shelf}}$<$\mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{My\+Song}}$>$ Music\+App.\+View\+Models.\+Home\+View\+Model.\+\_\+popular\+Songs = new \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_shelf}{My\+Shelf}}$<$\mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{My\+Song}}$>$(new(), null)\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_home_view_model_8cs_source_l00024}{24}} of file \mbox{\hyperlink{_home_view_model_8cs_source}{Home\+View\+Model.\+cs}}.
+
+\Hypertarget{class_music_app_1_1_view_models_1_1_home_view_model_af94d2ecbece596a117fc109cf1d89770}\label{class_music_app_1_1_view_models_1_1_home_view_model_af94d2ecbece596a117fc109cf1d89770} 
+\index{MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}!\_popularSongsContinuationToken@{\_popularSongsContinuationToken}}
+\index{\_popularSongsContinuationToken@{\_popularSongsContinuationToken}!MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}}
+\doxysubsubsection{\texorpdfstring{\_popularSongsContinuationToken}{\_popularSongsContinuationToken}}
+{\footnotesize\ttfamily string? Music\+App.\+View\+Models.\+Home\+View\+Model.\+\_\+popular\+Songs\+Continuation\+Token\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_home_view_model_8cs_source_l00026}{26}} of file \mbox{\hyperlink{_home_view_model_8cs_source}{Home\+View\+Model.\+cs}}.
+
+\Hypertarget{class_music_app_1_1_view_models_1_1_home_view_model_a992218a3d71df44da956162fe120b54a}\label{class_music_app_1_1_view_models_1_1_home_view_model_a992218a3d71df44da956162fe120b54a} 
+\index{MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}!\_searchQuery@{\_searchQuery}}
+\index{\_searchQuery@{\_searchQuery}!MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}}
+\doxysubsubsection{\texorpdfstring{\_searchQuery}{\_searchQuery}}
+{\footnotesize\ttfamily string Music\+App.\+View\+Models.\+Home\+View\+Model.\+\_\+search\+Query = string.\+Empty\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_home_view_model_8cs_source_l00020}{20}} of file \mbox{\hyperlink{_home_view_model_8cs_source}{Home\+View\+Model.\+cs}}.
+
+\Hypertarget{class_music_app_1_1_view_models_1_1_home_view_model_a99324c68d35815c336d2b88fb0e28744}\label{class_music_app_1_1_view_models_1_1_home_view_model_a99324c68d35815c336d2b88fb0e28744} 
+\index{MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}!\_selectedPlaylist@{\_selectedPlaylist}}
+\index{\_selectedPlaylist@{\_selectedPlaylist}!MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}}
+\doxysubsubsection{\texorpdfstring{\_selectedPlaylist}{\_selectedPlaylist}}
+{\footnotesize\ttfamily Playlist Music\+App.\+View\+Models.\+Home\+View\+Model.\+\_\+selected\+Playlist = new()\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_home_view_model_8cs_source_l00022}{22}} of file \mbox{\hyperlink{_home_view_model_8cs_source}{Home\+View\+Model.\+cs}}.
+
+\Hypertarget{class_music_app_1_1_view_models_1_1_home_view_model_aad5ccb4e51577f820844d042e163d29b}\label{class_music_app_1_1_view_models_1_1_home_view_model_aad5ccb4e51577f820844d042e163d29b} 
+\index{MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}!\_selectedPlaylistIndex@{\_selectedPlaylistIndex}}
+\index{\_selectedPlaylistIndex@{\_selectedPlaylistIndex}!MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}}
+\doxysubsubsection{\texorpdfstring{\_selectedPlaylistIndex}{\_selectedPlaylistIndex}}
+{\footnotesize\ttfamily int Music\+App.\+View\+Models.\+Home\+View\+Model.\+\_\+selected\+Playlist\+Index = -\/1\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_home_view_model_8cs_source_l00023}{23}} of file \mbox{\hyperlink{_home_view_model_8cs_source}{Home\+View\+Model.\+cs}}.
+
+\Hypertarget{class_music_app_1_1_view_models_1_1_home_view_model_a022b9245ec848e1544a753db30a9d194}\label{class_music_app_1_1_view_models_1_1_home_view_model_a022b9245ec848e1544a753db30a9d194} 
+\index{MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}!\_selectedPopularSongIndex@{\_selectedPopularSongIndex}}
+\index{\_selectedPopularSongIndex@{\_selectedPopularSongIndex}!MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}}
+\doxysubsubsection{\texorpdfstring{\_selectedPopularSongIndex}{\_selectedPopularSongIndex}}
+{\footnotesize\ttfamily int Music\+App.\+View\+Models.\+Home\+View\+Model.\+\_\+selected\+Popular\+Song\+Index = -\/1\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_home_view_model_8cs_source_l00025}{25}} of file \mbox{\hyperlink{_home_view_model_8cs_source}{Home\+View\+Model.\+cs}}.
+
+
+
+\doxysubsection{Property Documentation}
+\Hypertarget{class_music_app_1_1_view_models_1_1_home_view_model_a1985119729aa98a8fbc8da0f39a1ecea}\label{class_music_app_1_1_view_models_1_1_home_view_model_a1985119729aa98a8fbc8da0f39a1ecea} 
+\index{MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}!AddPlaylistCommand@{AddPlaylistCommand}}
+\index{AddPlaylistCommand@{AddPlaylistCommand}!MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}}
+\doxysubsubsection{\texorpdfstring{AddPlaylistCommand}{AddPlaylistCommand}}
+{\footnotesize\ttfamily ICommand Music\+App.\+View\+Models.\+Home\+View\+Model.\+Add\+Playlist\+Command\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Definition at line \mbox{\hyperlink{_home_view_model_8cs_source_l00113}{113}} of file \mbox{\hyperlink{_home_view_model_8cs_source}{Home\+View\+Model.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00113\ \{\ \textcolor{keyword}{get};\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_music_app_1_1_view_models_1_1_home_view_model_ad809b87b445a853cd2265e882fe33500}\label{class_music_app_1_1_view_models_1_1_home_view_model_ad809b87b445a853cd2265e882fe33500} 
+\index{MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}!AllPlaylistSongs@{AllPlaylistSongs}}
+\index{AllPlaylistSongs@{AllPlaylistSongs}!MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}}
+\doxysubsubsection{\texorpdfstring{AllPlaylistSongs}{AllPlaylistSongs}}
+{\footnotesize\ttfamily Observable\+Collection$<$\mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{My\+Song}}$>$ Music\+App.\+View\+Models.\+Home\+View\+Model.\+All\+Playlist\+Songs\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the collection of all songs from all playlists. 
+
+
+
+Definition at line \mbox{\hyperlink{_home_view_model_8cs_source_l00033}{33}} of file \mbox{\hyperlink{_home_view_model_8cs_source}{Home\+View\+Model.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{get}\ =>\ \_allPlaylistSongs;}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{set}\ =>\ SetProperty(ref\ \_allPlaylistSongs,\ value);}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{_home_view_model_8cs_source_l00167}{Music\+App.\+View\+Models.\+Home\+View\+Model.\+Load\+All\+Playlist\+Songs()}}.
+
+\Hypertarget{class_music_app_1_1_view_models_1_1_home_view_model_a44e360e9a448cc36e77668524944ffd6}\label{class_music_app_1_1_view_models_1_1_home_view_model_a44e360e9a448cc36e77668524944ffd6} 
+\index{MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}!DeletePlaylistCommand@{DeletePlaylistCommand}}
+\index{DeletePlaylistCommand@{DeletePlaylistCommand}!MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}}
+\doxysubsubsection{\texorpdfstring{DeletePlaylistCommand}{DeletePlaylistCommand}}
+{\footnotesize\ttfamily ICommand Music\+App.\+View\+Models.\+Home\+View\+Model.\+Delete\+Playlist\+Command\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Definition at line \mbox{\hyperlink{_home_view_model_8cs_source_l00116}{116}} of file \mbox{\hyperlink{_home_view_model_8cs_source}{Home\+View\+Model.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00116\ \{\ \textcolor{keyword}{get};\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_music_app_1_1_view_models_1_1_home_view_model_ad6db3bbdf49e04dc89bd1b0ad54702b1}\label{class_music_app_1_1_view_models_1_1_home_view_model_ad6db3bbdf49e04dc89bd1b0ad54702b1} 
+\index{MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}!Playlists@{Playlists}}
+\index{Playlists@{Playlists}!MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}}
+\doxysubsubsection{\texorpdfstring{Playlists}{Playlists}}
+{\footnotesize\ttfamily Observable\+Collection$<$Playlist$>$ Music\+App.\+View\+Models.\+Home\+View\+Model.\+Playlists\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the collection of playlists. 
+
+
+
+Definition at line \mbox{\hyperlink{_home_view_model_8cs_source_l00106}{106}} of file \mbox{\hyperlink{_home_view_model_8cs_source}{Home\+View\+Model.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{get}\ =>\ \_playlists;}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{set}\ =>\ SetProperty(ref\ \_playlists,\ value);}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{_home_view_model_8cs_source_l00338}{Music\+App.\+View\+Models.\+Home\+View\+Model.\+Delete\+Playlist()}}, \mbox{\hyperlink{_home_view_model_8cs_source_l00192}{Music\+App.\+View\+Models.\+Home\+View\+Model.\+Handle\+Playlist\+Selection\+Async()}}, \mbox{\hyperlink{_home_view_model_8cs_source_l00167}{Music\+App.\+View\+Models.\+Home\+View\+Model.\+Load\+All\+Playlist\+Songs()}}, and \mbox{\hyperlink{_home_view_model_8cs_source_l00158}{Music\+App.\+View\+Models.\+Home\+View\+Model.\+Load\+Playlists()}}.
+
+\Hypertarget{class_music_app_1_1_view_models_1_1_home_view_model_a517c48b81be4248cb38b78ab3ef4d1d0}\label{class_music_app_1_1_view_models_1_1_home_view_model_a517c48b81be4248cb38b78ab3ef4d1d0} 
+\index{MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}!PopularSongs@{PopularSongs}}
+\index{PopularSongs@{PopularSongs}!MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}}
+\doxysubsubsection{\texorpdfstring{PopularSongs}{PopularSongs}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_shelf}{My\+Shelf}}$<$\mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{My\+Song}}$>$ Music\+App.\+View\+Models.\+Home\+View\+Model.\+Popular\+Songs\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the collection of popular songs. 
+
+
+
+Definition at line \mbox{\hyperlink{_home_view_model_8cs_source_l00063}{63}} of file \mbox{\hyperlink{_home_view_model_8cs_source}{Home\+View\+Model.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{get}\ =>\ \_popularSongs;}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{set}\ =>\ SetProperty(ref\ \_popularSongs,\ value);}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{_home_view_model_8cs_source_l00256}{Music\+App.\+View\+Models.\+Home\+View\+Model.\+Handle\+Popular\+Song\+Selection()}}, and \mbox{\hyperlink{_home_view_model_8cs_source_l00149}{Music\+App.\+View\+Models.\+Home\+View\+Model.\+Load\+Popular\+Songs()}}.
+
+\Hypertarget{class_music_app_1_1_view_models_1_1_home_view_model_a7bc7a56bf31b974490158f93b99eb202}\label{class_music_app_1_1_view_models_1_1_home_view_model_a7bc7a56bf31b974490158f93b99eb202} 
+\index{MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}!SearchCommand@{SearchCommand}}
+\index{SearchCommand@{SearchCommand}!MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}}
+\doxysubsubsection{\texorpdfstring{SearchCommand}{SearchCommand}}
+{\footnotesize\ttfamily ICommand Music\+App.\+View\+Models.\+Home\+View\+Model.\+Search\+Command\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Definition at line \mbox{\hyperlink{_home_view_model_8cs_source_l00112}{112}} of file \mbox{\hyperlink{_home_view_model_8cs_source}{Home\+View\+Model.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00112\ \{\ \textcolor{keyword}{get};\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_music_app_1_1_view_models_1_1_home_view_model_a2c746061bbbd04cdf5bfa18e35548709}\label{class_music_app_1_1_view_models_1_1_home_view_model_a2c746061bbbd04cdf5bfa18e35548709} 
+\index{MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}!SearchQuery@{SearchQuery}}
+\index{SearchQuery@{SearchQuery}!MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}}
+\doxysubsubsection{\texorpdfstring{SearchQuery}{SearchQuery}}
+{\footnotesize\ttfamily string Music\+App.\+View\+Models.\+Home\+View\+Model.\+Search\+Query\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the search query string. 
+
+
+
+Definition at line \mbox{\hyperlink{_home_view_model_8cs_source_l00097}{97}} of file \mbox{\hyperlink{_home_view_model_8cs_source}{Home\+View\+Model.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{get}\ =>\ \_searchQuery;}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{set}\ =>\ SetProperty(ref\ \_searchQuery,\ value);}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{_home_view_model_8cs_source_l00269}{Music\+App.\+View\+Models.\+Home\+View\+Model.\+Execute\+Search()}}.
+
+\Hypertarget{class_music_app_1_1_view_models_1_1_home_view_model_a05f9b41caf8b472bfce15d6b8f8b4139}\label{class_music_app_1_1_view_models_1_1_home_view_model_a05f9b41caf8b472bfce15d6b8f8b4139} 
+\index{MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}!SelectedPlaylist@{SelectedPlaylist}}
+\index{SelectedPlaylist@{SelectedPlaylist}!MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}}
+\doxysubsubsection{\texorpdfstring{SelectedPlaylist}{SelectedPlaylist}}
+{\footnotesize\ttfamily Playlist Music\+App.\+View\+Models.\+Home\+View\+Model.\+Selected\+Playlist\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the selected playlist. 
+
+
+
+Definition at line \mbox{\hyperlink{_home_view_model_8cs_source_l00072}{72}} of file \mbox{\hyperlink{_home_view_model_8cs_source}{Home\+View\+Model.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{get}\ =>\ \_selectedPlaylist;}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{set}\ =>\ SetProperty(ref\ \_selectedPlaylist,\ value);}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_music_app_1_1_view_models_1_1_home_view_model_a78b9e95d314c3d5d9deb94b62e3d8f13}\label{class_music_app_1_1_view_models_1_1_home_view_model_a78b9e95d314c3d5d9deb94b62e3d8f13} 
+\index{MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}!SelectedPlaylistIndex@{SelectedPlaylistIndex}}
+\index{SelectedPlaylistIndex@{SelectedPlaylistIndex}!MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}}
+\doxysubsubsection{\texorpdfstring{SelectedPlaylistIndex}{SelectedPlaylistIndex}}
+{\footnotesize\ttfamily int Music\+App.\+View\+Models.\+Home\+View\+Model.\+Selected\+Playlist\+Index\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the index of the selected playlist. 
+
+
+
+Definition at line \mbox{\hyperlink{_home_view_model_8cs_source_l00081}{81}} of file \mbox{\hyperlink{_home_view_model_8cs_source}{Home\+View\+Model.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{get}\ =>\ \_selectedPlaylistIndex;}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{set}}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SetProperty(ref\ \_selectedPlaylistIndex,\ value);}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (value\ >=\ 0\ \&\&\ value\ <\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_ad6db3bbdf49e04dc89bd1b0ad54702b1}{Playlists}}.Count)}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a05f9b41caf8b472bfce15d6b8f8b4139}{SelectedPlaylist}}\ =\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_ad6db3bbdf49e04dc89bd1b0ad54702b1}{Playlists}}[value];}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{_home_view_model_8cs_source_l00192}{Music\+App.\+View\+Models.\+Home\+View\+Model.\+Handle\+Playlist\+Selection\+Async()}}, and \mbox{\hyperlink{_home_view_model_8cs_source_l00042}{Music\+App.\+View\+Models.\+Home\+View\+Model.\+Reset\+Indices()}}.
+
+\Hypertarget{class_music_app_1_1_view_models_1_1_home_view_model_a778486eb9914993b5a0a7c96cd4f72d3}\label{class_music_app_1_1_view_models_1_1_home_view_model_a778486eb9914993b5a0a7c96cd4f72d3} 
+\index{MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}!SelectedPopularSongIndex@{SelectedPopularSongIndex}}
+\index{SelectedPopularSongIndex@{SelectedPopularSongIndex}!MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}}
+\doxysubsubsection{\texorpdfstring{SelectedPopularSongIndex}{SelectedPopularSongIndex}}
+{\footnotesize\ttfamily int Music\+App.\+View\+Models.\+Home\+View\+Model.\+Selected\+Popular\+Song\+Index\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Gets or sets the index of the selected popular song. 
+
+
+
+Definition at line \mbox{\hyperlink{_home_view_model_8cs_source_l00051}{51}} of file \mbox{\hyperlink{_home_view_model_8cs_source}{Home\+View\+Model.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{get}\ =>\ \_selectedPopularSongIndex;}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{set}}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SetProperty(ref\ \_selectedPopularSongIndex,\ value);}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{_home_view_model_8cs_source_l00256}{Music\+App.\+View\+Models.\+Home\+View\+Model.\+Handle\+Popular\+Song\+Selection()}}, and \mbox{\hyperlink{_home_view_model_8cs_source_l00042}{Music\+App.\+View\+Models.\+Home\+View\+Model.\+Reset\+Indices()}}.
+
+\Hypertarget{class_music_app_1_1_view_models_1_1_home_view_model_aef755c7ffd6ee0f3ebfb59113f3c79d4}\label{class_music_app_1_1_view_models_1_1_home_view_model_aef755c7ffd6ee0f3ebfb59113f3c79d4} 
+\index{MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}!SelectPlaylistCommand@{SelectPlaylistCommand}}
+\index{SelectPlaylistCommand@{SelectPlaylistCommand}!MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}}
+\doxysubsubsection{\texorpdfstring{SelectPlaylistCommand}{SelectPlaylistCommand}}
+{\footnotesize\ttfamily ICommand Music\+App.\+View\+Models.\+Home\+View\+Model.\+Select\+Playlist\+Command\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Definition at line \mbox{\hyperlink{_home_view_model_8cs_source_l00114}{114}} of file \mbox{\hyperlink{_home_view_model_8cs_source}{Home\+View\+Model.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00114\ \{\ \textcolor{keyword}{get};\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_music_app_1_1_view_models_1_1_home_view_model_ab7812029484914917c3f6f698c3aad23}\label{class_music_app_1_1_view_models_1_1_home_view_model_ab7812029484914917c3f6f698c3aad23} 
+\index{MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}!SelectPopularSongCommand@{SelectPopularSongCommand}}
+\index{SelectPopularSongCommand@{SelectPopularSongCommand}!MusicApp.ViewModels.HomeViewModel@{MusicApp.ViewModels.HomeViewModel}}
+\doxysubsubsection{\texorpdfstring{SelectPopularSongCommand}{SelectPopularSongCommand}}
+{\footnotesize\ttfamily ICommand Music\+App.\+View\+Models.\+Home\+View\+Model.\+Select\+Popular\+Song\+Command\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Definition at line \mbox{\hyperlink{_home_view_model_8cs_source_l00115}{115}} of file \mbox{\hyperlink{_home_view_model_8cs_source}{Home\+View\+Model.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00115\ \{\ \textcolor{keyword}{get};\ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+View\+Models/Home\+View\+Model.\+cs\end{DoxyCompactItemize}

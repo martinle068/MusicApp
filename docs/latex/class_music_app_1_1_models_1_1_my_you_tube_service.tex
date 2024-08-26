@@ -1,0 +1,1040 @@
+\doxysection{Music\+App.\+Models.\+My\+You\+Tube\+Service Class Reference}
+\hypertarget{class_music_app_1_1_models_1_1_my_you_tube_service}{}\label{class_music_app_1_1_models_1_1_my_you_tube_service}\index{MusicApp.Models.MyYouTubeService@{MusicApp.Models.MyYouTubeService}}
+
+
+A service class to interact with You\+Tube Music and You\+Tube API for various music-\/related functionalities.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+async Task$<$ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_shelf}{My\+Shelf}}$<$ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{My\+Song}} $>$?$>$ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_you_tube_service_a8789eb0f0e5276b2cf58e4eacfb0ed46}{Fetch\+Song\+Shelves\+Async}} (string query, string? continuation\+Token)
+\begin{DoxyCompactList}\small\item\em Fetches song shelves based on a query with an optional continuation token. \end{DoxyCompactList}\item 
+async Task$<$ string?$>$ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_you_tube_service_a60f6019ea381561f8bfadea92afd0a55}{Get\+Audio\+Stream\+Url\+Async}} (string song\+Id)
+\begin{DoxyCompactList}\small\item\em Retrieves the audio stream URL for a given song ID. \end{DoxyCompactList}\item 
+async Task$<$ Observable\+Collection$<$ Playlist $>$ $>$ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_you_tube_service_a28a88ac12789212fff6c7dd5a7bd8c78}{Fetch\+All\+Playlists\+Async}} ()
+\begin{DoxyCompactList}\small\item\em Fetches all playlists associated with the authenticated user. \end{DoxyCompactList}\item 
+async Task$<$ Observable\+Collection$<$ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{My\+Song}} $>$?$>$ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_you_tube_service_a1309c3b7e94c58ce8a8c33c0cdaf2ea0}{Fetch\+Playlist\+Content\+Async}} (string playlist\+Id)
+\begin{DoxyCompactList}\small\item\em Fetches the content of a playlist given its ID. \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_you_tube_service_a6bf07c8e3502346c0608697f5d11e5c0}{Add\+New\+Playlist}} (string title, string? description=null, string privacy\+Status="{}private"{})
+\begin{DoxyCompactList}\small\item\em Creates a new playlist on You\+Tube with the specified title, description, and privacy status. \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_you_tube_service_ab752689ea1f6cfddcb05d8da9c37f79d}{Delete\+Playlist\+Async}} (string playlist\+Id)
+\begin{DoxyCompactList}\small\item\em Deletes a playlist from You\+Tube based on the given playlist ID. \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_you_tube_service_a0d27b493d405e4861250edf108fce7fc}{Add\+Song\+To\+Playlist}} (Playlist playlist, \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{My\+Song}} song)
+\begin{DoxyCompactList}\small\item\em Adds a song to a playlist on You\+Tube. \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_you_tube_service_ab418a11403d47f91dd59497557322c83}{Remove\+Song\+From\+Playlist}} (Playlist playlist, \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{My\+Song}} song)
+\begin{DoxyCompactList}\small\item\em Removes a song from a playlist on You\+Tube. \end{DoxyCompactList}\item 
+async Task$<$ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_shelf}{My\+Shelf}}$<$ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{My\+Song}} $>$ $>$ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_you_tube_service_a4c24bd643c1c277ef09ea5d9b2d8f0d4}{Fetch\+Popular\+Songs\+Async}} (string? next\+Page\+Token)
+\begin{DoxyCompactList}\small\item\em Fetches popular songs from You\+Tube, with an optional next page token for pagination. \end{DoxyCompactList}\item 
+async Task$<$ Observable\+Collection$<$ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{My\+Song}} $>$?$>$ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_you_tube_service_a465ed16eb7cf88a47d23ae006b907062}{Fetch\+Radio\+Songs\+Async}} (string radio\+Playlist\+Id)
+\begin{DoxyCompactList}\small\item\em Fetches songs from a radio playlist on You\+Tube Music based on its ID. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static async Task$<$ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_you_tube_service}{My\+You\+Tube\+Service}} $>$ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_you_tube_service_ad79f98aad466fe67265f1ecf3a8e14c6}{Create\+Youtube\+Service\+Async}} ()
+\begin{DoxyCompactList}\small\item\em Initializes and creates an instance of My\+You\+Tube\+Service with all necessary You\+Tube clients. \end{DoxyCompactList}\item 
+static async Task$<$ Observable\+Collection$<$ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{My\+Song}} $>$ $>$ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_you_tube_service_a970433df35cd99f8be2de1beed902328}{Fetch\+Songs\+Async}} (string query, int count)
+\begin{DoxyCompactList}\small\item\em Fetches songs based on a query with a specified limit on the number of results. \end{DoxyCompactList}\item 
+static async Task$<$ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{My\+Song}}?$>$ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_you_tube_service_a48d08c2d4b1eb1a19a7403723c6c576e}{Fetch\+Song\+Async}} (string query)
+\begin{DoxyCompactList}\small\item\em Fetches a single song based on a query. \end{DoxyCompactList}\item 
+static async Task$<$ Song\+Video\+Info $>$ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_you_tube_service_a32e5c97ef31169facc49e8b1904c05c7}{Fetch\+Song\+Video\+Info\+Async}} (string song\+Id)
+\begin{DoxyCompactList}\small\item\em Fetches video information for a given song ID. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_you_tube_service_a1b0f586ef1f823610ffe7cda3dd3dfa9}{Initialize\+Youtube\+Clients}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the You\+Tube\+Music\+Client and Youtube\+Client. \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_you_tube_service_a1894c54a58ab46e6fe098d2a13d7a96a}{Initialize\+Google\+YTService}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the Google You\+Tube API service with OAuth2 authentication. \end{DoxyCompactList}\item 
+async Task$<$ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_shelf}{My\+Shelf}}$<$ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{My\+Song}} $>$ $>$ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_you_tube_service_aa164d955eab2c8e767bac6ef1a12a1a5}{Convert\+Songs\+To\+My\+Songs\+Shelf}} (IEnumerable$<$ Song $>$ songs, string? next\+Page\+Token)
+\begin{DoxyCompactList}\small\item\em Converts a list of Song objects to a My\+Shelf$<$\+T$>$ containing My\+Song objects. \end{DoxyCompactList}\item 
+async Task$<$ List$<$ Song $>$ $>$ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_you_tube_service_aa00626e0db902d2da90c82840e465141}{Convert\+To\+Songs$<$ T $>$}} (IEnumerable$<$ T $>$ items, Func$<$ T, string $>$ get\+Title)
+\begin{DoxyCompactList}\small\item\em Converts a collection of items to a list of Song objects based on a title extraction function. \end{DoxyCompactList}\item 
+async Task$<$ List$<$ Song $>$ $>$ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_you_tube_service_a9ab698238b7c9d3ee6b6b03a820603ce}{Convert\+To\+Songs}} (Video\+List\+Response response)
+\begin{DoxyCompactList}\small\item\em Converts a Video\+List\+Response to a list of Song objects. \end{DoxyCompactList}\item 
+async Task$<$ List$<$ Song $>$ $>$ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_you_tube_service_a927b457babff52a0482cb4495a41d801}{Convert\+To\+Songs}} (Playlist\+Item\+List\+Response response)
+\begin{DoxyCompactList}\small\item\em Converts a Playlist\+Item\+List\+Response to a list of Song objects. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static readonly string\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_you_tube_service_a056ebfe638c6e52125119d888c4a77f5}{Scopes}}
+\item 
+static readonly string \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_you_tube_service_a41c5c483f9060c20595feb3f38f8b1c6}{Application\+Name}} = "{}Music\+App"{}
+\item 
+static You\+Tube\+Service \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_you_tube_service_ab901b0586a84375a89d6ea255e4dffea}{\+\_\+google\+You\+Tube\+Service}} = new()
+\item 
+static You\+Tube\+Music\+Client \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_you_tube_service_ac74273ad6666d3eda1f9442a973a2e9e}{\+\_\+youtube\+Music\+Client}} = new()
+\item 
+static Youtube\+Client \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_you_tube_service_a0e33117159c913283615fc6733bdb478}{\+\_\+youtube\+Client}} = new()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A service class to interact with You\+Tube Music and You\+Tube API for various music-\/related functionalities. 
+
+Definition at line \mbox{\hyperlink{_my_you_tube_service_8cs_source_l00023}{23}} of file \mbox{\hyperlink{_my_you_tube_service_8cs_source}{My\+You\+Tube\+Service.\+cs}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_music_app_1_1_models_1_1_my_you_tube_service_a6bf07c8e3502346c0608697f5d11e5c0}\label{class_music_app_1_1_models_1_1_my_you_tube_service_a6bf07c8e3502346c0608697f5d11e5c0} 
+\index{MusicApp.Models.MyYouTubeService@{MusicApp.Models.MyYouTubeService}!AddNewPlaylist@{AddNewPlaylist}}
+\index{AddNewPlaylist@{AddNewPlaylist}!MusicApp.Models.MyYouTubeService@{MusicApp.Models.MyYouTubeService}}
+\doxysubsubsection{\texorpdfstring{AddNewPlaylist()}{AddNewPlaylist()}}
+{\footnotesize\ttfamily async Task Music\+App.\+Models.\+My\+You\+Tube\+Service.\+Add\+New\+Playlist (\begin{DoxyParamCaption}\item[{string}]{title,  }\item[{string?}]{description = {\ttfamily null},  }\item[{string}]{privacy\+Status = {\ttfamily "{}private"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Creates a new playlist on You\+Tube with the specified title, description, and privacy status. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em title} & The title of the new playlist.\\
+\hline
+{\em description} & The description of the new playlist. Defaults to an empty string if not provided.\\
+\hline
+{\em privacy\+Status} & The privacy status of the playlist ("{}public"{} or "{}private"{}).\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_my_you_tube_service_8cs_source_l00236}{236}} of file \mbox{\hyperlink{_my_you_tube_service_8cs_source}{My\+You\+Tube\+Service.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ newPlaylist\ =\ \textcolor{keyword}{new}\ Playlist}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Snippet\ =\ \textcolor{keyword}{new}\ PlaylistSnippet}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Title\ =\ title,}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Description\ =\ description\ ??\ \textcolor{stringliteral}{"{}"{}}}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Status\ =\ \textcolor{keyword}{new}\ PlaylistStatus}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PrivacyStatus\ =\ privacyStatus\ ==\ \textcolor{stringliteral}{"{}public"{}}\ ?\ \textcolor{stringliteral}{"{}public"{}}\ :\ \textcolor{stringliteral}{"{}private"{}}}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00252\ }
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ request\ =\ \_googleYouTubeService.Playlists.Insert(newPlaylist,\ \textcolor{stringliteral}{"{}snippet,status"{}});}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ response\ =\ await\ request.ExecuteAsync();}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MessageBox.Show(\$\textcolor{stringliteral}{"{}New\ playlist\ created.\ Title:\ \{response.Snippet.Title\},\ PlaylistId:\ \{response.Id\}"{}},\ \textcolor{stringliteral}{"{}Playlist\ Created"{}},\ MessageBoxButton.OK,\ MessageBoxImage.Information);}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (GoogleApiException\ ex)}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MessageBox.Show(\$\textcolor{stringliteral}{"{}An\ API\ error\ occurred:\ \{ex.Message\}\(\backslash\)n\{ex.Error.Message\}"{}},\ \textcolor{stringliteral}{"{}Error"{}},\ MessageBoxButton.OK,\ MessageBoxImage.Error);}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (Exception\ ex)}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MessageBox.Show(\$\textcolor{stringliteral}{"{}An\ error\ occurred:\ \{ex.Message\}"{}},\ \textcolor{stringliteral}{"{}Error"{}},\ MessageBoxButton.OK,\ MessageBoxImage.Error);}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_music_app_1_1_models_1_1_my_you_tube_service_a0d27b493d405e4861250edf108fce7fc}\label{class_music_app_1_1_models_1_1_my_you_tube_service_a0d27b493d405e4861250edf108fce7fc} 
+\index{MusicApp.Models.MyYouTubeService@{MusicApp.Models.MyYouTubeService}!AddSongToPlaylist@{AddSongToPlaylist}}
+\index{AddSongToPlaylist@{AddSongToPlaylist}!MusicApp.Models.MyYouTubeService@{MusicApp.Models.MyYouTubeService}}
+\doxysubsubsection{\texorpdfstring{AddSongToPlaylist()}{AddSongToPlaylist()}}
+{\footnotesize\ttfamily async Task Music\+App.\+Models.\+My\+You\+Tube\+Service.\+Add\+Song\+To\+Playlist (\begin{DoxyParamCaption}\item[{Playlist}]{playlist,  }\item[{\mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{My\+Song}}}]{song }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds a song to a playlist on You\+Tube. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em playlist} & The playlist to which the song will be added.\\
+\hline
+{\em song} & The song to add to the playlist.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_my_you_tube_service_8cs_source_l00294}{294}} of file \mbox{\hyperlink{_my_you_tube_service_8cs_source}{My\+You\+Tube\+Service.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ newPlaylistItem\ =\ \textcolor{keyword}{new}\ PlaylistItem}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Snippet\ =\ \textcolor{keyword}{new}\ PlaylistItemSnippet}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PlaylistId\ =\ playlist.Id,}
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ResourceId\ =\ \textcolor{keyword}{new}\ ResourceId}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Kind\ =\ \textcolor{stringliteral}{"{}youtube\#video"{}},}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ VideoId\ =\ song.Id}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00310\ }
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ request\ =\ \_googleYouTubeService.PlaylistItems.Insert(newPlaylistItem,\ \textcolor{stringliteral}{"{}snippet"{}});}
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ await\ request.ExecuteAsync();}
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (Exception\ ex)}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MessageBox.Show(\$\textcolor{stringliteral}{"{}Failed\ to\ add\ song\ to\ playlist:\ \{ex.Message\}"{}});}
+\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_music_app_1_1_models_1_1_my_you_tube_service_aa164d955eab2c8e767bac6ef1a12a1a5}\label{class_music_app_1_1_models_1_1_my_you_tube_service_aa164d955eab2c8e767bac6ef1a12a1a5} 
+\index{MusicApp.Models.MyYouTubeService@{MusicApp.Models.MyYouTubeService}!ConvertSongsToMySongsShelf@{ConvertSongsToMySongsShelf}}
+\index{ConvertSongsToMySongsShelf@{ConvertSongsToMySongsShelf}!MusicApp.Models.MyYouTubeService@{MusicApp.Models.MyYouTubeService}}
+\doxysubsubsection{\texorpdfstring{ConvertSongsToMySongsShelf()}{ConvertSongsToMySongsShelf()}}
+{\footnotesize\ttfamily async Task$<$ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_shelf}{My\+Shelf}}$<$ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{My\+Song}} $>$ $>$ Music\+App.\+Models.\+My\+You\+Tube\+Service.\+Convert\+Songs\+To\+My\+Songs\+Shelf (\begin{DoxyParamCaption}\item[{IEnumerable$<$ Song $>$}]{songs,  }\item[{string?}]{next\+Page\+Token }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Converts a list of Song objects to a My\+Shelf$<$\+T$>$ containing My\+Song objects. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em songs} & The list of songs to convert.\\
+\hline
+{\em next\+Page\+Token} & The continuation token for pagination.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A My\+Shelf$<$\+T$>$ containing the converted songs and a continuation token.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_my_you_tube_service_8cs_source_l00433}{433}} of file \mbox{\hyperlink{_my_you_tube_service_8cs_source}{My\+You\+Tube\+Service.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00434\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00435\ \ \ \ \ \ \ \ \ \ \ \ \ var\ mySongs\ =\ await\ Task.WhenAll(songs.Select(async\ song\ =>\ MySong.Create(song)));}
+\DoxyCodeLine{00436\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ MyShelf<MySong>(\textcolor{keyword}{new}\ ObservableCollection<MySong>(mySongs),\ nextPageToken);}
+\DoxyCodeLine{00437\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_my_song_8cs_source_l00112}{Music\+App.\+Models.\+My\+Song.\+Create()}}.
+
+
+
+Referenced by \mbox{\hyperlink{_my_you_tube_service_8cs_source_l00371}{Music\+App.\+Models.\+My\+You\+Tube\+Service.\+Fetch\+Popular\+Songs\+Async()}}.
+
+\Hypertarget{class_music_app_1_1_models_1_1_my_you_tube_service_a927b457babff52a0482cb4495a41d801}\label{class_music_app_1_1_models_1_1_my_you_tube_service_a927b457babff52a0482cb4495a41d801} 
+\index{MusicApp.Models.MyYouTubeService@{MusicApp.Models.MyYouTubeService}!ConvertToSongs@{ConvertToSongs}}
+\index{ConvertToSongs@{ConvertToSongs}!MusicApp.Models.MyYouTubeService@{MusicApp.Models.MyYouTubeService}}
+\doxysubsubsection{\texorpdfstring{ConvertToSongs()}{ConvertToSongs()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily async Task$<$ List$<$ Song $>$ $>$ Music\+App.\+Models.\+My\+You\+Tube\+Service.\+Convert\+To\+Songs (\begin{DoxyParamCaption}\item[{Playlist\+Item\+List\+Response}]{response }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Converts a Playlist\+Item\+List\+Response to a list of Song objects. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em response} & The response containing the playlist item list.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of Song objects.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_my_you_tube_service_8cs_source_l00481}{481}} of file \mbox{\hyperlink{_my_you_tube_service_8cs_source}{My\+You\+Tube\+Service.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00482\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00483\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ await\ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_you_tube_service_a9ab698238b7c9d3ee6b6b03a820603ce}{ConvertToSongs}}(response.Items,\ item\ =>\ item.Snippet.Title);}
+\DoxyCodeLine{00484\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_my_you_tube_service_8cs_source_l00471}{Music\+App.\+Models.\+My\+You\+Tube\+Service.\+Convert\+To\+Songs()}}.
+
+\Hypertarget{class_music_app_1_1_models_1_1_my_you_tube_service_a9ab698238b7c9d3ee6b6b03a820603ce}\label{class_music_app_1_1_models_1_1_my_you_tube_service_a9ab698238b7c9d3ee6b6b03a820603ce} 
+\index{MusicApp.Models.MyYouTubeService@{MusicApp.Models.MyYouTubeService}!ConvertToSongs@{ConvertToSongs}}
+\index{ConvertToSongs@{ConvertToSongs}!MusicApp.Models.MyYouTubeService@{MusicApp.Models.MyYouTubeService}}
+\doxysubsubsection{\texorpdfstring{ConvertToSongs()}{ConvertToSongs()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily async Task$<$ List$<$ Song $>$ $>$ Music\+App.\+Models.\+My\+You\+Tube\+Service.\+Convert\+To\+Songs (\begin{DoxyParamCaption}\item[{Video\+List\+Response}]{response }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Converts a Video\+List\+Response to a list of Song objects. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em response} & The response containing the video list.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of Song objects.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_my_you_tube_service_8cs_source_l00471}{471}} of file \mbox{\hyperlink{_my_you_tube_service_8cs_source}{My\+You\+Tube\+Service.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00472\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00473\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ await\ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_you_tube_service_a9ab698238b7c9d3ee6b6b03a820603ce}{ConvertToSongs}}(response.Items,\ video\ =>\ video.Snippet.Title);}
+\DoxyCodeLine{00474\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_my_you_tube_service_8cs_source_l00471}{Music\+App.\+Models.\+My\+You\+Tube\+Service.\+Convert\+To\+Songs()}}.
+
+
+
+Referenced by \mbox{\hyperlink{_my_you_tube_service_8cs_source_l00481}{Music\+App.\+Models.\+My\+You\+Tube\+Service.\+Convert\+To\+Songs()}}, \mbox{\hyperlink{_my_you_tube_service_8cs_source_l00471}{Music\+App.\+Models.\+My\+You\+Tube\+Service.\+Convert\+To\+Songs()}}, and \mbox{\hyperlink{_my_you_tube_service_8cs_source_l00371}{Music\+App.\+Models.\+My\+You\+Tube\+Service.\+Fetch\+Popular\+Songs\+Async()}}.
+
+\Hypertarget{class_music_app_1_1_models_1_1_my_you_tube_service_aa00626e0db902d2da90c82840e465141}\label{class_music_app_1_1_models_1_1_my_you_tube_service_aa00626e0db902d2da90c82840e465141} 
+\index{MusicApp.Models.MyYouTubeService@{MusicApp.Models.MyYouTubeService}!ConvertToSongs$<$ T $>$@{ConvertToSongs$<$ T $>$}}
+\index{ConvertToSongs$<$ T $>$@{ConvertToSongs$<$ T $>$}!MusicApp.Models.MyYouTubeService@{MusicApp.Models.MyYouTubeService}}
+\doxysubsubsection{\texorpdfstring{ConvertToSongs$<$ T $>$()}{ConvertToSongs< T >()}}
+{\footnotesize\ttfamily async Task$<$ List$<$ Song $>$ $>$ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_you_tube_service_a9ab698238b7c9d3ee6b6b03a820603ce}{Music\+App.\+Models.\+My\+You\+Tube\+Service.\+Convert\+To\+Songs}}$<$ T $>$ (\begin{DoxyParamCaption}\item[{IEnumerable$<$ T $>$}]{items,  }\item[{Func$<$ T, string $>$}]{get\+Title }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Converts a collection of items to a list of Song objects based on a title extraction function. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of items in the collection.\\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em items} & The collection of items to convert.\\
+\hline
+{\em get\+Title} & A function to extract the title from each item.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of Song objects.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_my_you_tube_service_8cs_source_l00446}{446}} of file \mbox{\hyperlink{_my_you_tube_service_8cs_source}{My\+You\+Tube\+Service.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00447\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00448\ \ \ \ \ \ \ \ \ \ \ \ \ var\ songs\ =\ \textcolor{keyword}{new}\ List<Song>();}
+\DoxyCodeLine{00449\ \ \ \ \ \ \ \ \ \ \ \ \ var\ tasks\ =\ items.Select(async\ item\ =>}
+\DoxyCodeLine{00450\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00451\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ title\ =\ getTitle(item);}
+\DoxyCodeLine{00452\ }
+\DoxyCodeLine{00453\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IEnumerable<Song>\ searchResults\ =\ await\ \_youtubeMusicClient.SearchAsync<Song>(title,\ 1);}
+\DoxyCodeLine{00454\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ song\ =\ searchResults.FirstOrDefault();}
+\DoxyCodeLine{00455\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (song\ !=\ \textcolor{keyword}{null})}
+\DoxyCodeLine{00456\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00457\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ songs.Add(song);}
+\DoxyCodeLine{00458\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00459\ }
+\DoxyCodeLine{00460\ \ \ \ \ \ \ \ \ \ \ \ \ \}).ToList();}
+\DoxyCodeLine{00461\ }
+\DoxyCodeLine{00462\ \ \ \ \ \ \ \ \ \ \ \ \ await\ Task.WhenAll(tasks);}
+\DoxyCodeLine{00463\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ songs;}
+\DoxyCodeLine{00464\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_music_app_1_1_models_1_1_my_you_tube_service_ad79f98aad466fe67265f1ecf3a8e14c6}\label{class_music_app_1_1_models_1_1_my_you_tube_service_ad79f98aad466fe67265f1ecf3a8e14c6} 
+\index{MusicApp.Models.MyYouTubeService@{MusicApp.Models.MyYouTubeService}!CreateYoutubeServiceAsync@{CreateYoutubeServiceAsync}}
+\index{CreateYoutubeServiceAsync@{CreateYoutubeServiceAsync}!MusicApp.Models.MyYouTubeService@{MusicApp.Models.MyYouTubeService}}
+\doxysubsubsection{\texorpdfstring{CreateYoutubeServiceAsync()}{CreateYoutubeServiceAsync()}}
+{\footnotesize\ttfamily static async Task$<$ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_you_tube_service}{My\+You\+Tube\+Service}} $>$ Music\+App.\+Models.\+My\+You\+Tube\+Service.\+Create\+Youtube\+Service\+Async (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Initializes and creates an instance of My\+You\+Tube\+Service with all necessary You\+Tube clients. 
+
+\begin{DoxyReturn}{Returns}
+An initialized My\+You\+Tube\+Service instance.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_my_you_tube_service_8cs_source_l00039}{39}} of file \mbox{\hyperlink{_my_you_tube_service_8cs_source}{My\+You\+Tube\+Service.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ var\ service\ =\ \textcolor{keyword}{new}\ MyYouTubeService();}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ service.InitializeYoutubeClients();}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ await\ service.InitializeGoogleYTService();}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ service;}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{_main_view_model_8cs_source_l00093}{Music\+App.\+View\+Models.\+Main\+View\+Model.\+Initialize\+Async()}}.
+
+\Hypertarget{class_music_app_1_1_models_1_1_my_you_tube_service_ab752689ea1f6cfddcb05d8da9c37f79d}\label{class_music_app_1_1_models_1_1_my_you_tube_service_ab752689ea1f6cfddcb05d8da9c37f79d} 
+\index{MusicApp.Models.MyYouTubeService@{MusicApp.Models.MyYouTubeService}!DeletePlaylistAsync@{DeletePlaylistAsync}}
+\index{DeletePlaylistAsync@{DeletePlaylistAsync}!MusicApp.Models.MyYouTubeService@{MusicApp.Models.MyYouTubeService}}
+\doxysubsubsection{\texorpdfstring{DeletePlaylistAsync()}{DeletePlaylistAsync()}}
+{\footnotesize\ttfamily async Task Music\+App.\+Models.\+My\+You\+Tube\+Service.\+Delete\+Playlist\+Async (\begin{DoxyParamCaption}\item[{string}]{playlist\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Deletes a playlist from You\+Tube based on the given playlist ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em playlist\+Id} & The ID of the playlist to be deleted.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_my_you_tube_service_8cs_source_l00271}{271}} of file \mbox{\hyperlink{_my_you_tube_service_8cs_source}{My\+You\+Tube\+Service.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ request\ =\ \_googleYouTubeService.Playlists.Delete(playlistId);}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ await\ request.ExecuteAsync();}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MessageBox.Show(\$\textcolor{stringliteral}{"{}Playlist\ with\ ID\ \{playlistId\}\ deleted."{}},\ \textcolor{stringliteral}{"{}Playlist\ Deleted"{}},\ MessageBoxButton.OK,\ MessageBoxImage.Information);}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (GoogleApiException\ ex)}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MessageBox.Show(\$\textcolor{stringliteral}{"{}An\ API\ error\ occurred:\ \{ex.Message\}"{}},\ \textcolor{stringliteral}{"{}Error"{}},\ MessageBoxButton.OK,\ MessageBoxImage.Error);}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (Exception\ ex)}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MessageBox.Show(\$\textcolor{stringliteral}{"{}An\ error\ occurred:\ \{ex.Message\}"{}},\ \textcolor{stringliteral}{"{}Error"{}},\ MessageBoxButton.OK,\ MessageBoxImage.Error);}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_music_app_1_1_models_1_1_my_you_tube_service_a28a88ac12789212fff6c7dd5a7bd8c78}\label{class_music_app_1_1_models_1_1_my_you_tube_service_a28a88ac12789212fff6c7dd5a7bd8c78} 
+\index{MusicApp.Models.MyYouTubeService@{MusicApp.Models.MyYouTubeService}!FetchAllPlaylistsAsync@{FetchAllPlaylistsAsync}}
+\index{FetchAllPlaylistsAsync@{FetchAllPlaylistsAsync}!MusicApp.Models.MyYouTubeService@{MusicApp.Models.MyYouTubeService}}
+\doxysubsubsection{\texorpdfstring{FetchAllPlaylistsAsync()}{FetchAllPlaylistsAsync()}}
+{\footnotesize\ttfamily async Task$<$ Observable\+Collection$<$ Playlist $>$ $>$ Music\+App.\+Models.\+My\+You\+Tube\+Service.\+Fetch\+All\+Playlists\+Async (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Fetches all playlists associated with the authenticated user. 
+
+\begin{DoxyReturn}{Returns}
+An Observable\+Collection$<$\+T$>$ containing the playlists.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_my_you_tube_service_8cs_source_l00150}{150}} of file \mbox{\hyperlink{_my_you_tube_service_8cs_source}{My\+You\+Tube\+Service.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ var\ playlists\ =\ \textcolor{keyword}{new}\ List<Playlist>();}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}?\ nextPageToken\ =\ \textcolor{keyword}{null};}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ request\ =\ \_googleYouTubeService.Playlists.List(\textcolor{stringliteral}{"{}snippet"{}});}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ request.Mine\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ request.MaxResults\ =\ 10;}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ request.PageToken\ =\ nextPageToken;}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ response\ =\ await\ request.ExecuteAsync();}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ playlists.AddRange(response.Items);}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nextPageToken\ =\ response.NextPageToken;}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (nextPageToken\ !=\ \textcolor{keyword}{null});}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (GoogleApiException\ ex)}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MessageBox.Show(\$\textcolor{stringliteral}{"{}An\ API\ error\ occurred:\ \{ex.Message\}"{}});}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (Exception\ ex)}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MessageBox.Show(\$\textcolor{stringliteral}{"{}An\ error\ occurred:\ \{ex.Message\}"{}});}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ ObservableCollection<Playlist>(playlists);}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_music_app_1_1_models_1_1_my_you_tube_service_a1309c3b7e94c58ce8a8c33c0cdaf2ea0}\label{class_music_app_1_1_models_1_1_my_you_tube_service_a1309c3b7e94c58ce8a8c33c0cdaf2ea0} 
+\index{MusicApp.Models.MyYouTubeService@{MusicApp.Models.MyYouTubeService}!FetchPlaylistContentAsync@{FetchPlaylistContentAsync}}
+\index{FetchPlaylistContentAsync@{FetchPlaylistContentAsync}!MusicApp.Models.MyYouTubeService@{MusicApp.Models.MyYouTubeService}}
+\doxysubsubsection{\texorpdfstring{FetchPlaylistContentAsync()}{FetchPlaylistContentAsync()}}
+{\footnotesize\ttfamily async Task$<$ Observable\+Collection$<$ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{My\+Song}} $>$?$>$ Music\+App.\+Models.\+My\+You\+Tube\+Service.\+Fetch\+Playlist\+Content\+Async (\begin{DoxyParamCaption}\item[{string}]{playlist\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Fetches the content of a playlist given its ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em playlist\+Id} & The ID of the playlist.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An Observable\+Collection$<$\+T$>$ containing the songs in the playlist, or null if an error occurs.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_my_you_tube_service_8cs_source_l00197}{197}} of file \mbox{\hyperlink{_my_you_tube_service_8cs_source}{My\+You\+Tube\+Service.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ request\ =\ \_googleYouTubeService.PlaylistItems.List(\textcolor{stringliteral}{"{}snippet,contentDetails"{}});}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ request.PlaylistId\ =\ playlistId;}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ request.MaxResults\ =\ 200;}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ response\ =\ await\ request.ExecuteAsync();}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ tasks\ =\ response.Items.Select(async\ item\ =>}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ itemInfo\ =\ await\ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_you_tube_service_a32e5c97ef31169facc49e8b1904c05c7}{FetchSongVideoInfoAsync}}(item.ContentDetails.VideoId);}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ song\ =\ MySong.Create(itemInfo);}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ song;}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ playlistSongs\ =\ await\ Task.WhenAll(tasks);}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ ObservableCollection<MySong>(playlistSongs);}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (GoogleApiException\ ex)}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MessageBox.Show(\$\textcolor{stringliteral}{"{}An\ API\ error\ occurred:\ \{ex.Message\}"{}},\ \textcolor{stringliteral}{"{}Error"{}},\ MessageBoxButton.OK,\ MessageBoxImage.Error);}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{null};}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (Exception\ ex)}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MessageBox.Show(\$\textcolor{stringliteral}{"{}An\ error\ occurred:\ \{ex.Message\}"{}},\ \textcolor{stringliteral}{"{}Error"{}},\ MessageBoxButton.OK,\ MessageBoxImage.Error);}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{null};}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_my_song_8cs_source_l00112}{Music\+App.\+Models.\+My\+Song.\+Create()}}, and \mbox{\hyperlink{_my_you_tube_service_8cs_source_l00187}{Music\+App.\+Models.\+My\+You\+Tube\+Service.\+Fetch\+Song\+Video\+Info\+Async()}}.
+
+\Hypertarget{class_music_app_1_1_models_1_1_my_you_tube_service_a4c24bd643c1c277ef09ea5d9b2d8f0d4}\label{class_music_app_1_1_models_1_1_my_you_tube_service_a4c24bd643c1c277ef09ea5d9b2d8f0d4} 
+\index{MusicApp.Models.MyYouTubeService@{MusicApp.Models.MyYouTubeService}!FetchPopularSongsAsync@{FetchPopularSongsAsync}}
+\index{FetchPopularSongsAsync@{FetchPopularSongsAsync}!MusicApp.Models.MyYouTubeService@{MusicApp.Models.MyYouTubeService}}
+\doxysubsubsection{\texorpdfstring{FetchPopularSongsAsync()}{FetchPopularSongsAsync()}}
+{\footnotesize\ttfamily async Task$<$ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_shelf}{My\+Shelf}}$<$ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{My\+Song}} $>$ $>$ Music\+App.\+Models.\+My\+You\+Tube\+Service.\+Fetch\+Popular\+Songs\+Async (\begin{DoxyParamCaption}\item[{string?}]{next\+Page\+Token }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Fetches popular songs from You\+Tube, with an optional next page token for pagination. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em next\+Page\+Token} & The continuation token for pagination.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A My\+Shelf$<$\+T$>$ containing popular songs and a continuation token.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_my_you_tube_service_8cs_source_l00371}{371}} of file \mbox{\hyperlink{_my_you_tube_service_8cs_source}{My\+You\+Tube\+Service.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00373\ \ \ \ \ \ \ \ \ \ \ \ \ var\ trendingVideosRequest\ =\ \_googleYouTubeService.Videos.List(\textcolor{stringliteral}{"{}snippet"{}});}
+\DoxyCodeLine{00374\ \ \ \ \ \ \ \ \ \ \ \ \ trendingVideosRequest.Chart\ =\ VideosResource.ListRequest.ChartEnum.MostPopular;}
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ \ \ \ \ trendingVideosRequest.RegionCode\ =\ \textcolor{stringliteral}{"{}US"{}};}
+\DoxyCodeLine{00376\ \ \ \ \ \ \ \ \ \ \ \ \ trendingVideosRequest.MaxResults\ =\ 20;}
+\DoxyCodeLine{00377\ \ \ \ \ \ \ \ \ \ \ \ \ trendingVideosRequest.VideoCategoryId\ =\ \textcolor{stringliteral}{"{}10"{}};}
+\DoxyCodeLine{00378\ }
+\DoxyCodeLine{00379\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (nextPageToken\ !=\ \textcolor{keyword}{null})}
+\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00381\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ trendingVideosRequest.PageToken\ =\ nextPageToken;}
+\DoxyCodeLine{00382\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00383\ }
+\DoxyCodeLine{00384\ \ \ \ \ \ \ \ \ \ \ \ \ var\ trendingVideosResponse\ =\ await\ trendingVideosRequest.ExecuteAsync();}
+\DoxyCodeLine{00385\ }
+\DoxyCodeLine{00386\ \ \ \ \ \ \ \ \ \ \ \ \ var\ songs\ =\ await\ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_you_tube_service_a9ab698238b7c9d3ee6b6b03a820603ce}{ConvertToSongs}}(trendingVideosResponse);}
+\DoxyCodeLine{00387\ }
+\DoxyCodeLine{00388\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ await\ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_you_tube_service_aa164d955eab2c8e767bac6ef1a12a1a5}{ConvertSongsToMySongsShelf}}(songs,\ trendingVideosResponse.NextPageToken);}
+\DoxyCodeLine{00389\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_my_you_tube_service_8cs_source_l00433}{Music\+App.\+Models.\+My\+You\+Tube\+Service.\+Convert\+Songs\+To\+My\+Songs\+Shelf()}}, and \mbox{\hyperlink{_my_you_tube_service_8cs_source_l00471}{Music\+App.\+Models.\+My\+You\+Tube\+Service.\+Convert\+To\+Songs()}}.
+
+
+
+Referenced by \mbox{\hyperlink{_player_view_model_8cs_source_l00409}{Music\+App.\+View\+Models.\+Player\+View\+Model.\+Execute\+Next()}}.
+
+\Hypertarget{class_music_app_1_1_models_1_1_my_you_tube_service_a465ed16eb7cf88a47d23ae006b907062}\label{class_music_app_1_1_models_1_1_my_you_tube_service_a465ed16eb7cf88a47d23ae006b907062} 
+\index{MusicApp.Models.MyYouTubeService@{MusicApp.Models.MyYouTubeService}!FetchRadioSongsAsync@{FetchRadioSongsAsync}}
+\index{FetchRadioSongsAsync@{FetchRadioSongsAsync}!MusicApp.Models.MyYouTubeService@{MusicApp.Models.MyYouTubeService}}
+\doxysubsubsection{\texorpdfstring{FetchRadioSongsAsync()}{FetchRadioSongsAsync()}}
+{\footnotesize\ttfamily async Task$<$ Observable\+Collection$<$ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{My\+Song}} $>$?$>$ Music\+App.\+Models.\+My\+You\+Tube\+Service.\+Fetch\+Radio\+Songs\+Async (\begin{DoxyParamCaption}\item[{string}]{radio\+Playlist\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Fetches songs from a radio playlist on You\+Tube Music based on its ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em radio\+Playlist\+Id} & The ID of the radio playlist.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An Observable\+Collection$<$\+T$>$ containing the songs in the radio playlist, or null if an error occurs.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_my_you_tube_service_8cs_source_l00396}{396}} of file \mbox{\hyperlink{_my_you_tube_service_8cs_source}{My\+You\+Tube\+Service.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00397\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00398\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{00399\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00400\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ playlistBrowseId\ =\ \_youtubeMusicClient.GetCommunityPlaylistBrowseId(radioPlaylistId);}
+\DoxyCodeLine{00401\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CommunityPlaylistInfo\ playlist\ =\ await\ \_youtubeMusicClient.GetCommunityPlaylistInfoAsync(playlistBrowseId);}
+\DoxyCodeLine{00402\ }
+\DoxyCodeLine{00403\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ result\ =\ \textcolor{keyword}{new}\ ObservableCollection<MySong>();}
+\DoxyCodeLine{00404\ }
+\DoxyCodeLine{00405\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ tasks\ =\ playlist.Songs.Select(async\ playlistSong\ =>}
+\DoxyCodeLine{00406\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00407\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ song\ =\ MySong.Create(playlistSong);}
+\DoxyCodeLine{00408\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result.Add(song);}
+\DoxyCodeLine{00409\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00410\ }
+\DoxyCodeLine{00411\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ await\ Task.WhenAll(tasks);}
+\DoxyCodeLine{00412\ }
+\DoxyCodeLine{00413\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00414\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00415\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (Google.GoogleApiException\ ex)}
+\DoxyCodeLine{00416\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00417\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MessageBox.Show(\$\textcolor{stringliteral}{"{}An\ API\ error\ occurred:\ \{ex.Message\}"{}},\ \textcolor{stringliteral}{"{}API\ Error"{}},\ MessageBoxButton.OK,\ MessageBoxImage.Error);}
+\DoxyCodeLine{00418\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00419\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (Exception\ ex)}
+\DoxyCodeLine{00420\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00421\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MessageBox.Show(\$\textcolor{stringliteral}{"{}An\ error\ occurred:\ \{ex.Message\}"{}},\ \textcolor{stringliteral}{"{}Error"{}},\ MessageBoxButton.OK,\ MessageBoxImage.Error);}
+\DoxyCodeLine{00422\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00423\ }
+\DoxyCodeLine{00424\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{null};}
+\DoxyCodeLine{00425\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_my_song_8cs_source_l00112}{Music\+App.\+Models.\+My\+Song.\+Create()}}.
+
+\Hypertarget{class_music_app_1_1_models_1_1_my_you_tube_service_a48d08c2d4b1eb1a19a7403723c6c576e}\label{class_music_app_1_1_models_1_1_my_you_tube_service_a48d08c2d4b1eb1a19a7403723c6c576e} 
+\index{MusicApp.Models.MyYouTubeService@{MusicApp.Models.MyYouTubeService}!FetchSongAsync@{FetchSongAsync}}
+\index{FetchSongAsync@{FetchSongAsync}!MusicApp.Models.MyYouTubeService@{MusicApp.Models.MyYouTubeService}}
+\doxysubsubsection{\texorpdfstring{FetchSongAsync()}{FetchSongAsync()}}
+{\footnotesize\ttfamily static async Task$<$ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{My\+Song}}?$>$ Music\+App.\+Models.\+My\+You\+Tube\+Service.\+Fetch\+Song\+Async (\begin{DoxyParamCaption}\item[{string}]{query }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Fetches a single song based on a query. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em query} & The search query.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A My\+Song object if found; otherwise, null.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_my_you_tube_service_8cs_source_l00125}{125}} of file \mbox{\hyperlink{_my_you_tube_service_8cs_source}{My\+You\+Tube\+Service.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ IEnumerable<Song>\ songs\ =\ await\ \_youtubeMusicClient.SearchAsync<Song>(query,\ 1);}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!songs.Any())\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{null};}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ MySong.Create(songs.FirstOrDefault());}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_my_song_8cs_source_l00112}{Music\+App.\+Models.\+My\+Song.\+Create()}}.
+
+
+
+Referenced by \mbox{\hyperlink{_my_song_8cs_source_l00060}{Music\+App.\+Models.\+My\+Song.\+Get\+Playlist\+Id\+Async()}}.
+
+\Hypertarget{class_music_app_1_1_models_1_1_my_you_tube_service_a970433df35cd99f8be2de1beed902328}\label{class_music_app_1_1_models_1_1_my_you_tube_service_a970433df35cd99f8be2de1beed902328} 
+\index{MusicApp.Models.MyYouTubeService@{MusicApp.Models.MyYouTubeService}!FetchSongsAsync@{FetchSongsAsync}}
+\index{FetchSongsAsync@{FetchSongsAsync}!MusicApp.Models.MyYouTubeService@{MusicApp.Models.MyYouTubeService}}
+\doxysubsubsection{\texorpdfstring{FetchSongsAsync()}{FetchSongsAsync()}}
+{\footnotesize\ttfamily static async Task$<$ Observable\+Collection$<$ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{My\+Song}} $>$ $>$ Music\+App.\+Models.\+My\+You\+Tube\+Service.\+Fetch\+Songs\+Async (\begin{DoxyParamCaption}\item[{string}]{query,  }\item[{int}]{count }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Fetches songs based on a query with a specified limit on the number of results. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em query} & The search query.\\
+\hline
+{\em count} & The number of songs to fetch.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An Observable\+Collection$<$\+T$>$ containing the fetched songs.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_my_you_tube_service_8cs_source_l00113}{113}} of file \mbox{\hyperlink{_my_you_tube_service_8cs_source}{My\+You\+Tube\+Service.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ IEnumerable<Song>\ songs\ =\ await\ \_youtubeMusicClient.SearchAsync<Song>(query,\ count);}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ var\ mySongs\ =\ await\ Task.WhenAll(songs.Select(async\ song\ =>\ MySong.Create(song)));}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ ObservableCollection<MySong>(mySongs);}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_my_song_8cs_source_l00112}{Music\+App.\+Models.\+My\+Song.\+Create()}}.
+
+
+
+Referenced by \mbox{\hyperlink{_home_view_8xaml_8cs_source_l00182}{Music\+App.\+Views.\+Home\+View.\+Add\+Songs\+From\+Author\+List\+Box\+Async()}}.
+
+\Hypertarget{class_music_app_1_1_models_1_1_my_you_tube_service_a8789eb0f0e5276b2cf58e4eacfb0ed46}\label{class_music_app_1_1_models_1_1_my_you_tube_service_a8789eb0f0e5276b2cf58e4eacfb0ed46} 
+\index{MusicApp.Models.MyYouTubeService@{MusicApp.Models.MyYouTubeService}!FetchSongShelvesAsync@{FetchSongShelvesAsync}}
+\index{FetchSongShelvesAsync@{FetchSongShelvesAsync}!MusicApp.Models.MyYouTubeService@{MusicApp.Models.MyYouTubeService}}
+\doxysubsubsection{\texorpdfstring{FetchSongShelvesAsync()}{FetchSongShelvesAsync()}}
+{\footnotesize\ttfamily async Task$<$ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_shelf}{My\+Shelf}}$<$ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{My\+Song}} $>$?$>$ Music\+App.\+Models.\+My\+You\+Tube\+Service.\+Fetch\+Song\+Shelves\+Async (\begin{DoxyParamCaption}\item[{string}]{query,  }\item[{string?}]{continuation\+Token }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Fetches song shelves based on a query with an optional continuation token. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em query} & The search query.\\
+\hline
+{\em continuation\+Token} & The continuation token for pagination.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A My\+Shelf$<$\+T$>$ containing a collection of songs and a continuation token.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_my_you_tube_service_8cs_source_l00096}{96}} of file \mbox{\hyperlink{_my_you_tube_service_8cs_source}{My\+You\+Tube\+Service.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ IEnumerable<Shelf>\ shelves\ =\ await\ \_youtubeMusicClient.SearchAsync(query,\ continuationToken,\ ShelfKind.Songs);}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ List<Song>\ songs\ =\ shelves.SelectMany(shelf\ =>\ shelf.Items).OfType<Song>().ToList();}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ continuationToken\ =\ shelves.FirstOrDefault()?.NextContinuationToken;}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ var\ mySongs\ =\ await\ Task.WhenAll(songs.Select(async\ song\ =>\ MySong.Create(song)));}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ MyShelf<MySong>(\textcolor{keyword}{new}\ ObservableCollection<MySong>(mySongs),\ continuationToken);}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_my_song_8cs_source_l00112}{Music\+App.\+Models.\+My\+Song.\+Create()}}.
+
+\Hypertarget{class_music_app_1_1_models_1_1_my_you_tube_service_a32e5c97ef31169facc49e8b1904c05c7}\label{class_music_app_1_1_models_1_1_my_you_tube_service_a32e5c97ef31169facc49e8b1904c05c7} 
+\index{MusicApp.Models.MyYouTubeService@{MusicApp.Models.MyYouTubeService}!FetchSongVideoInfoAsync@{FetchSongVideoInfoAsync}}
+\index{FetchSongVideoInfoAsync@{FetchSongVideoInfoAsync}!MusicApp.Models.MyYouTubeService@{MusicApp.Models.MyYouTubeService}}
+\doxysubsubsection{\texorpdfstring{FetchSongVideoInfoAsync()}{FetchSongVideoInfoAsync()}}
+{\footnotesize\ttfamily static async Task$<$ Song\+Video\+Info $>$ Music\+App.\+Models.\+My\+You\+Tube\+Service.\+Fetch\+Song\+Video\+Info\+Async (\begin{DoxyParamCaption}\item[{string}]{song\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Fetches video information for a given song ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em song\+Id} & The ID of the song.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Song\+Video\+Info object containing video information.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_my_you_tube_service_8cs_source_l00187}{187}} of file \mbox{\hyperlink{_my_you_tube_service_8cs_source}{My\+You\+Tube\+Service.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ await\ \_youtubeMusicClient.GetSongVideoInfoAsync(songId);}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{_my_you_tube_service_8cs_source_l00197}{Music\+App.\+Models.\+My\+You\+Tube\+Service.\+Fetch\+Playlist\+Content\+Async()}}, and \mbox{\hyperlink{_home_view_8xaml_8cs_source_l00308}{Music\+App.\+Views.\+Home\+View.\+Get\+Random\+Songs()}}.
+
+\Hypertarget{class_music_app_1_1_models_1_1_my_you_tube_service_a60f6019ea381561f8bfadea92afd0a55}\label{class_music_app_1_1_models_1_1_my_you_tube_service_a60f6019ea381561f8bfadea92afd0a55} 
+\index{MusicApp.Models.MyYouTubeService@{MusicApp.Models.MyYouTubeService}!GetAudioStreamUrlAsync@{GetAudioStreamUrlAsync}}
+\index{GetAudioStreamUrlAsync@{GetAudioStreamUrlAsync}!MusicApp.Models.MyYouTubeService@{MusicApp.Models.MyYouTubeService}}
+\doxysubsubsection{\texorpdfstring{GetAudioStreamUrlAsync()}{GetAudioStreamUrlAsync()}}
+{\footnotesize\ttfamily async Task$<$ string?$>$ Music\+App.\+Models.\+My\+You\+Tube\+Service.\+Get\+Audio\+Stream\+Url\+Async (\begin{DoxyParamCaption}\item[{string}]{song\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves the audio stream URL for a given song ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em song\+Id} & The ID of the song.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The URL of the audio stream.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_my_you_tube_service_8cs_source_l00138}{138}} of file \mbox{\hyperlink{_my_you_tube_service_8cs_source}{My\+You\+Tube\+Service.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ var\ videoId\ =\ YoutubeExplode.Videos.VideoId.Parse(songId);}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ var\ streamManifest\ =\ await\ \_youtubeClient.Videos.Streams.GetManifestAsync(videoId);}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ var\ audioStreamInfo\ =\ streamManifest.GetAudioOnlyStreams().GetWithHighestBitrate();}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ audioStreamInfo?.Url;}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{_player_view_model_8cs_source_l00481}{Music\+App.\+View\+Models.\+Player\+View\+Model.\+Play\+Selected\+Song()}}.
+
+\Hypertarget{class_music_app_1_1_models_1_1_my_you_tube_service_a1894c54a58ab46e6fe098d2a13d7a96a}\label{class_music_app_1_1_models_1_1_my_you_tube_service_a1894c54a58ab46e6fe098d2a13d7a96a} 
+\index{MusicApp.Models.MyYouTubeService@{MusicApp.Models.MyYouTubeService}!InitializeGoogleYTService@{InitializeGoogleYTService}}
+\index{InitializeGoogleYTService@{InitializeGoogleYTService}!MusicApp.Models.MyYouTubeService@{MusicApp.Models.MyYouTubeService}}
+\doxysubsubsection{\texorpdfstring{InitializeGoogleYTService()}{InitializeGoogleYTService()}}
+{\footnotesize\ttfamily async Task Music\+App.\+Models.\+My\+You\+Tube\+Service.\+Initialize\+Google\+YTService (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Initializes the Google You\+Tube API service with OAuth2 authentication. 
+
+
+
+Definition at line \mbox{\hyperlink{_my_you_tube_service_8cs_source_l00059}{59}} of file \mbox{\hyperlink{_my_you_tube_service_8cs_source}{My\+You\+Tube\+Service.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ credPath\ =\ \textcolor{stringliteral}{"{}token.json"{}};}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ UserCredential\ credential;}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using}\ (var\ stream\ =\ \textcolor{keyword}{new}\ FileStream(\textcolor{stringliteral}{"{}credentials.json"{}},\ FileMode.Open,\ FileAccess.Read))}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ credential\ =\ await\ GoogleWebAuthorizationBroker.AuthorizeAsync(}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GoogleClientSecrets.FromStream(stream).Secrets,}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Scopes,}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}user"{}},}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CancellationToken.None,}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ FileDataStore(credPath,\ \textcolor{keyword}{true}));}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Create\ YouTube\ Service}}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_googleYouTubeService\ =\ \textcolor{keyword}{new}\ YouTubeService(\textcolor{keyword}{new}\ BaseClientService.Initializer()}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ HttpClientInitializer\ =\ credential,}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ApplicationName\ =\ ApplicationName}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MessageBox.Show(\textcolor{stringliteral}{"{}Failed\ to\ connect\ to\ Google\ YouTube\ API"{}});}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_music_app_1_1_models_1_1_my_you_tube_service_a1b0f586ef1f823610ffe7cda3dd3dfa9}\label{class_music_app_1_1_models_1_1_my_you_tube_service_a1b0f586ef1f823610ffe7cda3dd3dfa9} 
+\index{MusicApp.Models.MyYouTubeService@{MusicApp.Models.MyYouTubeService}!InitializeYoutubeClients@{InitializeYoutubeClients}}
+\index{InitializeYoutubeClients@{InitializeYoutubeClients}!MusicApp.Models.MyYouTubeService@{MusicApp.Models.MyYouTubeService}}
+\doxysubsubsection{\texorpdfstring{InitializeYoutubeClients()}{InitializeYoutubeClients()}}
+{\footnotesize\ttfamily void Music\+App.\+Models.\+My\+You\+Tube\+Service.\+Initialize\+Youtube\+Clients (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Initializes the You\+Tube\+Music\+Client and Youtube\+Client. 
+
+
+
+Definition at line \mbox{\hyperlink{_my_you_tube_service_8cs_source_l00050}{50}} of file \mbox{\hyperlink{_my_you_tube_service_8cs_source}{My\+You\+Tube\+Service.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \_youtubeMusicClient\ =\ \textcolor{keyword}{new}\ YouTubeMusicClient();}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \_youtubeClient\ =\ \textcolor{keyword}{new}\ YoutubeClient();}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_music_app_1_1_models_1_1_my_you_tube_service_ab418a11403d47f91dd59497557322c83}\label{class_music_app_1_1_models_1_1_my_you_tube_service_ab418a11403d47f91dd59497557322c83} 
+\index{MusicApp.Models.MyYouTubeService@{MusicApp.Models.MyYouTubeService}!RemoveSongFromPlaylist@{RemoveSongFromPlaylist}}
+\index{RemoveSongFromPlaylist@{RemoveSongFromPlaylist}!MusicApp.Models.MyYouTubeService@{MusicApp.Models.MyYouTubeService}}
+\doxysubsubsection{\texorpdfstring{RemoveSongFromPlaylist()}{RemoveSongFromPlaylist()}}
+{\footnotesize\ttfamily async Task Music\+App.\+Models.\+My\+You\+Tube\+Service.\+Remove\+Song\+From\+Playlist (\begin{DoxyParamCaption}\item[{Playlist}]{playlist,  }\item[{\mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{My\+Song}}}]{song }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Removes a song from a playlist on You\+Tube. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em playlist} & The playlist from which the song will be removed.\\
+\hline
+{\em song} & The song to remove from the playlist.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_my_you_tube_service_8cs_source_l00325}{325}} of file \mbox{\hyperlink{_my_you_tube_service_8cs_source}{My\+You\+Tube\+Service.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}?\ nextPageToken\ =\ \textcolor{keyword}{null};}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PlaylistItem?\ playlistItem\ =\ \textcolor{keyword}{null};}
+\DoxyCodeLine{00331\ }
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Loop\ through\ pages\ of\ playlist\ items\ until\ we\ find\ the\ song}}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ playlistItemsRequest\ =\ \_googleYouTubeService.PlaylistItems.List(\textcolor{stringliteral}{"{}id,snippet"{}});}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ playlistItemsRequest.PlaylistId\ =\ playlist.Id;}
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ playlistItemsRequest.MaxResults\ =\ 20;}
+\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ playlistItemsRequest.PageToken\ =\ nextPageToken;}
+\DoxyCodeLine{00339\ }
+\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ playlistItemsResponse\ =\ await\ playlistItemsRequest.ExecuteAsync();}
+\DoxyCodeLine{00341\ }
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ playlistItem\ =\ playlistItemsResponse.Items}
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .FirstOrDefault(item\ =>\ item.Snippet.ResourceId.VideoId\ ==\ song.Id);}
+\DoxyCodeLine{00344\ }
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nextPageToken\ =\ playlistItemsResponse.NextPageToken;}
+\DoxyCodeLine{00346\ }
+\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (playlistItem\ ==\ \textcolor{keyword}{null}\ \&\&\ !\textcolor{keywordtype}{string}.IsNullOrEmpty(nextPageToken));}
+\DoxyCodeLine{00348\ }
+\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ the\ song\ is\ found\ in\ the\ playlist,\ delete\ it}}
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (playlistItem\ !=\ \textcolor{keyword}{null})}
+\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00352\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ deleteRequest\ =\ \_googleYouTubeService.PlaylistItems.Delete(playlistItem.Id);}
+\DoxyCodeLine{00353\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ await\ deleteRequest.ExecuteAsync();}
+\DoxyCodeLine{00354\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MessageBox.Show(\textcolor{stringliteral}{"{}Song\ not\ found\ in\ the\ playlist."{}});}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (Exception\ ex)}
+\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MessageBox.Show(\$\textcolor{stringliteral}{"{}Failed\ to\ remove\ song\ from\ playlist:\ \{ex.Message\}"{}});}
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00364\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_my_song_8cs_source_l00027}{Music\+App.\+Models.\+My\+Song.\+Id}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_music_app_1_1_models_1_1_my_you_tube_service_ab901b0586a84375a89d6ea255e4dffea}\label{class_music_app_1_1_models_1_1_my_you_tube_service_ab901b0586a84375a89d6ea255e4dffea} 
+\index{MusicApp.Models.MyYouTubeService@{MusicApp.Models.MyYouTubeService}!\_googleYouTubeService@{\_googleYouTubeService}}
+\index{\_googleYouTubeService@{\_googleYouTubeService}!MusicApp.Models.MyYouTubeService@{MusicApp.Models.MyYouTubeService}}
+\doxysubsubsection{\texorpdfstring{\_googleYouTubeService}{\_googleYouTubeService}}
+{\footnotesize\ttfamily You\+Tube\+Service Music\+App.\+Models.\+My\+You\+Tube\+Service.\+\_\+google\+You\+Tube\+Service = new()\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_my_you_tube_service_8cs_source_l00030}{30}} of file \mbox{\hyperlink{_my_you_tube_service_8cs_source}{My\+You\+Tube\+Service.\+cs}}.
+
+\Hypertarget{class_music_app_1_1_models_1_1_my_you_tube_service_a0e33117159c913283615fc6733bdb478}\label{class_music_app_1_1_models_1_1_my_you_tube_service_a0e33117159c913283615fc6733bdb478} 
+\index{MusicApp.Models.MyYouTubeService@{MusicApp.Models.MyYouTubeService}!\_youtubeClient@{\_youtubeClient}}
+\index{\_youtubeClient@{\_youtubeClient}!MusicApp.Models.MyYouTubeService@{MusicApp.Models.MyYouTubeService}}
+\doxysubsubsection{\texorpdfstring{\_youtubeClient}{\_youtubeClient}}
+{\footnotesize\ttfamily Youtube\+Client Music\+App.\+Models.\+My\+You\+Tube\+Service.\+\_\+youtube\+Client = new()\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_my_you_tube_service_8cs_source_l00033}{33}} of file \mbox{\hyperlink{_my_you_tube_service_8cs_source}{My\+You\+Tube\+Service.\+cs}}.
+
+\Hypertarget{class_music_app_1_1_models_1_1_my_you_tube_service_ac74273ad6666d3eda1f9442a973a2e9e}\label{class_music_app_1_1_models_1_1_my_you_tube_service_ac74273ad6666d3eda1f9442a973a2e9e} 
+\index{MusicApp.Models.MyYouTubeService@{MusicApp.Models.MyYouTubeService}!\_youtubeMusicClient@{\_youtubeMusicClient}}
+\index{\_youtubeMusicClient@{\_youtubeMusicClient}!MusicApp.Models.MyYouTubeService@{MusicApp.Models.MyYouTubeService}}
+\doxysubsubsection{\texorpdfstring{\_youtubeMusicClient}{\_youtubeMusicClient}}
+{\footnotesize\ttfamily You\+Tube\+Music\+Client Music\+App.\+Models.\+My\+You\+Tube\+Service.\+\_\+youtube\+Music\+Client = new()\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_my_you_tube_service_8cs_source_l00032}{32}} of file \mbox{\hyperlink{_my_you_tube_service_8cs_source}{My\+You\+Tube\+Service.\+cs}}.
+
+\Hypertarget{class_music_app_1_1_models_1_1_my_you_tube_service_a41c5c483f9060c20595feb3f38f8b1c6}\label{class_music_app_1_1_models_1_1_my_you_tube_service_a41c5c483f9060c20595feb3f38f8b1c6} 
+\index{MusicApp.Models.MyYouTubeService@{MusicApp.Models.MyYouTubeService}!ApplicationName@{ApplicationName}}
+\index{ApplicationName@{ApplicationName}!MusicApp.Models.MyYouTubeService@{MusicApp.Models.MyYouTubeService}}
+\doxysubsubsection{\texorpdfstring{ApplicationName}{ApplicationName}}
+{\footnotesize\ttfamily readonly string Music\+App.\+Models.\+My\+You\+Tube\+Service.\+Application\+Name = "{}Music\+App"{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_my_you_tube_service_8cs_source_l00029}{29}} of file \mbox{\hyperlink{_my_you_tube_service_8cs_source}{My\+You\+Tube\+Service.\+cs}}.
+
+\Hypertarget{class_music_app_1_1_models_1_1_my_you_tube_service_a056ebfe638c6e52125119d888c4a77f5}\label{class_music_app_1_1_models_1_1_my_you_tube_service_a056ebfe638c6e52125119d888c4a77f5} 
+\index{MusicApp.Models.MyYouTubeService@{MusicApp.Models.MyYouTubeService}!Scopes@{Scopes}}
+\index{Scopes@{Scopes}!MusicApp.Models.MyYouTubeService@{MusicApp.Models.MyYouTubeService}}
+\doxysubsubsection{\texorpdfstring{Scopes}{Scopes}}
+{\footnotesize\ttfamily readonly string \mbox{[}$\,$\mbox{]} Music\+App.\+Models.\+My\+You\+Tube\+Service.\+Scopes\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ YouTubeService.Scope.Youtube,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}https://www.googleapis.com/auth/youtube.force-\/ssl"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{_my_you_tube_service_8cs_source_l00025}{25}} of file \mbox{\hyperlink{_my_you_tube_service_8cs_source}{My\+You\+Tube\+Service.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ YouTubeService.Scope.Youtube,}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}https://www.googleapis.com/auth/youtube.force-\/ssl"{}}}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \};}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Models/My\+You\+Tube\+Service.\+cs\end{DoxyCompactItemize}

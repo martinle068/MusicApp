@@ -1,0 +1,97 @@
+\doxysection{Thumbnail\+Helper.\+cs}
+\hypertarget{_thumbnail_helper_8cs_source}{}\label{_thumbnail_helper_8cs_source}\index{Models/ThumbnailHelper.cs@{Models/ThumbnailHelper.cs}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00001}00001\ \textcolor{keyword}{using\ }System;}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00002}00002\ \textcolor{keyword}{using\ }System.Drawing;}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00003}00003\ \textcolor{keyword}{using\ }System.IO;}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00004}00004\ \textcolor{keyword}{using\ }System.Net.Http;}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00005}00005\ \textcolor{keyword}{using\ }System.Threading.Tasks;}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00006}00006\ \textcolor{keyword}{using\ }System.Windows.Media.Imaging;}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00008}\mbox{\hyperlink{class_thumbnail_helper}{00008}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_thumbnail_helper}{ThumbnailHelper}}}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00009}00009\ \{}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00017}\mbox{\hyperlink{class_thumbnail_helper_a5b18ec6167cc2121ed5a13e453083189}{00017}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ async\ Task<BitmapImage>\ \mbox{\hyperlink{class_thumbnail_helper_a5b18ec6167cc2121ed5a13e453083189}{GetHighQualityThumbnailAsync}}(\textcolor{keywordtype}{string}\ songId)}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00018}00018\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00019}00019\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00020}00020\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ \ var\ imageUrl\ =\ \$\textcolor{stringliteral}{"{}https://img.youtube.com/vi/\{songId\}/maxresdefault.jpg"{}};}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00023}00023\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ await\ \mbox{\hyperlink{class_thumbnail_helper_ad1958f2b51cc7ac921c2a0ebc4c7c47e}{GetSquareThumbnailAsync}}(imageUrl);}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00024}00024\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00025}00025\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (Exception)}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00026}00026\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ await\ \mbox{\hyperlink{class_thumbnail_helper_a9a927da38f01f53a9c2fe57036b44ce7}{GetMediumQualityThumbnailAsync}}(songId);}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (Exception)}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ imageUrl\ =\ \$\textcolor{stringliteral}{"{}https://img.youtube.com/vi/\{songId\}/0.jpg"{}};}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ await\ \mbox{\hyperlink{class_thumbnail_helper_ad1958f2b51cc7ac921c2a0ebc4c7c47e}{GetSquareThumbnailAsync}}(imageUrl);}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00037}00037\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00038}00038\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00045}\mbox{\hyperlink{class_thumbnail_helper_a9a927da38f01f53a9c2fe57036b44ce7}{00045}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ async\ Task<BitmapImage>\ \mbox{\hyperlink{class_thumbnail_helper_a9a927da38f01f53a9c2fe57036b44ce7}{GetMediumQualityThumbnailAsync}}(\textcolor{keywordtype}{string}\ songId)}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00046}00046\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00047}00047\ \ \ \ \ \ \ \ \ var\ imageUrl\ =\ \$\textcolor{stringliteral}{"{}https://img.youtube.com/vi/\{songId\}/sd1.jpg"{}};}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00049}00049\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ await\ \mbox{\hyperlink{class_thumbnail_helper_ad1958f2b51cc7ac921c2a0ebc4c7c47e}{GetSquareThumbnailAsync}}(imageUrl);}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00050}00050\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00057}\mbox{\hyperlink{class_thumbnail_helper_a39c5b218e5034d214bde8a50ae0d372e}{00057}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ async\ Task<BitmapImage>\ \mbox{\hyperlink{class_thumbnail_helper_a39c5b218e5034d214bde8a50ae0d372e}{GetLowQualityThumbnailAsync}}(\textcolor{keywordtype}{string}\ songId)}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00058}00058\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00059}00059\ \ \ \ \ \ \ \ \ var\ imageUrl\ =\ \$\textcolor{stringliteral}{"{}https://img.youtube.com/vi/\{songId\}/1.jpg"{}};}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00061}00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ await\ \mbox{\hyperlink{class_thumbnail_helper_ad1958f2b51cc7ac921c2a0ebc4c7c47e}{GetSquareThumbnailAsync}}(imageUrl);}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00062}00062\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00069}\mbox{\hyperlink{class_thumbnail_helper_ad1958f2b51cc7ac921c2a0ebc4c7c47e}{00069}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ async\ Task<BitmapImage>\ \mbox{\hyperlink{class_thumbnail_helper_ad1958f2b51cc7ac921c2a0ebc4c7c47e}{GetSquareThumbnailAsync}}(\textcolor{keywordtype}{string}\ videoUrl)}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00070}00070\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00071}00071\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using}\ (HttpClient\ client\ =\ \textcolor{keyword}{new}\ HttpClient())}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00072}00072\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ var\ response\ =\ await\ client.GetAsync(videoUrl);}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ response.EnsureSuccessStatusCode();}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ var\ stream\ =\ await\ response.Content.ReadAsStreamAsync();}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using}\ (var\ originalImage\ =\ \textcolor{keyword}{new}\ Bitmap(stream))}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ size\ =\ Math.Min(originalImage.Width,\ originalImage.Height);}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ x\ =\ (originalImage.Width\ -\/\ size)\ /\ 2;}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ y\ =\ (originalImage.Height\ -\/\ size)\ /\ 2;}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using}\ (var\ croppedImage\ =\ \textcolor{keyword}{new}\ Bitmap(size,\ size))}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using}\ (Graphics\ g\ =\ Graphics.FromImage(croppedImage))}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ g.DrawImage(originalImage,\ \textcolor{keyword}{new}\ Rectangle(0,\ 0,\ size,\ size),\ x,\ y,\ size,\ size,\ GraphicsUnit.Pixel);}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_thumbnail_helper_ae325cee56c7231b3f74e9a6b52644780}{BitmapToBitmapImage}}(croppedImage);}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00093}00093\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00094}00094\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00101}\mbox{\hyperlink{class_thumbnail_helper_ae325cee56c7231b3f74e9a6b52644780}{00101}}\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keyword}{static}\ BitmapImage\ \mbox{\hyperlink{class_thumbnail_helper_ae325cee56c7231b3f74e9a6b52644780}{BitmapToBitmapImage}}(Bitmap\ bitmap)}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00102}00102\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00103}00103\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using}\ (MemoryStream\ memory\ =\ \textcolor{keyword}{new}\ MemoryStream())}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00104}00104\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ bitmap.Save(memory,\ System.Drawing.Imaging.ImageFormat.Png);}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ memory.Position\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00108}00108\ \ \ \ \ \ \ \ \ \ \ \ \ BitmapImage\ bitmapImage\ =\ \textcolor{keyword}{new}\ BitmapImage();}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \ \ bitmapImage.BeginInit();}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ bitmapImage.StreamSource\ =\ memory;}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ bitmapImage.CacheOption\ =\ BitmapCacheOption.OnLoad;}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ bitmapImage.EndInit();}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ bitmapImage.Freeze();}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ bitmapImage;}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00116}00116\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00117}00117\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_thumbnail_helper_8cs_source_l00118}00118\ \}}
+
+\end{DoxyCode}

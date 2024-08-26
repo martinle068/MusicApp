@@ -1,0 +1,814 @@
+\doxysection{Music\+App.\+Views.\+Home\+View Class Reference}
+\hypertarget{class_music_app_1_1_views_1_1_home_view}{}\label{class_music_app_1_1_views_1_1_home_view}\index{MusicApp.Views.HomeView@{MusicApp.Views.HomeView}}
+
+
+Interaction logic for Home\+View.\+xaml. This class handles the main view logic for displaying and interacting with playlists and songs in the \doxylink{namespace_music_app}{Music\+App}.  
+
+
+Inheritance diagram for Music\+App.\+Views.\+Home\+View\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_music_app_1_1_views_1_1_home_view}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bfseries List\+Box\+Type} \{ {\bfseries Random\+Songs\+From\+All\+Playlists}
+, {\bfseries Songs\+From\+Specific\+Author}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_music_app_1_1_views_1_1_home_view_a0459b75d59594241d53a51eadaa297fb}{Text\+Box\+\_\+\+Key\+Down}} (object sender, Key\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Handles the Key\+Down event for the search Text\+Box, triggering the search command when Enter is pressed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_music_app_1_1_views_1_1_home_view_aade76ebd65e0891fba7094e6f29880cb}{List\+View\+Scroll\+Viewer\+\_\+\+Preview\+Mouse\+Wheel}} (object sender, Mouse\+Wheel\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Handles the Mouse\+Wheel event for the List\+View Scroll\+Viewer to enable smooth scrolling. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_music_app_1_1_views_1_1_home_view_a6236f4358c7e15db322ee574ae56aa36}{Playlist\+List\+Box\+Item\+Command}} (object sender, Mouse\+Button\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Handles the Mouse\+Left\+Button\+Up event for selecting a playlist. \end{DoxyCompactList}\item 
+async void \mbox{\hyperlink{class_music_app_1_1_views_1_1_home_view_a418e79832fbc362773c3baed7bbd041c}{Radio\+Song\+List\+Box\+Command}} (object sender, Mouse\+Button\+Event\+Args e, Observable\+Collection$<$ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{My\+Song}} $>$ songs, int index)
+\begin{DoxyCompactList}\small\item\em Handles the Mouse\+Left\+Button\+Up event for playing a song from the radio list. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_music_app_1_1_views_1_1_home_view_a93d9e2d68382e1c2cf1497ac925a1372}{Popular\+Songs\+List\+Box\+Command}} (object sender, Mouse\+Button\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Handles the Mouse\+Left\+Button\+Up event for playing a popular song. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_music_app_1_1_views_1_1_home_view_a7e716e84c3b2e2b48396f8a218d175ba}{Execute\+Delete\+Playlist\+Command}} (object sender)
+\begin{DoxyCompactList}\small\item\em Executes the delete command for a playlist. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_music_app_1_1_views_1_1_home_view_a79c36530c0478e0eca1dd2a1c9420657}{Remove\+Playlist\+\_\+\+Combo\+Box}} (object sender, Routed\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Handles the Click event for removing a playlist using a context menu. \end{DoxyCompactList}\item 
+async void \mbox{\hyperlink{class_music_app_1_1_views_1_1_home_view_aa68baf1e987f194e15abe16d6c028c63}{Dynamic\+Scroll\+Viewer\+\_\+\+Scroll\+Changed}} (object sender, Scroll\+Changed\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Handles the Scroll\+Changed event for dynamically loading additional content as the user scrolls. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_music_app_1_1_views_1_1_home_view_a1ec460072621cb520f63358f7fec2993}{List\+Box\+\_\+\+Scroll\+Changed}} (object sender, Scroll\+Changed\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Prevents the List\+Box from triggering the main Scroll\+Viewer\textquotesingle{}s event when scrolling. \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{class_music_app_1_1_views_1_1_home_view_a82a7722803e4b257331baa5bdedf5348}{Add\+Dynamic\+List\+Box\+Section\+Async}} ()
+\begin{DoxyCompactList}\small\item\em Adds a dynamically generated List\+Box section to the main panel based on a random selection of List\+Box\+Type. \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{class_music_app_1_1_views_1_1_home_view_a68327c59b07207f1602ab415ae03e22a}{Add\+Random\+Songs\+List\+Box\+Async}} ()
+\begin{DoxyCompactList}\small\item\em Adds a List\+Box with a random collection of songs from all playlists to the main panel. \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{class_music_app_1_1_views_1_1_home_view_a434c5a4a4986817d945e703475cfa828}{Add\+Songs\+From\+Author\+List\+Box\+Async}} ()
+\begin{DoxyCompactList}\small\item\em Adds a List\+Box with songs from a specific author to the main panel. \end{DoxyCompactList}\item 
+List\+Box \mbox{\hyperlink{class_music_app_1_1_views_1_1_home_view_a09149af6a309f096ce8f484ccbe87b37}{Create\+List\+Box}} (Observable\+Collection$<$ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{My\+Song}} $>$ songs)
+\begin{DoxyCompactList}\small\item\em Creates a List\+Box with the specified songs and sets up the necessary event handlers and templates. \end{DoxyCompactList}\item 
+Data\+Template \mbox{\hyperlink{class_music_app_1_1_views_1_1_home_view_a7bd4459da67ff699daaafe05258897a2}{Create\+Data\+Template}} ()
+\begin{DoxyCompactList}\small\item\em Creates a Data\+Template for the items in the dynamically generated List\+Boxes. \end{DoxyCompactList}\item 
+Context\+Menu \mbox{\hyperlink{class_music_app_1_1_views_1_1_home_view_aa2a8943c9bca7cab462fc9820d3052f4}{Create\+Context\+Menu}} ()
+\begin{DoxyCompactList}\small\item\em Creates a context menu with an "{}\+Add to Playlist"{} option for each song item. \end{DoxyCompactList}\item 
+async Task$<$ Observable\+Collection$<$ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{My\+Song}} $>$?$>$ \mbox{\hyperlink{class_music_app_1_1_views_1_1_home_view_a0d232f61205ff02aa9d132183adbcc74}{Get\+Random\+Songs}} ()
+\begin{DoxyCompactList}\small\item\em Gets a collection of random songs from the database for recommendation. \end{DoxyCompactList}\item 
+string? \mbox{\hyperlink{class_music_app_1_1_views_1_1_home_view_aaf0d7f911d802b932bb67310a68da53a}{Get\+Random\+Author}} (IEnumerable$<$ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{My\+Song}} $>$ songs)
+\begin{DoxyCompactList}\small\item\em Gets a random author from the list of available songs. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_music_app_1_1_views_1_1_home_view_ae539c5e893df9dbf4b2d545e24d6e993}{Execute\+Add\+Song\+To\+Playlist}} (object sender)
+\begin{DoxyCompactList}\small\item\em Executes the command to add a song to a playlist from the context menu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_music_app_1_1_views_1_1_home_view_a0524b6d74f9a1db41bdcdb3a8966e0de}{Add\+Song\+To\+Playlist\+\_\+\+Combo\+Box}} (object sender, Routed\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Handles the Click event for adding a song to a playlist via the context menu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_music_app_1_1_views_1_1_home_view_a0c02524785d72b146580b0867438c9aa}{\+\_\+is\+Loading\+Panel}} = false
+\item 
+readonly Random \mbox{\hyperlink{class_music_app_1_1_views_1_1_home_view_a0880a64d9434872d72e78bd2adc4ad25}{\+\_\+random}} = new()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interaction logic for Home\+View.\+xaml. This class handles the main view logic for displaying and interacting with playlists and songs in the \doxylink{namespace_music_app}{Music\+App}. 
+
+Definition at line \mbox{\hyperlink{_home_view_8xaml_8cs_source_l00020}{20}} of file \mbox{\hyperlink{_home_view_8xaml_8cs_source}{Home\+View.\+xaml.\+cs}}.
+
+
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_music_app_1_1_views_1_1_home_view_a41a141a3cbbaa266eeed14df06980243}\label{class_music_app_1_1_views_1_1_home_view_a41a141a3cbbaa266eeed14df06980243} 
+\index{MusicApp.Views.HomeView@{MusicApp.Views.HomeView}!ListBoxType@{ListBoxType}}
+\index{ListBoxType@{ListBoxType}!MusicApp.Views.HomeView@{MusicApp.Views.HomeView}}
+\doxysubsubsection{\texorpdfstring{ListBoxType}{ListBoxType}}
+{\footnotesize\ttfamily enum Music\+App.\+Views.\+Home\+View.\+List\+Box\+Type}
+
+
+
+Definition at line \mbox{\hyperlink{_home_view_8xaml_8cs_source_l00022}{22}} of file \mbox{\hyperlink{_home_view_8xaml_8cs_source}{Home\+View.\+xaml.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ RandomSongsFromAllPlaylists,}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ SongsFromSpecificAuthor}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_music_app_1_1_views_1_1_home_view_a0e2ae7dd92f8891929a72e11da261f85}\label{class_music_app_1_1_views_1_1_home_view_a0e2ae7dd92f8891929a72e11da261f85} 
+\index{MusicApp.Views.HomeView@{MusicApp.Views.HomeView}!HomeView@{HomeView}}
+\index{HomeView@{HomeView}!MusicApp.Views.HomeView@{MusicApp.Views.HomeView}}
+\doxysubsubsection{\texorpdfstring{HomeView()}{HomeView()}}
+{\footnotesize\ttfamily Music\+App.\+Views.\+Home\+View.\+Home\+View (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_home_view_8xaml_8cs_source_l00031}{31}} of file \mbox{\hyperlink{_home_view_8xaml_8cs_source}{Home\+View.\+xaml.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ InitializeComponent();}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_music_app_1_1_views_1_1_home_view_a82a7722803e4b257331baa5bdedf5348}\label{class_music_app_1_1_views_1_1_home_view_a82a7722803e4b257331baa5bdedf5348} 
+\index{MusicApp.Views.HomeView@{MusicApp.Views.HomeView}!AddDynamicListBoxSectionAsync@{AddDynamicListBoxSectionAsync}}
+\index{AddDynamicListBoxSectionAsync@{AddDynamicListBoxSectionAsync}!MusicApp.Views.HomeView@{MusicApp.Views.HomeView}}
+\doxysubsubsection{\texorpdfstring{AddDynamicListBoxSectionAsync()}{AddDynamicListBoxSectionAsync()}}
+{\footnotesize\ttfamily async Task Music\+App.\+Views.\+Home\+View.\+Add\+Dynamic\+List\+Box\+Section\+Async (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Adds a dynamically generated List\+Box section to the main panel based on a random selection of List\+Box\+Type. 
+
+
+
+Definition at line \mbox{\hyperlink{_home_view_8xaml_8cs_source_l00137}{137}} of file \mbox{\hyperlink{_home_view_8xaml_8cs_source}{Home\+View.\+xaml.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ var\ selectedType\ =\ (ListBoxType)\_random.Next(Enum.GetValues(typeof(ListBoxType)).Length);}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (selectedType)}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ ListBoxType.RandomSongsFromAllPlaylists:}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ await\ \mbox{\hyperlink{class_music_app_1_1_views_1_1_home_view_a68327c59b07207f1602ab415ae03e22a}{AddRandomSongsListBoxAsync}}();}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ ListBoxType.SongsFromSpecificAuthor:}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ await\ \mbox{\hyperlink{class_music_app_1_1_views_1_1_home_view_a434c5a4a4986817d945e703475cfa828}{AddSongsFromAuthorListBoxAsync}}();}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_home_view_8xaml_8cs_source_l00156}{Music\+App.\+Views.\+Home\+View.\+Add\+Random\+Songs\+List\+Box\+Async()}}, and \mbox{\hyperlink{_home_view_8xaml_8cs_source_l00182}{Music\+App.\+Views.\+Home\+View.\+Add\+Songs\+From\+Author\+List\+Box\+Async()}}.
+
+
+
+Referenced by \mbox{\hyperlink{_home_view_8xaml_8cs_source_l00112}{Music\+App.\+Views.\+Home\+View.\+Dynamic\+Scroll\+Viewer\+\_\+\+Scroll\+Changed()}}.
+
+\Hypertarget{class_music_app_1_1_views_1_1_home_view_a68327c59b07207f1602ab415ae03e22a}\label{class_music_app_1_1_views_1_1_home_view_a68327c59b07207f1602ab415ae03e22a} 
+\index{MusicApp.Views.HomeView@{MusicApp.Views.HomeView}!AddRandomSongsListBoxAsync@{AddRandomSongsListBoxAsync}}
+\index{AddRandomSongsListBoxAsync@{AddRandomSongsListBoxAsync}!MusicApp.Views.HomeView@{MusicApp.Views.HomeView}}
+\doxysubsubsection{\texorpdfstring{AddRandomSongsListBoxAsync()}{AddRandomSongsListBoxAsync()}}
+{\footnotesize\ttfamily async Task Music\+App.\+Views.\+Home\+View.\+Add\+Random\+Songs\+List\+Box\+Async (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Adds a List\+Box with a random collection of songs from all playlists to the main panel. 
+
+
+
+Definition at line \mbox{\hyperlink{_home_view_8xaml_8cs_source_l00156}{156}} of file \mbox{\hyperlink{_home_view_8xaml_8cs_source}{Home\+View.\+xaml.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ var\ viewModel\ =\ DataContext\ as\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model}{HomeViewModel}};}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (viewModel\ ==\ \textcolor{keyword}{null}\ ||\ viewModel.AllPlaylistSongs\ ==\ \textcolor{keyword}{null}\ ||\ !viewModel.AllPlaylistSongs.Any())}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ var\ randomSongs\ =\ await\ \mbox{\hyperlink{class_music_app_1_1_views_1_1_home_view_a0d232f61205ff02aa9d132183adbcc74}{GetRandomSongs}}();}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (randomSongs\ ==\ \textcolor{keyword}{null}\ ||\ randomSongs.Count\ ==\ 0)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ var\ textBlock\ =\ \textcolor{keyword}{new}\ TextBlock}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Text\ =\ \textcolor{stringliteral}{"{}Your\ Favourite\ Songs"{}},}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FontWeight\ =\ FontWeights.Bold,}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FontSize\ =\ 24,}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Foreground\ =\ \textcolor{keyword}{new}\ SolidColorBrush(Colors.White),}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Margin\ =\ \textcolor{keyword}{new}\ Thickness(10,\ 0,\ 0,\ 0)}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ MainPanel.Children.Add(textBlock);}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ var\ listBox\ =\ \mbox{\hyperlink{class_music_app_1_1_views_1_1_home_view_a09149af6a309f096ce8f484ccbe87b37}{CreateListBox}}(randomSongs);}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ MainPanel.Children.Add(listBox);}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_home_view_8xaml_8cs_source_l00211}{Music\+App.\+Views.\+Home\+View.\+Create\+List\+Box()}}, and \mbox{\hyperlink{_home_view_8xaml_8cs_source_l00308}{Music\+App.\+Views.\+Home\+View.\+Get\+Random\+Songs()}}.
+
+
+
+Referenced by \mbox{\hyperlink{_home_view_8xaml_8cs_source_l00137}{Music\+App.\+Views.\+Home\+View.\+Add\+Dynamic\+List\+Box\+Section\+Async()}}.
+
+\Hypertarget{class_music_app_1_1_views_1_1_home_view_a434c5a4a4986817d945e703475cfa828}\label{class_music_app_1_1_views_1_1_home_view_a434c5a4a4986817d945e703475cfa828} 
+\index{MusicApp.Views.HomeView@{MusicApp.Views.HomeView}!AddSongsFromAuthorListBoxAsync@{AddSongsFromAuthorListBoxAsync}}
+\index{AddSongsFromAuthorListBoxAsync@{AddSongsFromAuthorListBoxAsync}!MusicApp.Views.HomeView@{MusicApp.Views.HomeView}}
+\doxysubsubsection{\texorpdfstring{AddSongsFromAuthorListBoxAsync()}{AddSongsFromAuthorListBoxAsync()}}
+{\footnotesize\ttfamily async Task Music\+App.\+Views.\+Home\+View.\+Add\+Songs\+From\+Author\+List\+Box\+Async (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Adds a List\+Box with songs from a specific author to the main panel. 
+
+
+
+Definition at line \mbox{\hyperlink{_home_view_8xaml_8cs_source_l00182}{182}} of file \mbox{\hyperlink{_home_view_8xaml_8cs_source}{Home\+View.\+xaml.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ var\ viewModel\ =\ DataContext\ as\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model}{HomeViewModel}};}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (viewModel\ ==\ \textcolor{keyword}{null}\ ||\ viewModel.AllPlaylistSongs\ ==\ \textcolor{keyword}{null}\ ||\ !viewModel.AllPlaylistSongs.Any())}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ var\ randomAuthor\ =\ \mbox{\hyperlink{class_music_app_1_1_views_1_1_home_view_aaf0d7f911d802b932bb67310a68da53a}{GetRandomAuthor}}(viewModel.AllPlaylistSongs);}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (randomAuthor\ ==\ \textcolor{keyword}{null})\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ var\ authorSongs\ =\ await\ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_you_tube_service}{MyYouTubeService}}.\mbox{\hyperlink{class_music_app_1_1_models_1_1_my_you_tube_service_a970433df35cd99f8be2de1beed902328}{FetchSongsAsync}}(randomAuthor,\ 10);}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (authorSongs\ ==\ \textcolor{keyword}{null}\ ||\ authorSongs.Count\ ==\ 0)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ var\ textBlock\ =\ \textcolor{keyword}{new}\ TextBlock}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Text\ =\ \$\textcolor{stringliteral}{"{}Songs\ by\ \{randomAuthor\}"{}},}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FontWeight\ =\ FontWeights.Bold,}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FontSize\ =\ 24,}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Foreground\ =\ \textcolor{keyword}{new}\ SolidColorBrush(Colors.White),}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Margin\ =\ \textcolor{keyword}{new}\ Thickness(10,\ 0,\ 0,\ 0)}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ MainPanel.Children.Add(textBlock);}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ var\ listBox\ =\ \mbox{\hyperlink{class_music_app_1_1_views_1_1_home_view_a09149af6a309f096ce8f484ccbe87b37}{CreateListBox}}(authorSongs);}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ MainPanel.Children.Add(listBox);}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_home_view_8xaml_8cs_source_l00211}{Music\+App.\+Views.\+Home\+View.\+Create\+List\+Box()}}, \mbox{\hyperlink{_my_you_tube_service_8cs_source_l00113}{Music\+App.\+Models.\+My\+You\+Tube\+Service.\+Fetch\+Songs\+Async()}}, and \mbox{\hyperlink{_home_view_8xaml_8cs_source_l00331}{Music\+App.\+Views.\+Home\+View.\+Get\+Random\+Author()}}.
+
+
+
+Referenced by \mbox{\hyperlink{_home_view_8xaml_8cs_source_l00137}{Music\+App.\+Views.\+Home\+View.\+Add\+Dynamic\+List\+Box\+Section\+Async()}}.
+
+\Hypertarget{class_music_app_1_1_views_1_1_home_view_a0524b6d74f9a1db41bdcdb3a8966e0de}\label{class_music_app_1_1_views_1_1_home_view_a0524b6d74f9a1db41bdcdb3a8966e0de} 
+\index{MusicApp.Views.HomeView@{MusicApp.Views.HomeView}!AddSongToPlaylist\_ComboBox@{AddSongToPlaylist\_ComboBox}}
+\index{AddSongToPlaylist\_ComboBox@{AddSongToPlaylist\_ComboBox}!MusicApp.Views.HomeView@{MusicApp.Views.HomeView}}
+\doxysubsubsection{\texorpdfstring{AddSongToPlaylist\_ComboBox()}{AddSongToPlaylist\_ComboBox()}}
+{\footnotesize\ttfamily void Music\+App.\+Views.\+Home\+View.\+Add\+Song\+To\+Playlist\+\_\+\+Combo\+Box (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Routed\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Handles the Click event for adding a song to a playlist via the context menu. 
+
+
+
+Definition at line \mbox{\hyperlink{_home_view_8xaml_8cs_source_l00355}{355}} of file \mbox{\hyperlink{_home_view_8xaml_8cs_source}{Home\+View.\+xaml.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_music_app_1_1_views_1_1_home_view_ae539c5e893df9dbf4b2d545e24d6e993}{ExecuteAddSongToPlaylist}}(sender);}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_home_view_8xaml_8cs_source_l00341}{Music\+App.\+Views.\+Home\+View.\+Execute\+Add\+Song\+To\+Playlist()}}.
+
+
+
+Referenced by \mbox{\hyperlink{_home_view_8xaml_8cs_source_l00296}{Music\+App.\+Views.\+Home\+View.\+Create\+Context\+Menu()}}.
+
+\Hypertarget{class_music_app_1_1_views_1_1_home_view_aa2a8943c9bca7cab462fc9820d3052f4}\label{class_music_app_1_1_views_1_1_home_view_aa2a8943c9bca7cab462fc9820d3052f4} 
+\index{MusicApp.Views.HomeView@{MusicApp.Views.HomeView}!CreateContextMenu@{CreateContextMenu}}
+\index{CreateContextMenu@{CreateContextMenu}!MusicApp.Views.HomeView@{MusicApp.Views.HomeView}}
+\doxysubsubsection{\texorpdfstring{CreateContextMenu()}{CreateContextMenu()}}
+{\footnotesize\ttfamily Context\+Menu Music\+App.\+Views.\+Home\+View.\+Create\+Context\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Creates a context menu with an "{}\+Add to Playlist"{} option for each song item. 
+
+
+
+Definition at line \mbox{\hyperlink{_home_view_8xaml_8cs_source_l00296}{296}} of file \mbox{\hyperlink{_home_view_8xaml_8cs_source}{Home\+View.\+xaml.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \ \ \ \ var\ contextMenu\ =\ \textcolor{keyword}{new}\ ContextMenu();}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \ \ \ \ var\ addMenuItem\ =\ \textcolor{keyword}{new}\ MenuItem\ \{\ Header\ =\ \textcolor{stringliteral}{"{}Add\ to\ Playlist"{}}\ \};}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \ \ \ \ addMenuItem.Click\ +=\ \mbox{\hyperlink{class_music_app_1_1_views_1_1_home_view_a0524b6d74f9a1db41bdcdb3a8966e0de}{AddSongToPlaylist\_ComboBox}};}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \ \ \ \ contextMenu.Items.Add(addMenuItem);}
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ contextMenu;}
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_home_view_8xaml_8cs_source_l00355}{Music\+App.\+Views.\+Home\+View.\+Add\+Song\+To\+Playlist\+\_\+\+Combo\+Box()}}.
+
+
+
+Referenced by \mbox{\hyperlink{_home_view_8xaml_8cs_source_l00240}{Music\+App.\+Views.\+Home\+View.\+Create\+Data\+Template()}}.
+
+\Hypertarget{class_music_app_1_1_views_1_1_home_view_a7bd4459da67ff699daaafe05258897a2}\label{class_music_app_1_1_views_1_1_home_view_a7bd4459da67ff699daaafe05258897a2} 
+\index{MusicApp.Views.HomeView@{MusicApp.Views.HomeView}!CreateDataTemplate@{CreateDataTemplate}}
+\index{CreateDataTemplate@{CreateDataTemplate}!MusicApp.Views.HomeView@{MusicApp.Views.HomeView}}
+\doxysubsubsection{\texorpdfstring{CreateDataTemplate()}{CreateDataTemplate()}}
+{\footnotesize\ttfamily Data\+Template Music\+App.\+Views.\+Home\+View.\+Create\+Data\+Template (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Creates a Data\+Template for the items in the dynamically generated List\+Boxes. 
+
+
+
+Definition at line \mbox{\hyperlink{_home_view_8xaml_8cs_source_l00240}{240}} of file \mbox{\hyperlink{_home_view_8xaml_8cs_source}{Home\+View.\+xaml.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \ \ \ \ var\ stackPanelFactory\ =\ \textcolor{keyword}{new}\ FrameworkElementFactory(typeof(StackPanel));}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \ \ \ \ stackPanelFactory.SetValue(StackPanel.MarginProperty,\ \textcolor{keyword}{new}\ Thickness(10));}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \ \ \ \ stackPanelFactory.SetValue(StackPanel.HorizontalAlignmentProperty,\ HorizontalAlignment.Center);}
+\DoxyCodeLine{00245\ }
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ \ \ \ var\ viewboxFactory\ =\ \textcolor{keyword}{new}\ FrameworkElementFactory(typeof(Viewbox));}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \ \ \ \ viewboxFactory.SetValue(Viewbox.HorizontalAlignmentProperty,\ HorizontalAlignment.Center);}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \ \ \ \ viewboxFactory.SetValue(Viewbox.VerticalAlignmentProperty,\ VerticalAlignment.Center);}
+\DoxyCodeLine{00249\ }
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \ \ var\ borderFactory\ =\ \textcolor{keyword}{new}\ FrameworkElementFactory(typeof(Border));}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \ \ \ \ borderFactory.SetValue(Border.BackgroundProperty,\ \textcolor{keyword}{new}\ SolidColorBrush(Color.FromRgb(51,\ 51,\ 51)));}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \ \ \ \ borderFactory.SetValue(Border.CornerRadiusProperty,\ \textcolor{keyword}{new}\ CornerRadius(10));}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \ \ \ \ borderFactory.SetValue(Border.WidthProperty,\ 120.0);}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \ \ \ \ borderFactory.SetValue(Border.HeightProperty,\ 120.0);}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \ \ \ \ borderFactory.SetValue(Border.HorizontalAlignmentProperty,\ HorizontalAlignment.Center);}
+\DoxyCodeLine{00256\ }
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \ \ \ \ var\ imageFactory\ =\ \textcolor{keyword}{new}\ FrameworkElementFactory(typeof(Image));}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \ \ \ \ imageFactory.SetBinding(Image.SourceProperty,\ \textcolor{keyword}{new}\ Binding(\textcolor{stringliteral}{"{}Thumbnail"{}}));}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \ \ \ \ imageFactory.SetValue(Image.WidthProperty,\ 120.0);}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \ \ \ \ imageFactory.SetValue(Image.HeightProperty,\ 120.0);}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \ \ \ \ imageFactory.SetValue(Image.StretchProperty,\ Stretch.UniformToFill);}
+\DoxyCodeLine{00262\ }
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \ \ \ \ var\ rectangleGeometry\ =\ \textcolor{keyword}{new}\ RectangleGeometry(\textcolor{keyword}{new}\ Rect(0,\ 0,\ 120,\ 120),\ 10,\ 10);}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \ \ \ \ imageFactory.SetValue(Image.ClipProperty,\ rectangleGeometry);}
+\DoxyCodeLine{00265\ }
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \ \ \ \ borderFactory.AppendChild(imageFactory);}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \ \ \ \ viewboxFactory.AppendChild(borderFactory);}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \ \ \ \ stackPanelFactory.AppendChild(viewboxFactory);}
+\DoxyCodeLine{00269\ }
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \ \ \ \ var\ textBlockNameFactory\ =\ \textcolor{keyword}{new}\ FrameworkElementFactory(typeof(TextBlock));}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \ \ textBlockNameFactory.SetBinding(TextBlock.TextProperty,\ \textcolor{keyword}{new}\ Binding(\textcolor{stringliteral}{"{}Name"{}}));}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \ \ \ \ textBlockNameFactory.SetValue(TextBlock.ForegroundProperty,\ \textcolor{keyword}{new}\ SolidColorBrush(Colors.White));}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \ \ \ \ textBlockNameFactory.SetValue(TextBlock.TextAlignmentProperty,\ TextAlignment.Center);}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \ \ \ \ textBlockNameFactory.SetValue(TextBlock.WidthProperty,\ 130.0);}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \ \ \ \ textBlockNameFactory.SetValue(TextBlock.MarginProperty,\ \textcolor{keyword}{new}\ Thickness(5,\ 10,\ 5,\ 0));}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \ \ \ \ stackPanelFactory.AppendChild(textBlockNameFactory);}
+\DoxyCodeLine{00277\ }
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \ \ \ \ var\ textBlockArtistsFactory\ =\ \textcolor{keyword}{new}\ FrameworkElementFactory(typeof(TextBlock));}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \ \ \ \ textBlockArtistsFactory.SetBinding(TextBlock.TextProperty,\ \textcolor{keyword}{new}\ Binding(\textcolor{stringliteral}{"{}ArtistsString"{}}));}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \ \ \ \ textBlockArtistsFactory.SetValue(TextBlock.ForegroundProperty,\ \textcolor{keyword}{new}\ SolidColorBrush(Colors.White));}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \ \ \ \ textBlockArtistsFactory.SetValue(TextBlock.TextAlignmentProperty,\ TextAlignment.Center);}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \ \ \ \ textBlockArtistsFactory.SetValue(TextBlock.WidthProperty,\ 130.0);}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \ \ \ \ textBlockArtistsFactory.SetValue(TextBlock.MarginProperty,\ \textcolor{keyword}{new}\ Thickness(5,\ 10,\ 5,\ 0));}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \ \ \ \ stackPanelFactory.AppendChild(textBlockArtistsFactory);}
+\DoxyCodeLine{00285\ }
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \ \ \ \ var\ contextMenuSetter\ =\ \textcolor{keyword}{new}\ Setter(ContextMenuService.ContextMenuProperty,\ \mbox{\hyperlink{class_music_app_1_1_views_1_1_home_view_aa2a8943c9bca7cab462fc9820d3052f4}{CreateContextMenu}}());}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \ \ \ \ stackPanelFactory.SetValue(FrameworkElement.ContextMenuProperty,\ \mbox{\hyperlink{class_music_app_1_1_views_1_1_home_view_aa2a8943c9bca7cab462fc9820d3052f4}{CreateContextMenu}}());}
+\DoxyCodeLine{00288\ }
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \ \ \ \ var\ dataTemplate\ =\ \textcolor{keyword}{new}\ DataTemplate\ \{\ VisualTree\ =\ stackPanelFactory\ \};}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ dataTemplate;}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_home_view_8xaml_8cs_source_l00296}{Music\+App.\+Views.\+Home\+View.\+Create\+Context\+Menu()}}.
+
+
+
+Referenced by \mbox{\hyperlink{_home_view_8xaml_8cs_source_l00211}{Music\+App.\+Views.\+Home\+View.\+Create\+List\+Box()}}.
+
+\Hypertarget{class_music_app_1_1_views_1_1_home_view_a09149af6a309f096ce8f484ccbe87b37}\label{class_music_app_1_1_views_1_1_home_view_a09149af6a309f096ce8f484ccbe87b37} 
+\index{MusicApp.Views.HomeView@{MusicApp.Views.HomeView}!CreateListBox@{CreateListBox}}
+\index{CreateListBox@{CreateListBox}!MusicApp.Views.HomeView@{MusicApp.Views.HomeView}}
+\doxysubsubsection{\texorpdfstring{CreateListBox()}{CreateListBox()}}
+{\footnotesize\ttfamily List\+Box Music\+App.\+Views.\+Home\+View.\+Create\+List\+Box (\begin{DoxyParamCaption}\item[{Observable\+Collection$<$ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{My\+Song}} $>$}]{songs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Creates a List\+Box with the specified songs and sets up the necessary event handlers and templates. 
+
+
+
+Definition at line \mbox{\hyperlink{_home_view_8xaml_8cs_source_l00211}{211}} of file \mbox{\hyperlink{_home_view_8xaml_8cs_source}{Home\+View.\+xaml.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ var\ listBox\ =\ \textcolor{keyword}{new}\ ListBox}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ BorderThickness\ =\ \textcolor{keyword}{new}\ Thickness(0),}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Background\ =\ \textcolor{keyword}{new}\ SolidColorBrush(Colors.Transparent),}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SelectedIndex\ =\ -\/1,}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ItemsSource\ =\ songs}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \ \ \ \ listBox.PreviewMouseLeftButtonUp\ +=\ (s,\ e)\ =>\ \mbox{\hyperlink{class_music_app_1_1_views_1_1_home_view_a418e79832fbc362773c3baed7bbd041c}{RadioSongListBoxCommand}}(s,\ e,\ songs,\ listBox.SelectedIndex);}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \ \ \ \ listBox.AddHandler(ScrollViewer.ScrollChangedEvent,\ \textcolor{keyword}{new}\ ScrollChangedEventHandler(\mbox{\hyperlink{class_music_app_1_1_views_1_1_home_view_a1ec460072621cb520f63358f7fec2993}{ListBox\_ScrollChanged}}),\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \ \ \ \ var\ itemsPanelTemplate\ =\ \textcolor{keyword}{new}\ ItemsPanelTemplate}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ VisualTree\ =\ \textcolor{keyword}{new}\ FrameworkElementFactory(typeof(StackPanel))}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \ \ \ \ itemsPanelTemplate.VisualTree.SetValue(StackPanel.OrientationProperty,\ Orientation.Horizontal);}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \ \ \ \ listBox.ItemsPanel\ =\ itemsPanelTemplate;}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \ \ \ \ var\ dataTemplate\ =\ \mbox{\hyperlink{class_music_app_1_1_views_1_1_home_view_a7bd4459da67ff699daaafe05258897a2}{CreateDataTemplate}}();}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \ \ \ \ listBox.ItemTemplate\ =\ dataTemplate;}
+\DoxyCodeLine{00233\ }
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ listBox;}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_home_view_8xaml_8cs_source_l00240}{Music\+App.\+Views.\+Home\+View.\+Create\+Data\+Template()}}, \mbox{\hyperlink{_home_view_8xaml_8cs_source_l00129}{Music\+App.\+Views.\+Home\+View.\+List\+Box\+\_\+\+Scroll\+Changed()}}, and \mbox{\hyperlink{_home_view_8xaml_8cs_source_l00070}{Music\+App.\+Views.\+Home\+View.\+Radio\+Song\+List\+Box\+Command()}}.
+
+
+
+Referenced by \mbox{\hyperlink{_home_view_8xaml_8cs_source_l00156}{Music\+App.\+Views.\+Home\+View.\+Add\+Random\+Songs\+List\+Box\+Async()}}, and \mbox{\hyperlink{_home_view_8xaml_8cs_source_l00182}{Music\+App.\+Views.\+Home\+View.\+Add\+Songs\+From\+Author\+List\+Box\+Async()}}.
+
+\Hypertarget{class_music_app_1_1_views_1_1_home_view_aa68baf1e987f194e15abe16d6c028c63}\label{class_music_app_1_1_views_1_1_home_view_aa68baf1e987f194e15abe16d6c028c63} 
+\index{MusicApp.Views.HomeView@{MusicApp.Views.HomeView}!DynamicScrollViewer\_ScrollChanged@{DynamicScrollViewer\_ScrollChanged}}
+\index{DynamicScrollViewer\_ScrollChanged@{DynamicScrollViewer\_ScrollChanged}!MusicApp.Views.HomeView@{MusicApp.Views.HomeView}}
+\doxysubsubsection{\texorpdfstring{DynamicScrollViewer\_ScrollChanged()}{DynamicScrollViewer\_ScrollChanged()}}
+{\footnotesize\ttfamily async void Music\+App.\+Views.\+Home\+View.\+Dynamic\+Scroll\+Viewer\+\_\+\+Scroll\+Changed (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Scroll\+Changed\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Handles the Scroll\+Changed event for dynamically loading additional content as the user scrolls. 
+
+
+
+Definition at line \mbox{\hyperlink{_home_view_8xaml_8cs_source_l00112}{112}} of file \mbox{\hyperlink{_home_view_8xaml_8cs_source}{Home\+View.\+xaml.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Check\ if\ the\ user\ is\ nearing\ the\ bottom\ of\ the\ scrollable\ area}}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (sender\ ==\ DynamicScrollViewer\ \&\&\ e.VerticalOffset\ +\ e.ViewportHeight\ >=\ e.ExtentHeight\ -\/\ 200)}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\_isLoadingPanel)}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_isLoadingPanel\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ await\ \mbox{\hyperlink{class_music_app_1_1_views_1_1_home_view_a82a7722803e4b257331baa5bdedf5348}{AddDynamicListBoxSectionAsync}}();}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_isLoadingPanel\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_home_view_8xaml_8cs_source_l00137}{Music\+App.\+Views.\+Home\+View.\+Add\+Dynamic\+List\+Box\+Section\+Async()}}.
+
+\Hypertarget{class_music_app_1_1_views_1_1_home_view_ae539c5e893df9dbf4b2d545e24d6e993}\label{class_music_app_1_1_views_1_1_home_view_ae539c5e893df9dbf4b2d545e24d6e993} 
+\index{MusicApp.Views.HomeView@{MusicApp.Views.HomeView}!ExecuteAddSongToPlaylist@{ExecuteAddSongToPlaylist}}
+\index{ExecuteAddSongToPlaylist@{ExecuteAddSongToPlaylist}!MusicApp.Views.HomeView@{MusicApp.Views.HomeView}}
+\doxysubsubsection{\texorpdfstring{ExecuteAddSongToPlaylist()}{ExecuteAddSongToPlaylist()}}
+{\footnotesize\ttfamily void Music\+App.\+Views.\+Home\+View.\+Execute\+Add\+Song\+To\+Playlist (\begin{DoxyParamCaption}\item[{object}]{sender }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Executes the command to add a song to a playlist from the context menu. 
+
+
+
+Definition at line \mbox{\hyperlink{_home_view_8xaml_8cs_source_l00341}{341}} of file \mbox{\hyperlink{_home_view_8xaml_8cs_source}{Home\+View.\+xaml.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ \ \ \ \ var\ song\ =\ Utils.Utils.GetItemFromMenuItem<\mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{MySong}}>(sender);}
+\DoxyCodeLine{00344\ }
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (song\ !=\ \textcolor{keyword}{null})}
+\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ viewModel\ =\ DataContext\ as\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model}{HomeViewModel}};}
+\DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ viewModel?.\_mainViewModel.PlayerViewModel.AddSongToPlaylistCommand.Execute(song);}
+\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{_home_view_8xaml_8cs_source_l00355}{Music\+App.\+Views.\+Home\+View.\+Add\+Song\+To\+Playlist\+\_\+\+Combo\+Box()}}.
+
+\Hypertarget{class_music_app_1_1_views_1_1_home_view_a7e716e84c3b2e2b48396f8a218d175ba}\label{class_music_app_1_1_views_1_1_home_view_a7e716e84c3b2e2b48396f8a218d175ba} 
+\index{MusicApp.Views.HomeView@{MusicApp.Views.HomeView}!ExecuteDeletePlaylistCommand@{ExecuteDeletePlaylistCommand}}
+\index{ExecuteDeletePlaylistCommand@{ExecuteDeletePlaylistCommand}!MusicApp.Views.HomeView@{MusicApp.Views.HomeView}}
+\doxysubsubsection{\texorpdfstring{ExecuteDeletePlaylistCommand()}{ExecuteDeletePlaylistCommand()}}
+{\footnotesize\ttfamily void Music\+App.\+Views.\+Home\+View.\+Execute\+Delete\+Playlist\+Command (\begin{DoxyParamCaption}\item[{object}]{sender }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Executes the delete command for a playlist. 
+
+
+
+Definition at line \mbox{\hyperlink{_home_view_8xaml_8cs_source_l00091}{91}} of file \mbox{\hyperlink{_home_view_8xaml_8cs_source}{Home\+View.\+xaml.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ var\ playlist\ =\ GetItemFromMenuItem<Playlist>(sender);}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (playlist\ !=\ \textcolor{keyword}{null})}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ viewModel\ =\ DataContext\ as\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model}{HomeViewModel}};}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ viewModel?.DeletePlaylistCommand.Execute(playlist);}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{_home_view_8xaml_8cs_source_l00104}{Music\+App.\+Views.\+Home\+View.\+Remove\+Playlist\+\_\+\+Combo\+Box()}}.
+
+\Hypertarget{class_music_app_1_1_views_1_1_home_view_aaf0d7f911d802b932bb67310a68da53a}\label{class_music_app_1_1_views_1_1_home_view_aaf0d7f911d802b932bb67310a68da53a} 
+\index{MusicApp.Views.HomeView@{MusicApp.Views.HomeView}!GetRandomAuthor@{GetRandomAuthor}}
+\index{GetRandomAuthor@{GetRandomAuthor}!MusicApp.Views.HomeView@{MusicApp.Views.HomeView}}
+\doxysubsubsection{\texorpdfstring{GetRandomAuthor()}{GetRandomAuthor()}}
+{\footnotesize\ttfamily string? Music\+App.\+Views.\+Home\+View.\+Get\+Random\+Author (\begin{DoxyParamCaption}\item[{IEnumerable$<$ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{My\+Song}} $>$}]{songs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Gets a random author from the list of available songs. 
+
+
+
+Definition at line \mbox{\hyperlink{_home_view_8xaml_8cs_source_l00331}{331}} of file \mbox{\hyperlink{_home_view_8xaml_8cs_source}{Home\+View.\+xaml.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \ \ \ \ var\ authors\ =\ songs.SelectMany(song\ =>\ song.Artists.Select(artist\ =>\ artist.Name)).Distinct().ToList();}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (authors.Count\ ==\ 0)\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{null};}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ authors[\_random.Next(authors.Count)];}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{_home_view_8xaml_8cs_source_l00182}{Music\+App.\+Views.\+Home\+View.\+Add\+Songs\+From\+Author\+List\+Box\+Async()}}.
+
+\Hypertarget{class_music_app_1_1_views_1_1_home_view_a0d232f61205ff02aa9d132183adbcc74}\label{class_music_app_1_1_views_1_1_home_view_a0d232f61205ff02aa9d132183adbcc74} 
+\index{MusicApp.Views.HomeView@{MusicApp.Views.HomeView}!GetRandomSongs@{GetRandomSongs}}
+\index{GetRandomSongs@{GetRandomSongs}!MusicApp.Views.HomeView@{MusicApp.Views.HomeView}}
+\doxysubsubsection{\texorpdfstring{GetRandomSongs()}{GetRandomSongs()}}
+{\footnotesize\ttfamily async Task$<$ Observable\+Collection$<$ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{My\+Song}} $>$?$>$ Music\+App.\+Views.\+Home\+View.\+Get\+Random\+Songs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Gets a collection of random songs from the database for recommendation. 
+
+
+
+Definition at line \mbox{\hyperlink{_home_view_8xaml_8cs_source_l00308}{308}} of file \mbox{\hyperlink{_home_view_8xaml_8cs_source}{Home\+View.\+xaml.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \ \ \ \ var\ viewModel\ =\ DataContext\ as\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model}{HomeViewModel}};}
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ \ \ \ \ var\ randomSongIds\ =\ viewModel?.\_mainViewModel.SongDatabase?.\mbox{\hyperlink{class_song_database_a83f2da4b1ff67049326a16e99ae9a305}{GetSongsForRecommendation}}();}
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (randomSongIds\ ==\ \textcolor{keyword}{null}\ ||\ randomSongIds.Count\ ==\ 0)\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{null};}
+\DoxyCodeLine{00313\ }
+\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ \ \ \ \ var\ fetchTasks\ =\ randomSongIds.Select(async\ songId\ =>}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{MySong}}.\mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song_a7e0f378fa4b2763bd77a6b37e91c7cbf}{Create}}(await\ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_you_tube_service}{MyYouTubeService}}.\mbox{\hyperlink{class_music_app_1_1_models_1_1_my_you_tube_service_a32e5c97ef31169facc49e8b1904c05c7}{FetchSongVideoInfoAsync}}(songId));}
+\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00318\ }
+\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ \ \ \ \ var\ songs\ =\ await\ Task.WhenAll(fetchTasks);}
+\DoxyCodeLine{00320\ }
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (songs\ ==\ \textcolor{keyword}{null}\ ||\ songs.Length\ ==\ 0)\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{null};}
+\DoxyCodeLine{00322\ }
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \ \ \ \ var\ randomSongs\ =\ \textcolor{keyword}{new}\ ObservableCollection<MySong>(songs.Where(song\ =>\ song\ !=\ \textcolor{keyword}{null}));}
+\DoxyCodeLine{00324\ }
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ randomSongs;}
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_my_song_8cs_source_l00112}{Music\+App.\+Models.\+My\+Song.\+Create()}}, \mbox{\hyperlink{_my_you_tube_service_8cs_source_l00187}{Music\+App.\+Models.\+My\+You\+Tube\+Service.\+Fetch\+Song\+Video\+Info\+Async()}}, and \mbox{\hyperlink{_song_database_8cs_source_l00116}{Song\+Database.\+Get\+Songs\+For\+Recommendation()}}.
+
+
+
+Referenced by \mbox{\hyperlink{_home_view_8xaml_8cs_source_l00156}{Music\+App.\+Views.\+Home\+View.\+Add\+Random\+Songs\+List\+Box\+Async()}}.
+
+\Hypertarget{class_music_app_1_1_views_1_1_home_view_a1ec460072621cb520f63358f7fec2993}\label{class_music_app_1_1_views_1_1_home_view_a1ec460072621cb520f63358f7fec2993} 
+\index{MusicApp.Views.HomeView@{MusicApp.Views.HomeView}!ListBox\_ScrollChanged@{ListBox\_ScrollChanged}}
+\index{ListBox\_ScrollChanged@{ListBox\_ScrollChanged}!MusicApp.Views.HomeView@{MusicApp.Views.HomeView}}
+\doxysubsubsection{\texorpdfstring{ListBox\_ScrollChanged()}{ListBox\_ScrollChanged()}}
+{\footnotesize\ttfamily void Music\+App.\+Views.\+Home\+View.\+List\+Box\+\_\+\+Scroll\+Changed (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Scroll\+Changed\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Prevents the List\+Box from triggering the main Scroll\+Viewer\textquotesingle{}s event when scrolling. 
+
+
+
+Definition at line \mbox{\hyperlink{_home_view_8xaml_8cs_source_l00129}{129}} of file \mbox{\hyperlink{_home_view_8xaml_8cs_source}{Home\+View.\+xaml.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ e.Handled\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{_home_view_8xaml_8cs_source_l00211}{Music\+App.\+Views.\+Home\+View.\+Create\+List\+Box()}}.
+
+\Hypertarget{class_music_app_1_1_views_1_1_home_view_aade76ebd65e0891fba7094e6f29880cb}\label{class_music_app_1_1_views_1_1_home_view_aade76ebd65e0891fba7094e6f29880cb} 
+\index{MusicApp.Views.HomeView@{MusicApp.Views.HomeView}!ListViewScrollViewer\_PreviewMouseWheel@{ListViewScrollViewer\_PreviewMouseWheel}}
+\index{ListViewScrollViewer\_PreviewMouseWheel@{ListViewScrollViewer\_PreviewMouseWheel}!MusicApp.Views.HomeView@{MusicApp.Views.HomeView}}
+\doxysubsubsection{\texorpdfstring{ListViewScrollViewer\_PreviewMouseWheel()}{ListViewScrollViewer\_PreviewMouseWheel()}}
+{\footnotesize\ttfamily void Music\+App.\+Views.\+Home\+View.\+List\+View\+Scroll\+Viewer\+\_\+\+Preview\+Mouse\+Wheel (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Mouse\+Wheel\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Handles the Mouse\+Wheel event for the List\+View Scroll\+Viewer to enable smooth scrolling. 
+
+
+
+Definition at line \mbox{\hyperlink{_home_view_8xaml_8cs_source_l00051}{51}} of file \mbox{\hyperlink{_home_view_8xaml_8cs_source}{Home\+View.\+xaml.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ ScrollViewer\ scv\ =\ (ScrollViewer)sender;}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ scv.ScrollToVerticalOffset(scv.VerticalOffset\ -\/\ e.Delta\ /\ 4);}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ e.Handled\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_music_app_1_1_views_1_1_home_view_a6236f4358c7e15db322ee574ae56aa36}\label{class_music_app_1_1_views_1_1_home_view_a6236f4358c7e15db322ee574ae56aa36} 
+\index{MusicApp.Views.HomeView@{MusicApp.Views.HomeView}!PlaylistListBoxItemCommand@{PlaylistListBoxItemCommand}}
+\index{PlaylistListBoxItemCommand@{PlaylistListBoxItemCommand}!MusicApp.Views.HomeView@{MusicApp.Views.HomeView}}
+\doxysubsubsection{\texorpdfstring{PlaylistListBoxItemCommand()}{PlaylistListBoxItemCommand()}}
+{\footnotesize\ttfamily void Music\+App.\+Views.\+Home\+View.\+Playlist\+List\+Box\+Item\+Command (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Mouse\+Button\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Handles the Mouse\+Left\+Button\+Up event for selecting a playlist. 
+
+
+
+Definition at line \mbox{\hyperlink{_home_view_8xaml_8cs_source_l00061}{61}} of file \mbox{\hyperlink{_home_view_8xaml_8cs_source}{Home\+View.\+xaml.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ var\ viewModel\ =\ DataContext\ as\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model}{HomeViewModel}};}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ viewModel?.SelectPlaylistCommand.Execute(\textcolor{keyword}{null});}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_music_app_1_1_views_1_1_home_view_a93d9e2d68382e1c2cf1497ac925a1372}\label{class_music_app_1_1_views_1_1_home_view_a93d9e2d68382e1c2cf1497ac925a1372} 
+\index{MusicApp.Views.HomeView@{MusicApp.Views.HomeView}!PopularSongsListBoxCommand@{PopularSongsListBoxCommand}}
+\index{PopularSongsListBoxCommand@{PopularSongsListBoxCommand}!MusicApp.Views.HomeView@{MusicApp.Views.HomeView}}
+\doxysubsubsection{\texorpdfstring{PopularSongsListBoxCommand()}{PopularSongsListBoxCommand()}}
+{\footnotesize\ttfamily void Music\+App.\+Views.\+Home\+View.\+Popular\+Songs\+List\+Box\+Command (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Mouse\+Button\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Handles the Mouse\+Left\+Button\+Up event for playing a popular song. 
+
+
+
+Definition at line \mbox{\hyperlink{_home_view_8xaml_8cs_source_l00082}{82}} of file \mbox{\hyperlink{_home_view_8xaml_8cs_source}{Home\+View.\+xaml.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ var\ viewModel\ =\ DataContext\ as\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model}{HomeViewModel}};}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ viewModel?.SelectPopularSongCommand.Execute(\textcolor{keyword}{null});}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_music_app_1_1_views_1_1_home_view_a418e79832fbc362773c3baed7bbd041c}\label{class_music_app_1_1_views_1_1_home_view_a418e79832fbc362773c3baed7bbd041c} 
+\index{MusicApp.Views.HomeView@{MusicApp.Views.HomeView}!RadioSongListBoxCommand@{RadioSongListBoxCommand}}
+\index{RadioSongListBoxCommand@{RadioSongListBoxCommand}!MusicApp.Views.HomeView@{MusicApp.Views.HomeView}}
+\doxysubsubsection{\texorpdfstring{RadioSongListBoxCommand()}{RadioSongListBoxCommand()}}
+{\footnotesize\ttfamily async void Music\+App.\+Views.\+Home\+View.\+Radio\+Song\+List\+Box\+Command (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Mouse\+Button\+Event\+Args}]{e,  }\item[{Observable\+Collection$<$ \mbox{\hyperlink{class_music_app_1_1_models_1_1_my_song}{My\+Song}} $>$}]{songs,  }\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Handles the Mouse\+Left\+Button\+Up event for playing a song from the radio list. 
+
+
+
+Definition at line \mbox{\hyperlink{_home_view_8xaml_8cs_source_l00070}{70}} of file \mbox{\hyperlink{_home_view_8xaml_8cs_source}{Home\+View.\+xaml.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ var\ viewModel\ =\ DataContext\ as\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model}{HomeViewModel}};}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (viewModel\ !=\ \textcolor{keyword}{null})}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ await\ viewModel.\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model_a1e1572c8a3d0c12c613e03ca7cb4fe9c}{HandleRadioSongSelection}}(songs,\ index);}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_home_view_model_8cs_source_l00227}{Music\+App.\+View\+Models.\+Home\+View\+Model.\+Handle\+Radio\+Song\+Selection()}}.
+
+
+
+Referenced by \mbox{\hyperlink{_home_view_8xaml_8cs_source_l00211}{Music\+App.\+Views.\+Home\+View.\+Create\+List\+Box()}}.
+
+\Hypertarget{class_music_app_1_1_views_1_1_home_view_a79c36530c0478e0eca1dd2a1c9420657}\label{class_music_app_1_1_views_1_1_home_view_a79c36530c0478e0eca1dd2a1c9420657} 
+\index{MusicApp.Views.HomeView@{MusicApp.Views.HomeView}!RemovePlaylist\_ComboBox@{RemovePlaylist\_ComboBox}}
+\index{RemovePlaylist\_ComboBox@{RemovePlaylist\_ComboBox}!MusicApp.Views.HomeView@{MusicApp.Views.HomeView}}
+\doxysubsubsection{\texorpdfstring{RemovePlaylist\_ComboBox()}{RemovePlaylist\_ComboBox()}}
+{\footnotesize\ttfamily void Music\+App.\+Views.\+Home\+View.\+Remove\+Playlist\+\_\+\+Combo\+Box (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Routed\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Handles the Click event for removing a playlist using a context menu. 
+
+
+
+Definition at line \mbox{\hyperlink{_home_view_8xaml_8cs_source_l00104}{104}} of file \mbox{\hyperlink{_home_view_8xaml_8cs_source}{Home\+View.\+xaml.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_music_app_1_1_views_1_1_home_view_a7e716e84c3b2e2b48396f8a218d175ba}{ExecuteDeletePlaylistCommand}}(sender);}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{_home_view_8xaml_8cs_source_l00091}{Music\+App.\+Views.\+Home\+View.\+Execute\+Delete\+Playlist\+Command()}}.
+
+\Hypertarget{class_music_app_1_1_views_1_1_home_view_a0459b75d59594241d53a51eadaa297fb}\label{class_music_app_1_1_views_1_1_home_view_a0459b75d59594241d53a51eadaa297fb} 
+\index{MusicApp.Views.HomeView@{MusicApp.Views.HomeView}!TextBox\_KeyDown@{TextBox\_KeyDown}}
+\index{TextBox\_KeyDown@{TextBox\_KeyDown}!MusicApp.Views.HomeView@{MusicApp.Views.HomeView}}
+\doxysubsubsection{\texorpdfstring{TextBox\_KeyDown()}{TextBox\_KeyDown()}}
+{\footnotesize\ttfamily void Music\+App.\+Views.\+Home\+View.\+Text\+Box\+\_\+\+Key\+Down (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Key\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Handles the Key\+Down event for the search Text\+Box, triggering the search command when Enter is pressed. 
+
+
+
+Definition at line \mbox{\hyperlink{_home_view_8xaml_8cs_source_l00039}{39}} of file \mbox{\hyperlink{_home_view_8xaml_8cs_source}{Home\+View.\+xaml.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (e.Key\ ==\ Key.Enter)}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ var\ viewModel\ =\ DataContext\ as\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_home_view_model}{HomeViewModel}};}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ viewModel?.SearchCommand.Execute(\textcolor{keyword}{null});}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_music_app_1_1_views_1_1_home_view_a0c02524785d72b146580b0867438c9aa}\label{class_music_app_1_1_views_1_1_home_view_a0c02524785d72b146580b0867438c9aa} 
+\index{MusicApp.Views.HomeView@{MusicApp.Views.HomeView}!\_isLoadingPanel@{\_isLoadingPanel}}
+\index{\_isLoadingPanel@{\_isLoadingPanel}!MusicApp.Views.HomeView@{MusicApp.Views.HomeView}}
+\doxysubsubsection{\texorpdfstring{\_isLoadingPanel}{\_isLoadingPanel}}
+{\footnotesize\ttfamily bool Music\+App.\+Views.\+Home\+View.\+\_\+is\+Loading\+Panel = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_home_view_8xaml_8cs_source_l00028}{28}} of file \mbox{\hyperlink{_home_view_8xaml_8cs_source}{Home\+View.\+xaml.\+cs}}.
+
+\Hypertarget{class_music_app_1_1_views_1_1_home_view_a0880a64d9434872d72e78bd2adc4ad25}\label{class_music_app_1_1_views_1_1_home_view_a0880a64d9434872d72e78bd2adc4ad25} 
+\index{MusicApp.Views.HomeView@{MusicApp.Views.HomeView}!\_random@{\_random}}
+\index{\_random@{\_random}!MusicApp.Views.HomeView@{MusicApp.Views.HomeView}}
+\doxysubsubsection{\texorpdfstring{\_random}{\_random}}
+{\footnotesize\ttfamily readonly Random Music\+App.\+Views.\+Home\+View.\+\_\+random = new()\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_home_view_8xaml_8cs_source_l00029}{29}} of file \mbox{\hyperlink{_home_view_8xaml_8cs_source}{Home\+View.\+xaml.\+cs}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Views/Home\+View.\+xaml.\+cs\end{DoxyCompactItemize}

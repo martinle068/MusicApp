@@ -1,0 +1,41 @@
+\doxysection{Base\+View\+Model.\+cs}
+\hypertarget{_base_view_model_8cs_source}{}\label{_base_view_model_8cs_source}\index{ViewModels/BaseViewModel.cs@{ViewModels/BaseViewModel.cs}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_base_view_model_8cs_source_l00001}00001\ \textcolor{keyword}{using\ }System.ComponentModel;}
+\DoxyCodeLine{\Hypertarget{_base_view_model_8cs_source_l00002}00002\ \textcolor{keyword}{using\ }System.Runtime.CompilerServices;}
+\DoxyCodeLine{\Hypertarget{_base_view_model_8cs_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{_base_view_model_8cs_source_l00004}\mbox{\hyperlink{namespace_music_app_1_1_view_models}{00004}}\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_music_app_1_1_view_models}{MusicApp.ViewModels}}}
+\DoxyCodeLine{\Hypertarget{_base_view_model_8cs_source_l00005}00005\ \{}
+\DoxyCodeLine{\Hypertarget{_base_view_model_8cs_source_l00009}\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_base_view_model}{00009}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_base_view_model}{BaseViewModel}}\ :\ INotifyPropertyChanged}
+\DoxyCodeLine{\Hypertarget{_base_view_model_8cs_source_l00010}00010\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_base_view_model_8cs_source_l00011}00011\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_base_view_model}{BaseViewModel}}\ \_previousViewModel;}
+\DoxyCodeLine{\Hypertarget{_base_view_model_8cs_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{_base_view_model_8cs_source_l00016}\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_base_view_model_af3c4cffe5aa7db13b074ce12a5296750}{00016}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{event}\ PropertyChangedEventHandler\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_base_view_model_af3c4cffe5aa7db13b074ce12a5296750}{PropertyChanged}};}
+\DoxyCodeLine{\Hypertarget{_base_view_model_8cs_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{_base_view_model_8cs_source_l00022}\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_base_view_model_ac6bc19bc65370e11ecef50611f6f7240}{00022}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{protected}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_base_view_model_ac6bc19bc65370e11ecef50611f6f7240}{OnPropertyChanged}}([CallerMemberName]\ \textcolor{keywordtype}{string}\ propertyName\ =\ \textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{_base_view_model_8cs_source_l00023}00023\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_base_view_model_8cs_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_base_view_model_af3c4cffe5aa7db13b074ce12a5296750}{PropertyChanged}}?.Invoke(\textcolor{keyword}{this},\ \textcolor{keyword}{new}\ PropertyChangedEventArgs(propertyName));}
+\DoxyCodeLine{\Hypertarget{_base_view_model_8cs_source_l00025}00025\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_base_view_model_8cs_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{_base_view_model_8cs_source_l00035}\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_base_view_model_a86974cd973d8821588cd64ac33a54598}{00035}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{protected}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_base_view_model_a86974cd973d8821588cd64ac33a54598}{SetProperty<T>}}(ref\ T\ field,\ T\ value,\ [CallerMemberName]\ \textcolor{keywordtype}{string}\ propertyName\ =\ \textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{_base_view_model_8cs_source_l00036}00036\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_base_view_model_8cs_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Equals(field,\ value))\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_base_view_model_8cs_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ field\ =\ value;}
+\DoxyCodeLine{\Hypertarget{_base_view_model_8cs_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_base_view_model_ac6bc19bc65370e11ecef50611f6f7240}{OnPropertyChanged}}(propertyName);}
+\DoxyCodeLine{\Hypertarget{_base_view_model_8cs_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_base_view_model_8cs_source_l00041}00041\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_base_view_model_8cs_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{_base_view_model_8cs_source_l00047}\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_base_view_model_a882e4b54fd19e155fd1b457bf5633942}{00047}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_base_view_model_a882e4b54fd19e155fd1b457bf5633942}{SetPreviousViewModel}}(\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_base_view_model}{BaseViewModel}}\ previousViewModel)}
+\DoxyCodeLine{\Hypertarget{_base_view_model_8cs_source_l00048}00048\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_base_view_model_8cs_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \_previousViewModel\ =\ previousViewModel;}
+\DoxyCodeLine{\Hypertarget{_base_view_model_8cs_source_l00050}00050\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_base_view_model_8cs_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{_base_view_model_8cs_source_l00056}\mbox{\hyperlink{class_music_app_1_1_view_models_1_1_base_view_model_a523f9b3c5e052342c918de72450723c3}{00056}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_base_view_model}{BaseViewModel}}\ \mbox{\hyperlink{class_music_app_1_1_view_models_1_1_base_view_model_a523f9b3c5e052342c918de72450723c3}{GetPreviousViewModel}}()}
+\DoxyCodeLine{\Hypertarget{_base_view_model_8cs_source_l00057}00057\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_base_view_model_8cs_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_previousViewModel;}
+\DoxyCodeLine{\Hypertarget{_base_view_model_8cs_source_l00059}00059\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_base_view_model_8cs_source_l00060}00060\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_base_view_model_8cs_source_l00061}00061\ \}}
+
+\end{DoxyCode}
