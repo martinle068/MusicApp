@@ -4,12 +4,16 @@ using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows.Media.Imaging;
-using YoutubeExplode;
-using YoutubeExplode.Common;
-using YoutubeExplode.Videos;
 
 public class ThumbnailHelper
 {
+	/// <summary>
+	/// Asynchronously retrieves the high-quality thumbnail for a given song ID.
+	/// If the high-quality thumbnail is not available, it attempts to retrieve the medium-quality thumbnail.
+	/// If neither are available, it falls back to a low-quality thumbnail.
+	/// </summary>
+	/// <param name="songId">The ID of the song to retrieve the thumbnail for.</param>
+	/// <returns>A <see cref="BitmapImage"/> containing the thumbnail image.</returns>
 	public static async Task<BitmapImage> GetHighQualityThumbnailAsync(string songId)
 	{
 		try
@@ -30,10 +34,14 @@ public class ThumbnailHelper
 
 				return await GetSquareThumbnailAsync(imageUrl);
 			}
-			
 		}
 	}
 
+	/// <summary>
+	/// Asynchronously retrieves the medium-quality thumbnail for a given song ID.
+	/// </summary>
+	/// <param name="songId">The ID of the song to retrieve the thumbnail for.</param>
+	/// <returns>A <see cref="BitmapImage"/> containing the thumbnail image.</returns>
 	public static async Task<BitmapImage> GetMediumQualityThumbnailAsync(string songId)
 	{
 		var imageUrl = $"https://img.youtube.com/vi/{songId}/sd1.jpg";
@@ -41,6 +49,11 @@ public class ThumbnailHelper
 		return await GetSquareThumbnailAsync(imageUrl);
 	}
 
+	/// <summary>
+	/// Asynchronously retrieves the low-quality thumbnail for a given song ID.
+	/// </summary>
+	/// <param name="songId">The ID of the song to retrieve the thumbnail for.</param>
+	/// <returns>A <see cref="BitmapImage"/> containing the thumbnail image.</returns>
 	public static async Task<BitmapImage> GetLowQualityThumbnailAsync(string songId)
 	{
 		var imageUrl = $"https://img.youtube.com/vi/{songId}/1.jpg";
@@ -48,6 +61,11 @@ public class ThumbnailHelper
 		return await GetSquareThumbnailAsync(imageUrl);
 	}
 
+	/// <summary>
+	/// Asynchronously retrieves and crops a thumbnail to a square aspect ratio.
+	/// </summary>
+	/// <param name="videoUrl">The URL of the video thumbnail to retrieve.</param>
+	/// <returns>A <see cref="BitmapImage"/> containing the square-cropped thumbnail image.</returns>
 	public static async Task<BitmapImage> GetSquareThumbnailAsync(string videoUrl)
 	{
 		using (HttpClient client = new HttpClient())
@@ -75,6 +93,11 @@ public class ThumbnailHelper
 		}
 	}
 
+	/// <summary>
+	/// Converts a <see cref="Bitmap"/> to a <see cref="BitmapImage"/>.
+	/// </summary>
+	/// <param name="bitmap">The bitmap to convert.</param>
+	/// <returns>A <see cref="BitmapImage"/> created from the bitmap.</returns>
 	private static BitmapImage BitmapToBitmapImage(Bitmap bitmap)
 	{
 		using (MemoryStream memory = new MemoryStream())

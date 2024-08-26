@@ -13,6 +13,10 @@ using YouTubeMusicAPI.Models;
 
 namespace MusicApp.Views
 {
+	/// <summary>
+	/// Interaction logic for HomeView.xaml. This class handles the main view logic
+	/// for displaying and interacting with playlists and songs in the MusicApp.
+	/// </summary>
 	public partial class HomeView : UserControl
 	{
 		public enum ListBoxType
@@ -29,6 +33,9 @@ namespace MusicApp.Views
 			InitializeComponent();
 		}
 
+		/// <summary>
+		/// Handles the KeyDown event for the search TextBox, triggering the search command when Enter is pressed.
+		/// </summary>
 		private void TextBox_KeyDown(object sender, KeyEventArgs e)
 		{
 			if (e.Key == Key.Enter)
@@ -38,6 +45,9 @@ namespace MusicApp.Views
 			}
 		}
 
+		/// <summary>
+		/// Handles the MouseWheel event for the ListView ScrollViewer to enable smooth scrolling.
+		/// </summary>
 		private void ListViewScrollViewer_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
 		{
 			ScrollViewer scv = (ScrollViewer)sender;
@@ -45,12 +55,18 @@ namespace MusicApp.Views
 			e.Handled = true;
 		}
 
+		/// <summary>
+		/// Handles the MouseLeftButtonUp event for selecting a playlist.
+		/// </summary>
 		private void PlaylistListBoxItemCommand(object sender, MouseButtonEventArgs e)
 		{
 			var viewModel = DataContext as HomeViewModel;
 			viewModel?.SelectPlaylistCommand.Execute(null);
 		}
 
+		/// <summary>
+		/// Handles the MouseLeftButtonUp event for playing a song from the radio list.
+		/// </summary>
 		private async void RadioSongListBoxCommand(object sender, MouseButtonEventArgs e, ObservableCollection<MySong> songs, int index)
 		{
 			var viewModel = DataContext as HomeViewModel;
@@ -60,12 +76,18 @@ namespace MusicApp.Views
 			}
 		}
 
+		/// <summary>
+		/// Handles the MouseLeftButtonUp event for playing a popular song.
+		/// </summary>
 		private void PopularSongsListBoxCommand(object sender, MouseButtonEventArgs e)
 		{
 			var viewModel = DataContext as HomeViewModel;
 			viewModel?.SelectPopularSongCommand.Execute(null);
 		}
 
+		/// <summary>
+		/// Executes the delete command for a playlist.
+		/// </summary>
 		private void ExecuteDeletePlaylistCommand(object sender)
 		{
 			var playlist = GetItemFromMenuItem<Playlist>(sender);
@@ -76,11 +98,17 @@ namespace MusicApp.Views
 			}
 		}
 
+		/// <summary>
+		/// Handles the Click event for removing a playlist using a context menu.
+		/// </summary>
 		private void RemovePlaylist_ComboBox(object sender, RoutedEventArgs e)
 		{
 			ExecuteDeletePlaylistCommand(sender);
 		}
 
+		/// <summary>
+		/// Handles the ScrollChanged event for dynamically loading additional content as the user scrolls.
+		/// </summary>
 		private async void DynamicScrollViewer_ScrollChanged(object sender, ScrollChangedEventArgs e)
 		{
 			// Check if the user is nearing the bottom of the scrollable area
@@ -95,20 +123,21 @@ namespace MusicApp.Views
 			}
 		}
 
-		// Ensure ListBox scrolling does not trigger the main ScrollViewer's event
+		/// <summary>
+		/// Prevents the ListBox from triggering the main ScrollViewer's event when scrolling.
+		/// </summary>
 		private void ListBox_ScrollChanged(object sender, ScrollChangedEventArgs e)
 		{
 			e.Handled = true;
 		}
 
-
+		/// <summary>
+		/// Adds a dynamically generated ListBox section to the main panel based on a random selection of ListBoxType.
+		/// </summary>
 		private async Task AddDynamicListBoxSectionAsync()
 		{
-
-			// Randomly select a ListBoxType
 			var selectedType = (ListBoxType)_random.Next(Enum.GetValues(typeof(ListBoxType)).Length);
 
-			// Generate the appropriate ListBox based on the selected type
 			switch (selectedType)
 			{
 				case ListBoxType.RandomSongsFromAllPlaylists:
@@ -121,17 +150,18 @@ namespace MusicApp.Views
 			}
 		}
 
+		/// <summary>
+		/// Adds a ListBox with a random collection of songs from all playlists to the main panel.
+		/// </summary>
 		private async Task AddRandomSongsListBoxAsync()
 		{
 			var viewModel = DataContext as HomeViewModel;
 			if (viewModel == null || viewModel.AllPlaylistSongs == null || !viewModel.AllPlaylistSongs.Any())
 				return;
 
-			// Get a random collection of 10 songs
 			var randomSongs = await GetRandomSongs();
 			if (randomSongs == null || randomSongs.Count == 0) return;
 
-			// Add a new TextBlock for the new "Random Songs" section
 			var textBlock = new TextBlock
 			{
 				Text = "Your Favourite Songs",
@@ -142,26 +172,25 @@ namespace MusicApp.Views
 			};
 			MainPanel.Children.Add(textBlock);
 
-			// Add a new ListBox for the random songs
 			var listBox = CreateListBox(randomSongs);
 			MainPanel.Children.Add(listBox);
 		}
 
+		/// <summary>
+		/// Adds a ListBox with songs from a specific author to the main panel.
+		/// </summary>
 		private async Task AddSongsFromAuthorListBoxAsync()
 		{
 			var viewModel = DataContext as HomeViewModel;
 			if (viewModel == null || viewModel.AllPlaylistSongs == null || !viewModel.AllPlaylistSongs.Any())
 				return;
 
-			// Get a random author from the available songs
 			var randomAuthor = GetRandomAuthor(viewModel.AllPlaylistSongs);
 			if (randomAuthor == null) return;
 
-			// Get songs from this author
 			var authorSongs = await MyYouTubeService.FetchSongsAsync(randomAuthor, 10);
 			if (authorSongs == null || authorSongs.Count == 0) return;
 
-			// Add a new TextBlock for the new "Songs from Author" section
 			var textBlock = new TextBlock
 			{
 				Text = $"Songs by {randomAuthor}",
@@ -172,11 +201,13 @@ namespace MusicApp.Views
 			};
 			MainPanel.Children.Add(textBlock);
 
-			// Add a new ListBox for the author's songs
 			var listBox = CreateListBox(authorSongs);
 			MainPanel.Children.Add(listBox);
 		}
 
+		/// <summary>
+		/// Creates a ListBox with the specified songs and sets up the necessary event handlers and templates.
+		/// </summary>
 		private ListBox CreateListBox(ObservableCollection<MySong> songs)
 		{
 			var listBox = new ListBox
@@ -187,13 +218,9 @@ namespace MusicApp.Views
 				ItemsSource = songs
 			};
 
-			// Attach the MouseLeftButtonUp event handler for playing songs
 			listBox.PreviewMouseLeftButtonUp += (s, e) => RadioSongListBoxCommand(s, e, songs, listBox.SelectedIndex);
-
-			// Prevent ListBox scrolling from triggering DynamicScrollViewer's event
 			listBox.AddHandler(ScrollViewer.ScrollChangedEvent, new ScrollChangedEventHandler(ListBox_ScrollChanged), true);
 
-			// Create and set the ItemsPanelTemplate
 			var itemsPanelTemplate = new ItemsPanelTemplate
 			{
 				VisualTree = new FrameworkElementFactory(typeof(StackPanel))
@@ -201,20 +228,21 @@ namespace MusicApp.Views
 			itemsPanelTemplate.VisualTree.SetValue(StackPanel.OrientationProperty, Orientation.Horizontal);
 			listBox.ItemsPanel = itemsPanelTemplate;
 
-			// Create the DataTemplate for the ListBox items
 			var dataTemplate = CreateDataTemplate();
 			listBox.ItemTemplate = dataTemplate;
 
 			return listBox;
 		}
 
+		/// <summary>
+		/// Creates a DataTemplate for the items in the dynamically generated ListBoxes.
+		/// </summary>
 		private DataTemplate CreateDataTemplate()
 		{
 			var stackPanelFactory = new FrameworkElementFactory(typeof(StackPanel));
 			stackPanelFactory.SetValue(StackPanel.MarginProperty, new Thickness(10));
 			stackPanelFactory.SetValue(StackPanel.HorizontalAlignmentProperty, HorizontalAlignment.Center);
 
-			// Image inside Viewbox
 			var viewboxFactory = new FrameworkElementFactory(typeof(Viewbox));
 			viewboxFactory.SetValue(Viewbox.HorizontalAlignmentProperty, HorizontalAlignment.Center);
 			viewboxFactory.SetValue(Viewbox.VerticalAlignmentProperty, VerticalAlignment.Center);
@@ -232,7 +260,6 @@ namespace MusicApp.Views
 			imageFactory.SetValue(Image.HeightProperty, 120.0);
 			imageFactory.SetValue(Image.StretchProperty, Stretch.UniformToFill);
 
-			// Set the Clip property directly
 			var rectangleGeometry = new RectangleGeometry(new Rect(0, 0, 120, 120), 10, 10);
 			imageFactory.SetValue(Image.ClipProperty, rectangleGeometry);
 
@@ -240,7 +267,6 @@ namespace MusicApp.Views
 			viewboxFactory.AppendChild(borderFactory);
 			stackPanelFactory.AppendChild(viewboxFactory);
 
-			// Song Name
 			var textBlockNameFactory = new FrameworkElementFactory(typeof(TextBlock));
 			textBlockNameFactory.SetBinding(TextBlock.TextProperty, new Binding("Name"));
 			textBlockNameFactory.SetValue(TextBlock.ForegroundProperty, new SolidColorBrush(Colors.White));
@@ -249,7 +275,6 @@ namespace MusicApp.Views
 			textBlockNameFactory.SetValue(TextBlock.MarginProperty, new Thickness(5, 10, 5, 0));
 			stackPanelFactory.AppendChild(textBlockNameFactory);
 
-			// Artists String
 			var textBlockArtistsFactory = new FrameworkElementFactory(typeof(TextBlock));
 			textBlockArtistsFactory.SetBinding(TextBlock.TextProperty, new Binding("ArtistsString"));
 			textBlockArtistsFactory.SetValue(TextBlock.ForegroundProperty, new SolidColorBrush(Colors.White));
@@ -258,7 +283,6 @@ namespace MusicApp.Views
 			textBlockArtistsFactory.SetValue(TextBlock.MarginProperty, new Thickness(5, 10, 5, 0));
 			stackPanelFactory.AppendChild(textBlockArtistsFactory);
 
-			// Context Menu for "Add to Playlist"
 			var contextMenuSetter = new Setter(ContextMenuService.ContextMenuProperty, CreateContextMenu());
 			stackPanelFactory.SetValue(FrameworkElement.ContextMenuProperty, CreateContextMenu());
 
@@ -266,6 +290,9 @@ namespace MusicApp.Views
 			return dataTemplate;
 		}
 
+		/// <summary>
+		/// Creates a context menu with an "Add to Playlist" option for each song item.
+		/// </summary>
 		private ContextMenu CreateContextMenu()
 		{
 			var contextMenu = new ContextMenu();
@@ -275,6 +302,9 @@ namespace MusicApp.Views
 			return contextMenu;
 		}
 
+		/// <summary>
+		/// Gets a collection of random songs from the database for recommendation.
+		/// </summary>
 		private async Task<ObservableCollection<MySong>?> GetRandomSongs()
 		{
 			var viewModel = DataContext as HomeViewModel;
@@ -295,7 +325,9 @@ namespace MusicApp.Views
 			return randomSongs;
 		}
 
-
+		/// <summary>
+		/// Gets a random author from the list of available songs.
+		/// </summary>
 		private string? GetRandomAuthor(IEnumerable<MySong> songs)
 		{
 			var authors = songs.SelectMany(song => song.Artists.Select(artist => artist.Name)).Distinct().ToList();
@@ -303,6 +335,9 @@ namespace MusicApp.Views
 			return authors[_random.Next(authors.Count)];
 		}
 
+		/// <summary>
+		/// Executes the command to add a song to a playlist from the context menu.
+		/// </summary>
 		private void ExecuteAddSongToPlaylist(object sender)
 		{
 			var song = Utils.Utils.GetItemFromMenuItem<MySong>(sender);
@@ -314,6 +349,9 @@ namespace MusicApp.Views
 			}
 		}
 
+		/// <summary>
+		/// Handles the Click event for adding a song to a playlist via the context menu.
+		/// </summary>
 		private void AddSongToPlaylist_ComboBox(object sender, RoutedEventArgs e)
 		{
 			ExecuteAddSongToPlaylist(sender);

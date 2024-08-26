@@ -6,6 +6,10 @@ using System.Windows.Forms;
 
 namespace MusicApp.ViewModels
 {
+	/// <summary>
+	/// ViewModel for the main application window, responsible for managing the navigation between different views,
+	/// handling YouTube service initialization, and managing the application's state.
+	/// </summary>
 	public class MainViewModel : BaseViewModel
 	{
 		public MainWindow MainWindow { get; private set; }
@@ -19,6 +23,9 @@ namespace MusicApp.ViewModels
 		public PlayerViewModel PlayerViewModel { get; private set; }
 		public MusicSource CurrentMusicSource { get; set; } = MusicSource.None;
 
+		/// <summary>
+		/// Represents the different music sources the application can play from.
+		/// </summary>
 		public enum MusicSource
 		{
 			None,
@@ -27,6 +34,9 @@ namespace MusicApp.ViewModels
 			Popular
 		}
 
+		/// <summary>
+		/// Gets or sets the current view model, updating the mini player visibility and storing the view in history.
+		/// </summary>
 		public BaseViewModel CurrentViewModel
 		{
 			get => _currentViewModel;
@@ -38,18 +48,28 @@ namespace MusicApp.ViewModels
 			}
 		}
 
+		/// <summary>
+		/// Gets or sets a value indicating whether the mini player is visible.
+		/// </summary>
 		public bool IsMiniPlayerVisible
 		{
 			get => _isMiniPlayerVisible;
 			set => SetProperty(ref _isMiniPlayerVisible, value);
 		}
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="MainViewModel"/> class.
+		/// </summary>
+		/// <param name="mv">The main window instance.</param>
 		public MainViewModel(MainWindow mv)
 		{
 			InitializeAsync();
 			MainWindow = mv;
 		}
 
+		/// <summary>
+		/// Resets the selected indices for all view models.
+		/// </summary>
 		public void ResetIndices()
 		{
 			HomeViewModel.ResetIndices();
@@ -57,6 +77,9 @@ namespace MusicApp.ViewModels
 			PlayerViewModel.ResetIndices();
 		}
 
+		/// <summary>
+		/// Initializes the local database for storing song information.
+		/// </summary>
 		private void InitializeDB()
 		{
 			string databasePath = "songs.db";
@@ -64,6 +87,9 @@ namespace MusicApp.ViewModels
 			SongDatabase = new SongDatabase(databasePath);
 		}
 
+		/// <summary>
+		/// Initializes the YouTube service and view models asynchronously.
+		/// </summary>
 		private async void InitializeAsync()
 		{
 			InitializeDB();
@@ -75,27 +101,43 @@ namespace MusicApp.ViewModels
 			CurrentViewModel = HomeViewModel;
 		}
 
+		/// <summary>
+		/// Switches the current view to the HomeView.
+		/// </summary>
 		public void SwitchToHomeView()
 		{
 			CurrentViewModel = HomeViewModel;
 		}
 
+		/// <summary>
+		/// Switches the current view to the SearchView.
+		/// </summary>
 		public void SwitchToSearchView()
 		{
 			CurrentViewModel = SearchViewModel;
 		}
 
+		/// <summary>
+		/// Switches the current view to the PlayerView.
+		/// </summary>
 		public void SwitchToPlayerView()
 		{
 			CurrentViewModel = PlayerViewModel;
 		}
 
+		/// <summary>
+		/// Executes a search and navigates to the SearchView asynchronously.
+		/// </summary>
+		/// <param name="query">The search query string.</param>
 		public async Task SearchAndNavigateAsync(string query)
 		{
 			await SearchViewModel.ExecuteSearch(query);
 			SwitchToSearchView();
 		}
 
+		/// <summary>
+		/// Navigates back to the previous view in the history stack.
+		/// </summary>
 		public void NavigateBack()
 		{
 			if (HistoryStack.Count > 0)

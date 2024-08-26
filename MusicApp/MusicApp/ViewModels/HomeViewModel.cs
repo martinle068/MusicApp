@@ -11,6 +11,9 @@ using System.Linq;
 
 namespace MusicApp.ViewModels
 {
+	/// <summary>
+	/// ViewModel for the HomeView, responsible for managing playlists, popular songs, and handling user interactions.
+	/// </summary>
 	public class HomeViewModel : BaseViewModel
 	{
 		public readonly MainViewModel _mainViewModel;
@@ -23,26 +26,28 @@ namespace MusicApp.ViewModels
 		private string? _popularSongsContinuationToken;
 
 		private ObservableCollection<MySong> _allPlaylistSongs = new();
-		private ObservableCollection<ObservableCollection<MySong>> _randomSongs = new();
 
-		public ObservableCollection<ObservableCollection<MySong>> RandomSongs
-		{
-			get => _randomSongs;
-			set => SetProperty(ref _randomSongs, value);
-		}
-
+		/// <summary>
+		/// Gets or sets the collection of all songs from all playlists.
+		/// </summary>
 		public ObservableCollection<MySong> AllPlaylistSongs
 		{
 			get => _allPlaylistSongs;
 			set => SetProperty(ref _allPlaylistSongs, value);
 		}
 
+		/// <summary>
+		/// Resets the selected indices for playlists and popular songs.
+		/// </summary>
 		public void ResetIndices()
 		{
 			SelectedPlaylistIndex = -1;
 			SelectedPopularSongIndex = -1;
 		}
 
+		/// <summary>
+		/// Gets or sets the index of the selected popular song.
+		/// </summary>
 		public int SelectedPopularSongIndex
 		{
 			get => _selectedPopularSongIndex;
@@ -52,18 +57,27 @@ namespace MusicApp.ViewModels
 			}
 		}
 
+		/// <summary>
+		/// Gets or sets the collection of popular songs.
+		/// </summary>
 		public MyShelf<MySong> PopularSongs
 		{
 			get => _popularSongs;
 			set => SetProperty(ref _popularSongs, value);
 		}
 
+		/// <summary>
+		/// Gets or sets the selected playlist.
+		/// </summary>
 		public Playlist SelectedPlaylist
 		{
 			get => _selectedPlaylist;
 			set => SetProperty(ref _selectedPlaylist, value);
 		}
 
+		/// <summary>
+		/// Gets or sets the index of the selected playlist.
+		/// </summary>
 		public int SelectedPlaylistIndex
 		{
 			get => _selectedPlaylistIndex;
@@ -77,12 +91,18 @@ namespace MusicApp.ViewModels
 			}
 		}
 
+		/// <summary>
+		/// Gets or sets the search query string.
+		/// </summary>
 		public string SearchQuery
 		{
 			get => _searchQuery;
 			set => SetProperty(ref _searchQuery, value);
 		}
 
+		/// <summary>
+		/// Gets or sets the collection of playlists.
+		/// </summary>
 		public ObservableCollection<Playlist> Playlists
 		{
 			get => _playlists;
@@ -95,6 +115,10 @@ namespace MusicApp.ViewModels
 		public ICommand SelectPopularSongCommand { get; }
 		public ICommand DeletePlaylistCommand { get; }
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="HomeViewModel"/> class.
+		/// </summary>
+		/// <param name="mainViewModel">The main ViewModel instance.</param>
 		public HomeViewModel(MainViewModel mainViewModel)
 		{
 			_mainViewModel = mainViewModel;
@@ -106,6 +130,9 @@ namespace MusicApp.ViewModels
 			LoadData();
 		}
 
+		/// <summary>
+		/// Loads playlists and popular songs asynchronously.
+		/// </summary>
 		private async void LoadData()
 		{
 			var loadPlaylistsTask = LoadPlaylists();
@@ -114,20 +141,29 @@ namespace MusicApp.ViewModels
 			// Start loading both playlists and popular songs concurrently
 			await Task.WhenAll(loadPlaylistsTask, loadPopularSongsTask);
 			await LoadAllPlaylistSongs();
-
 		}
+
+		/// <summary>
+		/// Loads popular songs asynchronously.
+		/// </summary>
 		private async Task LoadPopularSongs()
 		{
 			var popularSongs = await _mainViewModel.MyYouTubeService.FetchPopularSongsAsync(null);
 			PopularSongs = popularSongs;
 		}
 
+		/// <summary>
+		/// Loads playlists asynchronously.
+		/// </summary>
 		private async Task LoadPlaylists()
 		{
 			var playlists = await _mainViewModel.MyYouTubeService.FetchAllPlaylistsAsync();
 			Playlists = playlists;
 		}
 
+		/// <summary>
+		/// Loads all songs from all playlists asynchronously.
+		/// </summary>
 		private async Task LoadAllPlaylistSongs()
 		{
 			var allSongs = new ObservableCollection<MySong>();
@@ -150,7 +186,9 @@ namespace MusicApp.ViewModels
 			AllPlaylistSongs = allSongs;
 		}
 
-
+		/// <summary>
+		/// Handles the selection of a playlist asynchronously.
+		/// </summary>
 		private async Task HandlePlaylistSelectionAsync()
 		{
 			try
@@ -181,6 +219,11 @@ namespace MusicApp.ViewModels
 			}
 		}
 
+		/// <summary>
+		/// Handles the selection of a radio song asynchronously.
+		/// </summary>
+		/// <param name="Songs">The collection of songs to play.</param>
+		/// <param name="index">The index of the selected song.</param>
 		public async Task HandleRadioSongSelection(ObservableCollection<MySong> Songs, int index)
 		{
 			if (Songs.ElementAtOrDefault(index) is MySong song and not null)
@@ -207,6 +250,9 @@ namespace MusicApp.ViewModels
 			}
 		}
 
+		/// <summary>
+		/// Handles the selection of a popular song.
+		/// </summary>
 		private void HandlePopularSongSelection()
 		{
 			if (PopularSongs.Items.ElementAtOrDefault(SelectedPopularSongIndex) is MySong song)
@@ -217,6 +263,9 @@ namespace MusicApp.ViewModels
 			}
 		}
 
+		/// <summary>
+		/// Executes the search command asynchronously.
+		/// </summary>
 		private async Task ExecuteSearch()
 		{
 			if (!string.IsNullOrWhiteSpace(SearchQuery))
@@ -226,6 +275,10 @@ namespace MusicApp.ViewModels
 			}
 		}
 
+		/// <summary>
+		/// Opens the Add Playlist dialog.
+		/// </summary>
+		/// <param name="parameter">The command parameter.</param>
 		private void OpenAddPlaylistDialog(object parameter)
 		{
 			var dialog = new AddPlaylistDialog();
@@ -235,6 +288,12 @@ namespace MusicApp.ViewModels
 			}
 		}
 
+		/// <summary>
+		/// Adds a new playlist asynchronously.
+		/// </summary>
+		/// <param name="title">The title of the new playlist.</param>
+		/// <param name="description">The description of the new playlist.</param>
+		/// <param name="isPublic">Indicates whether the playlist is public.</param>
 		private async void AddNewPlaylist(string title, string description, bool isPublic)
 		{
 			try
@@ -256,6 +315,10 @@ namespace MusicApp.ViewModels
 			}
 		}
 
+		/// <summary>
+		/// Executes the delete playlist command.
+		/// </summary>
+		/// <param name="parameter">The command parameter.</param>
 		private void ExecuteDeletePlaylist(object parameter)
 		{
 			if (parameter is Playlist playlist)
@@ -268,6 +331,10 @@ namespace MusicApp.ViewModels
 			}
 		}
 
+		/// <summary>
+		/// Deletes a playlist asynchronously.
+		/// </summary>
+		/// <param name="playlist">The playlist to delete.</param>
 		private async void DeletePlaylist(Playlist playlist)
 		{
 			if (playlist == null)

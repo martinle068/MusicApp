@@ -7,12 +7,19 @@ public class SongDatabase
 {
 	private readonly string _connectionString;
 
+	/// <summary>
+	/// Initializes a new instance of the <see cref="SongDatabase"/> class.
+	/// </summary>
+	/// <param name="databasePath">The path to the SQLite database file.</param>
 	public SongDatabase(string databasePath)
 	{
 		_connectionString = $"Data Source={databasePath};";
 		CreateTable();
 	}
 
+	/// <summary>
+	/// Creates the Songs table in the database if it doesn't exist.
+	/// </summary>
 	private void CreateTable()
 	{
 		using (var connection = new SQLiteConnection(_connectionString))
@@ -32,6 +39,11 @@ public class SongDatabase
 		}
 	}
 
+	/// <summary>
+	/// Inserts a new song into the Songs table with an initial count of 0.
+	/// If the song already exists, the operation is ignored.
+	/// </summary>
+	/// <param name="id">The unique identifier of the song.</param>
 	public void InsertSong(string id)
 	{
 		using (var connection = new SQLiteConnection(_connectionString))
@@ -51,6 +63,10 @@ public class SongDatabase
 		}
 	}
 
+	/// <summary>
+	/// Increments the count of a song in the Songs table by 1.
+	/// </summary>
+	/// <param name="id">The unique identifier of the song.</param>
 	public void UpdateSongCount(string id)
 	{
 		using (var connection = new SQLiteConnection(_connectionString))
@@ -70,6 +86,11 @@ public class SongDatabase
 		}
 	}
 
+	/// <summary>
+	/// Retrieves the current count of a song from the Songs table.
+	/// </summary>
+	/// <param name="id">The unique identifier of the song.</param>
+	/// <returns>The count of the song, or 0 if the song does not exist.</returns>
 	public int GetSongCount(string id)
 	{
 		using (var connection = new SQLiteConnection(_connectionString))
@@ -87,6 +108,11 @@ public class SongDatabase
 		}
 	}
 
+	/// <summary>
+	/// Retrieves 5 songs with the lowest count and 5 random songs from the Songs table.
+	/// Also increments the count of each selected song by 1.
+	/// </summary>
+	/// <returns>A list of song IDs for recommendation.</returns>
 	public List<string> GetSongsForRecommendation()
 	{
 		using (var connection = new SQLiteConnection(_connectionString))
@@ -151,6 +177,10 @@ public class SongDatabase
 		}
 	}
 
+	/// <summary>
+	/// Increases the count of a song by 1.
+	/// </summary>
+	/// <param name="id">The unique identifier of the song.</param>
 	public void IncreaseSongCount(string id)
 	{
 		UpdateSongCount(id);
