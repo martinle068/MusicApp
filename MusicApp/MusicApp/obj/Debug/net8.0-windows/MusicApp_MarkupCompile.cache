@@ -1,18 +1,18 @@
 ﻿MusicApp
-
+1.0.0.0
 
 winexe
 C#
 .cs
-C:\Users\leduc\source\repos\MusicApp\MusicApp\MusicApp\obj\Debug\net8.0-windows\
+c:\Users\leduc\source\repos\MusicApp\MusicApp\MusicApp\obj\Debug\net8.0-windows\
 MusicApp
 none
 false
-TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-C:\Users\leduc\source\repos\MusicApp\MusicApp\MusicApp\App.xaml
+TRACE;DEBUG;NET;NET8_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
+c:\Users\leduc\source\repos\MusicApp\MusicApp\MusicApp\App.xaml
 82145804599
 
-22383071450
+24-851053808
 227806735990
 Styles\Styles.xaml;Views\AddPlaylistDialog.xaml;Views\HomeView.xaml;Views\MainWindow.xaml;Views\MiniPlayerView.xaml;Views\PlayerView.xaml;Views\PlaylistSelectionDialog.xaml;Views\SearchView.xaml;
 
