@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>MusicApp: Main Page</title>
+<title>MusicApp: Introduction</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -71,10 +71,76 @@ $(function() {
 </div>
 </div>
 
-<div class="header">
-  <div class="headertitle"><div class="title">MusicApp Documentation</div></div>
+<div><div class="header">
+  <div class="headertitle"><div class="title">Introduction </div></div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><p><a class="anchor" id="md_mainpage"></a> Welcome to the <a class="el" href="namespace_music_app.html">MusicApp</a> documentation. It will provide a brief introduction to the project's architecture, main ideas and implementation details.</p>
+<hr  />
+<h1><a class="anchor" id="autotoc_md2"></a>
+Architecture</h1>
+<h2><a class="anchor" id="autotoc_md3"></a>
+Overview</h2>
+<p><a class="el" href="namespace_music_app.html">MusicApp</a> uses a WPF platform and follows an MVVM (Model-View-ViewModel) architectural design pattern, which helps separate the project logic, UI, and data management. The architecture is divided into three primary layers:</p>
+<ul>
+<li><b>Model</b>: This layer provides communication between viewmodels and external sources, in our case with various YouTube APIs or direct communication with internet sources. It mainly offers CRUD operations.</li>
+<li><b>ViewModel</b>: A bridge between models and views. Takes care of the executions of commands and data binding, also fetches and preprocesses data before sendig them to the view.</li>
+<li><b>View</b>: The GUI layer of the application, represented by XAML files. The View binds to the ViewModel, displaying the data and allowing user interaction.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md4"></a>
+Components</h2>
+<ul>
+<li><b>MainViewModel</b>: The main background layer of the application, stores most important objects, sources and data used by other objects in the app. Includes the mini-player for easier control of the song playback.</li>
+<li><b>HomeViewModel</b>: Manages the home screen, including playlists, popular songs, and search functionality. Also takes care of generating of random content on homescreen, specifically songs in the user's playlists or songs from ther user's favourite authors.</li>
+<li><b>PlayerViewModel</b>: Controls the playback of songs, managing the playlist, and providing media control functionalities.</li>
+<li><b>SearchViewModel</b>: Interacts with an API and handles song searches. The result is sent to the player.</li>
+</ul>
+<hr  />
+<h1><a class="anchor" id="autotoc_md6"></a>
+Database</h1>
+<h2><a class="anchor" id="autotoc_md7"></a>
+Design</h2>
+<p>The application uses an SQLite database to manage song-related data.</p>
+<h2><a class="anchor" id="autotoc_md8"></a>
+Tables</h2>
+<ul>
+<li><b>Songs</b>: This table stores the song IDs and a count of how often the song has been recommended or played. The schema is as follows:</li>
+</ul>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Column   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Description    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Id   </td><td class="markdownTableBodyNone">TEXT   </td><td class="markdownTableBodyNone">Primary key, represents the song ID.    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Count   </td><td class="markdownTableBodyNone">INTEGER   </td><td class="markdownTableBodyNone">Represents how many times the song is played.   </td></tr>
+</table>
+<h2><a class="anchor" id="autotoc_md9"></a>
+Operations</h2>
+<p>The <code><a class="el" href="class_song_database.html">SongDatabase</a></code> class handles all interactions with the SQLite database. Here's a brief overview of the key operations:</p>
+<ul>
+<li><b>InsertSong</b>: Adds a new song to the <code>Songs</code> table with an initial count of 0. If the song already exists, the operation is ignored.</li>
+<li><b>UpdateSongCount</b>: Increments the count of a song in the <code>Songs</code> table by 1.</li>
+<li><b>GetSongCount</b>: Retrieves the current count of a song from the <code>Songs</code> table.</li>
+<li><b>GetSongsForRecommendation</b>: Retrieves 5 songs with the lowest count and 5 random songs from the <code>Songs</code> table. It also increments the count of each selected song by 1.</li>
+<li><b>IncreaseSongCount</b>: Increments the count of a song by 1, using the <code>UpdateSongCount</code> method.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md10"></a>
+API Usage</h1>
+<p>To be able to work with YouTube account data, specifically read and write operations, it is necessary to setup an <a href="https://support.google.com/cloud/answer/6158849?hl=en">OAuth 2.0</a> protocol for authentication and authorization.</p>
+<p>An API key is not sufficient, it only supports read operations.</p>
+<h1><a class="anchor" id="autotoc_md11"></a>
+Technologies Used</h1>
+<p><a class="el" href="namespace_music_app.html">MusicApp</a> utilized these technologies and libraries to deliver a smooth and enjoyable music experience:</p>
+<ul>
+<li><b>Google YouTube API</b>: Used for authentication and to interact with YouTube's internal data structures, mainly for operations on playlists and fetching popular songs.</li>
+<li><b>YouTubeExplode</b>: A powerful library used to download music and retrieve metadata from YouTube videos.</li>
+<li><b>YouTube Music API</b>: This API is useful for the song search functionality. It also offers detailed song information fetching.</li>
+<li><b>LibVLC (VLC Media Player)</b>: A versatile and robust media player framework used for playing audio within the application. VLC is known for its support of a wide range of audio formats and provides reliable and high-quality playback functionality.</li>
+<li><b>SQLite</b>: A lightweight and simple solution for local data storing without a need for a difficult server setup. It is a file operation based data management system, for our case more than enough.</li>
+<li><b>Windows Presentation Foundation (WPF)</b>: Used for a simple, intuitive and smooth GUI experience. Styling of the aesthetic part of the application is possible using the XAML file format.</li>
+<li><b>System.Threading.Tasks</b>: Used extensively for asynchronous operations, mainly for song fetching. We are able fetch dozens of songs at a time, leading to a faster loading time. </li>
+</ul>
+</div></div><!-- PageDoc -->
 <a href="doxygen_crawl.html"/>
 </div><!-- contents -->
 <!-- start footer part -->

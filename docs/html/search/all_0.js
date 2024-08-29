@@ -8,8 +8,10 @@ var searchData=
   ['addsongtoplaylist_5',['AddSongToPlaylist',['../class_music_app_1_1_models_1_1_my_you_tube_service.html#a0d27b493d405e4861250edf108fce7fc',1,'MusicApp.Models.MyYouTubeService.AddSongToPlaylist()'],['../class_music_app_1_1_view_models_1_1_player_view_model.html#ae6ca889c3f5b8d60f967d30d0ce32207',1,'MusicApp.ViewModels.PlayerViewModel.AddSongToPlaylist()']]],
   ['addsongtoplaylist_5fcombobox_6',['AddSongToPlaylist_ComboBox',['../class_music_app_1_1_views_1_1_home_view.html#a0524b6d74f9a1db41bdcdb3a8966e0de',1,'MusicApp.Views.HomeView.AddSongToPlaylist_ComboBox()'],['../class_music_app_1_1_views_1_1_player_view.html#a00f0d517519c773fd3c8cece191c6884',1,'MusicApp.Views.PlayerView.AddSongToPlaylist_ComboBox()']]],
   ['allplaylistsongs_7',['AllPlaylistSongs',['../class_music_app_1_1_view_models_1_1_home_view_model.html#ad809b87b445a853cd2265e882fe33500',1,'MusicApp::ViewModels::HomeViewModel']]],
-  ['app_8',['App',['../class_music_app_1_1_app.html',1,'MusicApp']]],
-  ['artistandsongname_9',['ArtistAndSongName',['../class_music_app_1_1_models_1_1_my_song.html#a6b755fbfa6b28c8bf6f84bb35c44ff2b',1,'MusicApp::Models::MySong']]],
-  ['artists_10',['Artists',['../class_music_app_1_1_models_1_1_my_song.html#a8f8b79945b9d4258c08ff81b55181b80',1,'MusicApp::Models::MySong']]],
-  ['artistsstring_11',['ArtistsString',['../class_music_app_1_1_models_1_1_my_song.html#a084c521585eef2b2fc6721d112081368',1,'MusicApp::Models::MySong']]]
+  ['api_20usage_8',['API Usage',['../index.html#autotoc_md10',1,'']]],
+  ['app_9',['App',['../class_music_app_1_1_app.html',1,'MusicApp']]],
+  ['architecture_10',['Architecture',['../index.html#autotoc_md2',1,'']]],
+  ['artistandsongname_11',['ArtistAndSongName',['../class_music_app_1_1_models_1_1_my_song.html#a6b755fbfa6b28c8bf6f84bb35c44ff2b',1,'MusicApp::Models::MySong']]],
+  ['artists_12',['Artists',['../class_music_app_1_1_models_1_1_my_song.html#a8f8b79945b9d4258c08ff81b55181b80',1,'MusicApp::Models::MySong']]],
+  ['artistsstring_13',['ArtistsString',['../class_music_app_1_1_models_1_1_my_song.html#a084c521585eef2b2fc6721d112081368',1,'MusicApp::Models::MySong']]]
 ];

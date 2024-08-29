@@ -1,0 +1,73 @@
+\chapter{Introduction}
+\hypertarget{index}{}\label{index}\index{Introduction@{Introduction}}
+\label{index_md_mainpage}%
+\Hypertarget{index_md_mainpage}%
+ Welcome to the \doxylink{namespace_music_app}{Music\+App} documentation. It will provide a brief introduction to the project\textquotesingle{}s architecture, main ideas and implementation details.
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md2}{}\doxysection{\texorpdfstring{Architecture}{Architecture}}\label{index_autotoc_md2}
+\hypertarget{index_autotoc_md3}{}\doxysubsection{\texorpdfstring{Overview}{Overview}}\label{index_autotoc_md3}
+\doxylink{namespace_music_app}{Music\+App} uses a WPF platform and follows an MVVM (Model-\/\+View-\/\+View\+Model) architectural design pattern, which helps separate the project logic, UI, and data management. The architecture is divided into three primary layers\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{Model}}\+: This layer provides communication between viewmodels and external sources, in our case with various You\+Tube APIs or direct communication with internet sources. It mainly offers CRUD operations.
+\item {\bfseries{View\+Model}}\+: A bridge between models and views. Takes care of the executions of commands and data binding, also fetches and preprocesses data before sendig them to the view.
+\item {\bfseries{View}}\+: The GUI layer of the application, represented by XAML files. The View binds to the View\+Model, displaying the data and allowing user interaction.
+\end{DoxyItemize}\hypertarget{index_autotoc_md4}{}\doxysubsection{\texorpdfstring{Components}{Components}}\label{index_autotoc_md4}
+
+\begin{DoxyItemize}
+\item {\bfseries{Main\+View\+Model}}\+: The main background layer of the application, stores most important objects, sources and data used by other objects in the app. Includes the mini-\/player for easier control of the song playback.
+\item {\bfseries{Home\+View\+Model}}\+: Manages the home screen, including playlists, popular songs, and search functionality. Also takes care of generating of random content on homescreen, specifically songs in the user\textquotesingle{}s playlists or songs from ther user\textquotesingle{}s favourite authors.
+\item {\bfseries{Player\+View\+Model}}\+: Controls the playback of songs, managing the playlist, and providing media control functionalities.
+\item {\bfseries{Search\+View\+Model}}\+: Interacts with an API and handles song searches. The result is sent to the player.
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md6}{}\doxysection{\texorpdfstring{Database}{Database}}\label{index_autotoc_md6}
+\hypertarget{index_autotoc_md7}{}\doxysubsection{\texorpdfstring{Design}{Design}}\label{index_autotoc_md7}
+The application uses an SQLite database to manage song-\/related data.\hypertarget{index_autotoc_md8}{}\doxysubsection{\texorpdfstring{Tables}{Tables}}\label{index_autotoc_md8}
+
+\begin{DoxyItemize}
+\item {\bfseries{Songs}}\+: This table stores the song IDs and a count of how often the song has been recommended or played. The schema is as follows\+:
+\end{DoxyItemize}
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Column   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Column   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-3}
+\endhead
+Id   &TEXT   &Primary key, represents the song ID.    \\\cline{1-3}
+Count   &INTEGER   &Represents how many times the song is played.   \\\cline{1-3}
+\end{longtabu}
+\hypertarget{index_autotoc_md9}{}\doxysubsection{\texorpdfstring{Operations}{Operations}}\label{index_autotoc_md9}
+The {\ttfamily \doxylink{class_song_database}{Song\+Database}} class handles all interactions with the SQLite database. Here\textquotesingle{}s a brief overview of the key operations\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{Insert\+Song}}\+: Adds a new song to the {\ttfamily Songs} table with an initial count of 0. If the song already exists, the operation is ignored.
+\item {\bfseries{Update\+Song\+Count}}\+: Increments the count of a song in the {\ttfamily Songs} table by 1.
+\item {\bfseries{Get\+Song\+Count}}\+: Retrieves the current count of a song from the {\ttfamily Songs} table.
+\item {\bfseries{Get\+Songs\+For\+Recommendation}}\+: Retrieves 5 songs with the lowest count and 5 random songs from the {\ttfamily Songs} table. It also increments the count of each selected song by 1.
+\item {\bfseries{Increase\+Song\+Count}}\+: Increments the count of a song by 1, using the {\ttfamily Update\+Song\+Count} method.
+\end{DoxyItemize}\hypertarget{index_autotoc_md10}{}\doxysection{\texorpdfstring{API Usage}{API Usage}}\label{index_autotoc_md10}
+To be able to work with You\+Tube account data, specifically read and write operations, it is necessary to setup an \href{https://support.google.com/cloud/answer/6158849?hl=en}{\texttt{ OAuth 2.\+0}} protocol for authentication and authorization.
+
+An API key is not sufficient, it only supports read operations.\hypertarget{index_autotoc_md11}{}\doxysection{\texorpdfstring{Technologies Used}{Technologies Used}}\label{index_autotoc_md11}
+\doxylink{namespace_music_app}{Music\+App} utilized these technologies and libraries to deliver a smooth and enjoyable music experience\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{Google You\+Tube API}}\+: Used for authentication and to interact with You\+Tube\textquotesingle{}s internal data structures, mainly for operations on playlists and fetching popular songs.
+\item {\bfseries{You\+Tube\+Explode}}\+: A powerful library used to download music and retrieve metadata from You\+Tube videos.
+\item {\bfseries{You\+Tube Music API}}\+: This API is useful for the song search functionality. It also offers detailed song information fetching.
+\item {\bfseries{Lib\+VLC (VLC Media Player)}}\+: A versatile and robust media player framework used for playing audio within the application. VLC is known for its support of a wide range of audio formats and provides reliable and high-\/quality playback functionality.
+\item {\bfseries{SQLite}}\+: A lightweight and simple solution for local data storing without a need for a difficult server setup. It is a file operation based data management system, for our case more than enough.
+\item {\bfseries{Windows Presentation Foundation (WPF)}}\+: Used for a simple, intuitive and smooth GUI experience. Styling of the aesthetic part of the application is possible using the XAML file format.
+\item {\bfseries{System.\+Threading.\+Tasks}}\+: Used extensively for asynchronous operations, mainly for song fetching. We are able fetch dozens of songs at a time, leading to a faster loading time. 
+\end{DoxyItemize}

@@ -60,7 +60,7 @@ namespace MusicApp.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/MusicApp;V1.0.0.0;component/views/playlistselectiondialog.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/MusicApp;component/views/playlistselectiondialog.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\PlaylistSelectionDialog.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
