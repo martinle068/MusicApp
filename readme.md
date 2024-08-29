@@ -48,8 +48,9 @@ Currently there are many music streaming platforms, but unfortunately, all faile
 
 ### Installation Steps
 1. Download the project from Github repo.
-2. Build and run the program.
-3. Enjoy
+2. Setup an [OAuth 2.0](https://support.google.com/cloud/answer/6158849?hl=en) protocol for authentication and authorization (save credentials as credentials.json).
+3. Build and run the program.
+4. Enjoy
 
 ## Usage
 
