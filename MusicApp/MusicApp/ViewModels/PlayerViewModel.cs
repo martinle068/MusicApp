@@ -493,14 +493,18 @@ namespace MusicApp.ViewModels
 
 			try
 			{
-				var audioUrl = await _youTubeService.GetAudioStreamUrlAsync(songId);
+				//MessageBox.Show(songId);
 
+				var audioUrl = await _youTubeService.GetAudioStreamUrlAsync(songId);
+				//var audioUrl = "https://music.youtube.com/watch?v=" + songId;
 				if (audioUrl == null)
 				{
 					MessageBox.Show("No audio stream found.");
 					return;
 				}
 
+
+				//MessageBox.Show(audioUrl);
 				_mediaPlayer.Media = new Media(_libVLC, new Uri(audioUrl));
 				_mediaPlayer.Play();
 				IsPlaying = true;

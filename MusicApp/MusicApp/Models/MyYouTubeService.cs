@@ -11,9 +11,9 @@ using Google.Apis.YouTube.v3.Data;
 using System.IO;
 using System.Windows;
 using System.Collections.ObjectModel;
-using YouTubeMusicAPI.Models.Shelf;
 using YouTubeMusicAPI.Types;
 using YouTubeMusicAPI.Models.Info;
+using YouTubeMusicAPI.Models.Search;
 
 namespace MusicApp.Models
 {
@@ -95,9 +95,9 @@ namespace MusicApp.Models
 		/// <returns>A <see cref="MyShelf{T}"/> containing a collection of songs and a continuation token.</returns>
 		public async Task<MyShelf<MySong>?> FetchSongShelvesAsync(string query, string? continuationToken)
 		{
-			IEnumerable<Shelf> shelves = await _youtubeMusicClient.SearchAsync(query, continuationToken, ShelfKind.Songs);
+			IEnumerable<Shelf> shelves = await _youtubeMusicClient.SearchAsync(query, continuationToken, YouTubeMusicItemKind.Songs);
 
-			List<Song> songs = shelves.SelectMany(shelf => shelf.Items).OfType<Song>().ToList();
+			List<SongSearchResult> songs = shelves.SelectMany(shelf => shelf.Items).OfType<SongSearchResult>().ToList();
 			continuationToken = shelves.FirstOrDefault()?.NextContinuationToken;
 			var mySongs = await Task.WhenAll(songs.Select(async song => MySong.Create(song)));
 
@@ -112,7 +112,7 @@ namespace MusicApp.Models
 		/// <returns>An <see cref="ObservableCollection{T}"/> containing the fetched songs.</returns>
 		public static async Task<ObservableCollection<MySong>> FetchSongsAsync(string query, int count)
 		{
-			IEnumerable<Song> songs = await _youtubeMusicClient.SearchAsync<Song>(query, count);
+			IEnumerable<SongSearchResult> songs = await _youtubeMusicClient.SearchAsync<SongSearchResult>(query, count);
 			var mySongs = await Task.WhenAll(songs.Select(async song => MySong.Create(song)));
 			return new ObservableCollection<MySong>(mySongs);
 		}
@@ -124,7 +124,7 @@ namespace MusicApp.Models
 		/// <returns>A <see cref="MySong"/> object if found; otherwise, null.</returns>
 		public static async Task<MySong?> FetchSongAsync(string query)
 		{
-			IEnumerable<Song> songs = await _youtubeMusicClient.SearchAsync<Song>(query, 1);
+			IEnumerable<SongSearchResult> songs = await _youtubeMusicClient.SearchAsync<SongSearchResult>(query, 1);
 			if (!songs.Any()) return null;
 
 			return MySong.Create(songs.FirstOrDefault());
@@ -430,7 +430,7 @@ namespace MusicApp.Models
 		/// <param name="songs">The list of songs to convert.</param>
 		/// <param name="nextPageToken">The continuation token for pagination.</param>
 		/// <returns>A <see cref="MyShelf{T}"/> containing the converted songs and a continuation token.</returns>
-		private async Task<MyShelf<MySong>> ConvertSongsToMySongsShelf(IEnumerable<Song> songs, string? nextPageToken)
+		private async Task<MyShelf<MySong>> ConvertSongsToMySongsShelf(IEnumerable<SongSearchResult> songs, string? nextPageToken)
 		{
 			var mySongs = await Task.WhenAll(songs.Select(async song => MySong.Create(song)));
 			return new MyShelf<MySong>(new ObservableCollection<MySong>(mySongs), nextPageToken);
@@ -443,14 +443,14 @@ namespace MusicApp.Models
 		/// <param name="items">The collection of items to convert.</param>
 		/// <param name="getTitle">A function to extract the title from each item.</param>
 		/// <returns>A list of <see cref="Song"/> objects.</returns>
-		private async Task<List<Song>> ConvertToSongs<T>(IEnumerable<T> items, Func<T, string> getTitle)
+		private async Task<List<SongSearchResult>> ConvertToSongs<T>(IEnumerable<T> items, Func<T, string> getTitle)
 		{
-			var songs = new List<Song>();
+			var songs = new List<SongSearchResult>();
 			var tasks = items.Select(async item =>
 			{
 				var title = getTitle(item);
 
-				IEnumerable<Song> searchResults = await _youtubeMusicClient.SearchAsync<Song>(title, 1);
+				IEnumerable<SongSearchResult> searchResults = await _youtubeMusicClient.SearchAsync<SongSearchResult>(title, 1);
 				var song = searchResults.FirstOrDefault();
 				if (song != null)
 				{
@@ -467,8 +467,8 @@ namespace MusicApp.Models
 		/// Converts a <see cref="VideoListResponse"/> to a list of <see cref="Song"/> objects.
 		/// </summary>
 		/// <param name="response">The response containing the video list.</param>
-		/// <returns>A list of <see cref="Song"/> objects.</returns>
-		private async Task<List<Song>> ConvertToSongs(VideoListResponse response)
+		/// <returns>A list of <see cref="Sobjects.</returns>
+		private async Task<List<SongSearchResult>> ConvertToSongs(VideoListResponse response)
 		{
 			return await ConvertToSongs(response.Items, video => video.Snippet.Title);
 		}
@@ -478,7 +478,7 @@ namespace MusicApp.Models
 		/// </summary>
 		/// <param name="response">The response containing the playlist item list.</param>
 		/// <returns>A list of <see cref="Song"/> objects.</returns>
-		private async Task<List<Song>> ConvertToSongs(PlaylistItemListResponse response)
+		private async Task<List<SongSearchResult>> ConvertToSongs(PlaylistItemListResponse response)
 		{
 			return await ConvertToSongs(response.Items, item => item.Snippet.Title);
 		}

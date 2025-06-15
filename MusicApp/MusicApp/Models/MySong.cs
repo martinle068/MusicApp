@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media.Imaging;
-using YouTubeMusicAPI.Models.Shelf;
+using YouTubeMusicAPI.Models.Search;
 using YouTubeMusicAPI.Models;
 using YouTubeMusicAPI.Models.Info;
 using static MusicApp.Utils.Utils;
@@ -34,7 +34,7 @@ namespace MusicApp.Models
 		/// <summary>
 		/// Gets an array of <see cref="ShelfItem"/> representing the artists of the song.
 		/// </summary>
-		public ShelfItem[] Artists { get; }
+		public IYouTubeMusicItem[] Artists { get; }
 
 		/// <summary>
 		/// Gets a string representing the names of the artists, joined by commas.
@@ -73,7 +73,7 @@ namespace MusicApp.Models
 		/// Initializes a new instance of the <see cref="MySong"/> class based on a <see cref="Song"/> object.
 		/// </summary>
 		/// <param name="song">The <see cref="Song"/> object to initialize from.</param>
-		private MySong(Song song)
+		private MySong(SongSearchResult song)
 		{
 			Name = song.Name;
 			Id = song.Id;
@@ -93,7 +93,7 @@ namespace MusicApp.Models
 		/// <param name="duration">The duration of the song.</param>
 		/// <param name="thumbnail">The URL of the song's thumbnail.</param>
 		/// <param name="playlistId">The playlist ID associated with the song, if available.</param>
-		private MySong(string name, string? id, ShelfItem[] artists, TimeSpan duration, string? thumbnail, string? playlistId = null)
+		private MySong(string name, string? id, IYouTubeMusicItem[] artists, TimeSpan duration, string? thumbnail, string? playlistId = null)
 		{
 			Name = name;
 			Id = id;
@@ -137,7 +137,7 @@ namespace MusicApp.Models
 		/// </summary>
 		/// <param name="song">The <see cref="Song"/> object to create from.</param>
 		/// <returns>A new instance of <see cref="MySong"/>.</returns>
-		public static MySong Create(Song song)
+		public static MySong Create(SongSearchResult song)
 		{
 			var mySong = new MySong(song);
 
